@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE9BD35D295853B300F28F1A /* _9in_teamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* _9in_teamApp.swift */; };
-		DE9BD35F295853B300F28F1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35E295853B300F28F1A /* ContentView.swift */; };
+		DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* 9in.team.swift */; };
+		DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35E295853B300F28F1A /* SplashView.swift */; };
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
 		DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD363295853B800F28F1A /* Preview Assets.xcassets */; };
-		DE9BD36E295853B900F28F1A /* _in_teamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD36D295853B900F28F1A /* _in_teamTests.swift */; };
+		DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */; };
 		DE9BD378295853B900F28F1A /* _in_teamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD377295853B900F28F1A /* _in_teamUITests.swift */; };
 		DE9BD37A295853B900F28F1A /* _in_teamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD379295853B900F28F1A /* _in_teamUITestsLaunchTests.swift */; };
+		DE9BD38C29585AD200F28F1A /* PrivateConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD38B29585AD200F28F1A /* PrivateConstant.swift */; };
+		DE9BD3912958610C00F28F1A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD3902958610C00F28F1A /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +37,17 @@
 
 /* Begin PBXFileReference section */
 		DE9BD359295853B300F28F1A /* 9in.team.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9in.team.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE9BD35C295853B300F28F1A /* _9in_teamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _9in_teamApp.swift; sourceTree = "<group>"; };
-		DE9BD35E295853B300F28F1A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DE9BD35C295853B300F28F1A /* 9in.team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9in.team.swift; sourceTree = "<group>"; };
+		DE9BD35E295853B300F28F1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		DE9BD360295853B800F28F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE9BD363295853B800F28F1A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DE9BD369295853B900F28F1A /* 9in.teamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 9in.teamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE9BD36D295853B900F28F1A /* _in_teamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _in_teamTests.swift; sourceTree = "<group>"; };
+		DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeamTests.swift; sourceTree = "<group>"; };
 		DE9BD373295853B900F28F1A /* 9in.teamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 9in.teamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD377295853B900F28F1A /* _in_teamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _in_teamUITests.swift; sourceTree = "<group>"; };
 		DE9BD379295853B900F28F1A /* _in_teamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _in_teamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DE9BD38B29585AD200F28F1A /* PrivateConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstant.swift; sourceTree = "<group>"; };
+		DE9BD3902958610C00F28F1A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +98,12 @@
 		DE9BD35B295853B300F28F1A /* 9in.team */ = {
 			isa = PBXGroup;
 			children = (
-				DE9BD35C295853B300F28F1A /* _9in_teamApp.swift */,
-				DE9BD35E295853B300F28F1A /* ContentView.swift */,
+				DE9BD35C295853B300F28F1A /* 9in.team.swift */,
+				DE9BD38A29585AC000F28F1A /* Private */,
+				DE9BD35E295853B300F28F1A /* SplashView.swift */,
 				DE9BD360295853B800F28F1A /* Assets.xcassets */,
 				DE9BD362295853B800F28F1A /* Preview Content */,
+				DE9BD3902958610C00F28F1A /* .swiftlint.yml */,
 			);
 			path = 9in.team;
 			sourceTree = "<group>";
@@ -113,7 +119,7 @@
 		DE9BD36C295853B900F28F1A /* 9in.teamTests */ = {
 			isa = PBXGroup;
 			children = (
-				DE9BD36D295853B900F28F1A /* _in_teamTests.swift */,
+				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
 			);
 			path = 9in.teamTests;
 			sourceTree = "<group>";
@@ -127,6 +133,14 @@
 			path = 9in.teamUITests;
 			sourceTree = "<group>";
 		};
+		DE9BD38A29585AC000F28F1A /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				DE9BD38B29585AD200F28F1A /* PrivateConstant.swift */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +148,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE9BD37D295853B900F28F1A /* Build configuration list for PBXNativeTarget "9in.team" */;
 			buildPhases = (
+				DE9BD38D29585F0D00F28F1A /* SwiftLint Script */,
 				DE9BD355295853B300F28F1A /* Sources */,
 				DE9BD356295853B300F28F1A /* Frameworks */,
 				DE9BD357295853B300F28F1A /* Resources */,
@@ -231,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9BD3912958610C00F28F1A /* .swiftlint.yml in Resources */,
 				DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */,
 				DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */,
 			);
@@ -252,13 +268,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DE9BD38D29585F0D00F28F1A /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE9BD355295853B300F28F1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE9BD35F295853B300F28F1A /* ContentView.swift in Sources */,
-				DE9BD35D295853B300F28F1A /* _9in_teamApp.swift in Sources */,
+				DE9BD38C29585AD200F28F1A /* PrivateConstant.swift in Sources */,
+				DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */,
+				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE9BD36E295853B900F28F1A /* _in_teamTests.swift in Sources */,
+				DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
