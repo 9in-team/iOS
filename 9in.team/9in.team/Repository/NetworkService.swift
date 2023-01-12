@@ -9,39 +9,43 @@ import Foundation
 import Combine
 
 enum NetworkError: Error {
+    
     case invalidURL
     case responseError
     case unknown
+    case closed
+    
+}
+
+enum LifeCycleError: Error {
+    
+    case memoryLeak
+    
 }
 
 class NetworkService: NetworkProtocol {
+    
+    private var session = URLSession.shared
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - GET
     func GET<T>(endPoint: String,
-                parameters: [String: String]? = [:],
-                type: T.Type) -> Future<T, Error> where T: Decodable {
+                parameters: [String: String] = [:],
+                returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { [weak self] promise in
-            var urlString = "https://\(endPoint)"
-            
-            if !parameters!.isEmpty {
-                urlString += "?"
-                for parameter in parameters! {
-                    urlString += "\(parameter.key)=\(parameter.value)&"
-                    
-                    if urlString.last == "&" {
-                        urlString.removeLast()
-                    }
-                }
+            guard let self = self else {
+                return promise(.failure(LifeCycleError.memoryLeak))
             }
             
-            guard let self = self, let url = URL(string: urlString) else {
+            let urlString = "https://\(endPoint)\(self.queryString(from: parameters))"
+            guard let url = URL(string: urlString) else {
                 return promise(.failure(NetworkError.invalidURL))
             }
             
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            let session = URLSession.shared
-            session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
+            
+            self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
                 guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                     throw NetworkError.responseError
                 }
@@ -69,25 +73,17 @@ class NetworkService: NetworkProtocol {
         }
     }
     
+    // MARK: - POST
     func POST<T>(endPoint: String,
-                 parameters: [String: String]? = [:],
-                 requestBody: [String: Any]? = [:],
-                 type: T.Type) -> Future<T, Error> where T: Decodable {
+                 parameters: [String: Any] = [:],
+                 returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { [weak self] promise in
-            var urlString = "https://\(endPoint)"
-            
-            if !parameters!.isEmpty {
-                urlString += "?"
-                for parameter in parameters! {
-                    urlString += "\(parameter.key)=\(parameter.value)&"
-                    
-                    if urlString.last == "&" {
-                        urlString.removeLast()
-                    }
-                }
+            guard let self = self else {
+                return promise(.failure(LifeCycleError.memoryLeak))
             }
             
-            guard let self = self, let url = URL(string: urlString) else {
+            let urlString = "https://\(endPoint)"
+            guard let url = URL(string: urlString) else {
                 return promise(.failure(NetworkError.invalidURL))
             }
             
@@ -96,21 +92,18 @@ class NetworkService: NetworkProtocol {
             request.httpMethod = "POST"
             
             // application/x-www-form-urlencoded 방식
-            if let requestBody = requestBody {
-                let param = requestBody.map {
-                    "\($0.key)=\($0.value)"
-                }.joined(separator: "&")
-                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-                request.setValue(String(param.count), forHTTPHeaderField: "Content-Length")
-                request.httpBody = param.data(using: .utf8)
-            }
-            
-            let session = URLSession.shared
-            session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
+            let param = parameters.map {
+                "\($0.key)=\($0.value)"
+            }.joined(separator: "&")
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.setValue(String(param.count), forHTTPHeaderField: "Content-Length")
+            request.httpBody = param.data(using: .utf8)
+               
+            self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
                 guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                     throw NetworkError.responseError
                 }
-                
+
                 print("data :: \(String(decoding: data, as: UTF8.self))")
                 return data
             }
@@ -133,4 +126,31 @@ class NetworkService: NetworkProtocol {
             .store(in: &self.cancellables)
         }
     }
+    
+//
+//
+//
+//
+//
+//
+//
+//
+    // MARK: - 서버 요청에 필요한 데이터 만드는 메서드
+    func queryString(from parameters: [String: String]) -> String {
+        var queryString = ""
+        
+        if !parameters.isEmpty {
+            queryString += "?"
+            for parameter in parameters {
+                queryString += "\(parameter.key)=\(parameter.value)&"
+                
+                if queryString.last == "&" {
+                    queryString.removeLast()
+                }
+            }
+        }
+        
+        return queryString
+    }
+    
 }
