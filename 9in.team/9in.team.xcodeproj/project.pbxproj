@@ -22,6 +22,9 @@
 		DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */; };
 		DEA2B6782970321F00B77335 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B6772970321F00B77335 /* SignUp.swift */; };
 		DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E78297039FF00C0B973 /* BaseViewModel.swift */; };
+		DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */; };
+		DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7D29703B3900C0B973 /* NetworkService.swift */; };
+		DEB34E8129703BA500C0B973 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E8029703BA500C0B973 /* ImageUploadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateSingleton.swift; sourceTree = "<group>"; };
 		DEA2B6772970321F00B77335 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DEB34E78297039FF00C0B973 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		DEB34E7D29703B3900C0B973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DEB34E8029703BA500C0B973 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 				DEA2B6722970309300B77335 /* Util */,
 				DE9BD35C295853B300F28F1A /* 9in.team.swift */,
 				DEA2B66629702F4A00B77335 /* Presentation */,
+				DEB34E7A29703B1C00C0B973 /* Repository */,
 				DE9BD360295853B800F28F1A /* Assets.xcassets */,
 				DEA2B66D2970304800B77335 /* CustomView */,
 				DE9BD362295853B800F28F1A /* Preview Content */,
@@ -152,6 +159,7 @@
 				DEA2B66A2970301000B77335 /* Base */,
 				DE9BD35E295853B300F28F1A /* SplashView.swift */,
 				DEA2B6752970320700B77335 /* Membership */,
+				DEB34E7F29703B9200C0B973 /* ImageUpload */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -205,6 +213,23 @@
 				DEA2B6772970321F00B77335 /* SignUp.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		DEB34E7A29703B1C00C0B973 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */,
+				DEB34E7D29703B3900C0B973 /* NetworkService.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DEB34E7F29703B9200C0B973 /* ImageUpload */ = {
+			isa = PBXGroup;
+			children = (
+				DEB34E8029703BA500C0B973 /* ImageUploadView.swift */,
+			);
+			path = ImageUpload;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,8 +385,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
 				DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignIn.swift in Sources */,
+				DEB34E8129703BA500C0B973 /* ImageUploadView.swift in Sources */,
+				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,

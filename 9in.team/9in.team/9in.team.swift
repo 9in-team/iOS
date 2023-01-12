@@ -11,7 +11,8 @@ import SwiftUI
 struct NineInTeamApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashView()
+//            SplashView()
+            ImageUploadView()
         }
     }
 }
