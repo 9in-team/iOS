@@ -14,11 +14,11 @@ struct LoadingView: View {
 extension LoadingView {
     var body: some View {
         ZStack {
-            Color(UIColor.systemBackground)
+            Color(UIColor.clear)
             
             ProgressView()
                 .scaleEffect(2.0, anchor: .center)
-                .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.label)))
+                .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.systemBackground)))
                 .frame(width: 80, height: 80)
                 .background(
                     RoundedRectangle(cornerRadius: 10)

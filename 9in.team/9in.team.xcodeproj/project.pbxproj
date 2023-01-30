@@ -22,6 +22,14 @@
 		DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */; };
 		DEA2B6782970321F00B77335 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B6772970321F00B77335 /* SignUp.swift */; };
 		DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E78297039FF00C0B973 /* BaseViewModel.swift */; };
+		DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */; };
+		DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7D29703B3900C0B973 /* NetworkService.swift */; };
+		DEB34E862971652400C0B973 /* PrivateConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E852971652400C0B973 /* PrivateConstant.swift */; };
+		DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E8D297168A500C0B973 /* NetworkError.swift */; };
+		DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E8F297168CF00C0B973 /* LifeCycleError.swift */; };
+		DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E91297168EB00C0B973 /* HeaderType.swift */; };
+		DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E9729716F2200C0B973 /* UIImage.swift */; };
+		DEB34E9A2971704A00C0B973 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E992971704A00C0B973 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +68,15 @@
 		DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateSingleton.swift; sourceTree = "<group>"; };
 		DEA2B6772970321F00B77335 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DEB34E78297039FF00C0B973 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		DEB34E7D29703B3900C0B973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DEB34E852971652400C0B973 /* PrivateConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstant.swift; sourceTree = "<group>"; };
+		DEB34E8D297168A500C0B973 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DEB34E8F297168CF00C0B973 /* LifeCycleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleError.swift; sourceTree = "<group>"; };
+		DEB34E91297168EB00C0B973 /* HeaderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
+		DEB34E9729716F2200C0B973 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		DEB34E992971704A00C0B973 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		DEB34E9D2973E7EA00C0B973 /* -in-team-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-in-team-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +127,13 @@
 		DE9BD35B295853B300F28F1A /* 9in.team */ = {
 			isa = PBXGroup;
 			children = (
+				DEB34E9D2973E7EA00C0B973 /* -in-team-Info.plist */,
+				DEB34E9629716F1800C0B973 /* Extension */,
+				DEB34E842971651000C0B973 /* Private */,
 				DEA2B6722970309300B77335 /* Util */,
 				DE9BD35C295853B300F28F1A /* 9in.team.swift */,
 				DEA2B66629702F4A00B77335 /* Presentation */,
+				DEB34E7A29703B1C00C0B973 /* Repository */,
 				DE9BD360295853B800F28F1A /* Assets.xcassets */,
 				DEA2B66D2970304800B77335 /* CustomView */,
 				DE9BD362295853B800F28F1A /* Preview Content */,
@@ -186,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */,
+				DEB34E8F297168CF00C0B973 /* LifeCycleError.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -205,6 +227,34 @@
 				DEA2B6772970321F00B77335 /* SignUp.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		DEB34E7A29703B1C00C0B973 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DEB34E91297168EB00C0B973 /* HeaderType.swift */,
+				DEB34E8D297168A500C0B973 /* NetworkError.swift */,
+				DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */,
+				DEB34E7D29703B3900C0B973 /* NetworkService.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DEB34E842971651000C0B973 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				DEB34E852971652400C0B973 /* PrivateConstant.swift */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		DEB34E9629716F1800C0B973 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DEB34E9729716F2200C0B973 /* UIImage.swift */,
+				DEB34E992971704A00C0B973 /* Data.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,15 +410,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
+				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
 				DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignIn.swift in Sources */,
+				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
+				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
+				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
 				DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */,
 				DEA2B6782970321F00B77335 /* SignUp.swift in Sources */,
+				DEB34E862971652400C0B973 /* PrivateConstant.swift in Sources */,
+				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
+				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +588,7 @@
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-in-team-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -560,6 +619,7 @@
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-in-team-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
