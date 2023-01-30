@@ -8,28 +8,14 @@
 import Foundation
 import Combine
 
-enum NetworkError: Error {
-    
-    case invalidURL
-    case responseError
-    case unknown
-    case closed
-    
-}
-
-enum LifeCycleError: Error {
-    
-    case memoryLeak
-    
-}
-
 class NetworkService: NetworkProtocol {
     
     private var session = URLSession.shared
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - GET
-    func GET<T>(endPoint: String,
+    func GET<T>(headerType: HeaderType,
+                endPoint: String,
                 parameters: [String: String] = [:],
                 returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { [weak self] promise in
@@ -46,11 +32,10 @@ class NetworkService: NetworkProtocol {
             request.httpMethod = "GET"
             
             self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
+                print("data :: \(String(decoding: data, as: UTF8.self))")
                 guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                     throw NetworkError.responseError
                 }
-                
-                print("data :: \(String(decoding: data, as: UTF8.self))")
                 return data
             }
             .decode(type: T.self, decoder: JSONDecoder())
@@ -74,37 +59,41 @@ class NetworkService: NetworkProtocol {
     }
     
     // MARK: - POST
-    func POST<T>(endPoint: String,
+    func POST<T>(headerType: HeaderType,
+                 endPoint: String,
                  parameters: [String: Any] = [:],
                  returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { [weak self] promise in
             guard let self = self else {
                 return promise(.failure(LifeCycleError.memoryLeak))
             }
-            
-            let urlString = "https://\(endPoint)"
-            guard let url = URL(string: urlString) else {
+                        
+            guard let url = URL(string: "https://\(endPoint)") else {
                 return promise(.failure(NetworkError.invalidURL))
             }
-            
+                        
             var request = URLRequest(url: url)
-            request.timeoutInterval = 600
             request.httpMethod = "POST"
             
+            _ = headerType.getHeader().map { (key, value) in
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+                        
             // application/x-www-form-urlencoded 방식
-            let param = parameters.map {
-                "\($0.key)=\($0.value)"
-            }.joined(separator: "&")
-            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.setValue(String(param.count), forHTTPHeaderField: "Content-Length")
-            request.httpBody = param.data(using: .utf8)
-               
+            if !parameters.isEmpty {
+                let param = parameters.map {
+                    "\($0.key)=\($0.value)"
+                }.joined(separator: "&")
+                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//                request.setValue(String(param.count), forHTTPHeaderField: "Content-Length")
+                request.httpBody = param.data(using: .utf8)
+            }            
+            
             self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
+                print("data :: \(String(decoding: data, as: UTF8.self))")
                 guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                     throw NetworkError.responseError
                 }
-
-                print("data :: \(String(decoding: data, as: UTF8.self))")
                 return data
             }
             .decode(type: T.self, decoder: JSONDecoder())
