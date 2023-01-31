@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DE4E91642989128E00EC009F /* KakaoSDK */; };
+		DE4E91682989140D00EC009F /* PrivateConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E91672989140D00EC009F /* PrivateConstant.swift */; };
 		DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* 9in.team.swift */; };
 		DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35E295853B300F28F1A /* SplashView.swift */; };
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
@@ -30,6 +32,7 @@
 		DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E91297168EB00C0B973 /* HeaderType.swift */; };
 		DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E9729716F2200C0B973 /* UIImage.swift */; };
 		DEB34E9A2971704A00C0B973 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E992971704A00C0B973 /* Data.swift */; };
+		DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7BC152989180900FE7FEC /* SignViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE4E91672989140D00EC009F /* PrivateConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstant.swift; sourceTree = "<group>"; };
 		DE9BD359295853B300F28F1A /* 9in.team.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9in.team.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD35C295853B300F28F1A /* 9in.team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9in.team.swift; sourceTree = "<group>"; };
 		DE9BD35E295853B300F28F1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -76,7 +80,8 @@
 		DEB34E91297168EB00C0B973 /* HeaderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
 		DEB34E9729716F2200C0B973 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		DEB34E992971704A00C0B973 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		DEB34E9D2973E7EA00C0B973 /* -in-team-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-in-team-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DEB34E9D2973E7EA00C0B973 /* 9in-team-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "9in-team-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DEE7BC152989180900FE7FEC /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE4E91662989140000EC009F /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				DE4E91672989140D00EC009F /* PrivateConstant.swift */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		DE9BD350295853B300F28F1A = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +141,9 @@
 		DE9BD35B295853B300F28F1A /* 9in.team */ = {
 			isa = PBXGroup;
 			children = (
-				DEB34E9D2973E7EA00C0B973 /* -in-team-Info.plist */,
+				DEB34E9D2973E7EA00C0B973 /* 9in-team-Info.plist */,
 				DEB34E9629716F1800C0B973 /* Extension */,
+				DE4E91662989140000EC009F /* Private */,
 				DEB34E842971651000C0B973 /* Private */,
 				DEA2B6722970309300B77335 /* Util */,
 				DE9BD35C295853B300F28F1A /* 9in.team.swift */,
@@ -215,6 +230,7 @@
 		DEA2B6752970320700B77335 /* Membership */ = {
 			isa = PBXGroup;
 			children = (
+				DEE7BC152989180900FE7FEC /* SignViewModel.swift */,
 				DEA2B66729702FC100B77335 /* SignIn */,
 				DEA2B6762970321100B77335 /* SignUp */,
 			);
@@ -274,6 +290,9 @@
 			dependencies = (
 			);
 			name = 9in.team;
+			packageProductDependencies = (
+				DE4E91642989128E00EC009F /* KakaoSDK */,
+			);
 			productName = 9in.team;
 			productReference = DE9BD359295853B300F28F1A /* 9in.team.app */;
 			productType = "com.apple.product-type.application";
@@ -346,6 +365,9 @@
 				Base,
 			);
 			mainGroup = DE9BD350295853B300F28F1A;
+			packageReferences = (
+				DE4E91632989128E00EC009F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = DE9BD35A295853B300F28F1A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
 				DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */,
@@ -419,6 +442,7 @@
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
+				DE4E91682989140D00EC009F /* PrivateConstant.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
 				DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */,
 				DEA2B6782970321F00B77335 /* SignUp.swift in Sources */,
@@ -588,10 +612,12 @@
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "-in-team-Info.plist";
+				INFOPLIST_FILE = "9in-team-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = 9in.team;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -600,7 +626,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.-in-team";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -619,10 +645,12 @@
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "-in-team-Info.plist";
+				INFOPLIST_FILE = "9in-team-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = 9in.team;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -631,7 +659,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.-in-team";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -755,6 +783,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE4E91632989128E00EC009F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE4E91642989128E00EC009F /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE4E91632989128E00EC009F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE9BD351295853B300F28F1A /* Project object */;
 }

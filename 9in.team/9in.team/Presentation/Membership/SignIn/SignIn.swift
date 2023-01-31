@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct SignIn: View {
+ 
+    @State var isSignUp = false
     
 }
 
 extension SignIn {
     
     var body: some View {
-        BaseView {
-            Text("SignIn")
+        NavigationView {
+            BaseView {
+                NavigationLink(destination: SignUp(), isActive: $isSignUp) {
+                    Text("SignIn")
+                }
+            }
         }
         .navigationBarHidden(true)
     }

@@ -9,14 +9,26 @@ import SwiftUI
 
 struct SignUp: View {
     
+    @StateObject var viewModel = SignViewModel()
+    
 }
 
 extension SignUp {
     
     var body: some View {
         BaseView {
-            Text("SignUp")
+            VStack {
+                Spacer()
+             
+                Image("kakao_login_large_narrow_k")                    
+                    .onTapGesture {
+                        viewModel.requestKakaoLogin()
+                    }
+            }
         }
+        .onOpenURL(perform: { url in
+            viewModel.canOpen(url)
+        })
     }
     
 }
