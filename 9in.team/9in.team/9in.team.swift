@@ -12,7 +12,7 @@ import KakaoSDKCommon
 struct NineInTeamApp: App {
     
     init() {
-        KakaoSDK.initSDK(appKey: "78b20efcbe4535ce48a5ee2c4739745a")
+        KakaoSDK.initSDK(appKey: PrivateConstant.kKakaoNativeAppKey)
     }
     
     var body: some Scene {
