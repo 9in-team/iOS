@@ -17,7 +17,7 @@ struct NineInTeamApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            SignUp()
         }
     }
     

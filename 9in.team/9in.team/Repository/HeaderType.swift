@@ -5,16 +5,17 @@
 //  Created by 조상현 on 2023/01/13.
 //
 
-import Foundation
-
 enum HeaderType {
     
     case none
+    case test
     
-    func getHeader() -> [String: String] {
+    func get() -> [String: String] {
         switch self {
         case .none:
             return [:]
+        case .test:
+            return ["Content-Type": "application/json"]
         }
     }
     

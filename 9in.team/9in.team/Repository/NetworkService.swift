@@ -15,6 +15,7 @@ class NetworkService: NetworkProtocol {
     
     // MARK: - GET
     func GET<T>(headerType: HeaderType,
+                urlType: UrlType,
                 endPoint: String,
                 parameters: [String: String] = [:],
                 returnType: T.Type) -> Future<T, Error> where T: Decodable {
@@ -23,7 +24,7 @@ class NetworkService: NetworkProtocol {
                 return promise(.failure(LifeCycleError.memoryLeak))
             }
             
-            let urlString = "https://\(endPoint)\(self.queryString(from: parameters))"
+            let urlString = "\(urlType.get())\(endPoint)\(self.queryString(from: parameters))"
             guard let url = URL(string: urlString) else {
                 return promise(.failure(NetworkError.invalidURL))
             }
@@ -60,6 +61,7 @@ class NetworkService: NetworkProtocol {
     
     // MARK: - POST
     func POST<T>(headerType: HeaderType,
+                 urlType: UrlType,
                  endPoint: String,
                  parameters: [String: Any] = [:],
                  returnType: T.Type) -> Future<T, Error> where T: Decodable {
@@ -68,27 +70,21 @@ class NetworkService: NetworkProtocol {
                 return promise(.failure(LifeCycleError.memoryLeak))
             }
                         
-            guard let url = URL(string: "https://\(endPoint)") else {
+            guard let url = URL(string: "\(urlType.get())\(endPoint)") else {
                 return promise(.failure(NetworkError.invalidURL))
             }
-                        
+                                                
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
-            
-            _ = headerType.getHeader().map { (key, value) in
+    
+            _ = headerType.get().map { (key, value) in
                 request.addValue(value, forHTTPHeaderField: key)
             }
+                                    
+            if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
+                request.httpBody = jsonData
+            }
                         
-            // application/x-www-form-urlencoded 방식
-            if !parameters.isEmpty {
-                let param = parameters.map {
-                    "\($0.key)=\($0.value)"
-                }.joined(separator: "&")
-                request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-//                request.setValue(String(param.count), forHTTPHeaderField: "Content-Length")
-                request.httpBody = param.data(using: .utf8)
-            }            
-            
             self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
                 print("data :: \(String(decoding: data, as: UTF8.self))")
                 guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
@@ -115,16 +111,8 @@ class NetworkService: NetworkProtocol {
             .store(in: &self.cancellables)
         }
     }
-    
-//
-//
-//
-//
-//
-//
-//
-//
-    // MARK: - 서버 요청에 필요한 데이터 만드는 메서드
+
+    // MARK: - Make QueryString
     func queryString(from parameters: [String: String]) -> String {
         var queryString = ""
         

@@ -32,6 +32,7 @@ extension BaseView {
                 content
                     .alert(isPresented: $screenState.alertState) {
                         Alert(title: Text(screenState.alertTitle))
+                            // TODO: disapper 
                     }
                 
                 Spacer()

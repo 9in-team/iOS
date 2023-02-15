@@ -10,11 +10,13 @@ import Combine
 protocol NetworkProtocol {
     
     func GET<T: Decodable>(headerType: HeaderType,
+                           urlType: UrlType,
                            endPoint: String,
                            parameters: [String: String],
                            returnType: T.Type) -> Future<T, Error>
     
     func POST<T: Decodable>(headerType: HeaderType,
+                            urlType: UrlType,
                             endPoint: String,
                             parameters: [String: Any],
                             returnType: T.Type) -> Future<T, Error>
