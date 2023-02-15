@@ -9,7 +9,7 @@ import SwiftUI
 
 enum ColorConstant: String {
     
-    case _default = "1976D2"
+    case main = "1976D2"
     
     func color() -> Color {
         return Color(hexcode: self.rawValue)

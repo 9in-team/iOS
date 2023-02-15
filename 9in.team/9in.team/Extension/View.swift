@@ -13,7 +13,7 @@ extension View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 navigationBar
-                    .frame(height: geometry.size.height / 6.5)
+                    .frame(height: geometry.size.height / 9.5)
                 
                 self
             }

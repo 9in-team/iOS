@@ -11,44 +11,66 @@ struct NavigationBar: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    let showDismissButton: Bool
+    let useDismissButton: Bool
     let title: String
     let useProfileButton: Bool = true
     let useChatButton: Bool = true
     
     var body: some View {
         ZStack {
-            ColorConstant._default.color()
+            ColorConstant.main.color()
                 .ignoresSafeArea()
                 .navigationTitle("")
                 .navigationBarHidden(true)
-//                .toolbar(.hidden)
             
-            HStack {
-                if showDismissButton {
-                    Image("")
-                        .resizable()
-                        .frame(width: 20, height: 20)
+            HStack(alignment: .center) {
+                if useDismissButton {
+                    Button {
+                        
+                    } label: {
+                        Image("NavigationBack")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 11, height: 24)
+                    }
+                    
+                    Spacer()
+                        .frame(width: 10)
                 }
                 
                 Text(title)
-                    .font(.custom("GodoB", size: 36))
+                    .font(.custom("GodoB", size: title == "9in.team" ? 36 : 24))
                     .foregroundColor(.white)
-                
-                
+                                
                 Spacer()
                 
                 HStack {
                     if useProfileButton {
-                        Image("")
-                            .resizable()
-                            .frame(width: 20, height: 20)
+                        Button {
+                            
+                        } label: {
+                            Image("ProfileEdit")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 23, height: 20)
+                        }
+                        
+                        Spacer()
+                            .frame(width: 15)
                     }
                     
                     if useChatButton {
-                        Image("")
-                            .resizable()
-                            .frame(width: 20, height: 20)
+                        Button {
+                            
+                        } label: {
+                            Image("Chat")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                        }
+                        
+                        Spacer()
+                            .frame(width: 5)
                     }
                 }
             }

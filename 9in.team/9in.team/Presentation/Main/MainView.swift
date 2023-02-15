@@ -18,7 +18,7 @@ extension MainView {
             BaseView {
                 Text("9in.team")
             }
-            .showNavigationBar(NavigationBar(showDismissButton: false, title: "9in.team"))
+            .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
         }
     }
     
