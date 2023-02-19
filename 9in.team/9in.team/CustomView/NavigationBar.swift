@@ -24,6 +24,9 @@ struct NavigationBar: View {
                 .navigationBarHidden(true)
             
             HStack(alignment: .center) {
+                Spacer()
+                    .frame(width: 5)
+                
                 if useDismissButton {
                     Button {
                         
@@ -56,7 +59,7 @@ struct NavigationBar: View {
                         }
                         
                         Spacer()
-                            .frame(width: 15)
+                            .frame(width: 23)
                     }
                     
                     if useChatButton {
@@ -70,11 +73,12 @@ struct NavigationBar: View {
                         }
                         
                         Spacer()
-                            .frame(width: 5)
+                            .frame(width: 10)
                     }
                 }
             }
             .padding()
+            .padding(.bottom, 15)
         }
     }
     
