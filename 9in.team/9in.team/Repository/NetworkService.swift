@@ -83,6 +83,7 @@ class NetworkService: NetworkProtocol {
                                     
             if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
                 request.httpBody = jsonData
+                print("jsonData : \(String(decoding: jsonData, as: UTF8.self))")
             }
                         
             self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in

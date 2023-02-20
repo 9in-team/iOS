@@ -23,12 +23,19 @@ extension BaseView {
     
     var body: some View {
         ZStack {
-            Color(UIColor.clear)
+            VStack(spacing: 0) {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.white)
+                    .frame(height: 20)
+                    .offset(x: 0, y: -10)
+                
+                Spacer()
+            }
+            
+            Color(UIColor.white)
                 .edgesIgnoringSafeArea(.all)
                     
             VStack(spacing: 5) {
-                Divider()
-                
                 content
                     .alert(isPresented: $screenState.alertState) {
                         Alert(title: Text(screenState.alertTitle))

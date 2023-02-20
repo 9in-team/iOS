@@ -8,5 +8,6 @@
 struct BaseResponseModel: Codable {
     
     var result: String?
+    var description: String?
     
 }

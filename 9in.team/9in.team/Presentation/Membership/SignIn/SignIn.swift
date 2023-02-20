@@ -16,26 +16,37 @@ struct SignIn: View {
 extension SignIn {
     
     var body: some View {
-        BaseView {
-            ZStack {
-                VStack {
-                    Text("9in.team")
-                        .font(.system(size: 36))
-                    
-                    Text("스터디, 프로젝트 같이 할 사람!")
-                        .font(.system(size: 16))
-                }                
+        ZStack {
+            NavigationLink(destination: SignUp(), isActive: $viewModel.needSignUp) {
+                EmptyView()
+            }
+            
+            ColorConstant.main.color()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Text("9in.team")
+                    .font(.custom("GodoB", size: 48))
+                    .foregroundColor(.white)
+                
+                Text("스터디, 프로젝트 같이 할 사람!")
+                    .font(.custom("GodoB", size: 16))
+                    .foregroundColor(.white)
+            }
+         
+            VStack {
+                Spacer()
              
-                VStack {
-                    Spacer()
-                 
-                    Image("kakao_login_large_narrow_k")
-                        .onTapGesture {
-                            viewModel.requestKakaoLogin()
-                        }
-                }
+                Image("kakao_login_large_narrow_k")
+                    .onTapGesture {
+                        viewModel.requestKakaoLogin()
+                    }
             }
         }
+        .showNavigationBar(NavigationBar(useDismissButton: true,
+                                         title: "",
+                                         useProfileButton: false,
+                                         useChatButton: false))
         .onOpenURL(perform: { url in
             viewModel.canOpen(url)
         })

@@ -12,6 +12,7 @@ import KakaoSDKUser
 class SignViewModel: BaseViewModel {
     
     var service: NetworkProtocol
+    @Published var needSignUp: Bool = false
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -36,7 +37,6 @@ class SignViewModel: BaseViewModel {
                 } else {
                     if let accessToken = oauthToken?.accessToken {
                         self?.login(accessToken: accessToken)
-//                        self?.requestUserDataForJoin()
                     } else {
                         self?.showAlert(title: "토큰을 가져오지 못했습니다.")
                     }
@@ -62,7 +62,7 @@ class SignViewModel: BaseViewModel {
                 
                 switch completion {
                 case .failure(let error):
-                    self.showToast(title: "에러가 발생했어요.\n\(error)")
+                    self.needSignUp = true
                 case .finished:
                     self.showAlert(title: "로그인 성공!")
                 }
@@ -81,7 +81,7 @@ class SignViewModel: BaseViewModel {
                           "nickname": nickname]
         if !imageUrl.isEmpty {
             parameters["imageId"] = imageUrl
-        }
+        }        
         
         willStartLoading()
         service.POST(headerType: HeaderType.test,
