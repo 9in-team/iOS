@@ -41,6 +41,9 @@
 		DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E0E29966D1400D17C50 /* BaseResponseModel.swift */; };
 		DEC82E11299A5B3E00D17C50 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E10299A5B3E00D17C50 /* CircleImageView.swift */; };
 		DEC82E1429A231D400D17C50 /* PrivateConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1329A231D400D17C50 /* PrivateConstant.swift */; };
+		DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1529A39FAF00D17C50 /* TestNetworkService.swift */; };
+		DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1929A3A3E000D17C50 /* TestResponseData.swift */; };
+		DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1B29A3B24100D17C50 /* ResponseConstant.swift */; };
 		DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7BC152989180900FE7FEC /* SignViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		DEC82E0E29966D1400D17C50 /* BaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
 		DEC82E10299A5B3E00D17C50 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		DEC82E1329A231D400D17C50 /* PrivateConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstant.swift; sourceTree = "<group>"; };
+		DEC82E1529A39FAF00D17C50 /* TestNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetworkService.swift; sourceTree = "<group>"; };
+		DEC82E1929A3A3E000D17C50 /* TestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponseData.swift; sourceTree = "<group>"; };
+		DEC82E1B29A3B24100D17C50 /* ResponseConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseConstant.swift; sourceTree = "<group>"; };
 		DEE7BC152989180900FE7FEC /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +198,7 @@
 				DEB34E7A29703B1C00C0B973 /* Repository */,
 				DE9BD360295853B800F28F1A /* Assets.xcassets */,
 				DEA2B66D2970304800B77335 /* CustomView */,
+				DEC82E1729A3A3A000D17C50 /* Test */,
 				DE9BD362295853B800F28F1A /* Preview Content */,
 				DE9BD3902958610C00F28F1A /* .swiftlint.yml */,
 			);
@@ -295,6 +302,7 @@
 		DEB34E7A29703B1C00C0B973 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DEC82E1B29A3B24100D17C50 /* ResponseConstant.swift */,
 				DEB34E91297168EB00C0B973 /* HeaderType.swift */,
 				DEC82E0C299667CE00D17C50 /* UrlType.swift */,
 				DEB34EA9298FA30200C0B973 /* EndPoint.swift */,
@@ -339,6 +347,15 @@
 			);
 			name = Private;
 			path = ../Private;
+			sourceTree = "<group>";
+		};
+		DEC82E1729A3A3A000D17C50 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				DEC82E1529A39FAF00D17C50 /* TestNetworkService.swift */,
+				DEC82E1929A3A3E000D17C50 /* TestResponseData.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,9 +520,11 @@
 			files = (
 				DEC82E11299A5B3E00D17C50 /* CircleImageView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
+				DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
+				DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */,
 				DE9BD35F295853B300F28F1A /* SplashView.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignIn.swift in Sources */,
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
@@ -515,6 +534,7 @@
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
+				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,

@@ -22,8 +22,8 @@ extension SignIn {
             }
             
             ColorConstant.main.color()
-                .edgesIgnoringSafeArea(.all)
-            
+                .edgesIgnoringSafeArea(.all)                                                          
+                        
             VStack {
                 Text("9in.team")
                     .font(.custom("GodoB", size: 48))
@@ -32,7 +32,7 @@ extension SignIn {
                 Text("스터디, 프로젝트 같이 할 사람!")
                     .font(.custom("GodoB", size: 16))
                     .foregroundColor(.white)
-            }
+            }            
          
             VStack {
                 Spacer()

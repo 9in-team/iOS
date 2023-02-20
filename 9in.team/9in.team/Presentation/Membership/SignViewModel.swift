@@ -15,7 +15,8 @@ class SignViewModel: BaseViewModel {
     @Published var needSignUp: Bool = false
     
     init(service: NetworkProtocol = NetworkService()) {
-        self.service = service
+//        self.service = service
+        self.service = TestNetworkService()
         super.init()
     }
     
@@ -47,7 +48,8 @@ class SignViewModel: BaseViewModel {
     
     // 로그인
     func login(accessToken: String) {
-        let parameters = ["kakaoAccessToken": accessToken]
+//        let parameters = ["kakaoAccessToken": accessToken]        
+        let parameters = TestResponseData.ERROR.getDictionary()
         
         willStartLoading()
         service.POST(headerType: HeaderType.test,
@@ -61,15 +63,21 @@ class SignViewModel: BaseViewModel {
                 }
                 
                 switch completion {
-                case .failure(let error):
-                    self.needSignUp = true
+                case .failure(_):
+                    self.showToast(title: "")
                 case .finished:
-                    self.showAlert(title: "로그인 성공!")
+                    break
                 }
                 self.didFinishLoading()
-            } receiveValue: { [weak self] _ in
-                guard self != nil else {
+            } receiveValue: { [weak self] responseData in
+                guard let result = responseData.result else {
                     return
+                }
+                
+                if result.contains(ResponseConstant.kSuccess) {
+                    // login
+                } else {
+                    self?.needSignUp = true
                 }
             }
             .store(in: &cancellables)

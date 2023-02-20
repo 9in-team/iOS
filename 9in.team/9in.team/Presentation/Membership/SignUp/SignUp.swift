@@ -12,8 +12,8 @@ struct SignUp: View {
     @StateObject var viewModel = SignViewModel()
     
     @State var imageUrl: String = ""
-    @State var email: String = "deepred-k@naver.com"
-    @State var nickname: String = "김진홍"
+    @State var email: String = "9in.team@9in.team"
+    @State var nickname: String = "9in.team"
     
 }
 
