@@ -39,11 +39,17 @@
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
 		DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E0C299667CE00D17C50 /* UrlType.swift */; };
 		DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E0E29966D1400D17C50 /* BaseResponseModel.swift */; };
-		DEC82E11299A5B3E00D17C50 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E10299A5B3E00D17C50 /* CircleImageView.swift */; };
+		DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E10299A5B3E00D17C50 /* EmbedCircleImageView.swift */; };
 		DEC82E1429A231D400D17C50 /* PrivateConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1329A231D400D17C50 /* PrivateConstant.swift */; };
 		DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1529A39FAF00D17C50 /* TestNetworkService.swift */; };
 		DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1929A3A3E000D17C50 /* TestResponseData.swift */; };
 		DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E1B29A3B24100D17C50 /* ResponseConstant.swift */; };
+		DEC82E1E29A648CA00D17C50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEC82E1D29A648CA00D17C50 /* GoogleService-Info.plist */; };
+		DEC82E2329AA780800D17C50 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DEC82E2229AA780800D17C50 /* FirebaseStorage */; };
+		DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E2429AA78E900D17C50 /* CheckBox.swift */; };
+		DEC82E2729AA8A4300D17C50 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E2629AA8A4300D17C50 /* ImagePicker.swift */; };
+		DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E2829AA8B6D00D17C50 /* CircleImageView.swift */; };
+		DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC82E2A29AB34AF00D17C50 /* FirebaseStorageManager.swift */; };
 		DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7BC152989180900FE7FEC /* SignViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,11 +106,16 @@
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
 		DEC82E0C299667CE00D17C50 /* UrlType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlType.swift; sourceTree = "<group>"; };
 		DEC82E0E29966D1400D17C50 /* BaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
-		DEC82E10299A5B3E00D17C50 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		DEC82E10299A5B3E00D17C50 /* EmbedCircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedCircleImageView.swift; sourceTree = "<group>"; };
 		DEC82E1329A231D400D17C50 /* PrivateConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstant.swift; sourceTree = "<group>"; };
 		DEC82E1529A39FAF00D17C50 /* TestNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetworkService.swift; sourceTree = "<group>"; };
 		DEC82E1929A3A3E000D17C50 /* TestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponseData.swift; sourceTree = "<group>"; };
 		DEC82E1B29A3B24100D17C50 /* ResponseConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseConstant.swift; sourceTree = "<group>"; };
+		DEC82E1D29A648CA00D17C50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DEC82E2429AA78E900D17C50 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		DEC82E2629AA8A4300D17C50 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		DEC82E2829AA8B6D00D17C50 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		DEC82E2A29AB34AF00D17C50 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		DEE7BC152989180900FE7FEC /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */,
+				DEC82E2329AA780800D17C50 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +185,7 @@
 				DE9BD36C295853B900F28F1A /* 9in.teamTests */,
 				DE9BD376295853B900F28F1A /* 9in.teamUITests */,
 				DE9BD35A295853B300F28F1A /* Products */,
+				DEC82E2129AA77F400D17C50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +202,7 @@
 		DE9BD35B295853B300F28F1A /* 9in.team */ = {
 			isa = PBXGroup;
 			children = (
+				DEC82E1D29A648CA00D17C50 /* GoogleService-Info.plist */,
 				DEB34E9D2973E7EA00C0B973 /* 9in-team-Info.plist */,
 				DEC82E1229A231C600D17C50 /* Private */,
 				DEB34E9629716F1800C0B973 /* Extension */,
@@ -265,7 +279,10 @@
 				DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */,
 				DEA2B66E2970305800B77335 /* LoadingView.swift */,
 				DEA2B6702970305E00B77335 /* ToastView.swift */,
-				DEC82E10299A5B3E00D17C50 /* CircleImageView.swift */,
+				DEC82E10299A5B3E00D17C50 /* EmbedCircleImageView.swift */,
+				DEC82E2429AA78E900D17C50 /* CheckBox.swift */,
+				DEC82E2629AA8A4300D17C50 /* ImagePicker.swift */,
+				DEC82E2829AA8B6D00D17C50 /* CircleImageView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -302,6 +319,7 @@
 		DEB34E7A29703B1C00C0B973 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DEC82E2C29AB34B700D17C50 /* Firebase */,
 				DEC82E1B29A3B24100D17C50 /* ResponseConstant.swift */,
 				DEB34E91297168EB00C0B973 /* HeaderType.swift */,
 				DEC82E0C299667CE00D17C50 /* UrlType.swift */,
@@ -358,6 +376,21 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		DEC82E2129AA77F400D17C50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEC82E2C29AB34B700D17C50 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DEC82E2A29AB34AF00D17C50 /* FirebaseStorageManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,6 +410,7 @@
 			name = 9in.team;
 			packageProductDependencies = (
 				DE4E91642989128E00EC009F /* KakaoSDK */,
+				DEC82E2229AA780800D17C50 /* FirebaseStorage */,
 			);
 			productName = 9in.team;
 			productReference = DE9BD359295853B300F28F1A /* 9in.team.app */;
@@ -452,6 +486,7 @@
 			mainGroup = DE9BD350295853B300F28F1A;
 			packageReferences = (
 				DE4E91632989128E00EC009F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				DEC82E1F29A649B800D17C50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DE9BD35A295853B300F28F1A /* Products */;
 			projectDirPath = "";
@@ -471,6 +506,7 @@
 			files = (
 				DE9BD3912958610C00F28F1A /* .swiftlint.yml in Resources */,
 				DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */,
+				DEC82E1E29A648CA00D17C50 /* GoogleService-Info.plist in Resources */,
 				DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */,
 				DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */,
 			);
@@ -518,7 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEC82E11299A5B3E00D17C50 /* CircleImageView.swift in Sources */,
+				DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
 				DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
@@ -531,6 +567,7 @@
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
 				DE6FBDE82990E89200816A7D /* View.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
+				DEC82E2729AA8A4300D17C50 /* ImagePicker.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
@@ -539,6 +576,7 @@
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
+				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,
 				DEC82E1429A231D400D17C50 /* PrivateConstant.swift in Sources */,
 				DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */,
 				DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */,
@@ -546,7 +584,9 @@
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
+				DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
+				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,6 +748,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"9in.team/Preview Content\"";
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "9in-team-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = 9in.team;
@@ -741,6 +782,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"9in.team/Preview Content\"";
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "9in-team-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = 9in.team;
@@ -890,6 +932,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		DEC82E1F29A649B800D17C50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -897,6 +947,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE4E91632989128E00EC009F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		DEC82E2229AA780800D17C50 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEC82E1F29A649B800D17C50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

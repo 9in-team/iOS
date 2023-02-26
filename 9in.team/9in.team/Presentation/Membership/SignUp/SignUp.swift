@@ -6,14 +6,20 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct SignUp: View {
     
     @StateObject var viewModel = SignViewModel()
+        
+    @State private var onPhotoLibrary = false
     
-    @State var imageUrl: String = ""
+    @State var image: UIImage?
     @State var email: String = "9in.team@9in.team"
     @State var nickname: String = "9in.team"
+    
+    @State var isOn1: Bool = false
+    @State var isOn2: Bool = false
     
 }
 
@@ -22,47 +28,55 @@ extension SignUp {
     var body: some View {
         BaseView {
             ZStack(alignment: .bottomTrailing) {
-                CircleImage(imageUrl: imageUrl)
+                CircleImage(image: image)
                     .frame(width: 140, height: 140)
                 
-                CircleImage(imageUrl: "EditImage")
+                EmbedCircleImage(imageUrl: "EditImage")
                     .frame(width: 40, height: 40)
             }
-            
-            Spacer()
-                .frame(height: 15)
+            .onTapGesture {
+                onPhotoLibrary = true
+            }
+            .padding(.bottom, 30)
            
-            VStack {
-                VStack(alignment: .leading) {
+            VStack(spacing: 20) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text("이메일 주소")
                         .font(.system(size: 12))
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.38))
+                        .padding(.bottom, 5.5)
                     
                     TextField("", text: $email)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.38))
+                        .padding(.bottom, 6.5)
+                    
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.42))
                 }
                 
-                Spacer()
-                    .frame(width: 1, height: 10)
-                
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text("닉네임")
                         .font(.system(size: 12))
+                        .padding(.bottom, 5.5)
                     
                     TextField("", text: $nickname)
+                        .padding(.bottom, 6.5)
+                    
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.42))
                 }
             }
-            .frame(width: 230)
+            .frame(width: 250)
+            .padding(.bottom, 55)
             
-            Spacer()
-                .frame(height: 30)
-            
-            VStack {
+            VStack(spacing: 20) {
                 HStack {
-                    Image("CheckBoxUnChecked")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                    Toggle("", isOn: $isOn1)
                         .frame(width: 18, height: 18)
+                        .toggleStyle(CheckBoxStyle(style: .square))
+                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.6))
                     
                     Text("서비스 이용약관 동의")
                         .font(.system(size: 16))
@@ -74,15 +88,12 @@ extension SignUp {
                     Spacer()
                 }
                 
-                Spacer()
-                    .frame(height: 10)
-                
                 HStack {
-                    Image("CheckBoxUnChecked")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                    Toggle("", isOn: $isOn2)
                         .frame(width: 18, height: 18)
-                    
+                        .toggleStyle(CheckBoxStyle(style: .square))
+                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.6))
+                                        
                     Text("개인정보 처리방침 동의")
                         .font(.system(size: 16))
                     
@@ -93,21 +104,25 @@ extension SignUp {
                     Spacer()
                 }
             }
-            .frame(width: 230)
+            .frame(width: 250)
+            .padding(.bottom, 30)
             
-            Spacer()
-                .frame(height: 15)
-            
-            Button {                
-                viewModel.join(email: email, nickname: nickname)
+            Button {
+                if let image = image {
+                    viewModel.uploadImage(image) { imageUrl in
+                        viewModel.join(email: email, nickname: nickname, imageUrl: imageUrl.absoluteString)
+                    }
+                } else {
+                    viewModel.join(email: email, nickname: nickname)
+                }
             } label: {
                 ZStack {
                     Rectangle()
                              .fill(Color.blue)
-                             .frame(width: 230, height: 42)
+                             .frame(width: 250, height: 42)
                     
                     HStack {
-                        CircleImage(imageUrl: "Check")
+                        EmbedCircleImage(imageUrl: "Check")
                             .frame(width: 20, height: 20)
                         
                         Text("가입하기")
@@ -121,6 +136,12 @@ extension SignUp {
                                          title: "회원가입",
                                          useProfileButton: false,
                                          useChatButton: false))
+        .sheet(isPresented: $onPhotoLibrary) {
+            ImagePicker(sourceType: .photoLibrary) { pickedImage in
+                image = pickedImage
+            }
+            
+        }
     }
     
 }

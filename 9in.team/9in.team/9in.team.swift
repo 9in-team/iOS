@@ -7,12 +7,14 @@
 
 import SwiftUI
 import KakaoSDKCommon
+import Firebase
 
 @main
 struct NineInTeamApp: App {
     
     init() {
         KakaoSDK.initSDK(appKey: PrivateConstant.kKakaoNativeAppKey)
+        FirebaseApp.configure()
     }
     
     var body: some Scene {

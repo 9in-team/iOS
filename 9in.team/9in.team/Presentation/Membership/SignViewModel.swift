@@ -5,9 +5,10 @@
 //  Created by 조상현 on 2023/01/31.
 //
 
-import Foundation
+import UIKit
 import KakaoSDKAuth
 import KakaoSDKUser
+import FirebaseStorage
 
 class SignViewModel: BaseViewModel {
     
@@ -33,15 +34,24 @@ class SignViewModel: BaseViewModel {
     func requestKakaoLogin() {
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
-                if let error = error {
-                    self?.showAlert(title: error.localizedDescription)
-                } else {
-                    if let accessToken = oauthToken?.accessToken {
-                        self?.login(accessToken: accessToken)
-                    } else {
-                        self?.showAlert(title: "토큰을 가져오지 못했습니다.")
-                    }
-                }
+                self?.kakaoLoginClosure(oauthToken: oauthToken, error: error)
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { [weak self] (oauthToken, error) in
+                self?.kakaoLoginClosure(oauthToken: oauthToken, error: error)
+            }
+        }
+    }
+    
+    // 카카오 로그인 클로저
+    func kakaoLoginClosure(oauthToken: OAuthToken?, error: Error?) {
+        if let error = error {
+            showAlert(title: error.localizedDescription)
+        } else {
+            if let accessToken = oauthToken?.accessToken {
+                login(accessToken: accessToken)
+            } else {
+                showAlert(title: "토큰을 가져오지 못했습니다.")
             }
         }
     }
@@ -139,6 +149,30 @@ class SignViewModel: BaseViewModel {
                 }
             }
         }
+    }
+    
+    // Firebase Image Upload
+    func uploadImage(_ image: UIImage, completion: @escaping (URL) -> Void) {
+        willStartLoading()
+                                                        
+        guard let data = image.jpegData(compressionQuality: 0.9) else {
+            showToast(title: "이미지 변환에 실패했습니다.")
+            return
+        }
+       
+        let folder = "ProfileImage"
+        let imageName = UUID().uuidString + String(Date().timeIntervalSince1970)
+        let path = "\(folder)/\(imageName)"
+        
+        FirebaseStorageManager.uploadImage(imageData: data, path: path) { [weak self] url, error in
+            if error != nil {
+                self?.showToast(title: "이미지 업로드를 실패했습니다.")
+            } else {
+                completion(url!)                
+            }
+            
+            self?.didFinishLoading()
+        }               
     }
     
 }

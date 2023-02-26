@@ -1,24 +1,24 @@
 //
-//  CircleImageView.swift
+//  EmbedCircleImageView.swift
 //  9in.team
 //
-//  Created by 조상현 on 2023/02/26.
+//  Created by 조상현 on 2023/02/13.
 //
 
 import SwiftUI
 
-struct CircleImage: View {
+struct EmbedCircleImage: View {
     
-    var image: UIImage?
+    var imageUrl: String = ""
     
     var body: some View {
-        if image == nil {
+        if imageUrl.isEmpty {            
             Image("emptyImage")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .clipShape(Circle())
         } else {
-            Image(uiImage: image!)
+            Image(imageUrl)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .clipShape(Circle())
