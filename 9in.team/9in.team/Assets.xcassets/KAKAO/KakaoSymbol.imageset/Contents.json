@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Fab.png",
+      "filename" : "KakaoSimbol.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Fab 1.png",
+      "filename" : "KakaoSimbol 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Fab 2.png",
+      "filename" : "KakaoSimbol 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

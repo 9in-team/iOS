@@ -29,7 +29,7 @@ extension SignIn {
                     .font(.custom("GodoB", size: 48))
                     .foregroundColor(.white)
                 
-                Text("스터디, 프로젝트 같이 할 사람!")
+                Text("스터디, 프로젝트 같이 할 사람?")
                     .font(.custom("GodoB", size: 16))
                     .foregroundColor(.white)
             }            
@@ -37,10 +37,26 @@ extension SignIn {
             VStack {
                 Spacer()
              
-                Image("kakao_login_large_narrow_k")
-                    .onTapGesture {
-                        viewModel.requestKakaoLogin()
+                Button(action: {
+                    viewModel.requestKakaoLogin()
+                }, label: {
+                    HStack {
+                        Image("KakaoSymbol")
+                     
+                        Spacer()
+                        
+                        Text("카카오로그인")
+                            .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.85))
+                        
+                        Spacer()
                     }
+                    .padding(.horizontal, 15)
+                    .frame(height: 50)
+                    .background(Color.init(hexcode: "FEE500"))
+                    .cornerRadius(5)
+                })
+                .padding(.horizontal, 20)
+                .padding()
             }
         }
         .showNavigationBar(NavigationBar(useDismissButton: true,

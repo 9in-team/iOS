@@ -11,18 +11,11 @@ struct EmbedCircleImage: View {
     
     var imageUrl: String = ""
     
-    var body: some View {
-        if imageUrl.isEmpty {            
-            Image("emptyImage")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
-        } else {
-            Image(imageUrl)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
-        }
+    var body: some View {        
+        Image(imageUrl)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .clipShape(Circle())
     }
     
 }

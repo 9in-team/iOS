@@ -13,10 +13,8 @@ struct CircleImage: View {
     
     var body: some View {
         if image == nil {
-            Image("emptyImage")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
+            Circle()
+                .foregroundColor(Color.init(hexcode: "D9D9D9"))                
         } else {
             Image(uiImage: image!)
                 .resizable()

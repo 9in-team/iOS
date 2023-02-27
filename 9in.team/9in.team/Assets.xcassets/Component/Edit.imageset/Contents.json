@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "emptyImageView.png",
+      "filename" : "Edit.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "emptyImageView 1.png",
+      "filename" : "Edit 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "emptyImageView 2.png",
+      "filename" : "Edit 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

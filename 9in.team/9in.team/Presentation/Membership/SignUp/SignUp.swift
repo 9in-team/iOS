@@ -30,9 +30,17 @@ extension SignUp {
             ZStack(alignment: .bottomTrailing) {
                 CircleImage(image: image)
                     .frame(width: 140, height: 140)
-                
-                EmbedCircleImage(imageUrl: "EditImage")
-                    .frame(width: 40, height: 40)
+                                
+                ZStack {
+                    Circle()
+                        .foregroundColor(Color.init(hexcode: "E0E0E0"))
+                        .frame(width: 40, height: 40)
+                    
+                    Image("Edit")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 18, height: 18)
+                }
             }
             .onTapGesture {
                 onPhotoLibrary = true
@@ -50,9 +58,10 @@ extension SignUp {
                         .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.38))
                         .padding(.bottom, 6.5)
                     
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.42))
+                    Line()
+                      .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
+                      .frame(height: 1)
+                      .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.42))
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {
@@ -130,6 +139,7 @@ extension SignUp {
                             .foregroundColor(Color.white)
                     }
                 }
+                .cornerRadius(5)
             }
         }
         .showNavigationBar(NavigationBar(useDismissButton: true,
