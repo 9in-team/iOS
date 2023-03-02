@@ -13,12 +13,19 @@ import FirebaseStorage
 class SignViewModel: BaseViewModel {
     
     var service: NetworkProtocol
-    @Published var needSignUp: Bool = false
+    
+    @Published var isSingIn = false
+    @Published var moveSignUp: Bool = false
     
     init(service: NetworkProtocol = NetworkService()) {
 //        self.service = service
         self.service = TestNetworkService()
         super.init()
+    }
+    
+    func autoLogin() {
+        // UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
+        isSingIn = true
     }
     
     func canOpen(_ url: URL) {
@@ -59,7 +66,7 @@ class SignViewModel: BaseViewModel {
     // 로그인
     func login(accessToken: String) {
 //        let parameters = ["kakaoAccessToken": accessToken]        
-        let parameters = TestResponseData.ERROR.getDictionary()
+        let parameters = TestResponseData.SUCCESS.getDictionary()
         
         willStartLoading()
         service.POST(headerType: HeaderType.test,
@@ -85,9 +92,9 @@ class SignViewModel: BaseViewModel {
                 }
                 
                 if result.contains(ResponseConstant.kSuccess) {
-                    
+                    self?.isSingIn = true
                 } else {
-                    self?.needSignUp = true
+                    self?.moveSignUp = true
                 }
             }
             .store(in: &cancellables)

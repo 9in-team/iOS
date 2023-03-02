@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignIn: View {
-     
+         
     @StateObject var viewModel = SignViewModel()
     
 }
@@ -17,7 +17,7 @@ extension SignIn {
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: SignUp(), isActive: $viewModel.needSignUp) {
+            NavigationLink(destination: SignUp(), isActive: $viewModel.moveSignUp) {
                 EmptyView()
             }
             

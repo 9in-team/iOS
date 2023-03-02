@@ -20,8 +20,6 @@ struct NavigationBar: View {
         ZStack {
             ColorConstant.main.color()
                 .ignoresSafeArea()
-                .navigationTitle("")
-                .navigationBarHidden(true)
             
             HStack(alignment: .center) {
                 Spacer()

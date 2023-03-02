@@ -16,6 +16,8 @@ extension View {
                     .frame(height: geometry.size.height / 9.5)
                 
                 self
+//                    .navigationBarTitle("", displayMode: .automatic)
+//                    .navigationBarHidden(true) 
             }
         }
     }

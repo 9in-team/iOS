@@ -12,6 +12,8 @@ import Firebase
 @main
 struct NineInTeamApp: App {
     
+    @StateObject var viewModel = SignViewModel()
+    
     init() {
         KakaoSDK.initSDK(appKey: PrivateConstant.kKakaoNativeAppKey)
         FirebaseApp.configure()
@@ -19,7 +21,7 @@ struct NineInTeamApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            ApplicationSwitcher()
         }
     }
     
