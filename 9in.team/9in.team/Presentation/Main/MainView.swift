@@ -84,7 +84,11 @@ extension MainView {
                         .tag(3)
                 }
             }
-            .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
+//            .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
+            .showNavigationBarTabView(NavigationBar(useDismissButton: false, title: "9in.team"),
+                                      NavigationBarTabView(tabList: ["전체", "스터디", "프로젝트"]) { selectedIndex in
+                print("selectedIndex: \(selectedIndex)")
+            })
         }
     }
     

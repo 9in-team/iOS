@@ -22,16 +22,7 @@ struct BaseView<Content: View>: View {
 extension BaseView {
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
-                    .frame(height: 20)
-                    .offset(x: 0, y: -10)
-                
-                Spacer()
-            }
-            
+        ZStack {            
             Color(UIColor.white)
                 .edgesIgnoringSafeArea(.all)
                     

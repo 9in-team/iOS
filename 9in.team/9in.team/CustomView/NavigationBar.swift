@@ -21,10 +21,7 @@ struct NavigationBar: View {
             ColorConstant.main.color()
                 .ignoresSafeArea()
             
-            HStack(alignment: .center) {
-                Spacer()
-                    .frame(width: 5)
-                
+            HStack(alignment: .center) {                
                 if useDismissButton {
                     Button {
                         
@@ -75,8 +72,8 @@ struct NavigationBar: View {
                     }
                 }
             }
-            .padding()
-            .padding(.bottom, 15)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
         }
     }
     
