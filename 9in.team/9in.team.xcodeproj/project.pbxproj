@@ -25,7 +25,6 @@
 		DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B66E2970305800B77335 /* LoadingView.swift */; };
 		DEA2B6712970305E00B77335 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B6702970305E00B77335 /* ToastView.swift */; };
 		DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */; };
-		DEA2B6782970321F00B77335 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B6772970321F00B77335 /* SignUp.swift */; };
 		DEB0D35F29B0D77900B5E1B9 /* TabViewNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */; };
 		DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */; };
 		DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E78297039FF00C0B973 /* BaseViewModel.swift */; };
@@ -94,7 +93,6 @@
 		DEA2B66E2970305800B77335 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DEA2B6702970305E00B77335 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateSingleton.swift; sourceTree = "<group>"; };
-		DEA2B6772970321F00B77335 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNavigationBar.swift; sourceTree = "<group>"; };
 		DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		DEB34E78297039FF00C0B973 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -316,17 +314,8 @@
 			children = (
 				DEE7BC152989180900FE7FEC /* SignViewModel.swift */,
 				DEA2B66729702FC100B77335 /* SignIn */,
-				DEA2B6762970321100B77335 /* SignUp */,
 			);
 			path = Membership;
-			sourceTree = "<group>";
-		};
-		DEA2B6762970321100B77335 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				DEA2B6772970321F00B77335 /* SignUp.swift */,
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		DEB0D35A29AF7E3D00B5E1B9 /* Home */ = {
@@ -624,7 +613,6 @@
 				DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */,
 				DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */,
 				DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */,
-				DEA2B6782970321F00B77335 /* SignUp.swift in Sources */,
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,

@@ -17,10 +17,6 @@ extension SignIn {
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: SignUp(), isActive: $viewModel.moveSignUp) {
-                EmptyView()
-            }
-            
             ColorConstant.main.color()
                 .edgesIgnoringSafeArea(.all)                                                          
                         

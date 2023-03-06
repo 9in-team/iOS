@@ -14,8 +14,7 @@ class SignViewModel: BaseViewModel {
     
     var service: NetworkProtocol
     
-    @Published var isSingIn = false
-    @Published var moveSignUp: Bool = false
+    @Published var isSingIn = false    
     
     init(service: NetworkProtocol = NetworkService()) {
 //        self.service = service
@@ -94,7 +93,7 @@ class SignViewModel: BaseViewModel {
                 if result.contains(ResponseConstant.kSuccess) {
                     self?.isSingIn = true
                 } else {
-                    self?.moveSignUp = true
+                    //
                 }
             }
             .store(in: &cancellables)
