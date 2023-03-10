@@ -26,11 +26,11 @@ extension BaseView {
             Color(UIColor.white)
                 .edgesIgnoringSafeArea(.all)
                     
-            VStack(spacing: 5) {
+            VStack(spacing: 5) {                
                 content
                     .alert(isPresented: $screenState.alertState) {
                         Alert(title: Text(screenState.alertTitle))
-                            // TODO: disapper 
+                              // customAlert 만들기
                     }
                 
                 Spacer()
@@ -49,7 +49,8 @@ extension BaseView {
                     }
             }
         }
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.light)        
+        .cornerRadius(20, corners: [.topLeft, .topRight])
     }
     
 }

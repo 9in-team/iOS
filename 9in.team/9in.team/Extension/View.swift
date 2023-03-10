@@ -14,13 +14,14 @@ extension View {
             navigationBar
                 .frame(height: 70)
             
-            RoundedRectangle(cornerRadius: 30)
+            Rectangle()
                 .fill(Color.white)
                 .frame(height: 20)
+                .cornerRadius(20, corners: [.topLeft, .topRight])
             
             self
-            //                    .navigationBarTitle("", displayMode: .automatic)
-            //                    .navigationBarHidden(true) 
+                .padding(.bottom, 10)
+                .padding(.horizontal, 10)
         }
     }
     
@@ -39,8 +40,8 @@ extension View {
                 .cornerRadius(20, corners: [.topLeft, .topRight])
             
             self
-            //                    .navigationBarTitle("", displayMode: .automatic)
-            //                    .navigationBarHidden(true)
+                .padding(.bottom, 10)
+                .padding(.horizontal, 10)
         }
     }
         

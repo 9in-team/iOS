@@ -27,6 +27,10 @@
 		DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */; };
 		DEB0D35F29B0D77900B5E1B9 /* TabViewNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */; };
 		DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */; };
+		DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36229B76CCD00B5E1B9 /* HomeView.swift */; };
+		DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36429B76D3000B5E1B9 /* HomeViewModel.swift */; };
+		DEB0D36729B76EC100B5E1B9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36629B76EC100B5E1B9 /* Team.swift */; };
+		DEB0D36929B7714D00B5E1B9 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36829B7714D00B5E1B9 /* TeamView.swift */; };
 		DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E78297039FF00C0B973 /* BaseViewModel.swift */; };
 		DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */; };
 		DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7D29703B3900C0B973 /* NetworkService.swift */; };
@@ -95,6 +99,10 @@
 		DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateSingleton.swift; sourceTree = "<group>"; };
 		DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNavigationBar.swift; sourceTree = "<group>"; };
 		DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		DEB0D36229B76CCD00B5E1B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DEB0D36429B76D3000B5E1B9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DEB0D36629B76EC100B5E1B9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		DEB0D36829B7714D00B5E1B9 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		DEB34E78297039FF00C0B973 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		DEB34E7D29703B3900C0B973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -321,6 +329,9 @@
 		DEB0D35A29AF7E3D00B5E1B9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DEB0D36A29B7715200B5E1B9 /* Team */,
+				DEB0D36229B76CCD00B5E1B9 /* HomeView.swift */,
+				DEB0D36429B76D3000B5E1B9 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -344,6 +355,15 @@
 			children = (
 			);
 			path = MyPost;
+			sourceTree = "<group>";
+		};
+		DEB0D36A29B7715200B5E1B9 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
+				DEB0D36829B7714D00B5E1B9 /* TeamView.swift */,
+			);
+			path = Team;
 			sourceTree = "<group>";
 		};
 		DEB34E7A29703B1C00C0B973 /* Repository */ = {
@@ -599,15 +619,19 @@
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
 				DEC82E2729AA8A4300D17C50 /* ImagePicker.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
+				DEB0D36729B76EC100B5E1B9 /* Team.swift in Sources */,
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
+				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
+				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
 				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,
+				DEB0D36929B7714D00B5E1B9 /* TeamView.swift in Sources */,
 				DEC82E1429A231D400D17C50 /* PrivateConstant.swift in Sources */,
 				DEB0D35F29B0D77900B5E1B9 /* TabViewNavigationBar.swift in Sources */,
 				DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */,

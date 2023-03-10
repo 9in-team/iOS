@@ -13,7 +13,7 @@ struct MainView: View {
     
     func getColor(isSelected: Bool) -> Color {
         if isSelected {
-            return Color(hexcode: "1976D2")
+            return ColorConstant.main.color()
         } else {
             return Color.init(red: 0, green: 0, blue: 0, opacity: 0.6)
         }
@@ -27,7 +27,7 @@ extension MainView {
         NavigationView {
             BaseView {
                 TabView(selection: $selection) {
-                    Text("Home")
+                    HomeView()
                         .tabItem {
                             Image("Home")
                                 .resizable()
