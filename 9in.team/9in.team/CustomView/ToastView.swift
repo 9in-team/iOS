@@ -23,14 +23,19 @@ extension Toast {
         VStack {
             Spacer()
             
-            Text(title)
+            TextWithFont(text: title, font: .regular, size: 14)
+                .padding(.vertical, 14)
+                .padding(.horizontal, 16)
+                .foregroundColor(
+                    Color.init(hexcode: "FFFFFF")
+                )
                 .padding(5)
-                .background(Color(UIColor.label))
-                .border(Color(UIColor.label))
+                .background(
+                    Color.init(hexcode: "000000")
+                        .opacity(0.12)
+                    )
                 .cornerRadius(10)
-                .foregroundColor(Color(UIColor.systemBackground))
-        }
-        
+        }        
     }
     
 }

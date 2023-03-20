@@ -48,8 +48,7 @@ extension BaseView {
                         }
                     }
             }
-        }
-        .preferredColorScheme(.light)        
+        }      
         .cornerRadius(20, corners: [.topLeft, .topRight])
     }
     

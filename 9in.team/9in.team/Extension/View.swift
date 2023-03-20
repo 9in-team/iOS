@@ -14,34 +14,46 @@ extension View {
             navigationBar
                 .frame(height: 70)
             
-            Rectangle()
-                .fill(Color.white)
-                .frame(height: 20)
-                .cornerRadius(20, corners: [.topLeft, .topRight])
+            ZStack {
+                ColorConstant.main.color()
+                
+                Rectangle()
+                    .fill(Color.white)
+                    .cornerRadius(20, corners: [.topLeft, .topRight])
+            }
+            .frame(height: 20)
             
             self
                 .padding(.bottom, 10)
                 .padding(.horizontal, 10)
+                .navigationBarTitle("", displayMode: .automatic)
+                .navigationBarHidden(true)
         }
     }
     
-    func showNavigationBarTabView(_ navigationBar: NavigationBar,
-                                  _ navigationBarTabView: NavigationBarTabView) -> some View {
+    func showTabNavigationBar(_ navigationBar: NavigationBar,
+                              _ tabNavigationBar: TabNavigationBar) -> some View {
         VStack(spacing: 0) {
             navigationBar
                 .frame(height: 70)
             
-            navigationBarTabView
+            tabNavigationBar
                 .frame(height: 40)
             
-            Rectangle()
-                .fill(Color.white)
-                .frame(height: 20)
-                .cornerRadius(20, corners: [.topLeft, .topRight])
+            ZStack {
+                ColorConstant.main.color()
+                
+                Rectangle()
+                    .fill(Color.white)
+                    .cornerRadius(20, corners: [.topLeft, .topRight])
+            }
+            .frame(height: 20)
             
             self
                 .padding(.bottom, 10)
                 .padding(.horizontal, 10)
+                .navigationBarTitle("", displayMode: .automatic)
+                .navigationBarHidden(true)
         }
     }
         

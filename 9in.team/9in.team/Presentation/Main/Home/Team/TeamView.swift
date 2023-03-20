@@ -18,41 +18,61 @@ extension TeamView {
     var body: some View {
         VStack {
             HStack {
-                Text(team.subject)
-                    .font(.system(size: 16))
-                    .foregroundColor(Color(hexcode: "000000").opacity(0.87))
+                TextWithFont(text: team.subject, font: .regular, size: 16)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.87)
+                    )
                 
                 Spacer()
                 
-                Text("스터디")
+                TextWithFont(text: "스터디", font: .regular, size: 13)
                     .padding(.vertical, 7)
                     .padding(.horizontal, 10)
-                    .background(Capsule(style: .continuous).fill(Color.init(hexcode: "000000").opacity(0.08)))
-                    .font(.system(size: 13))
-                    .foregroundColor(Color(hexcode: "000000").opacity(0.87))
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.87)
+                    )
+                    .background(
+                        Capsule(style: .continuous)
+                            .fill(Color.init(hexcode: "000000")
+                                .opacity(0.08)
+                            )
+                    )
             }
             
             Spacer()
             
             HStack {
                 ForEach(team.hashtags, id: \.self) { hashtag in
-                    Text(hashtag)
+                    TextWithFont(text: hashtag, font: .regular, size: 13)
+                        .foregroundColor(
+                            Color(hexcode: "000000")
+                                .opacity(0.87)
+                        )
                         .padding(.vertical, 3)
                         .padding(.horizontal, 10)
-                        .background(Capsule(style: .continuous).stroke(Color(hexcode: "000000").opacity(0.24)))
-                        .font(.system(size: 13))
-                        .foregroundColor(Color(hexcode: "000000").opacity(0.87))
+                        .background(
+                            Capsule(style: .continuous)
+                                .stroke(Color(hexcode: "000000")
+                                    .opacity(0.24)
+                                )
+                        )
                 }
                 
                 Spacer()
                 
-                VStack(alignment: .trailing) {
-                    Text(team.leader)
-                        .font(.system(size: 12))
+                VStack(alignment: .trailing, spacing: 3) {
+                    TextWithFont(text: team.leader, font: .regular, size: 12)
+                        .foregroundColor(
+                            Color(hexcode: "000000")
+                        )
                     
-                    Text(team.lastModified)
-                        .font(.system(size: 12))
-                        .foregroundColor(Color(hexcode: "000000").opacity(0.38))
+                    TextWithFont(text: team.lastModified, font: .regular, size: 12)
+                        .foregroundColor(
+                            Color(hexcode: "000000")
+                                .opacity(0.38)
+                        )
                 }
             }
         }
@@ -69,8 +89,8 @@ extension TeamView {
                     .shadow(color: Color.init(hexcode: "000000").opacity(0.14), radius: 5, x: 0, y: 3)
             }
             )
-        .padding(.bottom, 10)
-        .padding(.horizontal, 5)
+        .padding(.bottom, 5)
+        .padding(.horizontal, 10)
     }
     
 }

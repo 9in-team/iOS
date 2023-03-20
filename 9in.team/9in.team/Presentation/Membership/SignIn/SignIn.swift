@@ -21,13 +21,11 @@ extension SignIn {
                 .edgesIgnoringSafeArea(.all)                                                          
                         
             VStack {
-                Text("9in.team")
-                    .font(.custom("GodoB", size: 48))
-                    .foregroundColor(.white)
+                TextWithFont(text: "9in.team", font: nil, size: 48)
+                    .foregroundColor(Color.init(hexcode: "FFFFFF"))
                 
-                Text("스터디, 프로젝트 같이 할 사람?")
-                    .font(.custom("GodoB", size: 16))
-                    .foregroundColor(.white)
+                TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: nil, size: 16)
+                    .foregroundColor(Color.init(hexcode: "FFFFFF"))
             }            
          
             VStack {
@@ -41,8 +39,8 @@ extension SignIn {
                      
                         Spacer()
                         
-                        Text("카카오로그인")
-                            .foregroundColor(Color.init(red: 0, green: 0, blue: 0, opacity: 0.85))
+                        TextWithFont(text: "카카오로그인", font: .medium, size: 16)
+                            .foregroundColor(Color.init(hexcode: "FFFFFF").opacity(0.85))
                         
                         Spacer()
                     }

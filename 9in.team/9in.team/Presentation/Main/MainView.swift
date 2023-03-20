@@ -24,71 +24,45 @@ struct MainView: View {
 extension MainView {
     
     var body: some View {
-        NavigationView {
-            BaseView {
-                TabView(selection: $selection) {
+        NavigationView {            
+            VStack {
+                if selection == 0 {
                     HomeView()
-                        .tabItem {
-                            Image("Home")
-                                .resizable()
-                                .renderingMode(.template)
-                                .frame(width: 20, height: 17)
-                                .foregroundColor(getColor(isSelected: selection == 0))
-                            
-                            Text("홈")
-                                .font(.system(size: 12))
-                                .foregroundColor(getColor(isSelected: selection == 0))
-                        }
-                        .tag(0)
-                    
-                    Text("Subscribe")
-                        .tabItem {
-                            Image("Subscribe")
-                                .resizable()
-                                .renderingMode(.template)
-                                .frame(width: 18, height: 18)
-                                .foregroundColor(getColor(isSelected: selection == 1))
-                            
-                            Text("구독")
-                                .font(.system(size: 12))
-                                .foregroundColor(getColor(isSelected: selection == 1))
-                        }
-                        .tag(1)
-                    
-                    Text("MyPost")
-                        .tabItem {
-                            Image("MyPost")
-                                .resizable()
-                                .renderingMode(.template)
-                                .frame(width: 22, height: 14)
-                                .foregroundColor(getColor(isSelected: selection == 2))
-                            
-                            Text("내 모집글")
-                                .font(.system(size: 12))
-                                .foregroundColor(getColor(isSelected: selection == 2))
-                        }
-                        .tag(2)
-                    
-                    Text("MyResume")
-                        .tabItem {
-                            Image("MyResume")
-                                .resizable()
-                                .renderingMode(.template)
-                                .frame(width: 18, height: 18)
-                                .foregroundColor(getColor(isSelected: selection == 3))
-                            
-                            Text("내 지원서")
-                                .font(.system(size: 12))
-                                .foregroundColor(getColor(isSelected: selection == 3))
-                        }
-                        .tag(3)
+                } else if selection == 1 {
+                    MySubscribeView()
+                } else if selection == 2 {
+                    MyPostView()
+                } else if selection == 3 {
+                    MyResumeView()
                 }
-            }
-//            .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
-            .showNavigationBarTabView(NavigationBar(useDismissButton: false, title: "9in.team"),
-                                      NavigationBarTabView(tabList: ["전체", "스터디", "프로젝트"]) { selectedIndex in
-                //
-            })
+                
+                HStack {
+                    BottomNavigationItem(imageName: "Home", imageWidth: 20, imageHeight: 17, titleName: "홈")
+                        .foregroundColor(getColor(isSelected: selection == 0))
+                        .onTapGesture {
+                            selection = 0
+                        }
+                    
+                    BottomNavigationItem(imageName: "Subscribe", imageWidth: 18, imageHeight: 18, titleName: "구독")
+                        .foregroundColor(getColor(isSelected: selection == 1))
+                        .onTapGesture {
+                            selection = 1
+                        }
+                     
+                    BottomNavigationItem(imageName: "MyPost", imageWidth: 22, imageHeight: 14, titleName: "내 모집글")
+                        .foregroundColor(getColor(isSelected: selection == 2))
+                        .onTapGesture {
+                            selection = 2
+                        }                        
+                    
+                    BottomNavigationItem(imageName: "MyResume", imageWidth: 18, imageHeight: 18, titleName: "내 지원서")
+                        .foregroundColor(getColor(isSelected: selection == 3))
+                        .onTapGesture {
+                            selection = 3
+                        }
+                }
+                .frame(height: 60)
+            }            
         }
     }
     

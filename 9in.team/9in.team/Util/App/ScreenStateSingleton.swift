@@ -10,7 +10,7 @@ import SwiftUI
 class ScreenStateSingleton: ObservableObject {
     
     static let shared = ScreenStateSingleton()
-                    
+    
     @Published var loadingState: Bool = false
     
     @Published var alertState: Bool = false
@@ -50,5 +50,5 @@ class ScreenStateSingleton: ObservableObject {
         toastState = false
         toastTitle = ""
     }
-           
+    
 }

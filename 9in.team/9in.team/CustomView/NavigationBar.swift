@@ -24,7 +24,7 @@ struct NavigationBar: View {
             HStack(alignment: .center) {                
                 if useDismissButton {
                     Button {
-                        
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image("NavigationBack")
                             .resizable()
@@ -35,14 +35,15 @@ struct NavigationBar: View {
                     Spacer()
                         .frame(width: 10)
                 }
-                
-                Text(title)
-                    .font(.custom("GodoB", size: title == "9in.team" ? 36 : 24))
-                    .foregroundColor(.white)
+                                
+                TextWithFont(text: title, font: nil, size: title == "9in.team" ? 36 : 24)
+                    .frame(width: 160)
+                    .foregroundColor(Color.white)
+//                    .foregroundColor(Color.init(hexcode: "#FFFFFF")) 버그인가 색이 안들어간다
                                 
                 Spacer()
                 
-                HStack {
+                HStack(spacing: 0) {
                     if useProfileButton {
                         Button {
                             
@@ -53,8 +54,9 @@ struct NavigationBar: View {
                                 .frame(width: 23, height: 20)
                         }
                         
-                        Spacer()
-                            .frame(width: 23)
+                        Rectangle()
+                            .frame(width: 25)
+                            .foregroundColor(Color.clear)
                     }
                     
                     if useChatButton {
@@ -67,8 +69,9 @@ struct NavigationBar: View {
                                 .frame(width: 20, height: 20)
                         }
                         
-                        Spacer()
+                        Rectangle()
                             .frame(width: 10)
+                            .foregroundColor(Color.clear)
                     }
                 }
             }

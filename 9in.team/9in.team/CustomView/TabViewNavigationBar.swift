@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationBarTabView: View {
+struct TabNavigationBar: View {
                 
     let tabList: [String]
     var tabIndexSelectedClosure: (Int) -> Void
@@ -28,8 +28,7 @@ struct NavigationBarTabView: View {
                         VStack(spacing: 2) {
                             Spacer()
                             
-                            Text(tabName)
-                                .font(.system(size: 20))
+                            TextWithFont(text: tabName, font: .regular, size: 20)
                                 .foregroundColor(Color.init(hexcode: "FFFFFF")
                                     .opacity(selectedIndex == index ? 1 : 0.3))
                             
