@@ -59,6 +59,7 @@
 		DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */; };
 		DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */; };
 		DEB38C9029CB23C800EF915E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8F29CB23C800EF915E /* AppState.swift */; };
+		DEB38C9229CB294D00EF915E /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9129CB294D00EF915E /* CustomAlert.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
 		DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */; };
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
@@ -151,6 +152,7 @@
 		DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroups.swift; sourceTree = "<group>"; };
 		DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		DEB38C8F29CB23C800EF915E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		DEB38C9129CB294D00EF915E /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
@@ -342,7 +344,8 @@
 				DEC0F0FE29ACE4480035851E /* Line.swift */,
 				DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */,
 				DEB0D37C29C1FFF800B5E1B9 /* TextWithFont.swift */,
-				DEB38C8B29C9D90A00EF915E /* New Group */,
+				DEB38C9129CB294D00EF915E /* CustomAlert.swift */,
+				DEB38C8B29C9D90A00EF915E /* RadioButton */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -496,13 +499,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		DEB38C8B29C9D90A00EF915E /* New Group */ = {
+		DEB38C8B29C9D90A00EF915E /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
 				DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */,
 				DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */,
 			);
-			path = "New Group";
+			path = RadioButton;
 			sourceTree = "<group>";
 		};
 		DEC6A82A2991D89900AD0873 /* System */ = {
@@ -756,6 +759,7 @@
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
+				DEB38C9229CB294D00EF915E /* CustomAlert.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
 				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
 				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,

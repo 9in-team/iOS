@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WritePostView: View {
     
+    @StateObject var viewModel = HomeViewModel()
+    
     let category: [String] = ["스터디", "프로젝트"]
     @State var selectedIndex: Int = 0
     
@@ -19,7 +21,7 @@ struct WritePostView: View {
 extension WritePostView {
     
     var body: some View {
-        BaseView {
+        BaseView(appState: viewModel.appState) {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
                     RadioButtonGroups(items: category) { index in

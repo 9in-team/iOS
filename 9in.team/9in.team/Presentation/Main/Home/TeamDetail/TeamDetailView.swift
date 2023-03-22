@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TeamDetailView: View {
 
+    @StateObject var viewModel = HomeViewModel()
+    
     let team: Team
     
 }
@@ -16,7 +18,7 @@ struct TeamDetailView: View {
 extension TeamDetailView {
     
     var body: some View {
-        BaseView {
+        BaseView(appState: viewModel.appState) {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
                     VStack(alignment: .leading, spacing: 0) {
@@ -188,8 +190,8 @@ extension TeamDetailView {
                 }
                 .padding(.horizontal, 20)
             }
+            .showNavigationBar(NavigationBar(useDismissButton: true, title: team.subject))
         }
-        .showNavigationBar(NavigationBar(useDismissButton: true, title: team.subject))
     }
     
 }
