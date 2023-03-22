@@ -29,41 +29,41 @@ struct CustomAlert: View {
             VStack {
                 Spacer()
                 
-                Text(title)
+                TextWithFont(text: title, font: nil, size: 16)
                 
                 Spacer()
                 
-                VStack(spacing:0) {
+                VStack(spacing: 0) {
                     if usePositiveButton {
                         Divider()
                         
                         Button {
-                            //
+                            completion(.aaa)
                         } label: {
-                            Text("확인")
-                                .font(.system(size: 16, weight: .bold))
+                            TextWithFont(text: "확인", font: nil, size: 14)
+                                .frame(maxWidth: .infinity)
                         }
-                        .frame(height: 60)
+                        .frame(height: 60)                        
                     }
                     
                     if useNegativeButton {
                         Divider()
                         
                         Button {
-                            //
+                            completion(.bbb)
                         } label: {
-                            Text("취소")
-                                .font(.system(size: 16, weight: .bold))
+                            TextWithFont(text: "취소", font: nil, size: 14)
+                                .frame(maxWidth: .infinity)
                         }
                         .frame(height: 60)
                     }
                 }
             }
-            .frame(width: 300, height: 350)
+            .frame(width: 315, height: 315)
             .background(
                 Color.init(hexcode: "FFFFFF")
             )
-            .cornerRadius(10)
+            .cornerRadius(20)
             .padding(30)
         }
     }
