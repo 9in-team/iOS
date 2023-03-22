@@ -16,7 +16,7 @@ struct MyResumeView: View {
 extension MyResumeView {
     
     var body: some View {
-        BaseView {            
+        BaseView(appState: viewModel.appState) {            
             ScrollView {
                 Rectangle()
                     .frame(height: 0.1)

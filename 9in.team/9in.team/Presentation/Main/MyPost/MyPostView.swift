@@ -16,7 +16,7 @@ struct MyPostView: View {
 extension MyPostView {
     
     var body: some View {
-        BaseView {
+        BaseView(appState: viewModel.appState) {
             ScrollView {
                 Rectangle()
                     .frame(height: 0.1)

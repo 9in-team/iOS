@@ -9,20 +9,15 @@ import SwiftUI
 
 struct PostDetailView: View {
 
-    let team: Team
+    @StateObject var viewModel = MyPostViewModel()
     
 }
 
 extension PostDetailView {
     
     var body: some View {
-        BaseView {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 30) {
-                    
-                }
-                .padding(.horizontal, 20)
-            }
+        BaseView(appState: viewModel.appState) {
+
         }
         .showNavigationBar(NavigationBar(useDismissButton: true, title: "모집글 수정"))
     }

@@ -20,13 +20,14 @@ extension BaseView {
     var body: some View {
         ZStack {
             Color(UIColor.white)
-                .edgesIgnoringSafeArea(.all)
                     
             content()
                  
             if appState.alertState {
-                CustomAlert(title: appState.alertTitle, usePositiveButton: true, useNegativeButton: true) { alertResultState in
-
+                CustomAlert(title: appState.alertTitle,
+                            usePositiveButton: true,
+                            useNegativeButton: true) { alertResultState in
+                    // appState.closeAlert()                    
                 }
             }
                             

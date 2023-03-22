@@ -14,20 +14,12 @@ extension View {
             navigationBar
                 .frame(height: 70)
             
-            ZStack {
-                ColorConstant.main.color()
-                
-                Rectangle()
-                    .fill(Color.white)
-                    .cornerRadius(20, corners: [.topLeft, .topRight])
-            }
-            .frame(height: 20)
+            mainBar()
             
             self
                 .padding(.bottom, 10)
                 .padding(.horizontal, 10)
-                .navigationBarTitle("", displayMode: .automatic)
-                .navigationBarHidden(true)
+                .navigationBarHiddenTrue()
         }
     }
     
@@ -40,21 +32,30 @@ extension View {
             tabNavigationBar
                 .frame(height: 40)
             
-            ZStack {
-                ColorConstant.main.color()
-                
-                Rectangle()
-                    .fill(Color.white)
-                    .cornerRadius(20, corners: [.topLeft, .topRight])
-            }
-            .frame(height: 20)
+            mainBar()
             
             self
                 .padding(.bottom, 10)
                 .padding(.horizontal, 10)
-                .navigationBarTitle("", displayMode: .automatic)
-                .navigationBarHidden(true)
+                .navigationBarHiddenTrue()
         }
+    }
+    
+    private func mainBar() -> some View {
+        ZStack {
+            ColorConstant.main.color()
+            
+            Rectangle()
+                .fill(Color.white)
+                .cornerRadius(20, corners: [.topLeft, .topRight])
+        }
+        .frame(height: 20)
+    }
+    
+    func navigationBarHiddenTrue() -> some View {
+        self
+            .navigationBarTitle("", displayMode: .automatic)
+            .navigationBarHidden(true)
     }
     
     func rectangleShadows(firstX: CGFloat, firstY: CGFloat, secondX: CGFloat, secondY: CGFloat) -> some View {

@@ -14,9 +14,10 @@ struct CustomAlert: View {
     let useNegativeButton: Bool
     let completion: (AlertResultState) -> Void
     
+    // 미정
     enum AlertResultState {
-        case a // 미정
-        case b // 미정
+        case aaa
+        case bbb
     }
     
     var body: some View {

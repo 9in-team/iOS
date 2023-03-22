@@ -16,7 +16,7 @@ struct MySubscribeView: View {
 extension MySubscribeView {
     
     var body: some View {
-        BaseView {
+        BaseView(appState: viewModel.appState) {
             VStack(spacing: 20) {
                 VStack(spacing: 4) {
                     TextWithFont(text: "구독중", font: .bold, size: 14)
