@@ -18,7 +18,7 @@ struct HomeView: View {
 extension HomeView {
     
     var body: some View {
-        BaseView {
+        BaseView(appState: viewModel.appState) {
             ZStack(alignment: .bottomTrailing) {
                 ScrollView(showsIndicators: false) {
                     Rectangle()
@@ -45,11 +45,11 @@ extension HomeView {
                 }
                 .padding(.trailing, 5)
             }
+            .showTabNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"),
+                                      TabNavigationBar(tabList: ["전체", "스터디", "프로젝트"]) { selectedIndex in
+                currentTab = selectedIndex
+            })
         }
-        .showTabNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"),
-                                  TabNavigationBar(tabList: ["전체", "스터디", "프로젝트"]) { selectedIndex in
-            currentTab = selectedIndex
-        })
         .onAppear {
             viewModel.requestFristPage()
         }

@@ -8,48 +8,41 @@
 import SwiftUI
 
 struct BaseView<Content: View>: View {
+         
+    @ObservedObject var appState: AppState
     
-    @StateObject var screenState: ScreenStateSingleton = ScreenStateSingleton.shared
-    
-    let content: Content
-    
-    init(@ViewBuilder content: () -> Content) {
-        self.content = content()
-    }
-    
+    @ViewBuilder let content: () -> Content
+ 
 }
 
 extension BaseView {
     
     var body: some View {
-        ZStack {            
+        ZStack {
             Color(UIColor.white)
                 .edgesIgnoringSafeArea(.all)
                     
-            VStack(spacing: 5) {                
-                content
-                    .alert(isPresented: $screenState.alertState) {
-                        Alert(title: Text(screenState.alertTitle))
-                              // customAlert 만들기
-                    }
-                
-                Spacer()
+            content()
+                 
+            if appState.alertState {
+//                CustomAlert() { alertResultState in
+//
+//                }
             }
                             
-            if screenState.loadingState {
+            if appState.loadingState {
                 LoadingView()
             }
             
-            if screenState.toastState {
-                Toast(title: screenState.toastTitle)
+            if appState.toastState {
+                Toast(title: appState.toastTitle)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            screenState.closeToast()
+                            appState.closeToast()
                         }
                     }
             }
-        }      
-        .cornerRadius(20, corners: [.topLeft, .topRight])
+        }
     }
     
 }

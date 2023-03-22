@@ -24,7 +24,6 @@
 		DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B66B2970301A00B77335 /* BaseView.swift */; };
 		DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B66E2970305800B77335 /* LoadingView.swift */; };
 		DEA2B6712970305E00B77335 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B6702970305E00B77335 /* ToastView.swift */; };
-		DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */; };
 		DEB0D35F29B0D77900B5E1B9 /* TabViewNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */; };
 		DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */; };
 		DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D36229B76CCD00B5E1B9 /* HomeView.swift */; };
@@ -59,6 +58,7 @@
 		DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34EA9298FA30200C0B973 /* EndPoint.swift */; };
 		DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */; };
 		DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */; };
+		DEB38C9029CB23C800EF915E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8F29CB23C800EF915E /* AppState.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
 		DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */; };
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
@@ -115,7 +115,6 @@
 		DEA2B66B2970301A00B77335 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		DEA2B66E2970305800B77335 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DEA2B6702970305E00B77335 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateSingleton.swift; sourceTree = "<group>"; };
 		DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNavigationBar.swift; sourceTree = "<group>"; };
 		DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		DEB0D36229B76CCD00B5E1B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		DEB34EA9298FA30200C0B973 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroups.swift; sourceTree = "<group>"; };
 		DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
+		DEB38C8F29CB23C800EF915E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 		DE6FBDEE2990EBCC00816A7D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				DEA2B673297030A200B77335 /* ScreenStateSingleton.swift */,
+				DEB38C8F29CB23C800EF915E /* AppState.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -741,7 +741,6 @@
 				DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */,
 				DEB0D36729B76EC100B5E1B9 /* Team.swift in Sources */,
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
-				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
 				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
@@ -768,6 +767,7 @@
 				DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */,
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
+				DEB38C9029CB23C800EF915E /* AppState.swift in Sources */,
 				DEB0D38A29C62D5B00B5E1B9 /* ResumeView.swift in Sources */,
 				DEB0D38529C34A1900B5E1B9 /* PostView.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,

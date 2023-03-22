@@ -1,15 +1,13 @@
 //
-//  ScreenStateSingleton.swift
+//  AppState.swift
 //  9in.team
 //
-//  Created by 조상현 on 2023/01/01.
+//  Created by 조상현 on 2023/03/22.
 //
 
 import SwiftUI
 
-class ScreenStateSingleton: ObservableObject {
-    
-    static let shared = ScreenStateSingleton()
+class AppState: ObservableObject {
     
     @Published var loadingState: Bool = false
     
@@ -18,10 +16,6 @@ class ScreenStateSingleton: ObservableObject {
     
     @Published var toastState: Bool = false
     var toastTitle: String = ""
-    
-    private init() {
-        
-    }
     
     func willStartLoading() {
         loadingState = true
