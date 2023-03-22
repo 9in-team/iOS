@@ -136,71 +136,41 @@ extension TeamDetailView {
                             
                             Divider()
                                 .frame(height: 1)
+                                .foregroundColor(
+                                    Color(hexcode: "000000")
+                                        .opacity(0.42)
+                                )
+                                .border(Color.init(hexcode: "000000").opacity(0.42),
+                                        width: 1)
                         }
                     }
                     
-                    VStack(spacing: 8) {
-                        HStack {
-                            Spacer()
+                    VStack(alignment: .trailing, spacing: 14) {
+                        VStack(spacing: 8) {
+                            Circle()
+                                .frame(width: 56, height: 56)
+                                .foregroundColor(
+                                    Color(hexcode: "1565C0")
+                                )
+                                .circleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 6)
+                                .overlay(
+                                    Image("Chat")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    )
                             
-                            ZStack(alignment: .center) {
-                                Circle()
-                                    .frame(width: 56, height: 56)
-                                    .foregroundColor(
-                                        Color(hexcode: "1565C0")
-                                    )
-                                    .background(
-                                        ZStack {
-                                            Circle()
-                                                .fill(Color.clear)
-                                                .shadow(color: Color.init(hexcode: "000000").opacity(0.12),
-                                                        radius: 5, x: 0, y: 1)
-                                            
-                                            Circle()
-                                                .fill(Color.clear)
-                                                .shadow(color: Color.init(hexcode: "000000").opacity(0.14),
-                                                        radius: 5, x: 0, y: 6)
-                                        }
-                                    )
-                                
-                                Image("Chat")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                            }
-                        }
-                        
-                        HStack {
-                            Spacer()
-                            
-                            ZStack(alignment: .center) {
-                                Circle()
-                                    .frame(width: 56, height: 56)
-                                    .foregroundColor(
-                                        Color(hexcode: "9C27B0")
-                                    )
-                                    .background(
-                                        ZStack {
-                                            Circle()
-                                                .fill(Color.clear)
-                                                .shadow(color: Color.init(hexcode: "000000").opacity(0.12),
-                                                        radius: 5, x: 0, y: 1)
-                                            
-                                            Circle()
-                                                .fill(Color.clear)
-                                                .shadow(color: Color.init(hexcode: "000000").opacity(0.14),
-                                                        radius: 5, x: 0, y: 6)
-                                        }
-                                    )
-                                
-                                Image("Like")
-                                    .resizable()
-                                    .frame(width: 20, height: 18)
-                            }
-                        }
-                                                
-                        Rectangle()
-                            .frame(height: 7)
-                            .foregroundColor(Color.clear)
+                            Circle()
+                                .frame(width: 56, height: 56)
+                                .foregroundColor(
+                                    Color(hexcode: "9C27B0")
+                                )
+                                .circleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 6)
+                                .overlay(
+                                    Image("Like")
+                                        .resizable()
+                                        .frame(width: 20, height: 18)
+                                )
+                        }                        
                         
                         Button {
                            //

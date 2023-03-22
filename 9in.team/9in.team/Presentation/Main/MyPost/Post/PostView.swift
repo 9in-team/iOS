@@ -70,17 +70,7 @@ extension PostView {
         .padding(.trailing, 7)
         .frame(height: 70)
         .frame(maxWidth: .infinity)
-        .background(
-            ZStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(Color.white)
-                    .shadow(color: Color.init(hexcode: "000000").opacity(0.12), radius: 5, x: 0, y: 1)
-                
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(Color.white)
-                    .shadow(color: Color.init(hexcode: "000000").opacity(0.14), radius: 5, x: 0, y: 3)
-            }
-            )
+        .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
         .padding(.bottom, 5)
         .padding(.horizontal, 10)
     }

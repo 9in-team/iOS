@@ -56,7 +56,41 @@ extension View {
                 .navigationBarHidden(true)
         }
     }
-        
+    
+    func rectangleShadows(firstX: CGFloat, firstY: CGFloat, secondX: CGFloat, secondY: CGFloat) -> some View {
+        self
+            .background(
+                ZStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(Color.white)
+                        .shadow(color: Color.init(hexcode: "000000").opacity(0.12),
+                                radius: 5, x: firstX, y: firstY)
+                    
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(Color.white)
+                        .shadow(color: Color.init(hexcode: "000000").opacity(0.14),
+                                radius: 5, x: secondX, y: secondY)
+                }
+            )
+    }
+    
+    func circleShadows(firstX: CGFloat, firstY: CGFloat, secondX: CGFloat, secondY: CGFloat) -> some View {
+        self
+            .background(
+                ZStack {
+                    Circle()
+                        .fill(Color.white)
+                        .shadow(color: Color.init(hexcode: "000000").opacity(0.12),
+                                radius: 5, x: firstX, y: firstY)
+                    
+                    Circle()
+                        .fill(Color.white)
+                        .shadow(color: Color.init(hexcode: "000000").opacity(0.14),
+                                radius: 5, x: secondX, y: secondY)
+                }
+            )
+    }
+    
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners) )
     }

@@ -47,6 +47,7 @@
 		DEB0D38A29C62D5B00B5E1B9 /* ResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D38929C62D5B00B5E1B9 /* ResumeView.swift */; };
 		DEB0D38C29C6C44000B5E1B9 /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D38B29C6C44000B5E1B9 /* SubscribeView.swift */; };
 		DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D38E29C8866300B5E1B9 /* PostDetailView.swift */; };
+		DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB0D39129C889E900B5E1B9 /* WritePostView.swift */; };
 		DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E78297039FF00C0B973 /* BaseViewModel.swift */; };
 		DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */; };
 		DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E7D29703B3900C0B973 /* NetworkService.swift */; };
@@ -56,6 +57,8 @@
 		DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E9729716F2200C0B973 /* UIImage.swift */; };
 		DEB34E9A2971704A00C0B973 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E992971704A00C0B973 /* Data.swift */; };
 		DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34EA9298FA30200C0B973 /* EndPoint.swift */; };
+		DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */; };
+		DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
 		DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */; };
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
@@ -135,6 +138,7 @@
 		DEB0D38929C62D5B00B5E1B9 /* ResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeView.swift; sourceTree = "<group>"; };
 		DEB0D38B29C6C44000B5E1B9 /* SubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		DEB0D38E29C8866300B5E1B9 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		DEB0D39129C889E900B5E1B9 /* WritePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostView.swift; sourceTree = "<group>"; };
 		DEB34E78297039FF00C0B973 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		DEB34E7B29703B2E00C0B973 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		DEB34E7D29703B3900C0B973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		DEB34E992971704A00C0B973 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DEB34E9D2973E7EA00C0B973 /* 9in-team-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "9in-team-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DEB34EA9298FA30200C0B973 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroups.swift; sourceTree = "<group>"; };
+		DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
@@ -336,6 +342,7 @@
 				DEC0F0FE29ACE4480035851E /* Line.swift */,
 				DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */,
 				DEB0D37C29C1FFF800B5E1B9 /* TextWithFont.swift */,
+				DEB38C8B29C9D90A00EF915E /* New Group */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -367,6 +374,7 @@
 				DEB0D36229B76CCD00B5E1B9 /* HomeView.swift */,
 				DEB0D36429B76D3000B5E1B9 /* HomeViewModel.swift */,
 				DEB0D36B29BB6B7C00B5E1B9 /* TeamDetail */,
+				DEB0D39029C889A300B5E1B9 /* WritePost */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -454,6 +462,14 @@
 			path = PostDetail;
 			sourceTree = "<group>";
 		};
+		DEB0D39029C889A300B5E1B9 /* WritePost */ = {
+			isa = PBXGroup;
+			children = (
+				DEB0D39129C889E900B5E1B9 /* WritePostView.swift */,
+			);
+			path = WritePost;
+			sourceTree = "<group>";
+		};
 		DEB34E7A29703B1C00C0B973 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +494,15 @@
 				DEB34E992971704A00C0B973 /* Data.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		DEB38C8B29C9D90A00EF915E /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */,
+				DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		DEC6A82A2991D89900AD0873 /* System */ = {
@@ -717,6 +742,7 @@
 				DEB0D36729B76EC100B5E1B9 /* Team.swift in Sources */,
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DEA2B674297030A200B77335 /* ScreenStateSingleton.swift in Sources */,
+				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
@@ -726,6 +752,7 @@
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
+				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
@@ -748,6 +775,7 @@
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
+				DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +946,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -952,7 +980,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

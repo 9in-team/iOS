@@ -19,7 +19,7 @@ extension HomeView {
     
     var body: some View {
         BaseView {
-            VStack(spacing: 0) {
+            ZStack(alignment: .bottomTrailing) {
                 ScrollView(showsIndicators: false) {
                     Rectangle()
                         .frame(height: 0.1)
@@ -31,6 +31,19 @@ extension HomeView {
                         }
                     }
                 }
+                
+                NavigationLink(destination: WritePostView()) {
+                    Circle()
+                        .frame(width: 56, height: 56)
+                        .foregroundColor(ColorConstant.main.color())
+                        .circleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 6)
+                        .overlay {
+                            Image("Write")
+                                .resizable()
+                                .frame(width: 18, height: 18)
+                        }
+                }
+                .padding(.trailing, 5)
             }
         }
         .showTabNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"),
