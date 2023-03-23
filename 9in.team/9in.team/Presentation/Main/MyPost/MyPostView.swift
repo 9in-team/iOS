@@ -17,17 +17,21 @@ extension MyPostView {
     
     var body: some View {
         BaseView(appState: viewModel.appState) {
-            ScrollView {
-                Rectangle()
-                    .frame(height: 0.1)
-                    .foregroundColor(Color.clear)
-                
-                PostView(post: Post(badge: 1))
-                
-                PostView(post: Post(badge: 0))                
-            }
+            mainBody()
+                .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
         }
-        .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
+    }
+    
+    func mainBody() -> some View {
+        ScrollView {
+            Rectangle()
+                .frame(height: 0.1)
+                .foregroundColor(Color.clear)
+            
+            PostView(post: Post(badge: 1))
+            
+            PostView(post: Post(badge: 0))
+        }
     }
                 
 }

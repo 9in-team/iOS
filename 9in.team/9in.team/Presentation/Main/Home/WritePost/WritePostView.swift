@@ -16,6 +16,13 @@ struct WritePostView: View {
     
     @State var subject: String = ""
     
+    @State var tags: [String] = ["알고리즘"]
+    
+    @State var recruitmentRoles: [RecruitmentRole] = [RecruitmentRole(title: "프론트엔트 개발자", count: 4),
+                                                      RecruitmentRole(title: "디자이너", count: 4)]
+    
+    @State var chatRoomLink: String = ""
+    
 }
 
 extension WritePostView {
@@ -38,11 +45,15 @@ extension WritePostView {
                 
                 recruitmentRole()
                 
+                teamExplanation()
+                
                 submissionForm()
 
                 teamChatRoomLink()
+                
+                bottomButton()
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 10)
         }
     }
     
@@ -53,7 +64,7 @@ extension WritePostView {
     }
     
     func title() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "제목", font: .bold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
@@ -80,37 +91,138 @@ extension WritePostView {
     }
     
     func tag() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "태그", font: .bold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 4) {
+                    ForEach(tags, id: \.self) { tag in
+                        TextWithFont(text: tag, font: .regular, size: 13)
+                            .padding(.vertical, 6)
+                            .padding(.horizontal, 10)
+                            .background(
+                                Capsule(style: .continuous)
+                                    .stroke(Color(hexcode: "000000").opacity(0.26))
+                            )
+                    }
+                    
+                    Button {
+                        // add tag
+                    } label: {
+                        Circle()
+                            .frame(width: 28, height: 28)
+                            .foregroundColor(Color(hexcode: "E0E0E0"))
+                            .overlay {
+                                Image("Plus")
+                                    .resizable()
+                                    .frame(width: 14, height: 14)
+                            }
+                    }
+                }
+            }
+            .frame(height: 25)
         }
     }
     
     func recruitmentRole() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "모집 역할", font: .bold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(recruitmentRoles, id: \.self) { role in
+                        VStack(alignment: .center, spacing: 0) {
+                            Spacer()
+                            
+                            TextWithFont(text: role.title, font: .medium, size: 20)
+                                .frame(height: 60, alignment: .top)
+                                .foregroundColor(
+                                    Color(hexcode: "000000")
+                                        .opacity(0.87)
+                                )
+                                .lineSpacing(10)
+                                .multilineTextAlignment(.center)
+                            
+                            Spacer()
+                            
+                            TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
+                                .frame(height: 30)
+                                .foregroundColor(
+                                    Color(hexcode: "000000")
+                                        .opacity(0.38)
+                                )
+                            
+                            Spacer()
+                        }
+                        .frame(width: 120, height: 120)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .strokeBorder(Color(hexcode: "000000").opacity(0.6),
+                                              lineWidth: 1)
+                        )
+                    }
+                         
+                    Button {
+                        // add recruitmentRole
+                    } label: {
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 120, height: 120)
+                            .foregroundColor(Color(hexcode: "F5F5F5"))
+                            .overlay {
+                                Image("Plus")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                            }
+                    }
+                }
+            }
         }
     }
     
     func teamExplanation() -> some View {
-        VStack(alignment: .leading) {
-            TextWithFont(text: "팀 설명", font: .bold, size: 12)
-                .foregroundColor(
-                    Color(hexcode: "000000")
-                        .opacity(0.6)
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 4)
+                .stroke(Color(hexcode: "000000")
+                    .opacity(0.23)
                 )
+            
+            VStack {
+                TextWithFont(text: "팀 설명", font: .bold, size: 12)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.6)
+                    )
+                    .padding(.horizontal, 5)
+                    .background(
+                        Rectangle()
+                            .fill(Color(hexcode: "FFFFFF"))
+                    )
+                    .offset(x: 12, y: -5)
+                
+                Spacer()
+            }
+            
+            ScrollView {
+                // TextField로 변경
+                TextWithFont(text: "asdf\nasdfa]nasdfa\nadf\nasdfasd\nasdf", font: .regular, size: 16)
+            }
+            .padding(.vertical, 16)
+            .padding(.horizontal, 12)
         }
+        .frame(height: 230)
+        .frame(maxWidth: .infinity)
     }
     
     func submissionForm() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "지원 양식", font: .bold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
@@ -120,12 +232,57 @@ extension WritePostView {
     }
     
     func teamChatRoomLink() -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "팀 채팅방 링크", font: .bold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+            
+            TextWithFont(text: "Slack, 오픈채팅방 등 팀에서 사용할 채팅방 링크를 적어주세요.\n승인 처리한 지원자에게 자동 전달됩니다.",
+                         font: .regular, size: 12)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.6)
+                )
+            
+            VStack(alignment: .leading, spacing: 5) {
+                TextField("", text: $chatRoomLink)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.87)
+                    )
+                          
+                Divider()
+                    .frame(height: 1)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.42)
+                    )
+                    .border(Color.init(hexcode: "000000").opacity(0.42),
+                            width: 1)
+            }
+        }
+    }
+    
+    func bottomButton() -> some View {
+        Button {
+            // viewModel.write
+        } label: {
+            RoundedRectangle(cornerRadius: 4)
+                .fill(ColorConstant.main.color())
+                .frame(height: 50)
+                .overlay(
+                    HStack(spacing: 11) {
+                        Image("Write")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                        
+                        TextWithFont(text: "작성하기", font: .medium, size: 20)
+                            .foregroundColor(Color(hexcode: "FFFFFF"))
+                    }
+                )      
+            .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
         }
     }
     

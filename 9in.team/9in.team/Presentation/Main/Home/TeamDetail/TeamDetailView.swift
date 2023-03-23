@@ -35,7 +35,7 @@ extension TeamDetailView {
                 
                 bottomButtons()
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 10)
         }
     }
     
@@ -110,7 +110,7 @@ extension TeamDetailView {
                     Spacer()
                     
                     TextWithFont(text: "프론트엔드 개발자", font: .medium, size: 20)
-                        .frame(height: 63)
+                        .frame(height: 60, alignment: .top)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -121,7 +121,7 @@ extension TeamDetailView {
                     Spacer()
                     
                     TextWithFont(text: "4명", font: .medium, size: 20)
-                        .frame(height: 32)
+                        .frame(height: 30)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.38)
@@ -198,14 +198,14 @@ extension TeamDetailView {
             Button {
                //
             } label: {
-                ZStack {
-                    ColorConstant.main.color()
-                    
-                    TextWithFont(text: "지원하기", font: .regular, size: 20)
-                        .foregroundColor(Color(hexcode: "FFFFFF"))
-                }
-                .frame(height: 50)
-                .cornerRadius(4)
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(ColorConstant.main.color())
+                    .frame(height: 50)
+                    .overlay(
+                        TextWithFont(text: "지원하기", font: .medium, size: 20)
+                            .foregroundColor(Color(hexcode: "FFFFFF"))
+                    )
+                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
             }
         }
     }

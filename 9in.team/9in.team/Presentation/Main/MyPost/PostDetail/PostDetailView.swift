@@ -17,9 +17,15 @@ extension PostDetailView {
     
     var body: some View {
         BaseView(appState: viewModel.appState) {
-
+            mainBody()
+                .showNavigationBar(NavigationBar(useDismissButton: true, title: "모집글 수정"))
         }
-        .showNavigationBar(NavigationBar(useDismissButton: true, title: "모집글 수정"))
+    }
+    
+    func mainBody() -> some View {
+        VStack {
+            
+        }
     }
     
 }

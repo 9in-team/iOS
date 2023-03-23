@@ -60,6 +60,7 @@
 		DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */; };
 		DEB38C9029CB23C800EF915E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8F29CB23C800EF915E /* AppState.swift */; };
 		DEB38C9229CB294D00EF915E /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9129CB294D00EF915E /* CustomAlert.swift */; };
+		DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9329CC964900EF915E /* RecruitmentRole.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
 		DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */; };
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
@@ -153,6 +154,7 @@
 		DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		DEB38C8F29CB23C800EF915E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DEB38C9129CB294D00EF915E /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		DEB38C9329CC964900EF915E /* RecruitmentRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentRole.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			children = (
 				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
 				DEB0D36829B7714D00B5E1B9 /* TeamView.swift */,
+				DEB38C9329CC964900EF915E /* RecruitmentRole.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
+				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
 				DEB0D38329C349BD00B5E1B9 /* Post.swift in Sources */,
 				DEB0D37129C09EB300B5E1B9 /* MySubscribeView.swift in Sources */,
