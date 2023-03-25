@@ -20,6 +20,11 @@ struct WritePostView: View {
     
     @State var recruitmentRoles: [RecruitmentRole] = [RecruitmentRole(title: "프론트엔트 개발자", count: 4),
                                                       RecruitmentRole(title: "디자이너", count: 4)]
+        
+    @State var submissionForms: [SubmissionForm] = [SubmissionForm(no: 1, type: .text, content: "solved.ac 티어가 어떻게 되세요?"),
+                                                    SubmissionForm(no: 2, type: .image, content: "solved.ac 프로필 사진 찍어주세요"),
+                                                    SubmissionForm(no: 3, type: .file, content: "포트폴리오 첨부해주세요"),
+                                                    SubmissionForm(no: 4, type: .choice, content: "열심히 하실거죠?")]
     
     @State var chatRoomLink: String = ""
     
@@ -53,7 +58,8 @@ extension WritePostView {
                 
                 bottomButton()
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, 5)
+            .padding(.bottom, 10)
         }
     }
     
@@ -99,7 +105,7 @@ extension WritePostView {
                 )
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 4) {
+                HStack(spacing: 5) {
                     ForEach(tags, id: \.self) { tag in
                         TextWithFont(text: tag, font: .regular, size: 13)
                             .padding(.vertical, 6)
@@ -108,6 +114,7 @@ extension WritePostView {
                                 Capsule(style: .continuous)
                                     .stroke(Color(hexcode: "000000").opacity(0.26))
                             )
+                            .frame(height: 35)
                     }
                     
                     Button {
@@ -124,7 +131,6 @@ extension WritePostView {
                     }
                 }
             }
-            .frame(height: 25)
         }
     }
     
@@ -148,10 +154,8 @@ extension WritePostView {
                                     Color(hexcode: "000000")
                                         .opacity(0.87)
                                 )
-                                .lineSpacing(10)
+                                .lineSpacing(5)
                                 .multilineTextAlignment(.center)
-                            
-                            Spacer()
                             
                             TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
                                 .frame(height: 30)
@@ -222,12 +226,76 @@ extension WritePostView {
     }
     
     func submissionForm() -> some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 15) {
             TextWithFont(text: "지원 양식", font: .bold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+            
+            VStack(spacing: 20) {
+                ForEach(submissionForms, id: \.self) { form in
+                    HStack(spacing: 8) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color(hexcode: "000000")
+                                    .opacity(0.23)
+                                )
+                                .frame(width: 62, height: 62)
+                                .overlay(
+                                    TextWithFont(text: "\(form.no)", font: .medium, size: 12)
+                                        .foregroundColor(Color(hexcode: "FFFFFF"))
+                                        .padding(6)
+                                        .background(
+                                            Circle()
+                                                .fill(Color.init(hexcode: "1976D2"))
+                                        )
+                                        .offset(x: -31, y: -31)
+                                )
+                            
+                            VStack(spacing: 5) {
+                                Image(form.type.asset())
+                                    .resizable()
+                                    .frame(width: form.type.assetSize().width, height: form.type.assetSize().height)
+                                    .padding(.top, 3)
+                                
+                                TextWithFont(text: form.type.text(), font: .regular, size: 12)
+                            }
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            TextWithFont(text: form.content, font: .regular, size: 16)
+                                .foregroundColor(
+                                    Color(hexcode: "000000")
+                                        .opacity(0.6)
+                                )
+                                      
+                            Divider()
+                                .frame(height: 1)
+                                .foregroundColor(
+                                    Color(hexcode: "000000")
+                                        .opacity(0.42)
+                                )
+                                .border(Color.init(hexcode: "000000").opacity(0.42),
+                                        width: 1)
+                        }
+                    }
+                }
+                
+                Button {
+                    // add submissionForm
+                } label: {
+                    Circle()
+                        .frame(width: 56, height: 56)
+                        .foregroundColor(Color(hexcode: "E0E0E0"))
+                        .overlay {
+                            Image("Plus")
+                                .resizable()
+                                .frame(width: 14, height: 14)
+                        }
+                }
+            }
+            .padding(.horizontal, 5)
         }
     }
     
@@ -281,7 +349,7 @@ extension WritePostView {
                         TextWithFont(text: "작성하기", font: .medium, size: 20)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
-                )      
+                )
             .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
         }
     }
