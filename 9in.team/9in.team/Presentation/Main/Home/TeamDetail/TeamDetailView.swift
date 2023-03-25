@@ -115,10 +115,8 @@ extension TeamDetailView {
                             Color(hexcode: "000000")
                                 .opacity(0.87)
                         )
-                        .lineSpacing(10)
-                        .multilineTextAlignment(.center)
-                    
-                    Spacer()
+                        .lineSpacing(5)
+                        .multilineTextAlignment(.center)                    
                     
                     TextWithFont(text: "4명", font: .medium, size: 20)
                         .frame(height: 30)
