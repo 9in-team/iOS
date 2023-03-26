@@ -24,7 +24,7 @@ extension BaseView {
             content()
                  
             if appState.alertState {
-                CustomAlert(title: appState.alertTitle,
+                DefaultAlert(title: appState.alertTitle,
                             usePositiveButton: true,
                             useNegativeButton: true) { alertResultState in
                     // appState.closeAlert()                    

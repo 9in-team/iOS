@@ -5,6 +5,7 @@
 //  Created by 조상현 on 2023/02/06.
 //
 
+import UIKit
 import SwiftUI
 
 extension View {
@@ -90,6 +91,25 @@ extension View {
                                 radius: 5, x: secondX, y: secondY)
                 }
             )
+    }
+    
+    func alert<Content>(isPresented: Binding<Bool>, alert: () -> BaseAlert<Content>) -> some View where Content: View {
+        let keyWindow = UIApplication.shared.connectedScenes.filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene}).compactMap {$0}.first?.windows.filter { $0.isKeyWindow }.first!
+        
+        let viewController = UIHostingController(rootView: alert())
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.view.backgroundColor = .clear
+        viewController.definesPresentationContext = true
+        
+        return self.onChange(of: isPresented.wrappedValue, perform: {
+            if $0 {
+                keyWindow?.rootViewController?.present(viewController, animated: true)
+            } else {
+                keyWindow?.rootViewController?.dismiss(animated: true)
+            }
+        })
     }
     
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {

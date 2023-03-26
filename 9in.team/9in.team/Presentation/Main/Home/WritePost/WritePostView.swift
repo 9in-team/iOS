@@ -11,16 +11,22 @@ struct WritePostView: View {
     
     @StateObject var viewModel = HomeViewModel()
     
+    @State var isShowAlert: Bool = false
+    @State var anyAlert: AnyView = AnyView(EmptyView())
+    
     let category: [String] = ["스터디", "프로젝트"]
     @State var selectedIndex: Int = 0
     
     @State var subject: String = ""
     
+    @State var showAddTagAlert: Bool = false
     @State var tags: [String] = ["알고리즘"]
     
+    @State var showAddRecruitmentRoleAlert: Bool = false
     @State var recruitmentRoles: [RecruitmentRole] = [RecruitmentRole(title: "프론트엔트 개발자", count: 4),
                                                       RecruitmentRole(title: "디자이너", count: 4)]
-        
+    
+    @State var showAddSubmissionFormAlert: Bool = false
     @State var submissionForms: [SubmissionForm] = [SubmissionForm(no: 1, type: .text, content: "solved.ac 티어가 어떻게 되세요?"),
                                                     SubmissionForm(no: 2, type: .image, content: "solved.ac 프로필 사진 찍어주세요"),
                                                     SubmissionForm(no: 3, type: .file, content: "포트폴리오 첨부해주세요"),
@@ -118,7 +124,7 @@ extension WritePostView {
                     }
                     
                     Button {
-                        // add tag
+                        showAddTagAlert = true
                     } label: {
                         Circle()
                             .frame(width: 28, height: 28)
@@ -128,6 +134,11 @@ extension WritePostView {
                                     .resizable()
                                     .frame(width: 14, height: 14)
                             }
+                    }
+                    .alert(isPresented: $showAddTagAlert) {
+                        BaseAlert {
+                            Text("showAddTagAlert = false")
+                        }
                     }
                 }
             }
@@ -175,7 +186,7 @@ extension WritePostView {
                     }
                          
                     Button {
-                        // add recruitmentRole
+                        showAddRecruitmentRoleAlert = true
                     } label: {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 120, height: 120)
@@ -185,6 +196,11 @@ extension WritePostView {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                             }
+                    }
+                    .alert(isPresented: $showAddRecruitmentRoleAlert) {
+                        BaseAlert {
+                            Text("showAddRecruitmentRoleAlert = false")
+                        }
                     }
                 }
             }
@@ -283,7 +299,7 @@ extension WritePostView {
                 }
                 
                 Button {
-                    // add submissionForm
+                    showAddSubmissionFormAlert = true
                 } label: {
                     Circle()
                         .frame(width: 56, height: 56)
@@ -293,6 +309,11 @@ extension WritePostView {
                                 .resizable()
                                 .frame(width: 14, height: 14)
                         }
+                }
+                .alert(isPresented: $showAddSubmissionFormAlert) {
+                    BaseAlert {
+                        Text("showAddSubmissionFormAlert = false")
+                    }
                 }
             }
             .padding(.horizontal, 5)

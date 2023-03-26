@@ -59,10 +59,11 @@
 		DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */; };
 		DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */; };
 		DEB38C9029CB23C800EF915E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8F29CB23C800EF915E /* AppState.swift */; };
-		DEB38C9229CB294D00EF915E /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9129CB294D00EF915E /* CustomAlert.swift */; };
+		DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9129CB294D00EF915E /* DefaultAlert.swift */; };
 		DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9329CC964900EF915E /* RecruitmentRole.swift */; };
 		DEB38C9629CDE1FC00EF915E /* SubmissionFormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */; };
 		DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */; };
+		DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9A29CEF77100EF915E /* BaseAlert.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
 		DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */; };
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
@@ -155,10 +156,11 @@
 		DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroups.swift; sourceTree = "<group>"; };
 		DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		DEB38C8F29CB23C800EF915E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		DEB38C9129CB294D00EF915E /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		DEB38C9129CB294D00EF915E /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
 		DEB38C9329CC964900EF915E /* RecruitmentRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentRole.swift; sourceTree = "<group>"; };
 		DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionFormType.swift; sourceTree = "<group>"; };
 		DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionForm.swift; sourceTree = "<group>"; };
+		DEB38C9A29CEF77100EF915E /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
@@ -350,8 +352,8 @@
 				DEC0F0FE29ACE4480035851E /* Line.swift */,
 				DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */,
 				DEB0D37C29C1FFF800B5E1B9 /* TextWithFont.swift */,
-				DEB38C9129CB294D00EF915E /* CustomAlert.swift */,
 				DEB38C8B29C9D90A00EF915E /* RadioButton */,
+				DEB38C9929CEF72C00EF915E /* Alert */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -515,6 +517,15 @@
 				DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */,
 			);
 			path = RadioButton;
+			sourceTree = "<group>";
+		};
+		DEB38C9929CEF72C00EF915E /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				DEB38C9A29CEF77100EF915E /* BaseAlert.swift */,
+				DEB38C9129CB294D00EF915E /* DefaultAlert.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		DEC6A82A2991D89900AD0873 /* System */ = {
@@ -758,6 +769,7 @@
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
+				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
 				DEB0D38329C349BD00B5E1B9 /* Post.swift in Sources */,
@@ -770,7 +782,7 @@
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
-				DEB38C9229CB294D00EF915E /* CustomAlert.swift in Sources */,
+				DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
 				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
 				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,
