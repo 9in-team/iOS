@@ -10,15 +10,7 @@ import SwiftUI
 struct DefaultAlert: View {
     
     let title: String
-    let usePositiveButton: Bool
-    let useNegativeButton: Bool
-    let completion: (AlertResultState) -> Void
-    
-    // 미정
-    enum AlertResultState {
-        case aaa
-        case bbb
-    }
+    let completion: () -> Void
     
     var body: some View {
         ZStack {
@@ -34,29 +26,15 @@ struct DefaultAlert: View {
                 Spacer()
                 
                 VStack(spacing: 0) {
-                    if usePositiveButton {
-                        Divider()
-                        
-                        Button {
-                            completion(.aaa)
-                        } label: {
-                            TextWithFont(text: "확인", font: nil, size: 14)
-                                .frame(maxWidth: .infinity)
-                        }
-                        .frame(height: 60)                        
-                    }
+                    Divider()
                     
-                    if useNegativeButton {
-                        Divider()
-                        
-                        Button {
-                            completion(.bbb)
-                        } label: {
-                            TextWithFont(text: "취소", font: nil, size: 14)
-                                .frame(maxWidth: .infinity)
-                        }
-                        .frame(height: 60)
+                    Button {
+                        completion()
+                    } label: {
+                        TextWithFont(text: "확인", font: nil, size: 14)
+                            .frame(maxWidth: .infinity)
                     }
+                    .frame(height: 60)
                 }
             }
             .frame(width: 315, height: 315)

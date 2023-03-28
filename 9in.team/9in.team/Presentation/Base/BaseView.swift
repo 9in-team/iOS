@@ -21,13 +21,11 @@ extension BaseView {
         ZStack {
             Color(UIColor.white)
                     
-            content()
+            content()                
                  
             if appState.alertState {
-                DefaultAlert(title: appState.alertTitle,
-                            usePositiveButton: true,
-                            useNegativeButton: true) { alertResultState in
-                    // appState.closeAlert()                    
+                DefaultAlert(title: appState.alertTitle) {
+                    appState.closeAlert()
                 }
             }
                             

@@ -273,6 +273,7 @@
 				DEB34E9629716F1800C0B973 /* Extension */,
 				DEA2B6722970309300B77335 /* Util */,
 				DE9BD35C295853B300F28F1A /* 9in.team.swift */,
+				DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */,
 				DEA2B66629702F4A00B77335 /* Presentation */,
 				DEB34E7A29703B1C00C0B973 /* Repository */,
 				DE9BD360295853B800F28F1A /* Assets.xcassets */,
@@ -313,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				DEA2B66A2970301000B77335 /* Base */,
-				DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */,
 				DEA2B6752970320700B77335 /* Membership */,
 				DE6FBDE42990E82700816A7D /* Main */,
 			);
