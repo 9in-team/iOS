@@ -135,7 +135,7 @@ extension WritePostView {
                                     .frame(width: 14, height: 14)
                             }
                     }
-                    .alert(isPresented: $showAddTagAlert) {
+                    .drawOnRootViewController(isPresented: $showAddTagAlert) {
                         BaseAlert {
                             Text("showAddTagAlert = false")
                         }
@@ -197,7 +197,7 @@ extension WritePostView {
                                     .frame(width: 30, height: 30)
                             }
                     }
-                    .alert(isPresented: $showAddRecruitmentRoleAlert) {
+                    .drawOnRootViewController(isPresented: $showAddRecruitmentRoleAlert) {
                         BaseAlert {
                             Text("showAddRecruitmentRoleAlert = false")
                         }
@@ -310,7 +310,7 @@ extension WritePostView {
                                 .frame(width: 14, height: 14)
                         }
                 }
-                .alert(isPresented: $showAddSubmissionFormAlert) {
+                .drawOnRootViewController(isPresented: $showAddSubmissionFormAlert) {
                     BaseAlert {
                         Text("showAddSubmissionFormAlert = false")
                     }

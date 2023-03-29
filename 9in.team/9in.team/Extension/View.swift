@@ -93,11 +93,15 @@ extension View {
             )
     }
     
-    func alert<Content>(isPresented: Binding<Bool>, alert: () -> BaseAlert<Content>) -> some View where Content: View {
+    // LoadingView, Alert, Toast
+    func drawOnRootViewController<Content>(isPresented: Binding<Bool>,
+                                           view: () -> Content) -> some View where Content: View {
         let keyWindow = UIApplication.shared.connectedScenes.filter({$0.activationState == .foregroundActive})
             .map({$0 as? UIWindowScene}).compactMap {$0}.first?.windows.filter { $0.isKeyWindow }.first!
         
-        let viewController = UIHostingController(rootView: alert())
+        print("keyWindow?.frame.height \(keyWindow?.frame.height)")
+                
+        let viewController = UIHostingController(rootView: view())
         viewController.modalTransitionStyle = .crossDissolve
         viewController.modalPresentationStyle = .overCurrentContext
         viewController.view.backgroundColor = .clear

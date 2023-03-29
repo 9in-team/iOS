@@ -28,12 +28,12 @@ class BaseViewModel: ObservableObject {
         appState.didFinishLoading()
     }
     
-    func showToast(title: String) {
-        appState.showToast(title: title)
-    }
-    
     func showAlert(title: String) {
         appState.showAlert(title: title)
+    }
+    
+    func showToast(title: String) {
+        appState.showToast(title: title)
     }
     
 }

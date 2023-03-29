@@ -9,10 +9,15 @@ import SwiftUI
 
 struct BaseView<Content: View>: View {
          
-    @ObservedObject var appState: AppState
+    @ObservedObject var appState: AppState    
     
-    @ViewBuilder let content: () -> Content
- 
+    let content: Content
+
+    init(appState: AppState, content: () -> Content) {
+        self.appState = appState
+        self.content = content()
+    }
+    
 }
 
 extension BaseView {
@@ -21,7 +26,7 @@ extension BaseView {
         ZStack {
             Color(UIColor.white)
                     
-            content()                
+            content
                  
             if appState.alertState {
                 DefaultAlert(title: appState.alertTitle) {
