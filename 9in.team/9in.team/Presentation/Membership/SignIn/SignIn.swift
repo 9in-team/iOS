@@ -22,10 +22,10 @@ extension SignIn {
                         
             VStack {
                 TextWithFont(text: "9in.team", font: nil, size: 48)
-                    .foregroundColor(Color.init(hexcode: "FFFFFF"))
+                    .foregroundColor(Color(hexcode: "FFFFFF"))
                 
                 TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: nil, size: 16)
-                    .foregroundColor(Color.init(hexcode: "FFFFFF"))
+                    .foregroundColor(Color(hexcode: "FFFFFF"))
             }            
          
             VStack {
@@ -40,13 +40,13 @@ extension SignIn {
                         Spacer()
                         
                         TextWithFont(text: "카카오로그인", font: .medium, size: 16)
-                            .foregroundColor(Color.init(hexcode: "FFFFFF").opacity(0.85))
+                            .foregroundColor(Color(hexcode: "FFFFFF").opacity(0.85))
                         
                         Spacer()
                     }
                     .padding(.horizontal, 15)
                     .frame(height: 50)
-                    .background(Color.init(hexcode: "FEE500"))
+                    .background(Color(hexcode: "FEE500"))
                     .cornerRadius(5)
                 })
                 .padding(.horizontal, 20)

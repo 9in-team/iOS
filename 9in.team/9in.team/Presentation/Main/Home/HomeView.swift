@@ -26,8 +26,7 @@ extension HomeView {
                 })
         }
         .onAppear {
-            viewModel.requestFristPage()
-            viewModel.showAlert(title: "asdgasdg")
+            viewModel.requestFristPage()            
         }
     }
     

@@ -96,7 +96,7 @@ extension WritePostView {
                         Color(hexcode: "000000")
                             .opacity(0.42)
                     )
-                    .border(Color.init(hexcode: "000000").opacity(0.42),
+                    .border(Color(hexcode: "000000").opacity(0.42),
                             width: 1)
             }
         }
@@ -264,7 +264,7 @@ extension WritePostView {
                                         .padding(6)
                                         .background(
                                             Circle()
-                                                .fill(Color.init(hexcode: "1976D2"))
+                                                .fill(Color(hexcode: "1976D2"))
                                         )
                                         .offset(x: -31, y: -31)
                                 )
@@ -292,7 +292,7 @@ extension WritePostView {
                                     Color(hexcode: "000000")
                                         .opacity(0.42)
                                 )
-                                .border(Color.init(hexcode: "000000").opacity(0.42),
+                                .border(Color(hexcode: "000000").opacity(0.42),
                                         width: 1)
                         }
                     }
@@ -348,7 +348,7 @@ extension WritePostView {
                         Color(hexcode: "000000")
                             .opacity(0.42)
                     )
-                    .border(Color.init(hexcode: "000000").opacity(0.42),
+                    .border(Color(hexcode: "000000").opacity(0.42),
                             width: 1)
             }
         }
@@ -360,14 +360,14 @@ extension WritePostView {
         } label: {
             RoundedRectangle(cornerRadius: 4)
                 .fill(ColorConstant.main.color())
-                .frame(height: 50)
+                .frame(height: 42)
                 .overlay(
                     HStack(spacing: 11) {
                         Image("Write")
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        TextWithFont(text: "작성하기", font: .medium, size: 20)
+                        TextWithFont(text: "작성하기", font: .medium, size: 15)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 )

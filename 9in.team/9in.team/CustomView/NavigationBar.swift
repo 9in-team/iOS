@@ -39,20 +39,27 @@ struct NavigationBar: View {
                 TextWithFont(text: title, font: nil, size: title == "9in.team" ? 36 : 24)
                     .frame(width: 160)
                     .foregroundColor(Color.white)
-//                    .foregroundColor(Color.init(hexcode: "#FFFFFF")) 버그인가 색이 안들어간다
+//                    .foregroundColor(Color(hexcode: "#FFFFFF")) 버그인가 색이 안들어간다
                                 
                 Spacer()
                 
                 HStack(spacing: 0) {
                     if useProfileButton {
-                        Button {
-                            
-                        } label: {
+                        NavigationLink(destination: ProfileEditView()) {
                             Image("ProfileEdit")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 23, height: 20)
                         }
+                        
+//                        Button {
+//
+//                        } label: {
+//                            Image("ProfileEdit")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 23, height: 20)
+//                        }
                         
                         Rectangle()
                             .frame(width: 25)

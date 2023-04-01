@@ -35,7 +35,7 @@ extension TeamView {
                     )
                     .background(
                         Capsule(style: .continuous)
-                            .fill(Color.init(hexcode: "000000")
+                            .fill(Color(hexcode: "000000")
                                 .opacity(0.08)
                             )
                     )

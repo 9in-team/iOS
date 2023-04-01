@@ -22,14 +22,14 @@ extension PostView {
                 
                 TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 16)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.87)
                     )
                 
                 TextWithFont(text: "1시간 전", font: .regular, size: 12)
                     .frame(height: 20)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.38)
                     )
                 
@@ -52,10 +52,10 @@ extension PostView {
                             TextWithFont(text: "\(post.badge)", font: .medium, size: 12)
                                 .padding(.horizontal, 6)
                                 .frame(height: 20)
-                                .foregroundColor(Color.init(hexcode: "FFFFFF"))
+                                .foregroundColor(Color(hexcode: "FFFFFF"))
                                 .background(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color.init(hexcode: "9C27B0"))
+                                        .fill(Color(hexcode: "9C27B0"))
                                         )
                         }
                         

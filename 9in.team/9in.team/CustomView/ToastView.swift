@@ -27,11 +27,11 @@ extension Toast {
                 .padding(.vertical, 14)
                 .padding(.horizontal, 16)
                 .foregroundColor(
-                    Color.init(hexcode: "FFFFFF")
+                    Color(hexcode: "FFFFFF")
                 )
                 .padding(5)
                 .background(
-                    Color.init(hexcode: "000000")
+                    Color(hexcode: "000000")
                         .opacity(0.12)
                     )
                 .cornerRadius(10)

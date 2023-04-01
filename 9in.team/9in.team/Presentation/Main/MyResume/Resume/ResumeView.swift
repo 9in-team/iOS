@@ -24,13 +24,13 @@ struct ResumeView: View {
     }
     
     func applyStateColor() -> Color {
-        var color = Color.init(hexcode: "")
+        var color = Color(hexcode: "")
         if resume.applyState == .waiting {
-            color = Color.init(hexcode: "000000").opacity(0.87)
+            color = Color(hexcode: "000000").opacity(0.87)
         } else if resume.applyState == .invited {
             color = ColorConstant.main.color()
         } else if resume.applyState == .rejected {
-            color = Color.init(hexcode: "000000").opacity(0.38)
+            color = Color(hexcode: "000000").opacity(0.38)
         }
         return color
     }
@@ -46,14 +46,14 @@ extension ResumeView {
                 
                 TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 16)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.87)
                     )
                 
                 TextWithFont(text: "1시간 전", font: .regular, size: 12)
                     .frame(height: 20)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.38)
                     )
                 

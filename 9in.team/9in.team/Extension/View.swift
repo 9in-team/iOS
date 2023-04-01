@@ -21,6 +21,8 @@ extension View {
                 .padding(.bottom, 10)
                 .padding(.horizontal, 10)
                 .navigationBarHiddenTrue()
+            
+            Spacer()
         }
     }
     
@@ -39,6 +41,8 @@ extension View {
                 .padding(.bottom, 10)
                 .padding(.horizontal, 10)
                 .navigationBarHiddenTrue()
+            
+            Spacer()
         }
     }
     
@@ -65,12 +69,12 @@ extension View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 5)
                         .fill(Color.white)
-                        .shadow(color: Color.init(hexcode: "000000").opacity(0.12),
+                        .shadow(color: Color(hexcode: "000000").opacity(0.12),
                                 radius: 5, x: firstX, y: firstY)
                     
                     RoundedRectangle(cornerRadius: 5)
                         .fill(Color.white)
-                        .shadow(color: Color.init(hexcode: "000000").opacity(0.14),
+                        .shadow(color: Color(hexcode: "000000").opacity(0.14),
                                 radius: 5, x: secondX, y: secondY)
                 }
             )
@@ -82,12 +86,12 @@ extension View {
                 ZStack {
                     Circle()
                         .fill(Color.white)
-                        .shadow(color: Color.init(hexcode: "000000").opacity(0.12),
+                        .shadow(color: Color(hexcode: "000000").opacity(0.12),
                                 radius: 5, x: firstX, y: firstY)
                     
                     Circle()
                         .fill(Color.white)
-                        .shadow(color: Color.init(hexcode: "000000").opacity(0.14),
+                        .shadow(color: Color(hexcode: "000000").opacity(0.14),
                                 radius: 5, x: secondX, y: secondY)
                 }
             )

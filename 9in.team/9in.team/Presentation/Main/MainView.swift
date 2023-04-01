@@ -15,7 +15,7 @@ struct MainView: View {
         if isSelected {
             return ColorConstant.main.color()
         } else {
-            return Color.init(red: 0, green: 0, blue: 0, opacity: 0.6)
+            return Color(red: 0, green: 0, blue: 0, opacity: 0.6)
         }
     }
     

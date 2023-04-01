@@ -22,13 +22,13 @@ extension SubscribeView {
                 
                 TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 16)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.87)
                     )
                 
                 TextWithFont(text: "김진홍", font: .regular, size: 12)
                     .frame(height: 20)
-                    .foregroundColor(Color.init(hexcode: "000000"))
+                    .foregroundColor(Color(hexcode: "000000"))
                                 
                 Spacer()
             }
@@ -46,7 +46,7 @@ extension SubscribeView {
                     )
                     .background(
                         Capsule(style: .continuous)
-                            .fill(Color.init(hexcode: "000000")
+                            .fill(Color(hexcode: "000000")
                                 .opacity(0.08)
                             )
                     )
@@ -54,7 +54,7 @@ extension SubscribeView {
                 TextWithFont(text: "1시간 전", font: .regular, size: 12)
                     .frame(height: 20)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.38)
                     )
                     .padding(.trailing, 8)

@@ -29,12 +29,12 @@ struct TabNavigationBar: View {
                             Spacer()
                             
                             TextWithFont(text: tabName, font: .regular, size: 20)
-                                .foregroundColor(Color.init(hexcode: "FFFFFF")
+                                .foregroundColor(Color(hexcode: "FFFFFF")
                                     .opacity(selectedIndex == index ? 1 : 0.3))
                             
                             Rectangle()
                                 .frame(width: CGFloat(tabName.count) * charWidth + 20, height: 3)
-                                .foregroundColor(Color.init(hexcode: "FFFFFF")
+                                .foregroundColor(Color(hexcode: "FFFFFF")
                                     .opacity(selectedIndex == index ? 1 : 0))
                         }
                     }

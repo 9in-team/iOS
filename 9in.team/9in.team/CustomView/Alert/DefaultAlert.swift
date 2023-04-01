@@ -14,7 +14,7 @@ struct DefaultAlert: View {
     
     var body: some View {
         ZStack {
-            Color.init(hexcode: "000000")
+            Color(hexcode: "000000")
                 .opacity(0.3)
                 .edgesIgnoringSafeArea(.all)
             
@@ -39,7 +39,7 @@ struct DefaultAlert: View {
             }
             .frame(width: 315, height: 315)
             .background(
-                Color.init(hexcode: "FFFFFF")
+                Color(hexcode: "FFFFFF")
             )
             .cornerRadius(20)
             .padding(30)

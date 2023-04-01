@@ -51,7 +51,7 @@ extension TeamDetailView {
                     .padding(.horizontal, 10)
                     .background(
                         Capsule(style: .continuous)
-                            .fill(Color.init(hexcode: "000000")
+                            .fill(Color(hexcode: "000000")
                                 .opacity(0.08))
                     )
                     .font(.system(size: 13))
@@ -159,7 +159,7 @@ extension TeamDetailView {
                         Color(hexcode: "000000")
                             .opacity(0.42)
                     )
-                    .border(Color.init(hexcode: "000000").opacity(0.42),
+                    .border(Color(hexcode: "000000").opacity(0.42),
                             width: 1)
             }
         }
@@ -198,9 +198,9 @@ extension TeamDetailView {
             } label: {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(ColorConstant.main.color())
-                    .frame(height: 50)
+                    .frame(height: 42)
                     .overlay(
-                        TextWithFont(text: "지원하기", font: .medium, size: 20)
+                        TextWithFont(text: "지원하기", font: .medium, size: 15)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     )
                 .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DE4E91642989128E00EC009F /* KakaoSDK */; };
+		DE5E998C29D4780100D32B8E /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E998B29D4780100D32B8E /* ProfileEditView.swift */; };
+		DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */; };
 		DE6FBDE62990E83400816A7D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBDE52990E83400816A7D /* MainView.swift */; };
 		DE6FBDE82990E89200816A7D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBDE72990E89200816A7D /* View.swift */; };
 		DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */; };
@@ -101,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE5E998B29D4780100D32B8E /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		DE6FBDE52990E83400816A7D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DE6FBDE72990E89200816A7D /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -206,9 +210,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE5E998A29D477D900D32B8E /* ProfileEdit */ = {
+			isa = PBXGroup;
+			children = (
+				DE5E998B29D4780100D32B8E /* ProfileEditView.swift */,
+				DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */,
+			);
+			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
 		DE6FBDE42990E82700816A7D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DE5E998A29D477D900D32B8E /* ProfileEdit */,
 				DE6FBDE52990E83400816A7D /* MainView.swift */,
 				DEB0D36E29BF4FE900B5E1B9 /* BottomNavigationItem.swift */,
 				DEB0D35A29AF7E3D00B5E1B9 /* Home */,
@@ -778,6 +792,7 @@
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
+				DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */,
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
@@ -787,6 +802,7 @@
 				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
 				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,
 				DEB0D36929B7714D00B5E1B9 /* TeamView.swift in Sources */,
+				DE5E998C29D4780100D32B8E /* ProfileEditView.swift in Sources */,
 				DEC82E1429A231D400D17C50 /* PrivateConstant.swift in Sources */,
 				DEB0D35F29B0D77900B5E1B9 /* TabViewNavigationBar.swift in Sources */,
 				DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */,

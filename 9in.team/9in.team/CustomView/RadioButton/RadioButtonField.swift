@@ -37,12 +37,12 @@ struct RadioButtonField: View {
                 
                 TextWithFont(text: title, font: .regular, size: 16)
                     .foregroundColor(
-                        Color.init(hexcode: "000000")
+                        Color(hexcode: "000000")
                             .opacity(0.87)
                     )
             }
             .foregroundColor(
-                Color.init(hexcode: "000000")
+                Color(hexcode: "000000")
                     .opacity(0.6)
             )
             .padding(.trailing, 18)

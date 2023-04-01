@@ -14,7 +14,7 @@ struct CircleImage: View {
     var body: some View {
         if image == nil {
             Circle()
-                .foregroundColor(Color.init(hexcode: "D9D9D9"))                
+                .foregroundColor(Color(hexcode: "D9D9D9"))                
         } else {
             Image(uiImage: image!)
                 .resizable()
