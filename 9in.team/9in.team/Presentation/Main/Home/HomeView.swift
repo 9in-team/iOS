@@ -39,7 +39,7 @@ extension HomeView {
                 
                 ForEach(viewModel.teams, id: \.teamId) { team in
                     NavigationLink(destination: TeamDetailView(team: team)) {
-                        TeamView(team: team)
+                        TeamCellView(team: team)
                     }
                 }
             }

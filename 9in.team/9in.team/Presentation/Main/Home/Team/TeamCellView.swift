@@ -1,5 +1,5 @@
 //
-//  TeamView.swift
+//  TeamCellView.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/03/07.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct TeamView: View {
+struct TeamCellView: View {
 
     let team: Team
     
 }
 
-extension TeamView {
+extension TeamCellView {
     
     var body: some View {
         VStack {

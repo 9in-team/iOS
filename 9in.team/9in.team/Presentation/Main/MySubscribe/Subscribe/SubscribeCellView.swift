@@ -1,5 +1,5 @@
 //
-//  SubscribeView.swift
+//  SubscribeCellView.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/03/19.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct SubscribeView: View {
+struct SubscribeCellView: View {
 
     let subscribe: Subscribe
     
 }
 
-extension SubscribeView {
+extension SubscribeCellView {
     
     var body: some View {
         HStack {

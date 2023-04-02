@@ -1,5 +1,5 @@
 //
-//  ResumeView.swift
+//  ResumeCellView.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/03/19.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ResumeView: View {
+struct ResumeCellView: View {
 
     let resume: Resume
     
@@ -37,7 +37,7 @@ struct ResumeView: View {
     
 }
 
-extension ResumeView {
+extension ResumeCellView {
     
     var body: some View {
         HStack {

@@ -43,7 +43,7 @@ struct NavigationBar: View {
                                 
                 Spacer()
                 
-                HStack(spacing: 0) {
+                HStack(spacing: 25) {
                     if useProfileButton {
                         NavigationLink(destination: ProfileEditView()) {
                             Image("ProfileEdit")
@@ -51,36 +51,18 @@ struct NavigationBar: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 23, height: 20)
                         }
-                        
-//                        Button {
-//
-//                        } label: {
-//                            Image("ProfileEdit")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .frame(width: 23, height: 20)
-//                        }
-                        
-                        Rectangle()
-                            .frame(width: 25)
-                            .foregroundColor(Color.clear)
                     }
                     
                     if useChatButton {
-                        Button {
-                            
-                        } label: {
+                        NavigationLink(destination: ChatListView()) {
                             Image("Chat")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 20)
+                                .frame(width: 23, height: 20)
                         }
-                        
-                        Rectangle()
-                            .frame(width: 10)
-                            .foregroundColor(Color.clear)
                     }
                 }
+                .padding(.trailing, 10)
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 20)

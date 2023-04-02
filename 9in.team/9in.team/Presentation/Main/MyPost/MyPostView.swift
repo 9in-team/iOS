@@ -28,9 +28,9 @@ extension MyPostView {
                 .frame(height: 0.1)
                 .foregroundColor(Color.clear)
             
-            PostView(post: Post(badge: 1))
+            PostCellView(post: Post(badge: 1))
             
-            PostView(post: Post(badge: 0))
+            PostCellView(post: Post(badge: 0))
         }
     }
                 

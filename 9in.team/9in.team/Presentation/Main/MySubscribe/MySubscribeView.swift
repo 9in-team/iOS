@@ -31,13 +31,13 @@ extension MySubscribeView {
                     .frame(height: 0.1)
                     .foregroundColor(Color.clear)
                 
-                SubscribeView(subscribe: Subscribe())
+                SubscribeCellView(subscribe: Subscribe())
                 
-                SubscribeView(subscribe: Subscribe())
+                SubscribeCellView(subscribe: Subscribe())
                 
-                SubscribeView(subscribe: Subscribe())
+                SubscribeCellView(subscribe: Subscribe())
                 
-                SubscribeView(subscribe: Subscribe())
+                SubscribeCellView(subscribe: Subscribe())
                 
             }
         }

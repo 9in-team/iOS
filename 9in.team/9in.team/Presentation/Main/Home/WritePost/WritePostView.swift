@@ -262,10 +262,7 @@ extension WritePostView {
                                     TextWithFont(text: "\(form.no)", font: .medium, size: 12)
                                         .foregroundColor(Color(hexcode: "FFFFFF"))
                                         .padding(6)
-                                        .background(
-                                            Circle()
-                                                .fill(Color(hexcode: "1976D2"))
-                                        )
+                                        .background(ColorConstant.main.color())
                                         .offset(x: -31, y: -31)
                                 )
                             

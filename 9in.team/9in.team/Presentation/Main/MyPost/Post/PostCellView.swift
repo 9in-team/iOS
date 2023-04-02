@@ -1,5 +1,5 @@
 //
-//  PostView.swift
+//  PostCellView.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/03/16.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct PostView: View {
+struct PostCellView: View {
 
     let post: Post
     
 }
 
-extension PostView {
+extension PostCellView {
     
     var body: some View {
         HStack {

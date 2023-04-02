@@ -28,11 +28,11 @@ extension MyResumeView {
                 .frame(height: 0.1)
                 .foregroundColor(Color.clear)
             
-            ResumeView(resume: Resume(applyState: .waiting))
+            ResumeCellView(resume: Resume(applyState: .waiting))
             
-            ResumeView(resume: Resume(applyState: .invited))
+            ResumeCellView(resume: Resume(applyState: .invited))
             
-            ResumeView(resume: Resume(applyState: .rejected))
+            ResumeCellView(resume: Resume(applyState: .rejected))
         }
     }
                 
