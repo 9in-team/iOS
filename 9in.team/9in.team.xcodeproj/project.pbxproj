@@ -18,6 +18,7 @@
 		DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7729D8860D00CB90FE /* ChatListView.swift */; };
 		DE7B0B7A29D8861A00CB90FE /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7929D8861A00CB90FE /* ChatListViewModel.swift */; };
 		DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */; };
+		DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */; };
 		DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* 9in.team.swift */; };
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
 		DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD363295853B800F28F1A /* Preview Assets.xcassets */; };
@@ -116,6 +117,7 @@
 		DE7B0B7729D8860D00CB90FE /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		DE7B0B7929D8861A00CB90FE /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
+		DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewWrapper.swift; sourceTree = "<group>"; };
 		DE9BD359295853B300F28F1A /* 9in.team.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9in.team.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD35C295853B300F28F1A /* 9in.team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9in.team.swift; sourceTree = "<group>"; };
 		DE9BD360295853B800F28F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				DEC0F0FE29ACE4480035851E /* Line.swift */,
 				DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */,
 				DEB0D37C29C1FFF800B5E1B9 /* TextWithFont.swift */,
+				DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */,
 				DEB38C8B29C9D90A00EF915E /* RadioButton */,
 				DEB38C9929CEF72C00EF915E /* Alert */,
 			);
@@ -844,6 +847,7 @@
 				DEB0D38529C34A1900B5E1B9 /* PostCellView.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
 				DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */,
+				DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,

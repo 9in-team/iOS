@@ -34,6 +34,9 @@ extension MyResumeView {
             
             ResumeCellView(resume: Resume(applyState: .rejected))
         }
+        .onTouch { location in
+            print(location)
+        }
     }
                 
 }
