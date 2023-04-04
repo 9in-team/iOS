@@ -9,10 +9,9 @@ import SwiftUI
 
 struct ChatDetailView: View {
 
-    @StateObject var viewModel = ChatListViewModel()
+    @StateObject var viewModel = ChatDetailViewModel()
 
-    // 뷰 모델에 넣을 객체들
-    var userName: String = "최강헌"
+    var title: String = "최강헌"
     @State var userInputText: String = "하이"
 
 }
@@ -21,11 +20,17 @@ extension ChatDetailView {
 
     var body: some View {
         BaseView(appState: viewModel.appState) {
-            VStack {
+            VStack(spacing: 0) {
                 ScrollView {
-                    ChatBubbleView()
+                    ChatBubbleView(direction: .left) {
+                        TextWithFont(text: "형 하이", font: .light, size: 16)
+                    }
+
+                    ChatBubbleView(direction: .right) {
+                        TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
+                    }
                 }
-                .showNavigationBar(NavigationBar(useDismissButton: true, title: userName, useChatButton: false))
+                .showNavigationBar(NavigationBar(useDismissButton: true, title: title, useChatButton: false))
 
                 inputField
                     .padding(.leading, 20)
@@ -49,7 +54,8 @@ extension ChatDetailView {
             .frame(height: 40)
 
             Button {
-                print("Button Tapped")
+                print("\(userInputText)")
+                userInputText = ""
             } label: {
                 Image("Paperplane")
                     .frame(width: 24, height: 24)
