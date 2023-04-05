@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResumeCellView: View {
 
-    let resume: Resume
+    let resume: Resume    
     
     func applyStateTitle() -> String {
         var title = ""

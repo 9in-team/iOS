@@ -35,14 +35,8 @@ struct LocationViewWrapper: UIViewRepresentable {
         }
         
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            guard let touch = touches.first else { return }
-            let location = touch.location(in: self)
-            send(location)
-        }
-
-        func send(_ location: CGPoint) {
-            if bounds.contains(location) {
-                onUpdate?(CGPoint(x: round(location.x), y: round(location.y)))
+            if let frameFromSuperview = superview?.convert(frame, to: nil) {
+                onUpdate?(CGPoint(x: round(frameFromSuperview.midX), y: round(frameFromSuperview.midY)))
             }
         }
         
