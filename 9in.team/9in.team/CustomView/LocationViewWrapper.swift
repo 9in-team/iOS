@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LocationViewWrapper.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/04/03.
@@ -39,6 +39,8 @@ struct LocationViewWrapper: UIViewRepresentable {
                 onUpdate?(CGPoint(x: round(frameFromSuperview.midX), y: round(frameFromSuperview.midY)))
             }
         }
+        
+        // 필요한 메소드 override
         
     }
     

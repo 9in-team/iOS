@@ -19,6 +19,7 @@
 		DE7B0B7A29D8861A00CB90FE /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7929D8861A00CB90FE /* ChatListViewModel.swift */; };
 		DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */; };
 		DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */; };
+		DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */; };
 		DE9BD35D295853B300F28F1A /* 9in.team.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* 9in.team.swift */; };
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
 		DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD363295853B800F28F1A /* Preview Assets.xcassets */; };
@@ -118,6 +119,7 @@
 		DE7B0B7929D8861A00CB90FE /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
 		DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewWrapper.swift; sourceTree = "<group>"; };
+		DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		DE9BD359295853B300F28F1A /* 9in.team.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 9in.team.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD35C295853B300F28F1A /* 9in.team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9in.team.swift; sourceTree = "<group>"; };
 		DE9BD360295853B800F28F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				DE6FBDF22990ED9100816A7D /* Color.swift */,
 				DEB34E9729716F2200C0B973 /* UIImage.swift */,
 				DEB34E992971704A00C0B973 /* Data.swift */,
+				DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */,
 				DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */,
 				DEB0D36D29BB6B8D00B5E1B9 /* TeamDetailView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
