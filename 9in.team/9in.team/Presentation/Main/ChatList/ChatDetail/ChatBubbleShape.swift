@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatBubbleShape: Shape {
+    
     enum Direction {
         case left
         case right
@@ -71,4 +72,5 @@ struct ChatBubbleShape: Shape {
         }
         return path
     }
+    
 }

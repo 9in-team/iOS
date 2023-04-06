@@ -11,6 +11,7 @@ struct ChatBubbleView<Content>: View where Content: View {
 
     let direction: ChatBubbleShape.Direction
     let content: () -> Content
+    let bubbleColor: (left: Color, right: Color) = (Color(hexcode: "D9D9D9"), Color(hexcode: "BBDEFB"))
 
     init(direction: ChatBubbleShape.Direction, @ViewBuilder content: @escaping () -> Content) {
         self.content = content
@@ -30,28 +31,31 @@ extension ChatBubbleView {
             content()
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
-                .background(direction == .left ? Color(hexcode: "D9D9D9") : Color(hexcode: "BBDEFB") )
+                .background(direction == .left ? bubbleColor.left : bubbleColor.right )
                 .clipShape(ChatBubbleShape(direction: direction))
                 .overlay {
                     GeometryReader { proxy in
+                        let width = proxy.size.width
+                        let height = proxy.size.height
+
                         if direction == .right {
                             Path { path in
-                                path.move(to: CGPoint(x: proxy.size.width - 1.5, y: proxy.size.height - 17))
-                                path.addLine(to: CGPoint(x: proxy.size.width + 12, y: proxy.size.height))
-                                path.addLine(to: CGPoint(x: -1.5, y: proxy.size.height))
-                                path.addLine(to: CGPoint(x: proxy.size.width - 2, y: proxy.size.height))
+                                path.move(to: CGPoint(x: width - 1.5, y: height - 17))
+                                path.addLine(to: CGPoint(x: width + 12, y: height))
+                                path.addLine(to: CGPoint(x: -1.5, y: height))
+                                path.addLine(to: CGPoint(x: width - 2, y: height))
                             }
-                            .fill(Color(hexcode: "BBDEFB"))
+                            .fill(bubbleColor.right)
                         }
 
                         if direction == .left {
                             Path { path in
-                                path.move(to: CGPoint(x: 1.5, y: proxy.size.height - 17))
-                                path.addLine(to: CGPoint(x: -12, y: proxy.size.height))
-                                path.addLine(to: CGPoint(x: 1.5, y: proxy.size.height))
-                                path.addLine(to: CGPoint(x: 1.5, y: proxy.size.height - 17))
+                                path.move(to: CGPoint(x: 1.5, y: height - 17))
+                                path.addLine(to: CGPoint(x: -12, y: height))
+                                path.addLine(to: CGPoint(x: 1.5, y: height))
+                                path.addLine(to: CGPoint(x: 1.5, y: height - 17))
                             }
-                            .fill(Color(hexcode: "D9D9D9"))
+                            .fill(bubbleColor.left)
                         }
                     }
                 }
@@ -60,9 +64,9 @@ extension ChatBubbleView {
                 Spacer()
             }
         }
-        .padding([(direction == .left) ? .leading : .trailing], 21)
+        .padding((direction == .left) ? .leading : .trailing, 21)
         .padding((direction == .right) ? .leading : .trailing, 50)
-        .padding([.top, .bottom], 11)
+        .padding(.vertical, 11)
     }
 
 }
