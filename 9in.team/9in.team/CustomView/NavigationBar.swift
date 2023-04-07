@@ -37,9 +37,8 @@ struct NavigationBar: View {
                 }
                                 
                 TextWithFont(text: title, font: nil, size: title == "9in.team" ? 36 : 24)
-                    .frame(width: 160)
-                    .foregroundColor(Color.white)
-//                    .foregroundColor(Color(hexcode: "#FFFFFF")) 버그인가 색이 안들어간다
+                    .frame(width: 160, alignment: .leading)
+                    .foregroundColor(Color(hexcode: "FFFFFF"))
                                 
                 Spacer()
                 
