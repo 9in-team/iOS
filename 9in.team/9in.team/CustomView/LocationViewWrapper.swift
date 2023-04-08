@@ -26,12 +26,10 @@ struct LocationViewWrapper: UIViewRepresentable {
         
         override init(frame: CGRect) {
             super.init(frame: frame)
-            isUserInteractionEnabled = true
         }
         
         required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            isUserInteractionEnabled = true
+            super.init(coder: coder)            
         }
         
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

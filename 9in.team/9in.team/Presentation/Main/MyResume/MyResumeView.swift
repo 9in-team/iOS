@@ -79,7 +79,7 @@ extension MyResumeView {
                                                 HStack {
                                                     Image("Enquiry")
                                                         .resizable()
-                                                        .frame(width: 18, height: 14, alignment: .leading)
+                                                        .frame(width: 18, height: 14)
                                                         .foregroundColor(
                                                             Color(hexcode: "000000")
                                                                 .opacity(0.54)
@@ -105,7 +105,7 @@ extension MyResumeView {
                                                 HStack {
                                                     Image("Plus")
                                                         .resizable()
-                                                        .frame(width: 14, height: 14, alignment: .leading)
+                                                        .frame(width: 14, height: 14)
                                                         .foregroundColor(
                                                             Color(hexcode: "000000")
                                                                 .opacity(0.54)
