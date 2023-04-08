@@ -25,9 +25,14 @@ extension ChatListView {
     func mainBody() -> some View {
         ScrollView {
             VStack {
-                ChatCellView()                    
+                NavigationLink(destination: ChatDetailView()) {
+                    ChatCellView()
+                }
+
+                NavigationLink(destination: ChatDetailView()) {
+                    ChatCellView()
+                }
                 
-                ChatCellView()
             }                        
         }
     }
