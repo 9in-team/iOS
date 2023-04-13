@@ -15,7 +15,12 @@ struct NineInTeamApp: App {
     @StateObject var viewModel = SignViewModel()
     
     init() {
-        KakaoSDK.initSDK(appKey: PrivateConstant.kKakaoNativeAppKey)
+        if let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String {
+            KakaoSDK.initSDK(appKey: kakaoAppKey)
+        } else {
+            // ..
+        }
+        
         FirebaseApp.configure()
     }
     
