@@ -16,11 +16,13 @@ struct ReceivedPostView: View {
         case deny
     }
 
-    @StateObject var viewModel = ReceivedPostViewModel()
+    let navigationTitle = "받은 지원서"
 
-    let title = "받은 지원서"
-    @State var selectedButton: Options = .none
-    @State var message: String = "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!"
+    @StateObject private var viewModel = ReceivedPostViewModel()
+
+    @State private var selectedButton: Options = .none
+    @State private var message: String = "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!"
+
 }
 
 extension ReceivedPostView {
@@ -29,104 +31,91 @@ extension ReceivedPostView {
         BaseView(appState: viewModel.appState) {
             mainBody()
         }
-        .showNavigationBar(NavigationBar(useDismissButton: true, title: title))
+        .showNavigationBar(NavigationBar(useDismissButton: true, title: navigationTitle))
+        .ignoresSafeArea(edges: [.bottom, .horizontal])
+
     }
 
     func mainBody() -> some View {
+        ScrollView(showsIndicators: false) {
 
-        ZStack(alignment: .leading) {
+            ZStack(alignment: .leading) {
 
-            VStack(alignment: .leading, spacing: 13) {
+                VStack(alignment: .leading, spacing: 13) {
 
-                TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 24)
+                    TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 24)
+                        .padding(.horizontal, 12)
 
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                roleLabel(title: "프론트엔드 개발자")
-                                TextWithFont(text: "1시간 전", font: .regular, size: 12)
-                                    .padding(.leading, 4)
-                                    .opacity(0.38)
-                            }
-                            Spacer()
-                            VStack(spacing: 0) {
-                                profileImage()
-                                TextWithFont(text: "여섯글자임다", font: .regular, size: 12)
-                                    .frame(width: 70, height: 20)
-                            }
-                        }
-                        .padding(.top, 5)
-                        .padding(.bottom, 12)
+                    ZStack {
+                        VStack(alignment: .leading, spacing: 0) {
 
-                        Divider()
-                            .padding(.bottom, 10)
+                            profileField
+                                .padding(.top, 5)
+                                .padding(.bottom, 12)
 
-                        answerView()
-                            .padding(.bottom, 15)
+                            Divider()
+                                .padding(.bottom, 10)
 
-                        choiceButton
+                            answerView()
+                                .padding(.bottom, 15)
 
-                        Rectangle()
-                            .fill(.clear)
-                            .frame(height: 20)
-
-                        ZStack(alignment: .topLeading) {
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(lineWidth: 1)
-                                .fill(Color(hexcode: "000000").opacity(0.23))
+                            choiceButton
 
                             Rectangle()
-                                .foregroundColor(Color(hexcode: "FFFFFF"))
-                                .frame(width: 67, height: 3)
-                                .padding(.leading, 11)
-                                .padding(.top, -2)
+                                .fill(.clear)
+                                .frame(height: 20)
 
-                            TextWithFont(text: "보낼 메시지", font: .regular, size: 12)
-                                .foregroundColor(Color(hexcode: "000000").opacity(0.6))
-                                .background(Color.white)
-                                .padding(.leading, 16)
-                                .padding(.top, -6)
+                            PostTextEditor(text: $message)
 
-                            TextEditor(text: $message)
-                                .foregroundColor(Color(hexcode: "FFFFFF"))
-                                .font(.system(size: 16, weight: .regular))
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 12)
-                        }
+                            Rectangle()
+                                .fill(.clear)
+                                .frame(height: 20)
 
-                        Rectangle()
-                            .fill(.clear)
-                            .frame(height: 20)
-
-                        Button {
-
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(Color(hexcode: "42A5F5"))
+                            Button {
+                                print("메세지 전송")
+                            } label: {
                                 ZStack {
-                                    TextWithFont(text: "메시지 전송", font: .medium, size: 15)
-                                        .foregroundColor(Color(hexcode: "FFFFFF"))
-                                        .padding(.horizontal, 22)
-                                        .padding(.vertical, 8)
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .fill(Color(hexcode: "42A5F5"))
+                                    ZStack {
+                                        TextWithFont(text: "메시지 전송", font: .medium, size: 15)
+                                            .foregroundColor(Color(hexcode: "FFFFFF"))
+                                            .padding(.horizontal, 22)
+                                            .padding(.vertical, 8)
+                                    }
+                                    .frame(width: 120, height: 42)
+
                                 }
-                                .frame(width: 120, height: 42)
-
                             }
+                            .padding(.bottom, 20)
                         }
+                        .padding(.horizontal, 12)
 
-                        Rectangle()
-                            .fill(.clear)
-                            .frame(height: 20)
                     }
+                    .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
                     .padding(.horizontal, 12)
-                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
+
                 }
 
-                Spacer()
             }
 
+        }
+    }
+
+    var profileField: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                roleLabel(title: "프론트엔드 개발자")
+                TextWithFont(text: "1시간 전", font: .regular, size: 12)
+                    .padding(.leading, 4)
+                    .opacity(0.38)
+            }
+            Spacer()
+            VStack(spacing: 0) {
+                profileImage()
+                TextWithFont(text: "여섯글자임..", font: .regular, size: 12)
+                    .frame(width: 70, height: 20)
+            }
         }
     }
 
@@ -179,7 +168,7 @@ extension ReceivedPostView {
     func divider() -> some View {
         Rectangle()
             .fill(Color(hexcode: "000000").opacity(0.42))
-            .frame(width: .infinity, height: 1)
+            .frame(height: 1)
     }
 
     func answerView() -> some View {
@@ -272,10 +261,4 @@ extension ReceivedPostView {
         .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
     }
 
-}
-
-struct RecevedPostView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReceivedPostView()
-    }
 }
