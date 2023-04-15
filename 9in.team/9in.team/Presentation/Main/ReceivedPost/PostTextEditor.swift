@@ -14,6 +14,7 @@ struct PostTextEditor: View {
     let fontSize: CGFloat = 16
 
     @Binding var text: String
+    var isDisabled: Bool = false
 
     var body: some View {
         
@@ -41,7 +42,7 @@ struct PostTextEditor: View {
                 TextEditor(text: $text)
                     .foregroundColor(
                         Color(hexcode: "000000")
-                            .opacity(0.87)
+                            .opacity(isDisabled ? 0.38 : 0.87)
                     )
                 Text(text)
                     .opacity(0)
