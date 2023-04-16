@@ -12,6 +12,7 @@ struct PostTextEditor: View {
     let title: String = "보낼 메시지"
     let cornerRadius: CGFloat = 4
     let fontSize: CGFloat = 16
+    let lineHeight: CGFloat = 1.28
 
     @Binding var text: String
     var isDisabled: Bool = false
@@ -48,8 +49,9 @@ struct PostTextEditor: View {
                     .opacity(0)
                     .padding(.vertical, 8)
             }
+            .frame(minHeight: 24)
             .font(.system(size: fontSize))
-            .lineSpacing(fontSize * 1.28 - fontSize)
+            .lineSpacing(fontSize * lineHeight - fontSize)
             .background(Color(hexcode: "FFFFFF"))
             .cornerRadius(cornerRadius)
             .padding(.vertical, 8)
@@ -57,10 +59,4 @@ struct PostTextEditor: View {
         }
     }
 
-}
-
-struct TextEditorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReceivedPostView()
-    }
 }

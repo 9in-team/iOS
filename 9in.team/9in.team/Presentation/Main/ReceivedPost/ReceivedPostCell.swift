@@ -15,7 +15,7 @@ struct ReceivedPostCell: View {
         case deny
     }
 
-    @ObservedObject var viewModel: ReceivedPostViewModel
+    @EnvironmentObject var viewModel: ReceivedPostViewModel
 
     @State var approvalStatus: ApprovalStatus = .none
     @State var message: String = ""
@@ -34,8 +34,9 @@ extension ReceivedPostCell {
                 : Color.clear
             })
             .cornerRadius(4)
-            .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
             .disabled(isApproved)
+            .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
+
     }
 
     func mainBody() -> some View {
@@ -65,6 +66,7 @@ extension ReceivedPostCell {
 
                 heightSpacer(10)
             }
+
     }
 
     func profileField() -> some View {
@@ -233,16 +235,6 @@ extension ReceivedPostCell {
                 .frame(width: 120, height: 42)
             }
         }
-    }
-
-    func textUnderLine() -> some View {
-        Divider()
-            .frame(height: 1)
-            .foregroundColor(
-                Color(hexcode: "000000")
-                    .opacity(0.42)
-            )
-            .border(Color(hexcode: "000000").opacity(0.42), width: 1)
     }
 
     func heightSpacer(_ height: CGFloat) -> some View {

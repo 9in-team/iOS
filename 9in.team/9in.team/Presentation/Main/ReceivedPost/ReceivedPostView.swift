@@ -21,6 +21,7 @@ extension ReceivedPostView {
 
         BaseView(appState: viewModel.appState) {
             mainBody()
+                .environmentObject(viewModel)
         }
         .showNavigationBar(NavigationBar(useDismissButton: true, title: navigationTitle))
         .ignoresSafeArea(edges: [.bottom, .horizontal])
@@ -34,10 +35,13 @@ extension ReceivedPostView {
                 TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 24)
 
                 VStack(alignment: .leading, spacing: 35) { // 추후 List로 바꿀예정
-                    ReceivedPostCell(viewModel: viewModel, message: "")
-                    ReceivedPostCell(viewModel: viewModel, approvalStatus: .apply, message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!", isApproved: false)
-                    ReceivedPostCell(viewModel: viewModel, approvalStatus: .apply, message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!", isApproved: true)
-                    ReceivedPostCell(viewModel: viewModel, approvalStatus: .deny, isApproved: true)
+                    ReceivedPostCell(message: "", isApproved: false)
+
+                    ReceivedPostCell(approvalStatus: .apply, message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!", isApproved: false)
+
+                    ReceivedPostCell(approvalStatus: .apply, message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!", isApproved: true)
+
+                    ReceivedPostCell(approvalStatus: .deny, isApproved: true)
                 }
             }
             .padding(.horizontal, 20)
