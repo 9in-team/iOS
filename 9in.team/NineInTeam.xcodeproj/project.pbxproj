@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
+		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
+		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
 		39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */; };
 		39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */; };
 		DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DE4E91642989128E00EC009F /* KakaoSDK */; };
@@ -112,8 +115,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
+		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
 		39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
 		DE5E998B29D4780100D32B8E /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
@@ -239,6 +245,16 @@
 			path = ChatDetail;
 			sourceTree = "<group>";
 		};
+		39BD81D329E402B900F35E0B /* ReceivedPost */ = {
+			isa = PBXGroup;
+			children = (
+				39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */,
+				39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */,
+				39694FED29E6D78F00F2C75C /* PostTextEditor.swift */,
+			);
+			path = ReceivedPost;
+			sourceTree = "<group>";
+		};
 		DE5E998A29D477D900D32B8E /* ProfileEdit */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +272,7 @@
 				DE6FBDE52990E83400816A7D /* MainView.swift */,
 				DEB0D36E29BF4FE900B5E1B9 /* BottomNavigationItem.swift */,
 				DEB0D35A29AF7E3D00B5E1B9 /* Home */,
+				39BD81D329E402B900F35E0B /* ReceivedPost */,
 				DEB0D35B29AF7E4500B5E1B9 /* MySubscribe */,
 				DEB0D35D29AF7E5100B5E1B9 /* MyPost */,
 				DEB0D35C29AF7E4F00B5E1B9 /* MyResume */,
@@ -805,6 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */,
 				DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */,
 				DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */,
 				DEB0D36D29BB6B8D00B5E1B9 /* TeamDetailView.swift in Sources */,
@@ -840,6 +858,7 @@
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
+				39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
 				DEB0D38329C349BD00B5E1B9 /* Post.swift in Sources */,
@@ -870,6 +889,7 @@
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
 				DEB38C9029CB23C800EF915E /* AppState.swift in Sources */,
+				39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */,
 				DEB0D38A29C62D5B00B5E1B9 /* ResumeCellView.swift in Sources */,
 				DEB0D38529C34A1900B5E1B9 /* PostCellView.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
