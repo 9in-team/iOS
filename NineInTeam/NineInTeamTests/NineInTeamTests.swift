@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import _in_team
 
 final class NineInTeamTests: XCTestCase {
 

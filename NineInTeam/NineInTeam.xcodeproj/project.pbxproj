@@ -1060,7 +1060,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NineinTeam/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
@@ -1094,7 +1094,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NineinTeam/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
 				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
@@ -1175,7 +1175,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NineinTeam;
+				TEST_TARGET_NAME = NineInTeam;
 			};
 			name = Debug;
 		};
@@ -1193,7 +1193,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NineinTeam;
+				TEST_TARGET_NAME = NineInTeam;
 			};
 			name = Release;
 		};
