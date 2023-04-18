@@ -104,14 +104,14 @@
 			containerPortal = DE9BD351295853B300F28F1A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DE9BD358295853B300F28F1A;
-			remoteInfo = 9in.team;
+			remoteInfo = NineInTeam;
 		};
 		DE9BD374295853B900F28F1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE9BD351295853B300F28F1A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DE9BD358295853B300F28F1A;
-			remoteInfo = 9in.team;
+			remoteInfo = NineInTeam;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -682,7 +682,7 @@
 				DE4E91642989128E00EC009F /* KakaoSDK */,
 				DEC82E2229AA780800D17C50 /* FirebaseStorage */,
 			);
-			productName = 9in.team;
+			productName = NineInTeam;
 			productReference = DE9BD359295853B300F28F1A /* NineInTeam.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -700,7 +700,7 @@
 				DE9BD36B295853B900F28F1A /* PBXTargetDependency */,
 			);
 			name = NineInTeamTests;
-			productName = 9in.teamTests;
+			productName = NineInTeamTests;
 			productReference = DE9BD369295853B900F28F1A /* NineInTeamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -718,7 +718,7 @@
 				DE9BD375295853B900F28F1A /* PBXTargetDependency */,
 			);
 			name = NineInTeamUITests;
-			productName = 9in.teamUITests;
+			productName = NineInTeamUITests;
 			productReference = DE9BD373295853B900F28F1A /* NineInTeamUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -1137,7 +1137,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/9in.team.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/9in.team";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NineInTeam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NineInTeam";
 			};
 			name = Debug;
 		};
@@ -1157,7 +1157,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/9in.team.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/9in.team";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NineInTeam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NineInTeam";
 			};
 			name = Release;
 		};
