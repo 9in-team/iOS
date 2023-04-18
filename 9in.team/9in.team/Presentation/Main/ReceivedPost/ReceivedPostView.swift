@@ -37,14 +37,20 @@ extension ReceivedPostView {
                 VStack(alignment: .leading, spacing: 35) { // 추후 List로 바꿀예정
                     ReceivedPostCell(message: "", isApproved: false)
 
-                    ReceivedPostCell(approvalStatus: .apply, message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!", isApproved: false)
+                    ReceivedPostCell(approvalStatus: .apply,
+                                     message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!",
+                                     isApproved: false)
 
-                    ReceivedPostCell(approvalStatus: .apply, message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!", isApproved: true)
+                    ReceivedPostCell(approvalStatus: .apply,
+                                     message: "저희 같이 스터디 잘 해봐요 :) 전달된 채팅방 링크 통해서 들어와주세요!",
+                                     isApproved: true)
 
-                    ReceivedPostCell(approvalStatus: .deny, isApproved: true)
+                    ReceivedPostCell(approvalStatus: .deny,
+                                     isApproved: true)
                 }
             }
             .padding(.horizontal, 20)
         }
     }
+    
 }

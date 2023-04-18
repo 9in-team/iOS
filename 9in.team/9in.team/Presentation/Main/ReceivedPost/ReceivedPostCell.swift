@@ -40,32 +40,34 @@ extension ReceivedPostCell {
     }
 
     func mainBody() -> some View {
-            VStack(alignment: .leading, spacing: 0) {
-                profileField()
+        VStack(alignment: .leading, spacing: 0) {
+            profileField()
+
+            heightSpacer(20)
+
+            postTemplateView()
+
+            heightSpacer(15)
+
+            approveButton()
+
+            heightSpacer(20)
+
+            if !isApproved || approvalStatus == .apply {
+                PostTextEditor(text: $message,
+                               isDisabled: isApproved && approvalStatus == .apply)
 
                 heightSpacer(20)
-
-                postTemplateView()
-
-                heightSpacer(15)
-
-                approveButton()
-
-                heightSpacer(20)
-
-                if !isApproved || approvalStatus == .apply {
-                    PostTextEditor(text: $message,
-                                   isDisabled: isApproved && approvalStatus == .apply)
-                    heightSpacer(20)
-                }
-
-                if isApproved == false {
-                    sendMessageButton()
-                    heightSpacer(20)
-                }
-
-                heightSpacer(10)
             }
+
+            if isApproved == false {
+                sendMessageButton()
+
+                heightSpacer(20)
+            }
+
+            heightSpacer(10)
+        }
 
     }
 
@@ -110,6 +112,7 @@ extension ReceivedPostCell {
         ZStack {
             Circle()
                 .fill(Color(hexcode: "E0E0E0"))
+
             Image("Avatar")
                 .resizable()
                 .scaledToFit()
@@ -126,13 +129,11 @@ extension ReceivedPostCell {
 
             TextWithFont(text: "Ruby I", font: .regular, size: 16)
                 .modifier(TextUnderLine())
-
         }
     }
 
     func postTemplateView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
-
             answerTextField()
                 .modifier(ApplyTemplate(question: "1. solved.ac 티어가 어떻게 되세요?"))
 
@@ -149,6 +150,7 @@ extension ReceivedPostCell {
                 Image("File")
                     .resizable()
                     .frame(width: 16, height: 20)
+
                 TextWithFont(text: "포트폴리오.pdf", font: .regular, size: 14)
             }
             .modifier(ApplyTemplate(question: "3. 포트폴리오 첨부해주세요"))
@@ -173,6 +175,7 @@ extension ReceivedPostCell {
                         Image("Check")
                             .resizable()
                             .frame(width: 15, height: 12)
+
                         TextWithFont(text: "승인", font: .medium, size: 14)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
@@ -196,6 +199,7 @@ extension ReceivedPostCell {
                         Image("Xmark")
                             .resizable()
                             .frame(width: 12, height: 12)
+
                         TextWithFont(text: "거절", font: .medium, size: 14)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
@@ -226,6 +230,7 @@ extension ReceivedPostCell {
             ZStack {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color(hexcode: "42A5F5"))
+
                 ZStack {
                     TextWithFont(text: "메시지 전송", font: .medium, size: 15)
                         .foregroundColor(Color(hexcode: "FFFFFF"))
@@ -256,6 +261,7 @@ struct ApplyTemplate: ViewModifier {
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+
             content
                 .padding(.horizontal, 10)
         }
@@ -268,7 +274,8 @@ struct TextUnderLine: ViewModifier {
     func body(content: Content) -> some View {
         VStack(alignment: .leading, spacing: 6.5) {
             content
-            Divider()
+
+            Rectangle()
                 .frame(height: 1)
                 .foregroundColor(
                     Color(hexcode: "000000")
