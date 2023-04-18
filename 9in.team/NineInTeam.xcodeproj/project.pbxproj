@@ -31,8 +31,8 @@
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
 		DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD363295853B800F28F1A /* Preview Assets.xcassets */; };
 		DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */; };
-		DE9BD378295853B900F28F1A /* _in_teamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD377295853B900F28F1A /* _in_teamUITests.swift */; };
-		DE9BD37A295853B900F28F1A /* _in_teamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD379295853B900F28F1A /* _in_teamUITestsLaunchTests.swift */; };
+		DE9BD378295853B900F28F1A /* NineInTeamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD377295853B900F28F1A /* NineInTeamUITests.swift */; };
+		DE9BD37A295853B900F28F1A /* NineInTeamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD379295853B900F28F1A /* NineInTeamUITestsLaunchTests.swift */; };
 		DE9BD3912958610C00F28F1A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD3902958610C00F28F1A /* .swiftlint.yml */; };
 		DEA2B66929702FD000B77335 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B66829702FD000B77335 /* SignIn.swift */; };
 		DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA2B66B2970301A00B77335 /* BaseView.swift */; };
@@ -138,11 +138,11 @@
 		DE9BD35C295853B300F28F1A /* 9in.team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9in.team.swift; sourceTree = "<group>"; };
 		DE9BD360295853B800F28F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE9BD363295853B800F28F1A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DE9BD369295853B900F28F1A /* 9in.teamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 9in.teamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9BD369295853B900F28F1A /* NineInTeamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NineInTeamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeamTests.swift; sourceTree = "<group>"; };
-		DE9BD373295853B900F28F1A /* 9in.teamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 9in.teamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE9BD377295853B900F28F1A /* _in_teamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _in_teamUITests.swift; sourceTree = "<group>"; };
-		DE9BD379295853B900F28F1A /* _in_teamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _in_teamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DE9BD373295853B900F28F1A /* NineInTeamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NineInTeamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9BD377295853B900F28F1A /* NineInTeamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeamUITests.swift; sourceTree = "<group>"; };
+		DE9BD379295853B900F28F1A /* NineInTeamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DE9BD3902958610C00F28F1A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DEA2B66829702FD000B77335 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		DEA2B66B2970301A00B77335 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -327,8 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				DE9BD35B295853B300F28F1A /* 9in.team */,
-				DE9BD36C295853B900F28F1A /* 9in.teamTests */,
-				DE9BD376295853B900F28F1A /* 9in.teamUITests */,
+				DE9BD36C295853B900F28F1A /* NineInTeamTests */,
+				DE9BD376295853B900F28F1A /* NineInTeamUITests */,
 				DE9BD35A295853B300F28F1A /* Products */,
 				DEC82E2129AA77F400D17C50 /* Frameworks */,
 			);
@@ -338,8 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				DE9BD359295853B300F28F1A /* 9in.team.app */,
-				DE9BD369295853B900F28F1A /* 9in.teamTests.xctest */,
-				DE9BD373295853B900F28F1A /* 9in.teamUITests.xctest */,
+				DE9BD369295853B900F28F1A /* NineInTeamTests.xctest */,
+				DE9BD373295853B900F28F1A /* NineInTeamUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,21 +373,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DE9BD36C295853B900F28F1A /* 9in.teamTests */ = {
+		DE9BD36C295853B900F28F1A /* NineInTeamTests */ = {
 			isa = PBXGroup;
 			children = (
 				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
 			);
-			path = 9in.teamTests;
+			path = NineInTeamTests;
 			sourceTree = "<group>";
 		};
-		DE9BD376295853B900F28F1A /* 9in.teamUITests */ = {
+		DE9BD376295853B900F28F1A /* NineInTeamUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DE9BD377295853B900F28F1A /* _in_teamUITests.swift */,
-				DE9BD379295853B900F28F1A /* _in_teamUITestsLaunchTests.swift */,
+				DE9BD377295853B900F28F1A /* NineInTeamUITests.swift */,
+				DE9BD379295853B900F28F1A /* NineInTeamUITestsLaunchTests.swift */,
 			);
-			path = 9in.teamUITests;
+			path = NineInTeamUITests;
 			sourceTree = "<group>";
 		};
 		DEA2B66629702F4A00B77335 /* Presentation */ = {
@@ -684,9 +684,9 @@
 			productReference = DE9BD359295853B300F28F1A /* 9in.team.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DE9BD368295853B900F28F1A /* 9in.teamTests */ = {
+		DE9BD368295853B900F28F1A /* NineInTeamTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE9BD380295853B900F28F1A /* Build configuration list for PBXNativeTarget "9in.teamTests" */;
+			buildConfigurationList = DE9BD380295853B900F28F1A /* Build configuration list for PBXNativeTarget "NineInTeamTests" */;
 			buildPhases = (
 				DE9BD365295853B900F28F1A /* Sources */,
 				DE9BD366295853B900F28F1A /* Frameworks */,
@@ -697,14 +697,14 @@
 			dependencies = (
 				DE9BD36B295853B900F28F1A /* PBXTargetDependency */,
 			);
-			name = 9in.teamTests;
+			name = NineInTeamTests;
 			productName = 9in.teamTests;
-			productReference = DE9BD369295853B900F28F1A /* 9in.teamTests.xctest */;
+			productReference = DE9BD369295853B900F28F1A /* NineInTeamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DE9BD372295853B900F28F1A /* 9in.teamUITests */ = {
+		DE9BD372295853B900F28F1A /* NineInTeamUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE9BD383295853B900F28F1A /* Build configuration list for PBXNativeTarget "9in.teamUITests" */;
+			buildConfigurationList = DE9BD383295853B900F28F1A /* Build configuration list for PBXNativeTarget "NineInTeamUITests" */;
 			buildPhases = (
 				DE9BD36F295853B900F28F1A /* Sources */,
 				DE9BD370295853B900F28F1A /* Frameworks */,
@@ -715,9 +715,9 @@
 			dependencies = (
 				DE9BD375295853B900F28F1A /* PBXTargetDependency */,
 			);
-			name = 9in.teamUITests;
+			name = NineInTeamUITests;
 			productName = 9in.teamUITests;
-			productReference = DE9BD373295853B900F28F1A /* 9in.teamUITests.xctest */;
+			productReference = DE9BD373295853B900F28F1A /* NineInTeamUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -743,7 +743,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DE9BD354295853B300F28F1A /* Build configuration list for PBXProject "9in.team" */;
+			buildConfigurationList = DE9BD354295853B300F28F1A /* Build configuration list for PBXProject "NineInTeam" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -761,8 +761,8 @@
 			projectRoot = "";
 			targets = (
 				DE9BD358295853B300F28F1A /* 9in.team */,
-				DE9BD368295853B900F28F1A /* 9in.teamTests */,
-				DE9BD372295853B900F28F1A /* 9in.teamUITests */,
+				DE9BD368295853B900F28F1A /* NineInTeamTests */,
+				DE9BD372295853B900F28F1A /* NineInTeamUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -915,8 +915,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE9BD37A295853B900F28F1A /* _in_teamUITestsLaunchTests.swift in Sources */,
-				DE9BD378295853B900F28F1A /* _in_teamUITests.swift in Sources */,
+				DE9BD37A295853B900F28F1A /* NineInTeamUITestsLaunchTests.swift in Sources */,
+				DE9BD378295853B900F28F1A /* NineInTeamUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1197,7 +1197,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DE9BD354295853B300F28F1A /* Build configuration list for PBXProject "9in.team" */ = {
+		DE9BD354295853B300F28F1A /* Build configuration list for PBXProject "NineInTeam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE9BD37B295853B900F28F1A /* Debug */,
@@ -1215,7 +1215,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE9BD380295853B900F28F1A /* Build configuration list for PBXNativeTarget "9in.teamTests" */ = {
+		DE9BD380295853B900F28F1A /* Build configuration list for PBXNativeTarget "NineInTeamTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE9BD381295853B900F28F1A /* Debug */,
@@ -1224,7 +1224,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE9BD383295853B900F28F1A /* Build configuration list for PBXNativeTarget "9in.teamUITests" */ = {
+		DE9BD383295853B900F28F1A /* Build configuration list for PBXNativeTarget "NineInTeamUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE9BD384295853B900F28F1A /* Debug */,
