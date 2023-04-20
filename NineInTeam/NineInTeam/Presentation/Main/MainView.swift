@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    @StateObject var coordinator = Coordinator()
+    
     @State private var selection = 0
     
     func getColor(isSelected: Bool) -> Color {

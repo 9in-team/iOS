@@ -11,6 +11,8 @@ struct HomeView: View {
 
     @StateObject var viewModel = HomeViewModel()
     
+    @StateObject var coordinator = Coordinator()
+    
     @State var currentTab: Int = 0
     
 }
@@ -38,9 +40,15 @@ extension HomeView {
                     .foregroundColor(Color.clear)
                 
                 ForEach(viewModel.teams, id: \.teamId) { team in
-                    NavigationLink(destination: TeamDetailView(team: team)) {
+                    Button {
+                        coordinator.push(destination: .teamDetail(team))
+                    } label: {
                         TeamCellView(team: team)
                     }
+                    
+//                    NavigationLink(destination: TeamDetailView(team: team)) {
+//                        TeamCellView(team: team)
+//                    }
                 }
             }
             

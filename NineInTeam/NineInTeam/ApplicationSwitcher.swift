@@ -15,7 +15,7 @@ struct ApplicationSwitcher: View {
         if viewModel.isSingIn {
                 MainView()
         } else {
-            SignIn()
+            SignInView()
                 .onAppear {
                     viewModel.autoLogin()
                 }
