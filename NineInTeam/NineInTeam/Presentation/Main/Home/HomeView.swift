@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
 
-    @StateObject var viewModel = HomeViewModel()
+    @EnvironmentObject var coordinator: Coordinator
     
-    @StateObject var coordinator = Coordinator()
+    @StateObject var viewModel = HomeViewModel()
     
     @State var currentTab: Int = 0
     
@@ -20,15 +20,17 @@ struct HomeView: View {
 extension HomeView {
     
     var body: some View {
-        BaseView(appState: viewModel.appState) {
+        BaseView(appState: viewModel.appState, coordinator: coordinator) {
             mainBody()
-                .showTabNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"),
-                                          TabNavigationBar(tabList: ["전체", "스터디", "프로젝트"]) { selectedIndex in
+                .showTabNavigationBar(NavigationBar(coordinator: coordinator,
+                                                    useDismissButton: false,
+                                                    title: "9in.team"),
+                                      TabNavigationBar(tabList: ["전체", "스터디", "프로젝트"]) { selectedIndex in
                     currentTab = selectedIndex
                 })
         }
         .onAppear {
-            viewModel.requestFristPage()            
+            viewModel.requestFristPage()
         }
     }
     

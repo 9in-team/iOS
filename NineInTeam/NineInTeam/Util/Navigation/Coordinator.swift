@@ -6,70 +6,45 @@
 //
 
 import SwiftUI
+import Combine
 
 final class Coordinator: ObservableObject {
+     
+    private var destination: Destination = .signIn
     
-    var destination: Destination = .signIn
-
     @Published private var rootNavigationTrigger = false
     @Published private var navigationTrigger = false
     
     private let isRoot: Bool
+    private let kPopToRoot = Notification.Name("popToRoot")
+    
+    private var cancellable: Set<AnyCancellable> = []
     
     init(isRoot: Bool = false) {
         self.isRoot = isRoot
-    }
-    
-    enum Destination {
-        case signIn
-        case main
         
-        case home
-        case teamDetail(Team)
-        case writePost
-        
-        case mySubscribe
-        
-        case myPost
-        case postDetail
-        
-        case myResume
-        
-        @ViewBuilder
-        var view: some View {
-            switch self {
-            case .signIn:
-                SignInView()
-            case .main:
-                MainView()
-            case .home:
-                HomeView()
-            case .teamDetail(let team):
-                TeamDetailView(team: team)
-            case .writePost:
-                WritePostView()
-            case .mySubscribe:
-                MySubscribeView()
-            case .myPost:
-                MyPostView()
-            case .postDetail:
-                PostDetailView()
-            case .myResume:
-                MyResumeView()
-            }
+        if isRoot {
+            NotificationCenter.default.publisher(for: kPopToRoot)
+                .sink { [unowned self] _ in
+                    rootNavigationTrigger = false
+                }
+                .store(in: &cancellable)
         }
     }
     
     @ViewBuilder
     func navigationLinkSection() -> some View {
-        // availableNavigation
         NavigationLink(isActive: Binding<Bool>(get: getTrigger, set: setTrigger(newValue:))) {
             destination.view
         } label: {
             EmptyView()
         }
     }
-
+    
+    func popToRoot() {
+        NotificationCenter.default.post(name: kPopToRoot, object: nil)
+    }
+    
     func push(destination: Destination) {
         self.destination = destination
         if isRoot {
@@ -82,17 +57,13 @@ final class Coordinator: ObservableObject {
     private func getTrigger() -> Bool {
         isRoot ? rootNavigationTrigger : navigationTrigger
     }
-      
+    
     private func setTrigger(newValue: Bool) {
         if isRoot {
             rootNavigationTrigger = newValue
         } else {
             navigationTrigger = newValue
         }
-    }
-    
-    func popToRoot() {
-        NotificationCenter.default.post(name: Notification.Name("PopToRoot"), object: nil)
     }
     
 }

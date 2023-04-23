@@ -9,12 +9,14 @@ import SwiftUI
 
 struct BaseView<Content: View>: View {
          
-    @ObservedObject var appState: AppState    
+    @ObservedObject var appState: AppState
+    @ObservedObject var coordinator: Coordinator
     
     let content: Content
 
-    init(appState: AppState, content: () -> Content) {
+    init(appState: AppState, coordinator: Coordinator = Coordinator(), content: () -> Content) {
         self.appState = appState
+        self.coordinator = coordinator
         self.content = content()
     }
     
@@ -24,6 +26,8 @@ extension BaseView {
     
     var body: some View {
         ZStack {
+            coordinator.navigationLinkSection()
+            
             Color(UIColor.white)
                     
             content

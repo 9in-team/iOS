@@ -11,9 +11,12 @@ struct ApplicationSwitcher: View {
     
     @StateObject var viewModel = SignViewModel()
     
+    @StateObject var coordinator = Coordinator(isRoot: true)
+    
     var body: some View {
         if viewModel.isSingIn {
-                MainView()
+            MainView()
+                .environmentObject(coordinator)
         } else {
             SignInView()
                 .onAppear {

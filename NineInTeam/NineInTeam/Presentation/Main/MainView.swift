@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var coordinator = Coordinator()
+    @EnvironmentObject var coordinator: Coordinator
     
     @State private var selection = 0
     
@@ -30,12 +30,16 @@ extension MainView {
             VStack {
                 if selection == 0 {
                     HomeView()
+                        .environmentObject(coordinator)
                 } else if selection == 1 {
                     MySubscribeView()
+                        .environmentObject(coordinator)
                 } else if selection == 2 {
                     MyPostView()
+                        .environmentObject(coordinator)
                 } else if selection == 3 {
                     MyResumeView()
+                        .environmentObject(coordinator)
                 }
                 
                 HStack {
