@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SubscribeTagCell: View {
 
-    @Binding var isSubscribe: Bool
+    @Binding var subscribing: Bool
 
 }
 
