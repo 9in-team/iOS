@@ -44,10 +44,10 @@ extension SubscribeTagCell {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
                 .frame(width: 89, height: 65)
-                .foregroundColor(Color(hexcode: isSubscribe ? "C7C7CC" : "42A5F5"))
+                .foregroundColor(Color(hexcode: subscribing ? "C7C7CC" : "42A5F5"))
                 .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2, secondRadius: 2)
 
-            TextWithFont(text: isSubscribe ? "구독중" : "구독하기", font: .medium, size: 13)
+            TextWithFont(text: subscribing ? "구독중" : "구독하기", font: .medium, size: 13)
                 .foregroundColor(Color(hexcode: "FFFFFF"))
         }
     }
@@ -57,8 +57,8 @@ extension SubscribeTagCell {
 struct SubscribeTagCell_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            SubscribeTagCell(isSubscribe: .constant(false))
-            SubscribeTagCell(isSubscribe: .constant(true))
+            SubscribeTagCell(subscribing: .constant(false))
+            SubscribeTagCell(subscribing: .constant(true))
         }
     }
 }
