@@ -24,12 +24,16 @@ extension SubscribeTagView {
     }
 
     func mainBody() -> some View {
-        ZStack {
-            SubscribeTagCell()
-            SubscribeTagCell()
+        VStack(spacing: 16) {
+            SubscribeTagCell(isSubscribe: .constant(false))
+
+            SubscribeTagCell(isSubscribe: .constant(true))
+
+            Spacer()
         }
         .padding(.horizontal, 20)
     }
+
 }
 
 struct SubscribeTagView_Previews: PreviewProvider {

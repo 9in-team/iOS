@@ -9,12 +9,13 @@ import SwiftUI
 
 struct SubscribeTagCell: View {
 
+    @Binding var isSubscribe: Bool
+
 }
 
 extension SubscribeTagCell {
     var body: some View {
         ZStack {
-
             RoundedRectangle(cornerRadius: 4)
                 .fill(Color(hexcode: "FFFFFF"))
                 .shadow(color: Color(hexcode: "E0E0E0"),
@@ -34,24 +35,30 @@ extension SubscribeTagCell {
 
                 Spacer()
 
-                ZStack {
-                    RoundedRectangle(cornerRadius: 4)
-                        .frame(width: 89, height: 65)
-                    .foregroundColor(Color(hexcode: "42A5F5"))
-                    .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2, secondRadius: 2)
-                    // 그림자가 Figma랑 많이 다른데,, 방법이 없을까?
-                    TextWithFont(text: "구독하기", font: .medium, size: 13)
-                        .foregroundColor(Color(hexcode: "FFFFFF"))
-                }
+                subscribeStateButton()
             }
         }
     }
-    
+
+    func subscribeStateButton() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 4)
+                .frame(width: 89, height: 65)
+                .foregroundColor(Color(hexcode: isSubscribe ? "C7C7CC" : "42A5F5"))
+                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2, secondRadius: 2)
+
+            TextWithFont(text: isSubscribe ? "구독중" : "구독하기", font: .medium, size: 13)
+                .foregroundColor(Color(hexcode: "FFFFFF"))
+        }
+    }
+
 }
 
 struct SubscribeTagCell_Previews: PreviewProvider {
     static var previews: some View {
-        SubscribeTagCell()
-            .padding()
+        VStack {
+            SubscribeTagCell(isSubscribe: .constant(false))
+            SubscribeTagCell(isSubscribe: .constant(true))
+        }
     }
 }
