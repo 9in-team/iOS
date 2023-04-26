@@ -29,7 +29,9 @@ extension MainView {
                 if selection == 0 {
                     HomeView()
                 } else if selection == 1 {
-                    MySubscribeView()
+                    NavigationView {
+                        MySubscribeView()
+                    }
                 } else if selection == 2 {
                     MyPostView()
                 } else if selection == 3 {
@@ -62,7 +64,7 @@ extension MainView {
                         }
                 }
                 .frame(height: 60)
-            }            
+            }
         }
     }
     
