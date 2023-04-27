@@ -287,9 +287,17 @@
 			children = (
 				DE47790B29F16A4800C0EC3E /* AvailableNavigation.swift */,
 				DE47790829F1634000C0EC3E /* Coordinator.swift */,
-				DE47790D29F4005700C0EC3E /* Destination.swift */,
+				DE47790F29F94C6B00C0EC3E /* Destination */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		DE47790F29F94C6B00C0EC3E /* Destination */ = {
+			isa = PBXGroup;
+			children = (
+				DE47790D29F4005700C0EC3E /* Destination.swift */,
+			);
+			path = Destination;
 			sourceTree = "<group>";
 		};
 		DE5E998A29D477D900D32B8E /* ProfileEdit */ = {

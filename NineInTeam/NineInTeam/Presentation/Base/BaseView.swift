@@ -13,7 +13,9 @@ struct BaseView<Content: View>: View {
     @ObservedObject var coordinator: Coordinator
     
     let content: Content
-
+    
+    // TODO: BaseView를 사용하는 모든 뷰에서 coordinator 패턴 적용하면 아래 주석 생성자 사용
+//    init(appState: AppState, coordinator: Coordinator, content: () -> Content) {
     init(appState: AppState, coordinator: Coordinator = Coordinator(), content: () -> Content) {
         self.appState = appState
         self.coordinator = coordinator

@@ -8,24 +8,24 @@
 import SwiftUI
 
 enum Destination {
-    
+
     case signIn
     case main
-    
+
     case profileEdit
     case chatList
-    
+
     case home
     case teamDetail(Team)
     case writePost
-    
+
     case mySubscribe
-    
+
     case myPost
     case postDetail
-    
+
     case myResume
-    
+
     @ViewBuilder
     var view: some View {
         switch self {
@@ -53,5 +53,5 @@ enum Destination {
             MyResumeView()
         }
     }
-    
+
 }
