@@ -24,12 +24,14 @@ struct MainView: View {
 extension MainView {
     
     var body: some View {
-        NavigationView {            
+        NavigationView {
             VStack {
                 if selection == 0 {
                     HomeView()
                 } else if selection == 1 {
-                    MySubscribeView()
+                    NavigationView { // 구독하기 화면 Tab Bar 노출을 위한 Navigation 계층 추가.
+                        MySubscribeView()
+                    }
                 } else if selection == 2 {
                     MyPostView()
                 } else if selection == 3 {
@@ -48,13 +50,13 @@ extension MainView {
                         .onTapGesture {
                             selection = 1
                         }
-                     
+
                     BottomNavigationItem(imageName: "MyPost", imageWidth: 22, imageHeight: 14, titleName: "내 모집글")
                         .foregroundColor(getColor(isSelected: selection == 2))
                         .onTapGesture {
                             selection = 2
-                        }                        
-                    
+                        }
+
                     BottomNavigationItem(imageName: "MyResume", imageWidth: 18, imageHeight: 18, titleName: "내 지원서")
                         .foregroundColor(getColor(isSelected: selection == 3))
                         .onTapGesture {
@@ -62,7 +64,7 @@ extension MainView {
                         }
                 }
                 .frame(height: 60)
-            }            
+            }
         }
     }
     

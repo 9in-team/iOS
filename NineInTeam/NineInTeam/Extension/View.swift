@@ -63,19 +63,20 @@ extension View {
             .navigationBarHidden(true)
     }
     
-    func rectangleShadows(firstX: CGFloat, firstY: CGFloat, secondX: CGFloat, secondY: CGFloat) -> some View {
+    func rectangleShadows(firstX: CGFloat, firstY: CGFloat, firstRadius: CGFloat = 5,
+                          secondX: CGFloat, secondY: CGFloat, secondRadius: CGFloat = 5) -> some View {
         self
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 5)
                         .fill(Color.white)
                         .shadow(color: Color(hexcode: "000000").opacity(0.12),
-                                radius: 5, x: firstX, y: firstY)
+                                radius: firstRadius, x: firstX, y: firstY)
                     
                     RoundedRectangle(cornerRadius: 5)
                         .fill(Color.white)
                         .shadow(color: Color(hexcode: "000000").opacity(0.14),
-                                radius: 5, x: secondX, y: secondY)
+                                radius: secondRadius, x: secondX, y: secondY)
                 }
             )
     }
