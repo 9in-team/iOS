@@ -116,6 +116,7 @@ extension WritePostView {
                         TextWithFont(text: tag, font: .regular, size: 13)
                             .padding(.vertical, 6)
                             .padding(.horizontal, 10)
+                            .foregroundColor(Color(hexcode: "000000"))
                             .background(
                                 Capsule(style: .continuous)
                                     .stroke(Color(hexcode: "000000").opacity(0.26))
@@ -233,6 +234,7 @@ extension WritePostView {
             ScrollView {
                 // TextField로 변경
                 TextWithFont(text: "asdf\nasdfa]nasdfa\nadf\nasdfasd\nasdf", font: .regular, size: 16)
+                    .foregroundColor(Color(hexcode: "000000"))
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
@@ -372,4 +374,12 @@ extension WritePostView {
         }
     }
     
+}
+
+struct WritePostView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        WritePostView()
+
+    }
 }

@@ -291,10 +291,10 @@
 		DE6FBDE42990E82700816A7D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DE5E998A29D477D900D32B8E /* ProfileEdit */,
-				DE7B0B7629D8847100CB90FE /* ChatList */,
 				DE6FBDE52990E83400816A7D /* MainView.swift */,
 				DEB0D36E29BF4FE900B5E1B9 /* BottomNavigationItem.swift */,
+				DE5E998A29D477D900D32B8E /* ProfileEdit */,
+				DE7B0B7629D8847100CB90FE /* ChatList */,
 				DEB0D35A29AF7E3D00B5E1B9 /* Home */,
 				39BD81D329E402B900F35E0B /* ReceivedPost */,
 				DEB0D35B29AF7E4500B5E1B9 /* MySubscribe */,

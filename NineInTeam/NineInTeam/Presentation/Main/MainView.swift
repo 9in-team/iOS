@@ -61,6 +61,7 @@ extension MainView {
                             selection = 3
                         }
                 }
+                .background(Color(hexcode: "FFFFFF"))
                 .frame(height: 60)
             }            
         }
