@@ -24,8 +24,12 @@ extension MySubscribeView {
     
     func mainBody() -> some View {
         VStack(spacing: 20) {
-            subscribing()
-            
+            NavigationLink {
+                SubscribeTagView()
+            } label: {
+                subscribing()
+            }
+
             ScrollView {
                 Rectangle()
                     .frame(height: 0.1)
