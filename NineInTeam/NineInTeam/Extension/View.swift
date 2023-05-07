@@ -19,6 +19,7 @@ extension View {
             
             self
                 .padding(.bottom, 10)
+                .padding(.horizontal, 10)
                 .background(Color(hexcode: "FFFFFF"))
                 .navigationBarHiddenTrue()
             
@@ -39,6 +40,7 @@ extension View {
             
             self
                 .padding(.bottom, 10)
+                .padding(.horizontal, 10)
                 .background(Color(hexcode: "FFFFFF"))
                 .navigationBarHiddenTrue()
             
