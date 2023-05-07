@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TeamDetailView: View {
+    
+    @StateObject var coordinator = Coordinator()
 
     @StateObject var viewModel = HomeViewModel()
     
@@ -18,9 +20,11 @@ struct TeamDetailView: View {
 extension TeamDetailView {
     
     var body: some View {
-        BaseView(appState: viewModel.appState) {
+        BaseView(appState: viewModel.appState, coordinator: coordinator) {
             mainBody()
-                .showNavigationBar(NavigationBar(useDismissButton: true, title: team.subject))
+                .showNavigationBar(NavigationBar(coordinator: coordinator,
+                                                 useDismissButton: true,
+                                                 title: team.subject))
         }
     }
     

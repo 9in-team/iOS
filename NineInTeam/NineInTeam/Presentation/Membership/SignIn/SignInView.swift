@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  SignInView.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/01/12.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct SignIn: View {
+struct SignInView: View {
          
     @StateObject var viewModel = SignViewModel()
     
 }
 
-extension SignIn {
+extension SignInView {
     
     var body: some View {
         ZStack {

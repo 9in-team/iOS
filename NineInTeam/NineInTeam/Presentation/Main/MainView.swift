@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    @EnvironmentObject var coordinator: Coordinator
+    
     @State private var selection = 0
     
     func getColor(isSelected: Bool) -> Color {
@@ -27,7 +29,7 @@ extension MainView {
         NavigationView {
             VStack {
                 if selection == 0 {
-                    HomeView()
+                    HomeView()                        
                 } else if selection == 1 {
                     NavigationView { // 구독하기 화면 Tab Bar 노출을 위한 Navigation 계층 추가.
                         MySubscribeView()
