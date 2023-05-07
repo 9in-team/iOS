@@ -9,12 +9,14 @@ import SwiftUI
 
 struct NavigationBar: View {
     
+    @State var coordinator: Coordinator = Coordinator()
+    
     @Environment(\.presentationMode) var presentationMode
     
     let useDismissButton: Bool
     let title: String
     var useProfileButton: Bool = true
-    var useChatButton: Bool = true
+    var useChatButton: Bool = true    
     
     var body: some View {
         ZStack {
@@ -44,7 +46,9 @@ struct NavigationBar: View {
                 
                 HStack(spacing: 25) {
                     if useProfileButton {
-                        NavigationLink(destination: ProfileEditView()) {
+                        Button {
+                            coordinator.push(destination: .profileEdit)
+                        } label: {
                             Image("ProfileEdit")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -53,7 +57,9 @@ struct NavigationBar: View {
                     }
                     
                     if useChatButton {
-                        NavigationLink(destination: ChatListView()) {
+                        Button {
+                            coordinator.push(destination: .chatList)
+                        } label: {
                             Image("Chat")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)

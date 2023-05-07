@@ -10,7 +10,7 @@ import SwiftUI
 
 extension View {
     
-    func showNavigationBar(_ navigationBar: NavigationBar) -> some View {
+    func showNavigationBar(_ navigationBar: some View) -> some View {
         VStack(spacing: 0) {
             navigationBar
                 .frame(height: 70)
@@ -27,7 +27,7 @@ extension View {
         }
     }
     
-    func showTabNavigationBar(_ navigationBar: NavigationBar,
+    func showTabNavigationBar(_ navigationBar: some View,
                               _ tabNavigationBar: TabNavigationBar) -> some View {
         VStack(spacing: 0) {
             navigationBar

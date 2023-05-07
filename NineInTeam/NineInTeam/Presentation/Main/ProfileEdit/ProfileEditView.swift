@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProfileEditView: View {
     
+    @StateObject var coordinator = Coordinator()
+    
     @StateObject var viewModel = ProfileEditViewModel()
     
     @State var editedNickname: String = "김진홍"
@@ -18,9 +20,12 @@ struct ProfileEditView: View {
 extension ProfileEditView {
     
     var body: some View {
-        BaseView(appState: viewModel.appState) {
+        BaseView(appState: viewModel.appState, coordinator: coordinator) {
             mainBody()
-                .showNavigationBar(NavigationBar(useDismissButton: true, title: "회원정보 수정", useProfileButton: false))
+                .showNavigationBar(NavigationBar(coordinator: coordinator,
+                                                 useDismissButton: true,
+                                                 title: "회원정보 수정",
+                                                 useProfileButton: false))
         }
     }
     

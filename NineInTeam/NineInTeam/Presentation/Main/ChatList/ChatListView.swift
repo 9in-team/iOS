@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChatListView: View {
     
+    @StateObject var coordinator = Coordinator()
+    
     @StateObject var viewModel = ChatListViewModel()
     
 }
@@ -16,14 +18,17 @@ struct ChatListView: View {
 extension ChatListView {
     
     var body: some View {
-        BaseView(appState: viewModel.appState) {
+        BaseView(appState: viewModel.appState, coordinator: coordinator) {
             mainBody()
-                .showNavigationBar(NavigationBar(useDismissButton: true, title: "대화방 목록", useChatButton: false))
+                .showNavigationBar(NavigationBar(coordinator: coordinator,
+                                                 useDismissButton: true,
+                                                 title: "대화방 목록",
+                                                 useChatButton: false))
         }
     }
     
     func mainBody() -> some View {
-        ScrollView {
+        ScrollView {            
             VStack {
                 NavigationLink(destination: ChatDetailView()) {
                     ChatCellView()
