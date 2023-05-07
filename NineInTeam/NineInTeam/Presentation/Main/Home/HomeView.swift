@@ -47,10 +47,6 @@ extension HomeView {
                     } label: {
                         TeamCellView(team: team)
                     }
-                    
-//                    NavigationLink(destination: TeamDetailView(team: team)) {
-//                        TeamCellView(team: team)
-//                    }
                 }
             }
             

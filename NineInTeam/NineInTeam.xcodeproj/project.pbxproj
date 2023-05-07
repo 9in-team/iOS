@@ -16,7 +16,6 @@
 		39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */; };
 		39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */; };
 		DE47790929F1634100C0EC3E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47790829F1634000C0EC3E /* Coordinator.swift */; };
-		DE47790C29F16A4800C0EC3E /* AvailableNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47790B29F16A4800C0EC3E /* AvailableNavigation.swift */; };
 		DE47790E29F4005700C0EC3E /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47790D29F4005700C0EC3E /* Destination.swift */; };
 		DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DE4E91642989128E00EC009F /* KakaoSDK */; };
 		DE5E998C29D4780100D32B8E /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E998B29D4780100D32B8E /* ProfileEditView.swift */; };
@@ -127,7 +126,6 @@
 		39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
 		DE47790829F1634000C0EC3E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		DE47790B29F16A4800C0EC3E /* AvailableNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNavigation.swift; sourceTree = "<group>"; };
 		DE47790D29F4005700C0EC3E /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		DE5E998B29D4780100D32B8E /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 		DE47790A29F169FC00C0EC3E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				DE47790B29F16A4800C0EC3E /* AvailableNavigation.swift */,
 				DE47790829F1634000C0EC3E /* Coordinator.swift */,
 				DE47790F29F94C6B00C0EC3E /* Destination */,
 			);
@@ -859,7 +856,6 @@
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
 				DEB0D37529C0AE3C00B5E1B9 /* MyPostView.swift in Sources */,
-				DE47790C29F16A4800C0EC3E /* AvailableNavigation.swift in Sources */,
 				DEB0D37729C0AE4900B5E1B9 /* MyPostViewModel.swift in Sources */,
 				DE6FBDE82990E89200816A7D /* View.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,

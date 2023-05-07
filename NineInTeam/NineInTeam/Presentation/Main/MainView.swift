@@ -29,17 +29,13 @@ extension MainView {
         NavigationView {            
             VStack {
                 if selection == 0 {
-                    HomeView()
-                        .environmentObject(coordinator)
+                    HomeView()                        
                 } else if selection == 1 {
                     MySubscribeView()
-                        .environmentObject(coordinator)
                 } else if selection == 2 {
                     MyPostView()
-                        .environmentObject(coordinator)
                 } else if selection == 3 {
                     MyResumeView()
-                        .environmentObject(coordinator)
                 }
                 
                 HStack {
