@@ -19,7 +19,6 @@ extension View {
             
             self
                 .padding(.bottom, 10)
-                .padding(.horizontal, 10)
                 .navigationBarHiddenTrue()
             
             Spacer()
@@ -39,7 +38,6 @@ extension View {
             
             self
                 .padding(.bottom, 10)
-                .padding(.horizontal, 10)
                 .navigationBarHiddenTrue()
             
             Spacer()
