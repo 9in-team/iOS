@@ -50,6 +50,7 @@ extension MyResumeView {
                         selectedIndex = index
                         alertPoint = point
                     }
+                    .padding(.horizontal, 20)
             }
         }
         .overlay(resumeCellViewAlert())
@@ -142,3 +143,13 @@ extension MyResumeView {
     }
                 
 }
+
+#if DEBUG
+struct MyResumeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            MyResumeView()
+        }
+    }
+}
+#endif

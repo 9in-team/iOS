@@ -20,28 +20,32 @@ extension ChatDetailView {
 
     var body: some View {
         BaseView(appState: viewModel.appState) {
-            VStack(spacing: 0) {
-                ScrollView {
+            mainBody()
+        }
+        .showNavigationBar(NavigationBar(useDismissButton: true, title: title, useChatButton: false))
+    }
 
-                    ChatBubbleView(direction: .left) {
-                        TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 같이 앱 만들어 보실래요?", font: .light, size: 16)
-                    }
+    func mainBody() -> some View {
+        VStack(spacing: 0) {
+            ScrollView {
 
-                    ChatBubbleView(direction: .right) {
-                        TextWithFont(text: "형 하이", font: .light, size: 16)
-                    }
-
-                    ChatBubbleView(direction: .left) {
-                        TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
-                    }
-
+                ChatBubbleView(direction: .left) {
+                    TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 같이 앱 만들어 보실래요?", font: .light, size: 16)
                 }
-                .showNavigationBar(NavigationBar(useDismissButton: true, title: title, useChatButton: false))
 
-                inputField
-                    .padding(.leading, 20)
-                    .padding(.trailing, 12)
+                ChatBubbleView(direction: .right) {
+                    TextWithFont(text: "형 하이", font: .light, size: 16)
+                }
+
+                ChatBubbleView(direction: .left) {
+                    TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
+                }
+
             }
+
+            inputField
+                .padding(.leading, 20)
+                .padding(.trailing, 12)
         }
     }
 
@@ -76,3 +80,13 @@ extension ChatDetailView {
     }
 
 }
+
+#if DEBUG
+struct ChatDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            ChatDetailView()
+        }
+    }
+}
+#endif
