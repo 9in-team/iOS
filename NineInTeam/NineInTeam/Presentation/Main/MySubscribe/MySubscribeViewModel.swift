@@ -11,7 +11,12 @@ class MySubscribeViewModel: BaseViewModel {
     
     var service: NetworkProtocol
     
-    @Published var subscribes: [Subscribe] = []
+    @Published var subscribes: [Subscribe] = [
+        Subscribe(),
+        Subscribe(),
+        Subscribe(),
+        Subscribe()
+    ]
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
