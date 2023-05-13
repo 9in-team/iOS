@@ -29,9 +29,21 @@ extension MyPostView {
                 .foregroundColor(Color.clear)
             
             PostCellView(post: Post(badge: 1))
+                .padding(.horizontal, 20)
             
             PostCellView(post: Post(badge: 0))
+                .padding(.horizontal, 20)
         }
     }
                 
 }
+
+#if DEBUG
+struct MyPostView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            MyPostView()
+        }
+    }
+}
+#endif
