@@ -46,10 +46,10 @@ extension HomeView {
                         coordinator.push(destination: .teamDetail(team))
                     } label: {
                         TeamCellView(team: team)
+                            .padding(.horizontal, 20)
                     }
                 }
             }
-            .padding(.horizontal, 20)
 
             NavigationLink(destination: WritePostView()) {
                 Circle()
