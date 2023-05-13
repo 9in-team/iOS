@@ -49,7 +49,8 @@ extension HomeView {
                     }
                 }
             }
-            
+            .padding(.horizontal, 20)
+
             NavigationLink(destination: WritePostView()) {
                 Circle()
                     .frame(width: 56, height: 56)
@@ -61,7 +62,7 @@ extension HomeView {
                             .frame(width: 18, height: 18)
                     }
             }
-            .padding(.trailing, 5)
+            .padding(.trailing, 14)
         }
     }
     
