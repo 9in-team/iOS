@@ -33,12 +33,10 @@ extension ChatListView {
                 NavigationLink(destination: ChatDetailView()) {
                     ChatCellView()
                 }
-                .padding(.horizontal, 20)
 
                 NavigationLink(destination: ChatDetailView()) {
                     ChatCellView()
                 }
-                .padding(.horizontal, 20)
             }
         }
     }
