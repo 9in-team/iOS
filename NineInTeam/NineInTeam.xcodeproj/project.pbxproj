@@ -11,6 +11,8 @@
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
+		39BD3EEC2A14B0DF00E14DCA /* NineInTeamTestFetchTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestFetchTeams.swift */; };
+		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
 		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
 		39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */; };
@@ -124,6 +126,7 @@
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestFetchTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeamTestFetchTeams.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +290,16 @@
 			path = ReceivedPost;
 			sourceTree = "<group>";
 		};
+		39D6560029F184FF00C17C1B /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
+				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
+				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		DE47790A29F169FC00C0EC3E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,16 +315,6 @@
 				DE47790D29F4005700C0EC3E /* Destination.swift */,
 			);
 			path = Destination;
-      sourceTree = "<group>";
-		};
-		39D6560029F184FF00C17C1B /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
-				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
-				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
-			);
-			path = Tag;
 			sourceTree = "<group>";
 		};
 		DE5E998A29D477D900D32B8E /* ProfileEdit */ = {
@@ -414,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
+				39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestFetchTeams.swift */,
 			);
 			path = NineInTeamTests;
 			sourceTree = "<group>";
@@ -728,6 +733,9 @@
 				DE9BD36B295853B900F28F1A /* PBXTargetDependency */,
 			);
 			name = NineInTeamTests;
+			packageProductDependencies = (
+				39BD3EED2A14B51200E14DCA /* FirebaseStorage */,
+			);
 			productName = NineInTeamTests;
 			productReference = DE9BD369295853B900F28F1A /* NineInTeamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -943,6 +951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */,
+				39BD3EEC2A14B0DF00E14DCA /* NineInTeamTestFetchTeams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,6 +1299,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		39BD3EED2A14B51200E14DCA /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEC82E1F29A649B800D17C50 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		DE4E91642989128E00EC009F /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DE4E91632989128E00EC009F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
