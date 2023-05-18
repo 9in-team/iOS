@@ -16,7 +16,7 @@ enum Destination {
     case chatList
 
     case home
-    case teamDetail(Team)
+    case teamDetail(Int)
     case writePost
 
     case mySubscribe
@@ -39,8 +39,8 @@ enum Destination {
             ChatListView()
         case .home:
             HomeView()
-        case .teamDetail(let team):
-            TeamDetailView(team: team)
+        case .teamDetail(let teamId):
+            TeamDetailView(teamId: teamId)
         case .writePost:
             WritePostView()
         case .mySubscribe:
