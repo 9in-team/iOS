@@ -6,35 +6,40 @@
 //
 
 import Foundation
+import Combine
 
 class HomeViewModel: BaseViewModel {
     
-    var service: NetworkProtocol
+    private var service: NetworkProtocol
     
     @Published var teams: [Team] = []
-    
+
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
     }
     
     func requestFristPage() {
-        if teams.isEmpty {
-            requestTeams()
-        }
+        requestTeams()
     }
         
-    func requestTeams() {
-        teams.append(Team(teamId: 0,
-                          subject: "알고리즘 스터디원 구합니다",
-                          leader: "김진홍",
-                          hashtags: ["#알고리즘", "#Java"],
-                          lastModified: "1시간 전"))
-        
-        teams.append(Team(teamId: 1,
-                          subject: "알고리즘 스터디원 구합니다",
-                          leader: "조상현",
-                          hashtags: ["#알고리즘", "#Swift"],
-                          lastModified: "1시간 전"))
+    private func requestTeams() {
+        service.GET(headerType: .test,
+                    urlType: .testLocal,
+                    endPoint: "teams",
+                    parameters: [:],
+                    returnType: TeamResponse.self)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let error):
+                print("GET 요청 실패: \(error)")
+            case .finished:
+                break
+            }
+        }, receiveValue: { [weak self] responseData in
+            self?.teams = responseData.teams
+            print("GET 요청 성공: \(responseData)")
+        })
+        .store(in: &cancellables)
     }
     
 }
