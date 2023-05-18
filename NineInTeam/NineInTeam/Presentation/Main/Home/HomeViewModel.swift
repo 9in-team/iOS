@@ -29,7 +29,7 @@ class HomeViewModel: BaseViewModel {
         
     private func requestTeams() {
         service.GET(headerType: .test,
-                    urlType: .testLocal,
+                    urlType: .testDomain,
                     endPoint: "teams",
                     parameters: [:],
                     returnType: TeamResponse.self)
@@ -49,7 +49,7 @@ class HomeViewModel: BaseViewModel {
 
     private func requestTeamDetail(teamId: Int) {
         service.GET(headerType: .test,
-                    urlType: .testLocal,
+                    urlType: .testDomain,
                     endPoint: "teams/\(teamId)",
                     parameters: [:],
                     returnType: TeamDetail.self)

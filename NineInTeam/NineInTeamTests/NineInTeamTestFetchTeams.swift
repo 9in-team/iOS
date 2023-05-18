@@ -29,11 +29,11 @@ final class NineInTeamTestFetchTeams: XCTestCase {
     func testFetchTeams() {
         // given
         let headerType = HeaderType.test
-        let urlType = UrlType.testLocal
+        let urlType = UrlType.testDomain
         let endPoint = "teams"
 
         // when
-        let expectation = XCTestExpectation(description: "가져오기 성공")
+        let expectation = XCTestExpectation(description: "데이터 가져오기")
 
         // then
         networkService.GET(headerType: headerType,
@@ -49,9 +49,47 @@ final class NineInTeamTestFetchTeams: XCTestCase {
                 break
             }
         }, receiveValue: { responseData in
+            if !responseData.teams.isEmpty {
+                expectation.fulfill()
+            }
+        })
+        .store(in: &cancellables)
+
+        wait(for: [expectation])
+
+    }
+
+    func testFetchTeamDetail() {
+        // given
+        let teamId = 0
+        let headerType = HeaderType.test
+        let urlType = UrlType.testDomain
+        let endPoint = "teams"
+
+        // when
+        let expectation = XCTestExpectation(description: "ID값 받아서 Team Detail 가져오기")
+
+        // then
+        networkService.GET(headerType: .test,
+                    urlType: .testDomain,
+                    endPoint: "\(endPoint)/\(teamId)",
+                    parameters: [:],
+                    returnType: TeamDetail.self)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let error):
+                print("GET 요청 실패: \(error)")
+            case .finished:
+                break
+            }
+        }, receiveValue: {  responseData in
+            print("GET 요청 성공: \(responseData)")
             expectation.fulfill()
         })
         .store(in: &cancellables)
 
+        wait(for: [expectation])
+
     }
+
 }
