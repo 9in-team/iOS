@@ -129,6 +129,9 @@
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
 		39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagCell.swift; sourceTree = "<group>"; };
 		39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagViewModel.swift; sourceTree = "<group>"; };
+		39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
 		DE47790829F1634000C0EC3E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -286,6 +289,26 @@
 			path = ReceivedPost;
 			sourceTree = "<group>";
 		};
+		39D6560029F184FF00C17C1B /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
+				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
+				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		39EB01902A176C1E00A12674 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */,
+				39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */,
+				39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
 		DE47790A29F169FC00C0EC3E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,16 +324,6 @@
 				DE47790D29F4005700C0EC3E /* Destination.swift */,
 			);
 			path = Destination;
-      sourceTree = "<group>";
-		};
-		39D6560029F184FF00C17C1B /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
-				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
-				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
-			);
-			path = Tag;
 			sourceTree = "<group>";
 		};
 		DE5E998A29D477D900D32B8E /* ProfileEdit */ = {
@@ -660,6 +673,7 @@
 		DEC6A82E2991D8DD00AD0873 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				39EB01902A176C1E00A12674 /* Roboto */,
 				DEC6A82C2991D8D300AD0873 /* GodoB.otf */,
 			);
 			path = Font;

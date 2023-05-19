@@ -23,6 +23,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>GodoB.otf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Bold.ttf</string>
 	</array>
 </dict>
 </plist>
