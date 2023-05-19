@@ -9,7 +9,7 @@ import XCTest
 import Combine
 @testable import NineInTeam
 
-final class NineInTeamTestFetchTeams: XCTestCase {
+final class NineInTeamTestTeams: XCTestCase {
 
     private var networkService: NetworkService!
     private var cancellables: Set<AnyCancellable>!
@@ -22,8 +22,8 @@ final class NineInTeamTestFetchTeams: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
-        networkService = nil
         cancellables = nil
+        networkService = nil
     }
 
     func testFetchTeams() {
@@ -33,7 +33,7 @@ final class NineInTeamTestFetchTeams: XCTestCase {
         let endPoint = "teams"
 
         // when
-        let expectation = XCTestExpectation(description: "데이터 가져오기")
+        let expectation = XCTestExpectation(description: "GET Request Result가 SUCCESS 입니다.")
 
         // then
         networkService.GET(headerType: headerType,
@@ -44,18 +44,18 @@ final class NineInTeamTestFetchTeams: XCTestCase {
         .sink(receiveCompletion: { completion in
             switch completion {
             case .failure(let error):
-                print("GET 요청 실패: \(error)")
+                XCTFail("요청 실패 \(error.localizedDescription)")
             case .finished:
                 break
             }
         }, receiveValue: { responseData in
-            if !responseData.teams.isEmpty {
-                expectation.fulfill()
-            }
+            XCTAssertEqual(responseData.result, "SUCCESS", "result가 SUCCESS인지 확인합니다.")
+            XCTAssertFalse(responseData.teams.isEmpty, "teams가 비어있는지 확인합니다.")
+            expectation.fulfill()
         })
         .store(in: &cancellables)
 
-        wait(for: [expectation])
+        wait(for: [expectation], timeout: 1.0)
 
     }
 
@@ -78,17 +78,17 @@ final class NineInTeamTestFetchTeams: XCTestCase {
         .sink(receiveCompletion: { completion in
             switch completion {
             case .failure(let error):
-                print("GET 요청 실패: \(error)")
+                XCTFail("Request faileure: \(error.localizedDescription)")
             case .finished:
                 break
             }
         }, receiveValue: {  responseData in
-            print("GET 요청 성공: \(responseData)")
+            XCTAssertEqual(responseData.result, "SUCCESS", "result가 SUCCESS인지 확인합니다.")
             expectation.fulfill()
         })
         .store(in: &cancellables)
 
-        wait(for: [expectation])
+        wait(for: [expectation], timeout: 1.0)
 
     }
 
