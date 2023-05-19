@@ -8,14 +8,9 @@
 import Foundation
 import SwiftUI
 
-enum FontConstant: String {
-
-    case robotoRegular = "Roboto-Regualr"
-    case robotoMedium = "Roboto-Medium"
-    case robotoBold = "Roboto-Bold"
-    case godoB = "GodoB"
-
-    func font(size: CGFloat = 16) -> Font {
-        return Font.custom(self.rawValue, size: size)
-    }
+enum FontConstant {
+    static let robotoRegular = "Roboto-Regualr"
+    static let robotoMedium = "Roboto-Medium"
+    static let robotoBold = "Roboto-Bold"
+    static let godoB = "GodoB"
 }
