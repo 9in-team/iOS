@@ -18,7 +18,7 @@ extension TeamCellView {
     var body: some View {
         VStack {
             HStack {
-                TextWithFont(text: team.subject, font: .robotoRegular, size: 16)
+                TextWithFont(text: team.subject, size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -26,7 +26,7 @@ extension TeamCellView {
                 
                 Spacer()
                 
-                TextWithFont(text: "스터디", font: .robotoRegular, size: 13)
+                TextWithFont(text: "스터디", size: 13)
                     .padding(.vertical, 7)
                     .padding(.horizontal, 10)
                     .foregroundColor(

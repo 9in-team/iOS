@@ -76,9 +76,9 @@ extension ProfileEditView {
     
     func email() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "이메일 주소", font: .robotoRegular, size: 12)
+            TextWithFont(text: "이메일 주소", size: 12)
             
-            TextWithFont(text: "9in.team@9in.team", font: .robotoRegular, size: 16)
+            TextWithFont(text: "9in.team@9in.team", size: 16)
             
             Line()
                .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
@@ -92,7 +92,7 @@ extension ProfileEditView {
     
     func nickname() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "닉네임", font: .robotoRegular, size: 12)
+            TextWithFont(text: "닉네임", size: 12)
                 .opacity(0.6)
             
             TextField("", text: $editedNickname)
