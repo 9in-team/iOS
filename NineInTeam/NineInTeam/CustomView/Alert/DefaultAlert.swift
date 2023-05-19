@@ -21,7 +21,7 @@ struct DefaultAlert: View {
             VStack {
                 Spacer()
                 
-                TextWithFont(text: title, font: nil, size: 16)
+                TextWithFont(text: title, font: .godoB, size: 16)
                 
                 Spacer()
                 
@@ -31,7 +31,7 @@ struct DefaultAlert: View {
                     Button {
                         completion()
                     } label: {
-                        TextWithFont(text: "확인", font: nil, size: 14)
+                        TextWithFont(text: "확인", font: .godoB, size: 14)
                             .frame(maxWidth: .infinity)
                     }
                     .frame(height: 60)

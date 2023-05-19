@@ -21,10 +21,10 @@ extension SignInView {
                 .edgesIgnoringSafeArea(.all)                                                          
                         
             VStack {
-                TextWithFont(text: "9in.team", font: nil, size: 48)
+                TextWithFont(text: "9in.team", font: .godoB, size: 48)
                     .foregroundColor(Color(hexcode: "FFFFFF"))
                 
-                TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: nil, size: 16)
+                TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: .godoB, size: 16)
                     .foregroundColor(Color(hexcode: "FFFFFF"))
             }            
          

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
+		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
+		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
@@ -306,9 +309,6 @@
 		39EB01902A176C1E00A12674 /* Roboto */ = {
 			isa = PBXGroup;
 			children = (
-				39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */,
-				39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */,
-				39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */,
 			);
 			path = Roboto;
 			sourceTree = "<group>";
@@ -679,6 +679,9 @@
 		DEC6A82E2991D8DD00AD0873 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */,
+				39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */,
+				39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */,
 				39EB01902A176C1E00A12674 /* Roboto */,
 				DEC6A82C2991D8D300AD0873 /* GodoB.otf */,
 			);
@@ -822,6 +825,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */,
+				391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */,
+				391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */,
 				DE9BD3912958610C00F28F1A /* .swiftlint.yml in Resources */,
 				DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */,
 				DEC82E1E29A648CA00D17C50 /* GoogleService-Info.plist in Resources */,

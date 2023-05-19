@@ -150,7 +150,7 @@ extension TeamDetailView {
                 )
                                     
             VStack(alignment: .leading, spacing: 5) {
-                TextWithFont(text: "9in.team", size: 16)
+                TextWithFont(text: "9in.team", font: .robotoRegular, size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum FontConstant: String {
-    case robotoRegular = "Roboto-Regualr"
+    case robotoRegular = "Roboto-Regular"
     case robotoMedium = "Roboto-Medium"
     case robotoBold = "Roboto-Bold"
     case godoB = "GodoB"
