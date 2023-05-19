@@ -18,7 +18,7 @@ extension TeamCellView {
     var body: some View {
         VStack {
             HStack {
-                TextWithFont(text: team.subject, font: .regular, size: 16)
+                TextWithFont(text: team.subject, font: .robotoRegular, size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -26,7 +26,7 @@ extension TeamCellView {
                 
                 Spacer()
                 
-                TextWithFont(text: "스터디", font: .regular, size: 13)
+                TextWithFont(text: "스터디", font: .robotoRegular, size: 13)
                     .padding(.vertical, 7)
                     .padding(.horizontal, 10)
                     .foregroundColor(
@@ -45,7 +45,7 @@ extension TeamCellView {
             
             HStack {
                 ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: hashtag, font: .regular, size: 13)
+                    TextWithFont(text: hashtag, size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -63,12 +63,12 @@ extension TeamCellView {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 3) {
-                    TextWithFont(text: team.leader, font: .regular, size: 12)
+                    TextWithFont(text: team.leader, size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                         )
                     
-                    TextWithFont(text: team.lastModified, font: .regular, size: 12)
+                    TextWithFont(text: team.lastModified, size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.38)

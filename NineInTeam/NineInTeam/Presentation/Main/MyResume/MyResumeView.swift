@@ -87,7 +87,7 @@ extension MyResumeView {
                                                 }
                                                 .frame(width: 30)
                                                 
-                                                TextWithFont(text: "문의", font: .regular, size: 16)
+                                                TextWithFont(text: "문의", size: 16)
                                                     .foregroundColor(
                                                         Color(hexcode: "000000")
                                                             .opacity(0.87)
@@ -113,7 +113,7 @@ extension MyResumeView {
                                                 }
                                                 .frame(width: 30)
                                                 
-                                                TextWithFont(text: "추가 제출", font: .regular, size: 16)
+                                                TextWithFont(text: "추가 제출", size: 16)
                                                     .foregroundColor(
                                                         Color(hexcode: "000000")
                                                             .opacity(0.87)

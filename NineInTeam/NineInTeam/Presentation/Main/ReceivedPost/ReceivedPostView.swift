@@ -32,7 +32,7 @@ extension ReceivedPostView {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 13) {
 
-                TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 24)
+                TextWithFont(text: "알고리즘 스터디원 구합니다", size: 24)
 
                 VStack(alignment: .leading, spacing: 35) { // 추후 List로 바꿀예정
                     ReceivedPostCell(message: "", isApproved: false)

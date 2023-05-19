@@ -39,7 +39,7 @@ extension SignInView {
                      
                         Spacer()
                         
-                        TextWithFont(text: "카카오로그인", font: .medium, size: 16)
+                        TextWithFont(text: "카카오로그인", font: .robotoMedium, size: 16)
                             .foregroundColor(Color(hexcode: "FFFFFF").opacity(0.85))
                         
                         Spacer()

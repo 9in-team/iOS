@@ -24,10 +24,10 @@ extension SubscribeTagCell {
 
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    TextWithFont(text: "#알고리즘", font: .regular, size: 16)
+                    TextWithFont(text: "#알고리즘", size: 16)
                         .frame(height: 24)
 
-                    TextWithFont(text: "구독자 123명", font: .regular, size: 12)
+                    TextWithFont(text: "구독자 123명", size: 12)
                         .foregroundColor(Color(hexcode: "000000").opacity(0.38))
                         .frame(height: 20)
                 }
@@ -47,7 +47,7 @@ extension SubscribeTagCell {
                 .foregroundColor(Color(hexcode: subscribing ? "C7C7CC" : "42A5F5"))
                 .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2, secondRadius: 2)
 
-            TextWithFont(text: subscribing ? "구독중" : "구독하기", font: .medium, size: 13)
+            TextWithFont(text: subscribing ? "구독중" : "구독하기", font: .robotoMedium, size: 13)
                 .foregroundColor(Color(hexcode: "FFFFFF"))
         }
     }

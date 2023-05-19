@@ -10,17 +10,16 @@ import SwiftUI
 struct TextWithFont: View {
     
     let text: String
-    let font: Font.Weight?
+    var font: FontConstant?
     let size: CGFloat
-    
+
     var body: some View {
-        if font == nil {
+        if let font = font {
             Text(text)
-                .font(.custom("GodoB", size: size))
+                .font(.custom(font, size: size))
         } else {
             Text(text)
-                .font(.system(size: size))
-                .fontWeight(font)                
+                .font(.custom(.robotoRegular, size: size))
         }
     }
     

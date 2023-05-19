@@ -77,7 +77,7 @@ extension WritePostView {
     
     func title() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "제목", font: .bold, size: 12)
+            TextWithFont(text: "제목", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -104,7 +104,7 @@ extension WritePostView {
     
     func tag() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "태그", font: .bold, size: 12)
+            TextWithFont(text: "태그", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -113,7 +113,7 @@ extension WritePostView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
                     ForEach(tags, id: \.self) { tag in
-                        TextWithFont(text: tag, font: .regular, size: 13)
+                        TextWithFont(text: tag, size: 13)
                             .padding(.vertical, 6)
                             .padding(.horizontal, 10)
                             .background(
@@ -147,7 +147,7 @@ extension WritePostView {
     
     func recruitmentRole() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "모집 역할", font: .bold, size: 12)
+            TextWithFont(text: "모집 역할", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -159,7 +159,7 @@ extension WritePostView {
                         VStack(alignment: .center, spacing: 0) {
                             Spacer()
                             
-                            TextWithFont(text: role.title, font: .medium, size: 20)
+                            TextWithFont(text: role.title, font: .robotoMedium, size: 20)
                                 .frame(height: 60, alignment: .top)
                                 .foregroundColor(
                                     Color(hexcode: "000000")
@@ -168,7 +168,7 @@ extension WritePostView {
                                 .lineSpacing(5)
                                 .multilineTextAlignment(.center)
                             
-                            TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
+                            TextWithFont(text: "\(role.count)명", font: .robotoMedium, size: 20)
                                 .frame(height: 30)
                                 .foregroundColor(
                                     Color(hexcode: "000000")
@@ -215,7 +215,7 @@ extension WritePostView {
                 )
             
             VStack {
-                TextWithFont(text: "팀 설명", font: .bold, size: 12)
+                TextWithFont(text: "팀 설명", font: .robotoBold, size: 12)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.6)
@@ -232,7 +232,7 @@ extension WritePostView {
             
             ScrollView {
                 // TextField로 변경
-                TextWithFont(text: "asdf\nasdfa]nasdfa\nadf\nasdfasd\nasdf", font: .regular, size: 16)
+                TextWithFont(text: "asdf\nasdfa]nasdfa\nadf\nasdfasd\nasdf", size: 16)
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
@@ -243,7 +243,7 @@ extension WritePostView {
     
     func submissionForm() -> some View {
         VStack(alignment: .leading, spacing: 15) {
-            TextWithFont(text: "지원 양식", font: .bold, size: 12)
+            TextWithFont(text: "지원 양식", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -259,7 +259,7 @@ extension WritePostView {
                                 )
                                 .frame(width: 62, height: 62)
                                 .overlay(
-                                    TextWithFont(text: "\(form.no)", font: .medium, size: 12)
+                                    TextWithFont(text: "\(form.no)", font: .robotoMedium, size: 12)
                                         .foregroundColor(Color(hexcode: "FFFFFF"))
                                         .padding(6)
                                         .background(ColorConstant.main.color())
@@ -272,12 +272,12 @@ extension WritePostView {
                                     .frame(width: form.type.assetSize().width, height: form.type.assetSize().height)
                                     .padding(.top, 3)
                                 
-                                TextWithFont(text: form.type.text(), font: .regular, size: 12)
+                                TextWithFont(text: form.type.text(), size: 12)
                             }
                         }
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            TextWithFont(text: form.content, font: .regular, size: 16)
+                            TextWithFont(text: form.content, size: 16)
                                 .foregroundColor(
                                     Color(hexcode: "000000")
                                         .opacity(0.6)
@@ -319,14 +319,14 @@ extension WritePostView {
     
     func teamChatRoomLink() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "팀 채팅방 링크", font: .bold, size: 12)
+            TextWithFont(text: "팀 채팅방 링크", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
             
             TextWithFont(text: "Slack, 오픈채팅방 등 팀에서 사용할 채팅방 링크를 적어주세요.\n승인 처리한 지원자에게 자동 전달됩니다.",
-                         font: .regular, size: 12)
+                         size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -364,7 +364,7 @@ extension WritePostView {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        TextWithFont(text: "작성하기", font: .medium, size: 15)
+                        TextWithFont(text: "작성하기", font: .robotoMedium, size: 15)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 )

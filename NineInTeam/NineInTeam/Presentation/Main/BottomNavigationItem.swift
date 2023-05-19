@@ -23,7 +23,7 @@ struct BottomNavigationItem: View {
                 .renderingMode(.template)
                 .frame(width: imageWidth, height: imageHeight)
             
-            TextWithFont(text: titleName, font: .regular, size: 12)
+            TextWithFont(text: titleName, size: 12)
         }
         .frame(maxWidth: .infinity)
     }
