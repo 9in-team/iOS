@@ -45,7 +45,7 @@ extension TeamCellView {
             
             HStack {
                 ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: "# \(hashtag)", font: .regular, size: 13)
+                    TextWithFont(text: "#\(hashtag)", font: .regular, size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
