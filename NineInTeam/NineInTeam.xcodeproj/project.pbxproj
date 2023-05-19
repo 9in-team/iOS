@@ -17,6 +17,7 @@
 		39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */; };
 		39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */; };
 		39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01912A176E0D00A12674 /* FontContstant.swift */; };
+		39EB01942A177FFD00A12674 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01932A177FFD00A12674 /* Font.swift */; };
 		39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */; };
 		39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */; };
 		DE47790929F1634100C0EC3E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47790829F1634000C0EC3E /* Coordinator.swift */; };
@@ -134,6 +135,7 @@
 		39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		39EB01912A176E0D00A12674 /* FontContstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontContstant.swift; sourceTree = "<group>"; };
+		39EB01932A177FFD00A12674 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
 		DE47790829F1634000C0EC3E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 				DEB34E9729716F2200C0B973 /* UIImage.swift */,
 				DEB34E992971704A00C0B973 /* Data.swift */,
 				DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */,
+				39EB01932A177FFD00A12674 /* Font.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */,
 				39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
+				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
 				DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */,

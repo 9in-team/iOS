@@ -16,7 +16,7 @@ struct TextWithFont: View {
     var body: some View {
         if font == nil {
             Text(text)
-                .font(.custom(FontConstant.godoB, size: size))
+                .font(.custom("GodoB", size: size))
         } else {
             Text(text)
                 .font(.system(size: size))
