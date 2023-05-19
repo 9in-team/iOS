@@ -15,7 +15,7 @@ enum FontConstant: String {
     case robotoBold = "Roboto-Bold"
     case godoB = "GodoB"
 
-    func font(ofSize size: CGFloat = 16) -> Font {
+    func font(size: CGFloat = 16) -> Font {
         return Font.custom(self.rawValue, size: size)
     }
 }
