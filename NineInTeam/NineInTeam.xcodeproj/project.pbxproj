@@ -14,7 +14,7 @@
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
-		39BD3EEC2A14B0DF00E14DCA /* NineInTeamTestTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestTeams.swift */; };
+		39BD3EEC2A14B0DF00E14DCA /* NineInTeamTestsTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestsTeams.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
 		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
