@@ -19,6 +19,7 @@ extension View {
             
             self
                 .padding(.bottom, 10)
+                .background(Color(hexcode: "FFFFFF"))
                 .navigationBarHiddenTrue()
             
             Spacer()
@@ -38,6 +39,7 @@ extension View {
             
             self
                 .padding(.bottom, 10)
+                .background(Color(hexcode: "FFFFFF"))
                 .navigationBarHiddenTrue()
             
             Spacer()
