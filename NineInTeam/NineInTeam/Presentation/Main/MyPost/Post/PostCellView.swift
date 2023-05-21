@@ -20,13 +20,13 @@ extension PostCellView {
             VStack(alignment: .leading, spacing: 5) {
                 Spacer()
                 
-                TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 16)
+                TextWithFont(text: "알고리즘 스터디원 구합니다", size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
                     )
                 
-                TextWithFont(text: "1시간 전", font: .regular, size: 12)
+                TextWithFont(text: "1시간 전", size: 12)
                     .frame(height: 20)
                     .foregroundColor(
                         Color(hexcode: "000000")
@@ -49,7 +49,7 @@ extension PostCellView {
                         HStack {
                             Spacer()
                             
-                            TextWithFont(text: "\(post.badge)", font: .medium, size: 12)
+                            TextWithFont(text: "\(post.badge)", font: .robotoMedium, size: 12)
                                 .padding(.horizontal, 6)
                                 .frame(height: 20)
                                 .foregroundColor(Color(hexcode: "FFFFFF"))

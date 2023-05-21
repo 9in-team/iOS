@@ -38,7 +38,9 @@ struct NavigationBar: View {
                         .frame(width: 10)
                 }
                                 
-                TextWithFont(text: title, font: nil, size: title == "9in.team" ? 36 : 24)
+                TextWithFont(text: title,
+                             font: title == "9in.team" ? .godoB : .robotoBold,
+                             size: title == "9in.team" ? 36 : 24)
                     .frame(width: 160, alignment: .leading)
                     .foregroundColor(Color(hexcode: "FFFFFF"))
                                 

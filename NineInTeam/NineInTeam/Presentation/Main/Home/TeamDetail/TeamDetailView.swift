@@ -49,7 +49,7 @@ extension TeamDetailView {
     func teamDetailInfo() -> some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
-                TextWithFont(text: "스터디", font: .regular, size: 13)
+                TextWithFont(text: "스터디", size: 13)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -65,7 +65,7 @@ extension TeamDetailView {
                 
                 Spacer()
                 
-                TextWithFont(text: team.lastModified, font: .regular, size: 12)
+                TextWithFont(text: team.lastModified, size: 12)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.6)
@@ -76,7 +76,7 @@ extension TeamDetailView {
                 .frame(height: 10)
                 .foregroundColor(Color.clear)
             
-            TextWithFont(text: team.subject, font: .medium, size: 20)
+            TextWithFont(text: team.subject, font: .robotoMedium, size: 20)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.87)
@@ -88,7 +88,7 @@ extension TeamDetailView {
             
             HStack {
                 ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: hashtag, font: .medium, size: 13)
+                    TextWithFont(text: hashtag, font: .robotoMedium, size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -106,7 +106,7 @@ extension TeamDetailView {
     
     func recruitmentRole() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            TextWithFont(text: "모집 역할", font: .bold, size: 12)
+            TextWithFont(text: "모집 역할", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -116,7 +116,7 @@ extension TeamDetailView {
                 VStack(alignment: .center, spacing: 0) {
                     Spacer()
                     
-                    TextWithFont(text: "프론트엔드 개발자", font: .medium, size: 20)
+                    TextWithFont(text: "프론트엔드 개발자", font: .robotoMedium, size: 20)
                         .frame(height: 60, alignment: .top)
                         .foregroundColor(
                             Color(hexcode: "000000")
@@ -125,7 +125,7 @@ extension TeamDetailView {
                         .lineSpacing(5)
                         .multilineTextAlignment(.center)                    
                     
-                    TextWithFont(text: "4명", font: .medium, size: 20)
+                    TextWithFont(text: "4명", font: .robotoMedium, size: 20)
                         .frame(height: 30)
                         .foregroundColor(
                             Color(hexcode: "000000")
@@ -146,14 +146,14 @@ extension TeamDetailView {
     
     func teamExplanation() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "팀 설명", font: .bold, size: 12)
+            TextWithFont(text: "팀 설명", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
                                     
             VStack(alignment: .leading, spacing: 5) {
-                TextWithFont(text: "9in.team", font: .regular, size: 16)
+                TextWithFont(text: "9in.team", size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -224,10 +224,10 @@ extension TeamDetailView {
                 .fill(ColorConstant.main.color())
                 .frame(height: 42)
                 .overlay(
-                    TextWithFont(text: "지원하기", font: .medium, size: 15)
+                    TextWithFont(text: "지원하기", font: .robotoMedium, size: 15)
                         .foregroundColor(Color(hexcode: "FFFFFF"))
                 )
-            .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
+                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
         }
     }
     

@@ -23,7 +23,7 @@ extension Toast {
         VStack {
             Spacer()
             
-            TextWithFont(text: title, font: .regular, size: 14)
+            TextWithFont(text: title, size: 14)
                 .padding(.vertical, 14)
                 .padding(.horizontal, 16)
                 .foregroundColor(

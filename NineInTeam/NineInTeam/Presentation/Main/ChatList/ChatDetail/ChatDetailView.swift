@@ -11,7 +11,7 @@ struct ChatDetailView: View {
 
     @StateObject var viewModel = ChatDetailViewModel()
 
-    var title: String = "조상현"
+    var title: String = "최강헌"
     @State var userInputText: String = "같이 고고"
 
 }
@@ -28,19 +28,17 @@ extension ChatDetailView {
     func mainBody() -> some View {
         VStack(spacing: 0) {
             ScrollView {
+                ChatBubbleView(direction: .right) {
+                    TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 같이 앱 만들어 보실래요?", size: 16)
+                }
 
                 ChatBubbleView(direction: .left) {
-                    TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 같이 앱 만들어 보실래요?", font: .light, size: 16)
+                    TextWithFont(text: "형 하이", size: 16)
                 }
 
                 ChatBubbleView(direction: .right) {
-                    TextWithFont(text: "형 하이", font: .light, size: 16)
+                    TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", size: 16)
                 }
-
-                ChatBubbleView(direction: .left) {
-                    TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
-                }
-
             }
 
             inputField

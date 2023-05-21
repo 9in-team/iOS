@@ -28,7 +28,7 @@ struct TabNavigationBar: View {
                         VStack(spacing: 2) {
                             Spacer()
                             
-                            TextWithFont(text: tabName, font: .regular, size: 20)
+                            TextWithFont(text: tabName, size: 20)
                                 .foregroundColor(Color(hexcode: "FFFFFF")
                                     .opacity(selectedIndex == index ? 1 : 0.3))
                             
