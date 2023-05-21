@@ -25,6 +25,7 @@ extension SubscribeTagCell {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
                     TextWithFont(text: "#알고리즘", font: .regular, size: 16)
+                        .foregroundColor(Color(hexcode: "000000"))
                         .frame(height: 24)
 
                     TextWithFont(text: "구독자 123명", font: .regular, size: 12)
