@@ -177,7 +177,9 @@ extension TeamDetailView {
                     .foregroundColor(
                         Color(hexcode: "1565C0")
                     )
-                    .circleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 6)
+                    .circleShadows([Shadow(color: .black, opacity: 0.12, radius: 18, locationY: 1),
+                                    Shadow(color: .black, opacity: 0.14, radius: 10, locationY: 6),
+                                    Shadow(color: .black, opacity: 0.2, radius: 5, locationY: 3)])
                     .overlay(
                         Image("Chat")
                             .resizable()
@@ -189,7 +191,9 @@ extension TeamDetailView {
                     .foregroundColor(
                         Color(hexcode: "9C27B0")
                     )
-                    .circleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 6)
+                    .circleShadows([Shadow(color: .black, opacity: 0.12, radius: 18, locationY: 1),
+                                    Shadow(color: .black, opacity: 0.14, radius: 10, locationY: 6),
+                                    Shadow(color: .black, opacity: 0.2, radius: 5, locationY: 3)])
                     .overlay(
                         Image("Like")
                             .resizable()
@@ -207,7 +211,9 @@ extension TeamDetailView {
                         TextWithFont(text: "지원하기", font: .medium, size: 15)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     )
-                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
+                    .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                                       Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                                       Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
             }
         }
     }

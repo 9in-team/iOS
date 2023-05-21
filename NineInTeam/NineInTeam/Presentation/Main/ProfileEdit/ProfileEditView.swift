@@ -67,7 +67,9 @@ extension ProfileEditView {
                                     .frame(width: 18, height: 18)
                             )
                     }
-                    .circleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 6)
+                    .circleShadows([Shadow(color: .black, opacity: 0.12, radius: 18, locationY: 1),
+                                    Shadow(color: .black, opacity: 0.14, radius: 10, locationY: 6),
+                                    Shadow(color: .black, opacity: 0.2, radius: 5, locationY: 3)])
                 }
             }
         }
@@ -122,7 +124,9 @@ extension ProfileEditView {
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 )
-                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
+                .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                                   Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                                   Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 1)])
         }
     }
     

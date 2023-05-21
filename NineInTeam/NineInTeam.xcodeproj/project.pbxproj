@@ -20,6 +20,7 @@
 		39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */; };
 		DE47790929F1634100C0EC3E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47790829F1634000C0EC3E /* Coordinator.swift */; };
 		DE47790E29F4005700C0EC3E /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47790D29F4005700C0EC3E /* Destination.swift */; };
+		DE4779572A0FBDF300C0EC3E /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4779562A0FBDF300C0EC3E /* Shadow.swift */; };
 		DE4E91652989128E00EC009F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DE4E91642989128E00EC009F /* KakaoSDK */; };
 		DE5E998C29D4780100D32B8E /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E998B29D4780100D32B8E /* ProfileEditView.swift */; };
 		DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */; };
@@ -133,6 +134,7 @@
 		39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
 		DE47790829F1634000C0EC3E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DE47790D29F4005700C0EC3E /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		DE4779562A0FBDF300C0EC3E /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		DE5E998B29D4780100D32B8E /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		DE6FBDE52990E83400816A7D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -286,6 +288,16 @@
 			path = ReceivedPost;
 			sourceTree = "<group>";
 		};
+		39D6560029F184FF00C17C1B /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
+				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
+				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		DE47790A29F169FC00C0EC3E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,16 +313,14 @@
 				DE47790D29F4005700C0EC3E /* Destination.swift */,
 			);
 			path = Destination;
-      sourceTree = "<group>";
+			sourceTree = "<group>";
 		};
-		39D6560029F184FF00C17C1B /* Tag */ = {
+		DE4779552A079AE800C0EC3E /* CustomModel */ = {
 			isa = PBXGroup;
 			children = (
-				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
-				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
-				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
+				DE4779562A0FBDF300C0EC3E /* Shadow.swift */,
 			);
-			path = Tag;
+			path = CustomModel;
 			sourceTree = "<group>";
 		};
 		DE5E998A29D477D900D32B8E /* ProfileEdit */ = {
@@ -433,6 +443,7 @@
 				DEA2B66A2970301000B77335 /* Base */,
 				DEA2B6752970320700B77335 /* Membership */,
 				DE6FBDE42990E82700816A7D /* Main */,
+				DE4779552A079AE800C0EC3E /* CustomModel */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -885,6 +896,7 @@
 				DEB0D36729B76EC100B5E1B9 /* Team.swift in Sources */,
 				DEB38C9629CDE1FC00EF915E /* SubmissionFormType.swift in Sources */,
 				39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */,
+				DE4779572A0FBDF300C0EC3E /* Shadow.swift in Sources */,
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DE47790929F1634100C0EC3E /* Coordinator.swift in Sources */,
 				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,

@@ -63,37 +63,30 @@ extension View {
             .navigationBarHidden(true)
     }
     
-    func rectangleShadows(firstX: CGFloat, firstY: CGFloat, firstRadius: CGFloat = 5,
-                          secondX: CGFloat, secondY: CGFloat, secondRadius: CGFloat = 5) -> some View {
+    func rectangleShadows(_ shadows: [Shadow]) -> some View {       
         self
             .background(
                 ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(Color.white)
-                        .shadow(color: Color(hexcode: "000000").opacity(0.12),
-                                radius: firstRadius, x: firstX, y: firstY)
-                    
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(Color.white)
-                        .shadow(color: Color(hexcode: "000000").opacity(0.14),
-                                radius: secondRadius, x: secondX, y: secondY)
+                    ForEach(shadows, id: \.self) { shadow in
+                        RoundedRectangle(cornerRadius: shadow.radius)
+                            .fill(.white)
+                            .shadow(color: shadow.getColor(), radius: shadow.radius,
+                                    x: shadow.locationX, y: shadow.locationY)
+                    }
                 }
             )
     }
     
-    func circleShadows(firstX: CGFloat, firstY: CGFloat, secondX: CGFloat, secondY: CGFloat) -> some View {
+    func circleShadows(_ shadows: [Shadow]) -> some View {
         self
             .background(
                 ZStack {
-                    Circle()
-                        .fill(Color.white)
-                        .shadow(color: Color(hexcode: "000000").opacity(0.12),
-                                radius: 5, x: firstX, y: firstY)
-                    
-                    Circle()
-                        .fill(Color.white)
-                        .shadow(color: Color(hexcode: "000000").opacity(0.14),
-                                radius: 5, x: secondX, y: secondY)
+                    ForEach(shadows, id: \.self) { shadow in
+                        Circle()
+                            .fill(.white)
+                            .shadow(color: shadow.getColor(), radius: shadow.radius,
+                                    x: shadow.locationX, y: shadow.locationY)
+                    }
                 }
             )
     }
@@ -104,8 +97,6 @@ extension View {
         let keyWindow = UIApplication.shared.connectedScenes.filter({$0.activationState == .foregroundActive})
             .map({$0 as? UIWindowScene}).compactMap {$0}.first?.windows.filter { $0.isKeyWindow }.first!
         
-        print("keyWindow?.frame.height \(keyWindow?.frame.height)")
-                
         let viewController = UIHostingController(rootView: view())
         viewController.modalTransitionStyle = .crossDissolve
         viewController.modalPresentationStyle = .overCurrentContext
