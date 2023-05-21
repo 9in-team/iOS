@@ -64,9 +64,23 @@ extension ChatBubbleView {
                 Spacer()
             }
         }
-        .padding((direction == .left) ? .leading : .trailing, 21)
-        .padding((direction == .right) ? .leading : .trailing, 50)
+        .padding((direction == .left) ? .leading : .trailing, 11 + 24)
+        .padding((direction == .right) ? .leading : .trailing, 83)
         .padding(.vertical, 11)
     }
 
 }
+
+#if DEBUG
+struct ChatBubbleView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatDetailView()
+        ChatBubbleView(direction: .left) {
+            TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
+        }
+        ChatBubbleView(direction: .right) {
+            TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
+        }
+    }
+}
+#endif

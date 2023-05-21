@@ -67,7 +67,6 @@ extension SubscribeCellView {
         .frame(maxWidth: .infinity)
         .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
         .padding(.bottom, 5)
-        .padding(.horizontal, 10)
     }        
     
 }

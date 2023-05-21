@@ -29,17 +29,20 @@ extension TeamDetailView {
     }
     
     func mainBody() -> some View {
-        ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 30) {
-                teamDetailInfo()
-                
-                recruitmentRole()
-                    
-                teamExplanation()
-                
-                bottomButtons()
+        ZStack {
+
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 30) {
+                    teamDetailInfo()
+
+                    recruitmentRole()
+
+                    teamExplanation()
+                }
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 10)
+
+            bottomButtons()
         }
     }
     
@@ -168,9 +171,23 @@ extension TeamDetailView {
             }
         }
     }
-    
+
     func bottomButtons() -> some View {
-        VStack(alignment: .trailing, spacing: 14) {
+        VStack {
+            Spacer()
+
+            floatingButtons()
+                .padding([.trailing, .bottom], 14)
+            applyButton()
+                .padding(.horizontal, 20)
+        }
+    }
+    
+    func floatingButtons() -> some View {
+        HStack(spacing: 14) {
+
+            Spacer()
+
             VStack(spacing: 8) {
                 Circle()
                     .frame(width: 56, height: 56)
@@ -182,7 +199,7 @@ extension TeamDetailView {
                         Image("Chat")
                             .resizable()
                             .frame(width: 20, height: 20)
-                        )
+                    )
                 
                 Circle()
                     .frame(width: 56, height: 56)
@@ -196,20 +213,32 @@ extension TeamDetailView {
                             .frame(width: 20, height: 18)
                     )
             }
-            
-            Button {
-               //
-            } label: {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(ColorConstant.main.color())
-                    .frame(height: 42)
-                    .overlay(
-                        TextWithFont(text: "지원하기", font: .medium, size: 15)
-                            .foregroundColor(Color(hexcode: "FFFFFF"))
-                    )
-                .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
-            }
+        }
+    }
+
+    func applyButton() -> some View {
+        Button {
+           //
+        } label: {
+            RoundedRectangle(cornerRadius: 4)
+                .fill(ColorConstant.main.color())
+                .frame(height: 42)
+                .overlay(
+                    TextWithFont(text: "지원하기", font: .medium, size: 15)
+                        .foregroundColor(Color(hexcode: "FFFFFF"))
+                )
+            .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
         }
     }
     
 }
+
+#if DEBUG
+struct TeamDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        TeamDetailView(team: dummyTeam)
+
+    }
+}
+#endif
