@@ -29,20 +29,18 @@ extension MySubscribeView {
             } label: {
                 subscribing()
             }
+            .padding(.horizontal, 20)
 
             ScrollView {
                 Rectangle()
                     .frame(height: 0.1)
                     .foregroundColor(Color.clear)
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
+
+                ForEach(viewModel.subscribes, id: \.self) { subscriber in
+                    SubscribeCellView(subscribe: subscriber)
+                        .padding(.horizontal, 20)
+                }
+
             }
         }
     }
@@ -82,8 +80,19 @@ extension MySubscribeView {
                     .stroke(ColorConstant.main.color().opacity(0.5),
                             lineWidth: 1)
             )
-            .padding(.horizontal, 10)
         }
     }
                 
 }
+
+#if DEBUG
+struct MySubscribeView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        NavigationView {
+            MySubscribeView()
+        }
+
+    }
+}
+#endif

@@ -48,23 +48,30 @@ extension WritePostView {
     func mainBody() -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 30) {
+
                 radioGroup()
-                
+                    .padding(.horizontal, 20)
+
                 title()
-                
+                    .padding(.horizontal, 20)
+
                 tag()
-                
+                    .padding(.horizontal, 20)
+
                 recruitmentRole()
-                
+
                 teamExplanation()
-                
+                    .padding(.horizontal, 20)
+
                 submissionForm()
+                    .padding(.horizontal, 20)
 
                 teamChatRoomLink()
-                
+                    .padding(.horizontal, 20)
+
                 bottomButton()
+                    .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 5)
             .padding(.bottom, 10)
         }
     }
@@ -82,6 +89,7 @@ extension WritePostView {
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+                .padding(.bottom, 4)
             
             VStack(alignment: .leading, spacing: 5) {
                 TextField("", text: $subject)
@@ -116,6 +124,7 @@ extension WritePostView {
                         TextWithFont(text: tag, size: 13)
                             .padding(.vertical, 6)
                             .padding(.horizontal, 10)
+                            .foregroundColor(Color(hexcode: "000000"))
                             .background(
                                 Capsule(style: .continuous)
                                     .stroke(Color(hexcode: "000000").opacity(0.26))
@@ -152,9 +161,15 @@ extension WritePostView {
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
+                .padding(.bottom, 14)
+                .padding(.horizontal, 20)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: 10, height: 120)
+
                     ForEach(recruitmentRoles, id: \.self) { role in
                         VStack(alignment: .center, spacing: 0) {
                             Spacer()
@@ -263,6 +278,7 @@ extension WritePostView {
                                         .foregroundColor(Color(hexcode: "FFFFFF"))
                                         .padding(6)
                                         .background(ColorConstant.main.color())
+                                        .clipShape(Circle())
                                         .offset(x: -31, y: -31)
                                 )
                             
@@ -372,4 +388,12 @@ extension WritePostView {
         }
     }
     
+}
+
+struct WritePostView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        WritePostView()
+
+    }
 }

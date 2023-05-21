@@ -37,9 +37,18 @@ extension ChatListView {
                 NavigationLink(destination: ChatDetailView()) {
                     ChatCellView()
                 }
-                
-            }                        
+            }
         }
     }
     
 }
+
+#if DEBUG
+struct ChatListView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            ChatListView()
+        }
+    }
+}
+#endif

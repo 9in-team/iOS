@@ -14,6 +14,7 @@
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
+		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
 		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
 		39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */; };
@@ -129,6 +130,7 @@
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
@@ -306,13 +308,6 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
-		39EB01902A176C1E00A12674 /* Roboto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Roboto;
-			sourceTree = "<group>";
-		};
 		DE47790A29F169FC00C0EC3E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,13 +337,13 @@
 		DE6FBDE42990E82700816A7D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DE5E998A29D477D900D32B8E /* ProfileEdit */,
-				DE7B0B7629D8847100CB90FE /* ChatList */,
 				DE6FBDE52990E83400816A7D /* MainView.swift */,
 				DEB0D36E29BF4FE900B5E1B9 /* BottomNavigationItem.swift */,
+				DE5E998A29D477D900D32B8E /* ProfileEdit */,
+				DE7B0B7629D8847100CB90FE /* ChatList */,
 				DEB0D35A29AF7E3D00B5E1B9 /* Home */,
-				39BD81D329E402B900F35E0B /* ReceivedPost */,
 				DEB0D35B29AF7E4500B5E1B9 /* MySubscribe */,
+				39BD81D329E402B900F35E0B /* ReceivedPost */,
 				DEB0D35D29AF7E5100B5E1B9 /* MyPost */,
 				DEB0D35C29AF7E4F00B5E1B9 /* MyResume */,
 			);
@@ -693,6 +688,7 @@
 			children = (
 				DEC82E1529A39FAF00D17C50 /* TestNetworkService.swift */,
 				DEC82E1929A3A3E000D17C50 /* TestResponseData.swift */,
+				39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -889,6 +885,7 @@
 				DEB0D37329C0ADD700B5E1B9 /* MySubscribeViewModel.swift in Sources */,
 				DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */,
 				39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */,
+				39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
 				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
@@ -1133,6 +1130,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1167,6 +1165,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
