@@ -9,13 +9,13 @@ import XCTest
 import Combine
 @testable import NineInTeam
 
-final class NineInTeamTestTeams: XCTestCase {
+class NineInTeamTestNetworkService: XCTestCase {
 
-    private var networkService: NetworkService!
-    private var cancellables: Set<AnyCancellable>!
+    fileprivate var sut: NetworkService!
+    fileprivate var cancellables: Set<AnyCancellable>!
 
     override func setUp() {
-        networkService = .init()
+        sut = .init()
         cancellables = .init()
         super.setUp()
     }
@@ -23,10 +23,15 @@ final class NineInTeamTestTeams: XCTestCase {
     override func tearDown() {
         super.tearDown()
         cancellables = nil
-        networkService = nil
+        sut = nil
     }
 
-    func testFetchTeams() {
+}
+
+final class FetchTeamsTests: NineInTeamTestNetworkService {
+
+    // 모집 글 리스트(홈)
+    func test_fetch_homeView_list() {
         // given
         let headerType = HeaderType.test
         let urlType = UrlType.testDomain
@@ -36,7 +41,7 @@ final class NineInTeamTestTeams: XCTestCase {
         let expectation = XCTestExpectation(description: "GET Request Result가 SUCCESS 입니다.")
 
         // then
-        networkService.GET(headerType: headerType,
+        sut.GET(headerType: headerType,
                     urlType: urlType,
                     endPoint: endPoint,
                     parameters: [:],
@@ -59,7 +64,8 @@ final class NineInTeamTestTeams: XCTestCase {
 
     }
 
-    func testFetchTeamDetail() {
+    // 모집 글 상세
+    func test_fetch_team_detail() {
         // given
         let teamId = 0
         let headerType = HeaderType.test
@@ -70,7 +76,7 @@ final class NineInTeamTestTeams: XCTestCase {
         let expectation = XCTestExpectation(description: "ID값 받아서 Team Detail 가져오기")
 
         // then
-        networkService.GET(headerType: headerType,
+        sut.GET(headerType: headerType,
                     urlType: urlType,
                     endPoint: "\(endPoint)/\(teamId)",
                     parameters: [:],
