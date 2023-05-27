@@ -26,7 +26,14 @@ class HomeViewModel: BaseViewModel {
     func requestDetailPage(teamId: Int) {
         requestTeamDetail(teamId: teamId)
     }
-        
+
+    func write(accountId: Int, content: PostWriteTeam) {
+        postWriteTeam(accountId: accountId, content: content) {
+
+        }
+    }
+
+
     private func requestTeams() {
         service.GET(headerType: .test,
                     urlType: .testDomain,
@@ -66,5 +73,108 @@ class HomeViewModel: BaseViewModel {
         })
         .store(in: &cancellables)
     }
+
+    private func postWriteTeam(accountId: Int, content: PostWriteTeam, completion: () -> Void) {
+        service.POST(headerType: .test,
+                     urlType: .testDomain,
+                     endPoint: "team/\(accountId)",
+                     parameters: [:],
+                     returnType: ResultWriteTeam.self)
+        .sink { result in
+            print(result)
+        } receiveValue: { responseData in
+            if let error = responseData.errorMessage {
+                print(error)
+                return
+            }
+        }
+        .store(in: &cancellables)
+    }
     
 }
+
+struct PostWriteTeam: Decodable {
+    let subjectType: String
+    let subject: String
+    let types: [String]
+    let roles: [RecruitmentRole]
+    let content: String
+    let teamTemplates: [SubmissionForm]
+    let openChatUrl: String
+}
+
+struct ResultWriteTeam: Decodable {
+    let detail: DetailWriteTeam
+    let errorMessage: String?
+}
+
+struct DetailWriteTeam: Decodable {
+    let teamId: Int
+    let openChatUrl: String
+    let content: String
+    let teamTemplates: [SubmissionForm]
+    let types: [String]
+    let subjectType: String
+    let roles: [RecruitmentRole]
+}
+
+//{
+//    "detail": {
+//        "teamId": 2,
+//        "openChatUrl": "http://9in-proejct.chat",
+//        "content": "열심히 할 사람 구함",
+//        "subject": "스프링 프젝 구함",
+//        "teamTemplates": [
+//            {
+//                "type": "TEXT",
+//                "question": "의지를 말해보아라",
+//                "options": null
+//            },
+//            {
+//                "type": "CHECKBOX",
+//                "question": "열심히 할거니",
+//                "options": "네, 아니"
+//            }
+//        ],
+//        "types": [
+//            "KOTLIN",
+//            "JAVA",
+//            "MYSQL"
+//        ],
+//        "subjectType": "PROJECT",
+//        "roles": [
+//            {
+//                "name": "프론트엔드",
+//                "requiredCount": 2,
+//                "hiredCount": 0
+//            },
+//            {
+//                "name": "백엔드",
+//                "requiredCount": 3,
+//                "hiredCount": 0
+//            }
+//        ]
+//    },
+//    "errorMessage": null
+// }
+
+
+//
+//{
+//    {
+//    "subjectType" : "PROJECT",
+//    "subject" : "스프링 프젝 구함",
+//    "types" : ["KOTLIN","JAVA", "MYSQL"],
+//    "roles" : [
+//        {"name" : "프론트엔드", "requiredCount" : 2},
+//        {"name" : "백엔드", "requiredCount" : 3}
+//    ],
+//    "content" : "열심히 할 사람 구함",
+//    "teamTemplates" : [
+//        {"type" : "TEXT","question" : "의지를 말해보아라"},
+//        {"type" : "CHECKBOX", "question" : "열심히 할거니", "options" : "네, 아니"}
+//    ],
+//    "openChatUrl" : "http://9in-proejct.chat"
+//}
+//
+//}

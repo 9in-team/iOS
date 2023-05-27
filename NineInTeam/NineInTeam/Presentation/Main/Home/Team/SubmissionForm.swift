@@ -5,10 +5,11 @@
 //  Created by 조상현 on 2023/03/24.
 //
 
-struct SubmissionForm: Hashable {
+struct SubmissionForm: Hashable, Decodable {
     
-    var no: Int = 1
-    var type: SubmissionFormType = .text
-    var content: String = ""
+    var no: Int?
+    var type: SubmissionFormType
+    var question: String
+    var options: [String]?
     
 }

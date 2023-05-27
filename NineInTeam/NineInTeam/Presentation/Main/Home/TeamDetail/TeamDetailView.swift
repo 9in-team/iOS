@@ -121,11 +121,11 @@ extension TeamDetailView {
         }
     }
 
-    func roleCell(role: Role) -> some View {
+    func roleCell(role: RecruitmentRole) -> some View {
         VStack(alignment: .center, spacing: 0) {
             Spacer()
 
-            TextWithFont(text: role.name, font: .medium, size: 20)
+            TextWithFont(text: role.title, font: .medium, size: 20)
                 .frame(height: 60, alignment: .top)
                 .foregroundColor(
                     Color(hexcode: "000000")
@@ -134,7 +134,7 @@ extension TeamDetailView {
                 .lineSpacing(5)
                 .multilineTextAlignment(.center)
 
-            TextWithFont(text: "\(role.number)명", font: .medium, size: 20)
+            TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
                 .frame(height: 30)
                 .foregroundColor(
                     Color(hexcode: "000000")
@@ -223,3 +223,13 @@ extension TeamDetailView {
     }
     
 }
+
+#if DEBUG
+struct TeamDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        TeamDetailView(teamId: 0)
+
+    }
+}
+#endif

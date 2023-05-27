@@ -70,8 +70,8 @@ final class NineInTeamTestTeams: XCTestCase {
         let expectation = XCTestExpectation(description: "ID값 받아서 Team Detail 가져오기")
 
         // then
-        networkService.GET(headerType: .test,
-                    urlType: .testDomain,
+        networkService.GET(headerType: headerType,
+                    urlType: urlType,
                     endPoint: "\(endPoint)/\(teamId)",
                     parameters: [:],
                     returnType: TeamDetail.self)

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
-		3980312B2A16603C00AD5B05 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980312A2A16603C00AD5B05 /* Role.swift */; };
-		3980312D2A16605800AD5B05 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980312C2A16605800AD5B05 /* Template.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
@@ -127,8 +125,6 @@
 /* Begin PBXFileReference section */
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
-		3980312A2A16603C00AD5B05 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
-		3980312C2A16605800AD5B05 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
@@ -569,8 +565,6 @@
 			children = (
 				DEB0D36C29BB6B8D00B5E1B9 /* TeamDetailView.swift */,
 				398031282A16602F00AD5B05 /* TeamDetail.swift */,
-				3980312A2A16603C00AD5B05 /* Role.swift */,
-				3980312C2A16605800AD5B05 /* Template.swift */,
 			);
 			path = TeamDetail;
 			sourceTree = "<group>";
@@ -888,7 +882,6 @@
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
 				DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */,
-				3980312B2A16603C00AD5B05 /* Role.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignInView.swift in Sources */,
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
@@ -950,7 +943,6 @@
 				DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */,
 				39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
-				3980312D2A16605800AD5B05 /* Template.swift in Sources */,
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,

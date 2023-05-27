@@ -7,12 +7,12 @@
 
 import CoreFoundation
 
-enum SubmissionFormType {
+enum SubmissionFormType: String, Decodable {
     
-    case text
-    case image
-    case file
-    case choice
+    case text = "text"
+    case image = "image"
+    case file = "file"
+    case choice = "radiobox"
     
     func asset() -> String {
         switch self {
@@ -22,7 +22,7 @@ enum SubmissionFormType {
             return "Image"
         case .file:
             return "File"
-        case . choice:
+        case .choice:
             return "Choice"
         }
     }

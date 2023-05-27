@@ -12,9 +12,9 @@ struct TeamDetail: Decodable {
     var subject: String
     var leaderId: Int
     var hashtags: [String]
-    var roles: [Role]
+    var roles: [RecruitmentRole]
     var content: String
-    var applyTemplate: [Template]
+    var applyTemplate: [SubmissionForm]
     var lastModified: String
     var liked: Bool
 }
