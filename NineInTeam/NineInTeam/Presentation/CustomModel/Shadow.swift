@@ -18,13 +18,14 @@ struct Shadow: Hashable {
     let color: ShadowColor
     var opacity: CGFloat = 1
     var radius: CGFloat = 0
+    var blur: CGFloat = 0
     var locationX: CGFloat = 0
     var locationY: CGFloat = 0
     
     func getColor() -> Color {
         switch color {
         case .black:
-            return Color(hexcode: "000000").opacity(0.12)
+            return Color(hexcode: "000000").opacity(opacity)
         case .white:
             return Color(hexcode: "FFFFFF").opacity(opacity)
         case .lightGray:

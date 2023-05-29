@@ -63,7 +63,7 @@ extension View {
             .navigationBarHidden(true)
     }
     
-    func rectangleShadows(_ shadows: [Shadow]) -> some View {       
+    func rectangleShadows(_ shadows: [Shadow]) -> some View {
         self
             .background(
                 ZStack {

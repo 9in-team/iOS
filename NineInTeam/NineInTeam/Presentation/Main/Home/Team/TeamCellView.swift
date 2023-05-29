@@ -78,9 +78,9 @@ extension TeamCellView {
         }
         .padding()
         .frame(height: 120)
-        .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 8, locationX: 0, locationY: 1),
-                           Shadow(color: .black, opacity: 0.14, radius: 4, locationX: 0, locationY: 3),
-                           Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 3)])
+        .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 8, blur: 8, locationX: 0, locationY: 1),
+                           Shadow(color: .black, opacity: 0.14, radius: 4, blur: 4, locationX: 0, locationY: 3),
+                           Shadow(color: .black, opacity: 0.2, radius: 3, blur: 3, locationX: 0, locationY: 3)])
         .padding(.bottom, 5)
         .padding(.horizontal, 10)
     }
