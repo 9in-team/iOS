@@ -35,8 +35,9 @@ extension ReceivedPostCell {
             })
             .cornerRadius(4)
             .disabled(isApproved)
-            .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
-
+            .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                               Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                               Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 1)])
     }
 
     func mainBody() -> some View {
@@ -214,7 +215,9 @@ extension ReceivedPostCell {
         }
         .frame(height: 36)
         .cornerRadius(4)
-        .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 2)
+        .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                           Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                           Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])        
     }
 
     func sendMessageButton() -> some View {

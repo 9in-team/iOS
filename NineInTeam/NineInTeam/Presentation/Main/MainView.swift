@@ -31,9 +31,9 @@ extension MainView {
                 if selection == 0 {
                     HomeView()                        
                 } else if selection == 1 {
-                    NavigationView { // 구독하기 화면 Tab Bar 노출을 위한 Navigation 계층 추가.
+//                    NavigationView { // 구독하기 화면 Tab Bar 노출을 위한 Navigation 계층 추가.
                         MySubscribeView()
-                    }
+//                    }
                 } else if selection == 2 {
                     MyPostView()
                 } else if selection == 3 {
