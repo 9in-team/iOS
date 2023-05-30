@@ -17,8 +17,7 @@ struct Shadow: Hashable {
     
     let color: ShadowColor
     var opacity: CGFloat = 1
-    var radius: CGFloat = 0
-    var blur: CGFloat = 0
+    var radius: CGFloat = 0    
     var locationX: CGFloat = 0
     var locationY: CGFloat = 0
     
