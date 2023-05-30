@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct TeamDetailView: View {
-    
+
     @StateObject var coordinator = Coordinator()
 
     @StateObject var viewModel = HomeViewModel()
-    
-    let team: Team
-    
+
+    let teamId: Int
 }
 
 extension TeamDetailView {
@@ -24,7 +23,10 @@ extension TeamDetailView {
             mainBody()
                 .showNavigationBar(NavigationBar(coordinator: coordinator,
                                                  useDismissButton: true,
-                                                 title: team.subject))
+                                                 title: viewModel.teamDetail?.subject ?? ""))
+        }
+        .onAppear {
+            viewModel.requestDetailPage(teamId: teamId)
         }
     }
     
@@ -65,7 +67,7 @@ extension TeamDetailView {
                 
                 Spacer()
                 
-                TextWithFont(text: team.lastModified, size: 12)
+                TextWithFont(text: viewModel.teamDetail?.lastModified ?? "", size: 12)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.6)
@@ -75,8 +77,8 @@ extension TeamDetailView {
             Rectangle()
                 .frame(height: 10)
                 .foregroundColor(Color.clear)
-            
-            TextWithFont(text: team.subject, font: .robotoMedium, size: 20)
+
+            TextWithFont(text: team.teamDetail?.subject ?? "", font: .robotoMedium, size: 20)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.87)
@@ -87,8 +89,8 @@ extension TeamDetailView {
                 .foregroundColor(Color.clear)
             
             HStack {
-                ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: hashtag, font: .robotoMedium, size: 13)
+                ForEach(viewModel.teamDetail?.hashtags ?? [], id: \.self) { hashtag in
+                    TextWithFont(text: "#\(hashtag)", font: .robotoMedium, size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -113,35 +115,43 @@ extension TeamDetailView {
                 )
             
             HStack {
-                VStack(alignment: .center, spacing: 0) {
-                    Spacer()
-                    
-                    TextWithFont(text: "프론트엔드 개발자", font: .robotoMedium, size: 20)
-                        .frame(height: 60, alignment: .top)
-                        .foregroundColor(
-                            Color(hexcode: "000000")
-                                .opacity(0.87)
-                        )
-                        .lineSpacing(5)
-                        .multilineTextAlignment(.center)                    
-                    
-                    TextWithFont(text: "4명", font: .robotoMedium, size: 20)
-                        .frame(height: 30)
-                        .foregroundColor(
-                            Color(hexcode: "000000")
-                                .opacity(0.38)
-                        )
-                    
-                    Spacer()
+                if let team = viewModel.teamDetail {
+                    ForEach(team.roles, id: \.self) { role in
+                        roleCell(role: role)
+                    }
                 }
-                .frame(width: 120, height: 120)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .strokeBorder(Color(hexcode: "000000").opacity(0.6),
-                                      lineWidth: 1)
-                )
             }
         }
+    }
+
+    func roleCell(role: RecruitmentRole) -> some View {
+        VStack(alignment: .center, spacing: 0) {
+            Spacer()
+
+            TextWithFont(text: role.title, font: .medium, size: 20)
+                .frame(height: 60, alignment: .top)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.87)
+                )
+                .lineSpacing(5)
+                .multilineTextAlignment(.center)
+
+            TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
+                .frame(height: 30)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.38)
+                )
+
+            Spacer()
+        }
+        .frame(width: 120, height: 120)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(Color(hexcode: "000000").opacity(0.6),
+                              lineWidth: 1)
+        )
     }
     
     func teamExplanation() -> some View {
@@ -153,7 +163,7 @@ extension TeamDetailView {
                 )
                                     
             VStack(alignment: .leading, spacing: 5) {
-                TextWithFont(text: "9in.team", size: 16)
+                TextWithFont(text: viewModel.teamDetail?.content ?? "", size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -236,9 +246,7 @@ extension TeamDetailView {
 #if DEBUG
 struct TeamDetailView_Previews: PreviewProvider {
     static var previews: some View {
-
-        TeamDetailView(team: dummyTeam)
-
+        TeamDetailView(teamId: 0)
     }
 }
 #endif

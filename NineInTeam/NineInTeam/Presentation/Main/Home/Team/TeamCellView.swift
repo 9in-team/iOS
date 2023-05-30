@@ -45,7 +45,7 @@ extension TeamCellView {
             
             HStack {
                 ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: hashtag, size: 13)
+                    TextWithFont(text: "#\(hashtag)", size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -83,3 +83,19 @@ extension TeamCellView {
     }
     
 }
+
+#if DEBUG
+struct TeamCellView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        let team = Team(teamId: 0,
+                        subject: "개발자를 모집합니다",
+                        leader: "김진홍",
+                        hashtags: ["알고리즘", "Java"],
+                        lastModified: "2023-05-11 01:02:12")
+
+        TeamCellView(team: team)
+
+    }
+}
+#endif
