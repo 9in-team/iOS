@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct TeamDetailView: View {
-    
+
     @StateObject var coordinator = Coordinator()
 
     @StateObject var viewModel = HomeViewModel()
-    
-    let team: Team
-    
+
+    let teamId: Int
 }
 
 extension TeamDetailView {
@@ -24,29 +23,35 @@ extension TeamDetailView {
             mainBody()
                 .showNavigationBar(NavigationBar(coordinator: coordinator,
                                                  useDismissButton: true,
-                                                 title: team.subject))
+                                                 title: viewModel.teamDetail?.subject ?? ""))
+        }
+        .onAppear {
+            viewModel.requestDetailPage(teamId: teamId)
         }
     }
     
     func mainBody() -> some View {
-        ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 30) {
-                teamDetailInfo()
-                
-                recruitmentRole()
-                    
-                teamExplanation()
-                
-                bottomButtons()
+        ZStack {
+
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 30) {
+                    teamDetailInfo()
+
+                    recruitmentRole()
+
+                    teamExplanation()
+                }
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 10)
+
+            bottomButtons()
         }
     }
     
     func teamDetailInfo() -> some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
-                TextWithFont(text: "스터디", font: .regular, size: 13)
+                TextWithFont(text: "스터디", size: 13)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -62,7 +67,7 @@ extension TeamDetailView {
                 
                 Spacer()
                 
-                TextWithFont(text: team.lastModified, font: .regular, size: 12)
+                TextWithFont(text: viewModel.teamDetail?.lastModified ?? "", size: 12)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.6)
@@ -72,8 +77,8 @@ extension TeamDetailView {
             Rectangle()
                 .frame(height: 10)
                 .foregroundColor(Color.clear)
-            
-            TextWithFont(text: team.subject, font: .medium, size: 20)
+
+            TextWithFont(text: team.teamDetail?.subject ?? "", font: .robotoMedium, size: 20)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.87)
@@ -84,8 +89,8 @@ extension TeamDetailView {
                 .foregroundColor(Color.clear)
             
             HStack {
-                ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: hashtag, font: .medium, size: 13)
+                ForEach(viewModel.teamDetail?.hashtags ?? [], id: \.self) { hashtag in
+                    TextWithFont(text: "#\(hashtag)", font: .robotoMedium, size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -103,54 +108,62 @@ extension TeamDetailView {
     
     func recruitmentRole() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            TextWithFont(text: "모집 역할", font: .bold, size: 12)
+            TextWithFont(text: "모집 역할", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
             
             HStack {
-                VStack(alignment: .center, spacing: 0) {
-                    Spacer()
-                    
-                    TextWithFont(text: "프론트엔드 개발자", font: .medium, size: 20)
-                        .frame(height: 60, alignment: .top)
-                        .foregroundColor(
-                            Color(hexcode: "000000")
-                                .opacity(0.87)
-                        )
-                        .lineSpacing(5)
-                        .multilineTextAlignment(.center)                    
-                    
-                    TextWithFont(text: "4명", font: .medium, size: 20)
-                        .frame(height: 30)
-                        .foregroundColor(
-                            Color(hexcode: "000000")
-                                .opacity(0.38)
-                        )
-                    
-                    Spacer()
+                if let team = viewModel.teamDetail {
+                    ForEach(team.roles, id: \.self) { role in
+                        roleCell(role: role)
+                    }
                 }
-                .frame(width: 120, height: 120)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .strokeBorder(Color(hexcode: "000000").opacity(0.6),
-                                      lineWidth: 1)
-                )
             }
         }
+    }
+
+    func roleCell(role: RecruitmentRole) -> some View {
+        VStack(alignment: .center, spacing: 0) {
+            Spacer()
+
+            TextWithFont(text: role.title, font: .medium, size: 20)
+                .frame(height: 60, alignment: .top)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.87)
+                )
+                .lineSpacing(5)
+                .multilineTextAlignment(.center)
+
+            TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
+                .frame(height: 30)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.38)
+                )
+
+            Spacer()
+        }
+        .frame(width: 120, height: 120)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(Color(hexcode: "000000").opacity(0.6),
+                              lineWidth: 1)
+        )
     }
     
     func teamExplanation() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "팀 설명", font: .bold, size: 12)
+            TextWithFont(text: "팀 설명", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
                                     
             VStack(alignment: .leading, spacing: 5) {
-                TextWithFont(text: "9in.team", font: .regular, size: 16)
+                TextWithFont(text: viewModel.teamDetail?.content ?? "", size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -168,9 +181,23 @@ extension TeamDetailView {
             }
         }
     }
-    
+
     func bottomButtons() -> some View {
-        VStack(alignment: .trailing, spacing: 14) {
+        VStack {
+            Spacer()
+
+            floatingButtons()
+                .padding([.trailing, .bottom], 14)
+            applyButton()
+                .padding(.horizontal, 20)
+        }
+    }
+    
+    func floatingButtons() -> some View {
+        HStack(spacing: 14) {
+
+            Spacer()
+
             VStack(spacing: 8) {
                 Circle()
                     .frame(width: 56, height: 56)
@@ -184,7 +211,7 @@ extension TeamDetailView {
                         Image("Chat")
                             .resizable()
                             .frame(width: 20, height: 20)
-                        )
+                    )
                 
                 Circle()
                     .frame(width: 56, height: 56)
@@ -200,22 +227,33 @@ extension TeamDetailView {
                             .frame(width: 20, height: 18)
                     )
             }
-            
-            Button {
-               //
-            } label: {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(ColorConstant.main.color())
-                    .frame(height: 42)
-                    .overlay(
-                        TextWithFont(text: "지원하기", font: .medium, size: 15)
-                            .foregroundColor(Color(hexcode: "FFFFFF"))
-                    )
-                    .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
-                                       Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
-                                       Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
-            }
+
+        }
+    }
+
+    func applyButton() -> some View {
+        Button {
+           //
+        } label: {
+            RoundedRectangle(cornerRadius: 4)
+                .fill(ColorConstant.main.color())
+                .frame(height: 42)
+                .overlay(
+                    TextWithFont(text: "지원하기", font: .robotoMedium, size: 15)
+                        .foregroundColor(Color(hexcode: "FFFFFF"))
+                )
+                .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                   Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                   Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
         }
     }
     
 }
+
+#if DEBUG
+struct TeamDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        TeamDetailView(teamId: 0)
+    }
+}
+#endif

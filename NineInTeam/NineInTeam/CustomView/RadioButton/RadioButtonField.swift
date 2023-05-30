@@ -35,7 +35,7 @@ struct RadioButtonField: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 17, height: 17)
                 
-                TextWithFont(text: title, font: .regular, size: 16)
+                TextWithFont(text: title, size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)

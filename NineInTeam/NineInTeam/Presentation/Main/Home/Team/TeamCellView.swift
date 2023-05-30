@@ -18,7 +18,7 @@ extension TeamCellView {
     var body: some View {
         VStack {
             HStack {
-                TextWithFont(text: team.subject, font: .regular, size: 16)
+                TextWithFont(text: team.subject, size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -26,7 +26,7 @@ extension TeamCellView {
                 
                 Spacer()
                 
-                TextWithFont(text: "스터디", font: .regular, size: 13)
+                TextWithFont(text: "스터디", size: 13)
                     .padding(.vertical, 7)
                     .padding(.horizontal, 10)
                     .foregroundColor(
@@ -45,7 +45,7 @@ extension TeamCellView {
             
             HStack {
                 ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: hashtag, font: .regular, size: 13)
+                    TextWithFont(text: "#\(hashtag)", size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -63,12 +63,12 @@ extension TeamCellView {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 3) {
-                    TextWithFont(text: team.leader, font: .regular, size: 12)
+                    TextWithFont(text: team.leader, size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                         )
                     
-                    TextWithFont(text: team.lastModified, font: .regular, size: 12)
+                    TextWithFont(text: team.lastModified, size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.38)
@@ -82,7 +82,22 @@ extension TeamCellView {
                            Shadow(color: .black, opacity: 0.14, radius: 4, locationX: 0, locationY: 3),
                            Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 3)])
         .padding(.bottom, 5)
-        .padding(.horizontal, 10)
     }
     
 }
+
+#if DEBUG
+struct TeamCellView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        let team = Team(teamId: 0,
+                        subject: "개발자를 모집합니다",
+                        leader: "김진홍",
+                        hashtags: ["알고리즘", "Java"],
+                        lastModified: "2023-05-11 01:02:12")
+
+        TeamCellView(team: team)
+
+    }
+}
+#endif

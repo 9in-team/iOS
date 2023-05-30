@@ -27,7 +27,7 @@ struct PostTextEditor: View {
                         .opacity(0.23)
                 )
 
-            TextWithFont(text: title, font: .bold, size: 12)
+            TextWithFont(text: title, font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)

@@ -50,6 +50,7 @@ extension MyResumeView {
                         selectedIndex = index
                         alertPoint = point
                     }
+                    .padding(.horizontal, 20)
             }
         }
         .overlay(resumeCellViewAlert())
@@ -87,7 +88,7 @@ extension MyResumeView {
                                                 }
                                                 .frame(width: 30)
                                                 
-                                                TextWithFont(text: "문의", font: .regular, size: 16)
+                                                TextWithFont(text: "문의", size: 16)
                                                     .foregroundColor(
                                                         Color(hexcode: "000000")
                                                             .opacity(0.87)
@@ -113,7 +114,7 @@ extension MyResumeView {
                                                 }
                                                 .frame(width: 30)
                                                 
-                                                TextWithFont(text: "추가 제출", font: .regular, size: 16)
+                                                TextWithFont(text: "추가 제출", size: 16)
                                                     .foregroundColor(
                                                         Color(hexcode: "000000")
                                                             .opacity(0.87)
@@ -144,3 +145,13 @@ extension MyResumeView {
     }
                 
 }
+
+#if DEBUG
+struct MyResumeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            MyResumeView()
+        }
+    }
+}
+#endif

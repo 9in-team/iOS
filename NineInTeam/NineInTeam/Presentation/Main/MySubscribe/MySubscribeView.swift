@@ -29,35 +29,33 @@ extension MySubscribeView {
             } label: {
                 subscribing()
             }
+            .padding(.horizontal, 20)
 
             ScrollView {
                 Rectangle()
                     .frame(height: 0.1)
                     .foregroundColor(Color.clear)
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
-                SubscribeCellView(subscribe: Subscribe())
-                
+
+                ForEach(viewModel.subscribes, id: \.self) { subscriber in
+                    SubscribeCellView(subscribe: subscriber)
+                        .padding(.horizontal, 20)
+                }
+
             }
         }
     }
     
     func subscribing() -> some View {
         VStack(spacing: 4) {
-            TextWithFont(text: "구독중", font: .bold, size: 14)
+            TextWithFont(text: "구독중", font: .robotoBold, size: 14)
                 .foregroundColor(ColorConstant.main.color())
                 .multilineTextAlignment(.center)
             
             HStack {
                 VStack(alignment: .center) {
-                    TextWithFont(text: "스터디", font: .medium, size: 14)
+                    TextWithFont(text: "스터디", font: .robotoMedium, size: 14)
                     
-                    TextWithFont(text: "3", font: .medium, size: 14)
+                    TextWithFont(text: "3", font: .robotoMedium, size: 14)
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(ColorConstant.main.color())
@@ -70,9 +68,9 @@ extension MySubscribeView {
                     )
                 
                 VStack(alignment: .center) {
-                    TextWithFont(text: "프로젝트", font: .medium, size: 14)
+                    TextWithFont(text: "프로젝트", font: .robotoMedium, size: 14)
                     
-                    TextWithFont(text: "7", font: .medium, size: 14)
+                    TextWithFont(text: "7", font: .robotoMedium, size: 14)
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(ColorConstant.main.color())
@@ -82,8 +80,19 @@ extension MySubscribeView {
                     .stroke(ColorConstant.main.color().opacity(0.5),
                             lineWidth: 1)
             )
-            .padding(.horizontal, 10)
         }
     }
                 
 }
+
+#if DEBUG
+struct MySubscribeView_Previews: PreviewProvider {
+    static var previews: some View {
+
+        NavigationView {
+            MySubscribeView()
+        }
+
+    }
+}
+#endif
