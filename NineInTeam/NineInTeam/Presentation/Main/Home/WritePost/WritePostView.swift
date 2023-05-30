@@ -27,16 +27,16 @@ struct WritePostView: View {
                                                       RecruitmentRole(title: "디자이너", count: 4)]
     
     @State var showAddSubmissionFormAlert: Bool = false
-    @State var submissionForms: [SubmissionForm] = [SubmissionForm(no: 1,
+    @State var submissionForms: [SubmissionForm] = [SubmissionForm(number: 1,
                                                                    type: .text,
                                                                    question: "solved.ac 티어가 어떻게 되세요?"),
-                                                    SubmissionForm(no: 2,
+                                                    SubmissionForm(number: 2,
                                                                    type: .image,
                                                                    question: "solved.ac 프로필 사진 찍어주세요"),
-                                                    SubmissionForm(no: 3,
+                                                    SubmissionForm(number: 3,
                                                                    type: .file,
                                                                    question: "포트폴리오 첨부해주세요"),
-                                                    SubmissionForm(no: 4,
+                                                    SubmissionForm(number: 4,
                                                                    type: .choice,
                                                                    question: "열심히 하실거죠?")]
     
@@ -267,7 +267,7 @@ extension WritePostView {
                                 )
                                 .frame(width: 62, height: 62)
                                 .overlay(
-                                    TextWithFont(text: "\(form.no)", font: .medium, size: 12)
+                                    TextWithFont(text: "\(form.number ?? 0)", font: .medium, size: 12)
                                         .foregroundColor(Color(hexcode: "FFFFFF"))
                                         .padding(6)
                                         .background(ColorConstant.main.color())

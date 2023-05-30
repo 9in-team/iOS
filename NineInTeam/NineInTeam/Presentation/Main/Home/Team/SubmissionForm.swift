@@ -7,7 +7,7 @@
 
 struct SubmissionForm: Hashable, Decodable {
     
-    var no: Int?
+    var number: Int?
     var type: SubmissionFormType
     var question: String
     var options: [String]?
