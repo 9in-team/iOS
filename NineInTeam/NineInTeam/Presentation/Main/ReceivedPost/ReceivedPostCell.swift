@@ -77,12 +77,12 @@ extension ReceivedPostCell {
                 VStack(alignment: .leading, spacing: 0) {
                     heightSpacer(15)
 
-                    TextWithFont(text: "프론트엔드 개발자", font: .regular, size: 13)
+                    TextWithFont(text: "프론트엔드 개발자", size: 13)
                         .modifier(RoleLabel())
                     
                     heightSpacer(4)
 
-                    TextWithFont(text: "1시간 전", font: .regular, size: 12)
+                    TextWithFont(text: "1시간 전", size: 12)
                         .opacity(0.38)
                         .frame(height: 20)
                         .padding(.leading, 4)
@@ -96,7 +96,7 @@ extension ReceivedPostCell {
                     profileImage()
                         .frame(width: 40, height: 40)
 
-                    TextWithFont(text: "여섯글자임..", font: .regular, size: 12)
+                    TextWithFont(text: "여섯글자임..", size: 12)
                         .frame(width: 70, height: 20)
                 }
                 .frame(width: 70)
@@ -121,13 +121,13 @@ extension ReceivedPostCell {
 
     func answerTextField() -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            TextWithFont(text: "답변", font: .bold, size: 12)
+            TextWithFont(text: "답변", font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
                 )
 
-            TextWithFont(text: "Ruby I", font: .regular, size: 16)
+            TextWithFont(text: "Ruby I", size: 16)
                 .modifier(TextUnderLine())
         }
     }
@@ -151,7 +151,7 @@ extension ReceivedPostCell {
                     .resizable()
                     .frame(width: 16, height: 20)
 
-                TextWithFont(text: "포트폴리오.pdf", font: .regular, size: 14)
+                TextWithFont(text: "포트폴리오.pdf", size: 14)
             }
             .modifier(ApplyTemplate(question: "3. 포트폴리오 첨부해주세요"))
 
@@ -160,7 +160,7 @@ extension ReceivedPostCell {
                     .resizable()
                     .frame(width: 18, height: 18)
 
-                TextWithFont(text: "네", font: .regular, size: 14)
+                TextWithFont(text: "네", size: 14)
             }
             .modifier(ApplyTemplate(question: "4. 열심히 하실거죠?"))
         }
@@ -176,7 +176,7 @@ extension ReceivedPostCell {
                             .resizable()
                             .frame(width: 15, height: 12)
 
-                        TextWithFont(text: "승인", font: .medium, size: 14)
+                        TextWithFont(text: "승인", font: .robotoMedium, size: 14)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 }
@@ -200,7 +200,7 @@ extension ReceivedPostCell {
                             .resizable()
                             .frame(width: 12, height: 12)
 
-                        TextWithFont(text: "거절", font: .medium, size: 14)
+                        TextWithFont(text: "거절", font: .robotoMedium, size: 14)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 }
@@ -232,7 +232,7 @@ extension ReceivedPostCell {
                     .fill(Color(hexcode: "42A5F5"))
 
                 ZStack {
-                    TextWithFont(text: "메시지 전송", font: .medium, size: 15)
+                    TextWithFont(text: "메시지 전송", font: .robotoMedium, size: 15)
                         .foregroundColor(Color(hexcode: "FFFFFF"))
                         .padding(.horizontal, 22)
                         .padding(.vertical, 8)
@@ -256,7 +256,7 @@ struct ApplyTemplate: ViewModifier {
 
     func body(content: Content) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            TextWithFont(text: question, font: .regular, size: 14)
+            TextWithFont(text: question, size: 14)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)

@@ -46,13 +46,14 @@ extension HomeView {
                         coordinator.push(destination: .teamDetail(team.teamId))
                     } label: {
                         TeamCellView(team: team)
+                            .padding(.horizontal, 20)
                     }
                 }
                 .onAppear {
                     viewModel.requestFristPage()
                 }
             }
-            
+
             NavigationLink(destination: WritePostView()) {
                 Circle()
                     .frame(width: 56, height: 56)
@@ -64,7 +65,7 @@ extension HomeView {
                             .frame(width: 18, height: 18)
                     }
             }
-            .padding(.trailing, 5)
+            .padding(.trailing, 14)
         }
     }
     

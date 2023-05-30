@@ -5,6 +5,6 @@
 //  Created by 조상현 on 2023/03/16.
 //
 
-struct Subscribe: Codable {
+struct Subscribe: Codable, Hashable {
         
 }

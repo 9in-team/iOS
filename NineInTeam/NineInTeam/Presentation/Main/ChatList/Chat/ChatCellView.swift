@@ -22,9 +22,9 @@ extension ChatCellView {
                 .frame(width: 20)
                         
             VStack(alignment: .leading, spacing: 3) {
-                TextWithFont(text: "조상현", font: .regular, size: 16)                    
+                TextWithFont(text: "조상현", size: 16)
                                
-                TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 시간 되시나요?", font: .medium, size: 14)
+                TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 시간 되시나요?", font: .robotoMedium, size: 14)
                     .opacity(0.38)
                     .lineLimit(1)
                 
@@ -36,13 +36,13 @@ extension ChatCellView {
             Spacer()
             
             VStack(alignment: .trailing, spacing: 6) {
-                TextWithFont(text: "1시간 전", font: .regular, size: 12)
+                TextWithFont(text: "1시간 전", size: 12)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.38)
                     )
                 
-                TextWithFont(text: "1", font: .medium, size: 12)
+                TextWithFont(text: "1", font: .robotoMedium, size: 12)
                     .foregroundColor(Color(hexcode: "FFFFFF"))
                     .padding(6)
                     .background(Circle().fill(ColorConstant.main.color()))

@@ -44,13 +44,13 @@ extension ResumeCellView {
             VStack(alignment: .leading, spacing: 5) {
                 Spacer()
                 
-                TextWithFont(text: "알고리즘 스터디원 구합니다", font: .regular, size: 16)
+                TextWithFont(text: "알고리즘 스터디원 구합니다", size: 16)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
                     )
                 
-                TextWithFont(text: "1시간 전", font: .regular, size: 12)
+                TextWithFont(text: "1시간 전", size: 12)
                     .frame(height: 20)
                     .foregroundColor(
                         Color(hexcode: "000000")
@@ -63,7 +63,7 @@ extension ResumeCellView {
             
             Spacer()
                         
-            TextWithFont(text: applyStateTitle(), font: .bold, size: 15)
+            TextWithFont(text: applyStateTitle(), font: .robotoBold, size: 15)
                 .frame(width: 43, height: 26)
                 .foregroundColor(applyStateColor())
         }
@@ -73,7 +73,6 @@ extension ResumeCellView {
         .frame(maxWidth: .infinity)
         .rectangleShadows(firstX: 0, firstY: 1, secondX: 0, secondY: 3)
         .padding(.bottom, 5)
-        .padding(.horizontal, 10)
     }
     
 }
