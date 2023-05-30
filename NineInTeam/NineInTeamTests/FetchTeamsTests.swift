@@ -1,34 +1,15 @@
 //
-//  NineInTeamTestFetchTeams.swift
+//  FetchTeamsTests.swift
 //  NineInTeamTests
 //
-//  Created by Heonjin Ha on 2023/05/17.
+//  Created by Heonjin Ha on 2023/05/30.
 //
 
 import XCTest
 import Combine
 @testable import NineInTeam
 
-class NineInTeamTestNetworkService: XCTestCase {
-
-    fileprivate var sut: NetworkService!
-    fileprivate var cancellables: Set<AnyCancellable>!
-
-    override func setUp() {
-        sut = .init()
-        cancellables = .init()
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-        cancellables = nil
-        sut = nil
-    }
-
-}
-
-final class FetchTeamsTests: NineInTeamTestNetworkService {
+final class FetchTeamsTests: NetworkServiceTests {
 
     // 모집 글 리스트(홈)
     func test_fetch_homeView_list() {

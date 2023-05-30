@@ -27,10 +27,18 @@ struct WritePostView: View {
                                                       RecruitmentRole(title: "디자이너", count: 4)]
     
     @State var showAddSubmissionFormAlert: Bool = false
-    @State var submissionForms: [SubmissionForm] = [SubmissionForm(no: 1, type: .text, content: "solved.ac 티어가 어떻게 되세요?"),
-                                                    SubmissionForm(no: 2, type: .image, content: "solved.ac 프로필 사진 찍어주세요"),
-                                                    SubmissionForm(no: 3, type: .file, content: "포트폴리오 첨부해주세요"),
-                                                    SubmissionForm(no: 4, type: .choice, content: "열심히 하실거죠?")]
+    @State var submissionForms: [SubmissionForm] = [SubmissionForm(no: 1,
+                                                                   type: .text,
+                                                                   question: "solved.ac 티어가 어떻게 되세요?"),
+                                                    SubmissionForm(no: 2,
+                                                                   type: .image,
+                                                                   question: "solved.ac 프로필 사진 찍어주세요"),
+                                                    SubmissionForm(no: 3,
+                                                                   type: .file,
+                                                                   question: "포트폴리오 첨부해주세요"),
+                                                    SubmissionForm(no: 4,
+                                                                   type: .choice,
+                                                                   question: "열심히 하실거죠?")]
     
     @State var chatRoomLink: String = ""
     
@@ -277,7 +285,7 @@ extension WritePostView {
                         }
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            TextWithFont(text: form.content, font: .regular, size: 16)
+                            TextWithFont(text: form.question, font: .regular, size: 16)
                                 .foregroundColor(
                                     Color(hexcode: "000000")
                                         .opacity(0.6)

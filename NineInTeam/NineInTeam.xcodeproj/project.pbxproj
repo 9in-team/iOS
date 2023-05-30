@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
+		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
-		39BD3EEC2A14B0DF00E14DCA /* NineInTeamTestNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestNetworkService.swift */; };
+		39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
 		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
@@ -125,10 +126,11 @@
 /* Begin PBXFileReference section */
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
+		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
-		39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeamTestNetworkService.swift; sourceTree = "<group>"; };
+		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
@@ -420,7 +422,8 @@
 			isa = PBXGroup;
 			children = (
 				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
-				39BD3EEB2A14B0DF00E14DCA /* NineInTeamTestNetworkService.swift */,
+				39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */,
+				3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */,
 			);
 			path = NineInTeamTests;
 			sourceTree = "<group>";
@@ -955,7 +958,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */,
-				39BD3EEC2A14B0DF00E14DCA /* NineInTeamTestNetworkService.swift in Sources */,
+				399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */,
+				39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
