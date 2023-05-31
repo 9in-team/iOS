@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SubscribeTagCell: View {
 
-    @Binding var subscribing: Bool
-
+    let title: String
+    @State var count: Int
+    @State var subscribing: Bool
 }
 
 extension SubscribeTagCell {
@@ -24,10 +25,10 @@ extension SubscribeTagCell {
 
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    TextWithFont(text: "#알고리즘", size: 16)
+                    TextWithFont(text: "#\(title)", size: 16)
                         .frame(height: 24)
 
-                    TextWithFont(text: "구독자 123명", size: 12)
+                    TextWithFont(text: "구독자 \(count)명", size: 12)
                         .foregroundColor(Color(hexcode: "000000").opacity(0.38))
                         .frame(height: 20)
                 }
@@ -40,7 +41,7 @@ extension SubscribeTagCell {
         }
     }
 
-    func subscribeStateButton() -> some View {
+    private func subscribeStateButton() -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
                 .foregroundColor(Color(hexcode: subscribing ? "C7C7CC" : "42A5F5"))
@@ -48,6 +49,9 @@ extension SubscribeTagCell {
             TextWithFont(text: subscribing ? "구독중" : "구독하기", font: .robotoMedium, size: 13)
                 .foregroundColor(Color(hexcode: "FFFFFF"))
             
+        }
+        .onTapGesture {
+            self.subscribing.toggle()
         }
         .frame(width: 89, height: 65)
         .rectangleShadows([
@@ -63,8 +67,8 @@ extension SubscribeTagCell {
 struct SubscribeTagCell_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            SubscribeTagCell(subscribing: .constant(false))
-            SubscribeTagCell(subscribing: .constant(true))
+            SubscribeTagCell(title: "알고리즘", count: 12, subscribing: true)
+            SubscribeTagCell(title: "SWIFT", count: 456, subscribing: false)
         }
     }
 }

@@ -11,14 +11,17 @@
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
+		396CC3A22A2791D8000AB615 /* FetchHashtagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */; };
+		396CC3A42A2799D5000AB615 /* HashtagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A32A2799D5000AB615 /* HashtagResponse.swift */; };
+		396CC3A62A2799E2000AB615 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A52A2799E2000AB615 /* Hashtag.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
+		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
 		39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
-		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
 		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
 		39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */; };
@@ -132,13 +135,16 @@
 
 /* Begin PBXFileReference section */
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
+		396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchHashtagsTests.swift; sourceTree = "<group>"; };
+		396CC3A32A2799D5000AB615 /* HashtagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagResponse.swift; sourceTree = "<group>"; };
+		396CC3A52A2799E2000AB615 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
-		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
+		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
@@ -314,6 +320,8 @@
 				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
 				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
 				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
+				396CC3A32A2799D5000AB615 /* HashtagResponse.swift */,
+				396CC3A52A2799E2000AB615 /* Hashtag.swift */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -447,6 +455,7 @@
 				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
 				39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */,
 				3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */,
+				396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */,
 			);
 			path = NineInTeamTests;
 			sourceTree = "<group>";
@@ -699,7 +708,6 @@
 				39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */,
 				39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */,
 				39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */,
-				39EB01902A176C1E00A12674 /* Roboto */,
 				DEC6A82C2991D8D300AD0873 /* GodoB.otf */,
 			);
 			path = Font;
@@ -916,6 +924,7 @@
 				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
+				396CC3A42A2799D5000AB615 /* HashtagResponse.swift in Sources */,
 				DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */,
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
@@ -956,6 +965,7 @@
 				DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */,
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
+				396CC3A62A2799E2000AB615 /* Hashtag.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
 				39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
@@ -997,6 +1007,7 @@
 				DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */,
 				399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */,
 				39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */,
+				396CC3A22A2791D8000AB615 /* FetchHashtagsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

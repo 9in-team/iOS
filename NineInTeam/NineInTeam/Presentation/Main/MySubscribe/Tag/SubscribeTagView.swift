@@ -31,13 +31,16 @@ extension SubscribeTagView {
 
     func mainBody() -> some View {
         VStack(spacing: 16) {
-            SubscribeTagCell(subscribing: .constant(false))
-
-            SubscribeTagCell(subscribing: .constant(true))
+            ForEach(viewModel.hashtags, id: \.self) { tag in
+                SubscribeTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
+            }
 
             Spacer()
         }
         .padding(.horizontal, 20)
+        .onAppear {
+            viewModel.getHashTag()
+        }
     }
 
 }

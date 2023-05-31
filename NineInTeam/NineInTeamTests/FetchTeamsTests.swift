@@ -15,7 +15,7 @@ final class FetchTeamsTests: NetworkServiceTests {
     func test_fetch_homeView_list() {
         // given
         let headerType = HeaderType.test
-        let urlType = UrlType.testDomain
+        let urlType = UrlType.testLocal
         let endPoint = "teams"
 
         // when
@@ -50,7 +50,7 @@ final class FetchTeamsTests: NetworkServiceTests {
         // given
         let teamId = 0
         let headerType = HeaderType.test
-        let urlType = UrlType.testDomain
+        let urlType = UrlType.testLocal
         let endPoint = "teams"
 
         // when
