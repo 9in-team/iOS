@@ -15,11 +15,11 @@ final class FetchHashtags: NetworkServiceTests {
     func test_fetch_team_detail() {
         // given
         let headerType = HeaderType.test
-        let urlType = UrlType.testLocal
+        let urlType = UrlType.testDomain
         let endPoint = "hashtags"
 
         // when
-        let expectation = XCTestExpectation(description: "ID값 받아서 Team Detail 가져오기")
+        let expectation = XCTestExpectation(description: "Hashtag 리스트 가져오기")
 
         // then
         sut.GET(headerType: headerType,

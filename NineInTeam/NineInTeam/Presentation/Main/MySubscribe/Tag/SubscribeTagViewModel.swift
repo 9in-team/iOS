@@ -24,7 +24,7 @@ extension SubscribeTagViewModel {
 
   func getHashTag() {
         service.GET(headerType: .test,
-                    urlType: .testLocal,
+                    urlType: .testDomain,
                     endPoint: "hashtags",
                     parameters: [:],
                     returnType: HashtagResponse.self)
