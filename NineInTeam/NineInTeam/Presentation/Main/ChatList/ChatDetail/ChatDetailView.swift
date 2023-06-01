@@ -66,7 +66,7 @@ extension ChatDetailView {
                 userInputText = ""
             } label: {
                 ZStack {
-                    Image("Paperplane")
+                    Image("Send")
                         .resizable()
                         .frame(width: 21, height: 18)
                 }

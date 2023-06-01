@@ -78,7 +78,7 @@ extension MyResumeView {
                                         } label: {
                                             HStack(alignment: .center, spacing: 10) {
                                                 HStack {
-                                                    Image("Enquiry")
+                                                    Image("Send")
                                                         .resizable()
                                                         .frame(width: 18, height: 14)
                                                         .foregroundColor(

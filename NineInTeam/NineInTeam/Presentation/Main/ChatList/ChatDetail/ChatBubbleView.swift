@@ -76,10 +76,10 @@ struct ChatBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         ChatDetailView()
         ChatBubbleView(direction: .left) {
-            TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
+            TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .robotoRegular, size: 16)
         }
         ChatBubbleView(direction: .right) {
-            TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .light, size: 16)
+            TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .robotoRegular, size: 16)
         }
     }
 }

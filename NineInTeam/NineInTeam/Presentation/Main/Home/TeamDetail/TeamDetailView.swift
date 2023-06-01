@@ -78,7 +78,7 @@ extension TeamDetailView {
                 .frame(height: 10)
                 .foregroundColor(Color.clear)
 
-            TextWithFont(text: team.teamDetail?.subject ?? "", font: .robotoMedium, size: 20)
+            TextWithFont(text: viewModel.teamDetail?.subject ?? "", font: .robotoMedium, size: 20)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.87)
@@ -128,7 +128,7 @@ extension TeamDetailView {
         VStack(alignment: .center, spacing: 0) {
             Spacer()
 
-            TextWithFont(text: role.title, font: .medium, size: 20)
+            TextWithFont(text: role.title, font: .robotoMedium, size: 20)
                 .frame(height: 60, alignment: .top)
                 .foregroundColor(
                     Color(hexcode: "000000")
@@ -137,7 +137,7 @@ extension TeamDetailView {
                 .lineSpacing(5)
                 .multilineTextAlignment(.center)
 
-            TextWithFont(text: "\(role.count)명", font: .medium, size: 20)
+            TextWithFont(text: "\(role.count)명", font: .robotoMedium, size: 20)
                 .frame(height: 30)
                 .foregroundColor(
                     Color(hexcode: "000000")
