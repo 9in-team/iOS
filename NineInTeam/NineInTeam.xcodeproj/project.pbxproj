@@ -314,7 +314,7 @@
 			path = ReceivedPost;
 			sourceTree = "<group>";
 		};
-		39D6560029F184FF00C17C1B /* Tag */ = {
+		39D6560029F184FF00C17C1B /* HashTag */ = {
 			isa = PBXGroup;
 			children = (
 				39D655FA29F17C4300C17C1B /* SubscribeHashTagView.swift */,
@@ -323,7 +323,7 @@
 				396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */,
 				396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */,
 			);
-			path = Tag;
+			path = HashTag;
 			sourceTree = "<group>";
 		};
 		DE47790A29F169FC00C0EC3E /* Navigation */ = {
@@ -556,7 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB0D37E29C3474800B5E1B9 /* Subscribe */,
-				39D6560029F184FF00C17C1B /* Tag */,
+				39D6560029F184FF00C17C1B /* HashTag */,
 				DEB0D37029C09EB300B5E1B9 /* MySubscribeView.swift */,
 				DEB0D37229C0ADD700B5E1B9 /* MySubscribeViewModel.swift */,
 			);

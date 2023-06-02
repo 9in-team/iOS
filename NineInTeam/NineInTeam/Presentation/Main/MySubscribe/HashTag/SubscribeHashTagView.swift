@@ -19,7 +19,6 @@ struct SubscribeHashTagView: View {
 
 extension SubscribeHashTagView {
 
-    // TODO: 스터디 / 프로젝트 누르면 그것에 따른 태그 변경
     var body: some View {
         BaseView(appState: viewModel.appState) {
             mainBody()
@@ -34,11 +33,11 @@ extension SubscribeHashTagView {
         VStack(spacing: 16) {
             if currentTab == 0 {
                 ForEach(viewModel.studyHashtags, id: \.self) { tag in
-                    SubscribeTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
+                    SubscribeHashTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
                 }
             } else {
                 ForEach(viewModel.projectHashtags, id: \.self) { tag in
-                    SubscribeTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
+                    SubscribeHashTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
                 }
             }
 

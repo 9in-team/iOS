@@ -24,7 +24,6 @@ final class SubscribeHashTagViewModel: BaseViewModel {
 
 extension SubscribeHashTagViewModel {
 
-// TODO: study, project로 나누기
   func getHashTag() {
         service.GET(headerType: .test,
                     urlType: .testLocal,
@@ -51,4 +50,3 @@ extension SubscribeHashTagViewModel {
     }
     
 }
-
