@@ -1,5 +1,5 @@
 //
-//  SubscribeTagCell.swift
+//  SubscribeHashTagCell.swift
 //  NineInTeam
 //
 //  Created by Heonjin Ha on 2023/04/20.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SubscribeTagCell: View {
+struct SubscribeHashTagCell: View {
 
     let title: String
     @State var count: Int
     @State var subscribing: Bool
 }
 
-extension SubscribeTagCell {
+extension SubscribeHashTagCell {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4)
@@ -54,6 +54,7 @@ extension SubscribeTagCell {
             self.subscribing.toggle()
         }
         .frame(width: 89, height: 65)
+        .animation(.interactiveSpring(), value: subscribing)
         .rectangleShadows([
                             Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
                             Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
@@ -67,8 +68,8 @@ extension SubscribeTagCell {
 struct SubscribeTagCell_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            SubscribeTagCell(title: "알고리즘", count: 12, subscribing: true)
-            SubscribeTagCell(title: "SWIFT", count: 456, subscribing: false)
+            SubscribeHashTagCell(title: "알고리즘", count: 12, subscribing: true)
+            SubscribeHashTagCell(title: "SWIFT", count: 456, subscribing: false)
         }
     }
 }

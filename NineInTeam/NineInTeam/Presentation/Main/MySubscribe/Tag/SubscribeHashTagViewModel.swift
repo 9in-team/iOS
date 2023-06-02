@@ -1,17 +1,19 @@
 //
-//  SubscribeTagViewModel.swift
+//  SubscribeHashTagViewModel.swift
 //  NineInTeam
 //
 //  Created by Heonjin Ha on 2023/04/20.
 //
 
 import SwiftUI
+import Combine
 
-final class SubscribeTagViewModel: BaseViewModel {
+final class SubscribeHashTagViewModel: BaseViewModel {
 
     private var service: NetworkProtocol
 
-    @Published var hashtags: [Hashtag] = []
+    @Published var studyHashtags: [SubscribeHashtag] = []
+    @Published var projectHashtags: [SubscribeHashtag] = []
 
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -20,14 +22,16 @@ final class SubscribeTagViewModel: BaseViewModel {
 
 }
 
-extension SubscribeTagViewModel {
+extension SubscribeHashTagViewModel {
 
+// TODO: study, project로 나누기
   func getHashTag() {
         service.GET(headerType: .test,
-                    urlType: .testDomain,
+                    urlType: .testLocal,
                     endPoint: "hashtags",
                     parameters: [:],
-                    returnType: HashtagResponse.self)
+                    returnType: SubscribeHashtagList.self)
+        .map { $0.list }
         .sink { completion in
             switch completion {
             case .finished:
@@ -36,8 +40,15 @@ extension SubscribeTagViewModel {
                 print("ERROR: \(error.localizedDescription)")
             }
         } receiveValue: { [unowned self] tags in
-            self.hashtags = tags.list
+            self.studyHashtags = tags.filter { $0.type.rawValue == HashTagType.study.rawValue }
+            self.projectHashtags = tags.filter { $0.type.rawValue == HashTagType.project.rawValue }
         }
         .store(in: &cancellables)
     }
+
+    func filterTag(tag: HashTagType) {
+
+    }
+    
 }
+

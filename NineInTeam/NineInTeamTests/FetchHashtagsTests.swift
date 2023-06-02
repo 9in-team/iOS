@@ -26,7 +26,7 @@ final class FetchHashtags: NetworkServiceTests {
                 urlType: urlType,
                 endPoint: "\(endPoint)",
                 parameters: [:],
-                returnType: HashtagResponse.self)
+                returnType: SubscribeHashtagList.self)
         .sink(receiveCompletion: { completion in
             switch completion {
             case .failure(let error):

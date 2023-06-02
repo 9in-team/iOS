@@ -1,5 +1,5 @@
 //
-//  SubscribeTagView.swift
+//  SubscribeHashTagView.swift
 //  NineInTeam
 //
 //  Created by Heonjin Ha on 2023/04/20.
@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct SubscribeTagView: View {
+struct SubscribeHashTagView: View {
 
     let navigationTitle = "구독하기"
 
     @State var currentTab: Int = 0
 
-    @ObservedObject var viewModel = SubscribeTagViewModel()
+    @ObservedObject var viewModel = SubscribeHashTagViewModel()
 
 }
 
-extension SubscribeTagView {
+extension SubscribeHashTagView {
 
+    // TODO: 스터디 / 프로젝트 누르면 그것에 따른 태그 변경
     var body: some View {
         BaseView(appState: viewModel.appState) {
             mainBody()
@@ -31,8 +32,14 @@ extension SubscribeTagView {
 
     func mainBody() -> some View {
         VStack(spacing: 16) {
-            ForEach(viewModel.hashtags, id: \.self) { tag in
-                SubscribeTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
+            if currentTab == 0 {
+                ForEach(viewModel.studyHashtags, id: \.self) { tag in
+                    SubscribeTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
+                }
+            } else {
+                ForEach(viewModel.projectHashtags, id: \.self) { tag in
+                    SubscribeTagCell(title: tag.name, count: tag.count, subscribing: tag.subscribing ?? false)
+                }
             }
 
             Spacer()
@@ -47,6 +54,6 @@ extension SubscribeTagView {
 
 struct SubscribeTagView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscribeTagView()
+        SubscribeHashTagView()
     }
 }

@@ -25,7 +25,7 @@ extension MySubscribeView {
     func mainBody() -> some View {
         VStack(spacing: 20) {
             NavigationLink {
-                SubscribeTagView()
+                SubscribeHashTagView()
             } label: {
                 subscribing()
             }

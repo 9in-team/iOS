@@ -12,8 +12,8 @@
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		396CC3A22A2791D8000AB615 /* FetchHashtagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */; };
-		396CC3A42A2799D5000AB615 /* HashtagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A32A2799D5000AB615 /* HashtagResponse.swift */; };
-		396CC3A62A2799E2000AB615 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A52A2799E2000AB615 /* Hashtag.swift */; };
+		396CC3A42A2799D5000AB615 /* SubscribeHashtagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */; };
+		396CC3A62A2799E2000AB615 /* SubscribeHashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
@@ -24,9 +24,9 @@
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
 		39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */; };
-		39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */; };
-		39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */; };
-		39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */; };
+		39D655FB29F17C4300C17C1B /* SubscribeHashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeHashTagView.swift */; };
+		39D655FD29F17C5400C17C1B /* SubscribeHashTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FC29F17C5400C17C1B /* SubscribeHashTagCell.swift */; };
+		39D655FF29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FE29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift */; };
 		39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01912A176E0D00A12674 /* FontContstant.swift */; };
 		39EB01942A177FFD00A12674 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01932A177FFD00A12674 /* Font.swift */; };
 		39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */; };
@@ -136,8 +136,8 @@
 /* Begin PBXFileReference section */
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchHashtagsTests.swift; sourceTree = "<group>"; };
-		396CC3A32A2799D5000AB615 /* HashtagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagResponse.swift; sourceTree = "<group>"; };
-		396CC3A52A2799E2000AB615 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
+		396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashtagList.swift; sourceTree = "<group>"; };
+		396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashtag.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
@@ -147,9 +147,9 @@
 		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
-		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
-		39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagCell.swift; sourceTree = "<group>"; };
-		39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagViewModel.swift; sourceTree = "<group>"; };
+		39D655FA29F17C4300C17C1B /* SubscribeHashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashTagView.swift; sourceTree = "<group>"; };
+		39D655FC29F17C5400C17C1B /* SubscribeHashTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashTagCell.swift; sourceTree = "<group>"; };
+		39D655FE29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashTagViewModel.swift; sourceTree = "<group>"; };
 		39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -317,11 +317,11 @@
 		39D6560029F184FF00C17C1B /* Tag */ = {
 			isa = PBXGroup;
 			children = (
-				39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */,
-				39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */,
-				39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */,
-				396CC3A32A2799D5000AB615 /* HashtagResponse.swift */,
-				396CC3A52A2799E2000AB615 /* Hashtag.swift */,
+				39D655FA29F17C4300C17C1B /* SubscribeHashTagView.swift */,
+				39D655FC29F17C5400C17C1B /* SubscribeHashTagCell.swift */,
+				39D655FE29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift */,
+				396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */,
+				396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -918,13 +918,13 @@
 				DEB0D37B29C0AECD00B5E1B9 /* MyResumeViewModel.swift in Sources */,
 				DEB0D37329C0ADD700B5E1B9 /* MySubscribeViewModel.swift in Sources */,
 				DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */,
-				39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */,
+				39D655FB29F17C4300C17C1B /* SubscribeHashTagView.swift in Sources */,
 				39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
 				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
-				396CC3A42A2799D5000AB615 /* HashtagResponse.swift in Sources */,
+				396CC3A42A2799D5000AB615 /* SubscribeHashtagList.swift in Sources */,
 				DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */,
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
@@ -933,7 +933,7 @@
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
 				DEB0D37529C0AE3C00B5E1B9 /* MyPostView.swift in Sources */,
-				39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */,
+				39D655FD29F17C5400C17C1B /* SubscribeHashTagCell.swift in Sources */,
 				DEB0D37729C0AE4900B5E1B9 /* MyPostViewModel.swift in Sources */,
 				DE6FBDE82990E89200816A7D /* View.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
@@ -965,9 +965,9 @@
 				DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */,
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
-				396CC3A62A2799E2000AB615 /* Hashtag.swift in Sources */,
+				396CC3A62A2799E2000AB615 /* SubscribeHashtag.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
-				39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */,
+				39D655FF29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
 				DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
