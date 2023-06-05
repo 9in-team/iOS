@@ -13,9 +13,10 @@
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		396CC3A22A2791D8000AB615 /* FetchHashtagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */; };
 		396CC3A42A2799D5000AB615 /* SubscribeHashtagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */; };
-		396CC3A62A2799E2000AB615 /* SubscribeHashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */; };
+		396CC3A62A2799E2000AB615 /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CC3A52A2799E2000AB615 /* Hashtag.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
+		3996F04E2A2CCE6C001F0A6B /* SubjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996F04D2A2CCE6C001F0A6B /* SubjectType.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
@@ -137,9 +138,10 @@
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		396CC3A12A2791D8000AB615 /* FetchHashtagsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchHashtagsTests.swift; sourceTree = "<group>"; };
 		396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashtagList.swift; sourceTree = "<group>"; };
-		396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeHashtag.swift; sourceTree = "<group>"; };
+		396CC3A52A2799E2000AB615 /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
+		3996F04D2A2CCE6C001F0A6B /* SubjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectType.swift; sourceTree = "<group>"; };
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
@@ -321,7 +323,8 @@
 				39D655FC29F17C5400C17C1B /* SubscribeHashTagCell.swift */,
 				39D655FE29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift */,
 				396CC3A32A2799D5000AB615 /* SubscribeHashtagList.swift */,
-				396CC3A52A2799E2000AB615 /* SubscribeHashtag.swift */,
+				396CC3A52A2799E2000AB615 /* Hashtag.swift */,
+				3996F04D2A2CCE6C001F0A6B /* SubjectType.swift */,
 			);
 			path = HashTag;
 			sourceTree = "<group>";
@@ -965,7 +968,7 @@
 				DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */,
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
-				396CC3A62A2799E2000AB615 /* SubscribeHashtag.swift in Sources */,
+				396CC3A62A2799E2000AB615 /* Hashtag.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
 				39D655FF29F17D1F00C17C1B /* SubscribeHashTagViewModel.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
@@ -987,6 +990,7 @@
 				DEB38C9029CB23C800EF915E /* AppState.swift in Sources */,
 				39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */,
 				DEB0D38A29C62D5B00B5E1B9 /* ResumeCellView.swift in Sources */,
+				3996F04E2A2CCE6C001F0A6B /* SubjectType.swift in Sources */,
 				DEB0D38529C34A1900B5E1B9 /* PostCellView.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
 				DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */,

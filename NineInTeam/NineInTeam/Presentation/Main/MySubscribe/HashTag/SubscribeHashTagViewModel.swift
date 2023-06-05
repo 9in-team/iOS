@@ -12,8 +12,8 @@ final class SubscribeHashTagViewModel: BaseViewModel {
 
     private var service: NetworkProtocol
 
-    @Published var studyHashtags: [SubscribeHashtag] = []
-    @Published var projectHashtags: [SubscribeHashtag] = []
+    private var allHashtagData = [Hashtag]()
+    @Published var hashtags = [Hashtag]()
 
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -24,13 +24,21 @@ final class SubscribeHashTagViewModel: BaseViewModel {
 
 extension SubscribeHashTagViewModel {
 
-  func getHashTag() {
+    func cancel() {
+        self.cancellables = Set<AnyCancellable>()
+    }
+
+    func getHashTags(withType: SubjectType) {
+        getHashTag(type: withType)
+    }
+
+    private func getHashTag(type: SubjectType) {
         service.GET(headerType: .test,
-                    urlType: .testLocal,
+                    urlType: .testDomain,
                     endPoint: "hashtags",
                     parameters: [:],
                     returnType: SubscribeHashtagList.self)
-        .map { $0.list }
+        .map { $0.list.filter { $0.type == type } }
         .sink { completion in
             switch completion {
             case .finished:
@@ -39,14 +47,16 @@ extension SubscribeHashTagViewModel {
                 print("ERROR: \(error.localizedDescription)")
             }
         } receiveValue: { [unowned self] tags in
-            self.studyHashtags = tags.filter { $0.type.rawValue == HashTagType.study.rawValue }
-            self.projectHashtags = tags.filter { $0.type.rawValue == HashTagType.project.rawValue }
+            self.hashtags = tags
         }
         .store(in: &cancellables)
     }
 
-    func filterTag(tag: HashTagType) {
+}
 
-    }
-    
+public enum NetworkingModelViewState {
+    case loading
+    case hasData
+    case noResults
+    case error
 }

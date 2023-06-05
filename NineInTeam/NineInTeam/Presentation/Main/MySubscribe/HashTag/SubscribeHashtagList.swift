@@ -9,5 +9,5 @@ import Foundation
 
 struct SubscribeHashtagList: Decodable {
     var result: String
-    var list: [SubscribeHashtag]
+    var list: [Hashtag]
 }
