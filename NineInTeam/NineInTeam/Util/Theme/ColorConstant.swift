@@ -10,6 +10,9 @@ import SwiftUI
 enum ColorConstant: String {
     
     case main = "1976D2"
+    case white = "FFFFFF"
+    case black = "000000"
+    case kakaoContainer = "FEE500"
     
     func color() -> Color {
         return Color(hexcode: self.rawValue)

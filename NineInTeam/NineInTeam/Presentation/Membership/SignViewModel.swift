@@ -17,8 +17,8 @@ class SignViewModel: BaseViewModel {
     @Published var isSingIn = false    
     
     init(service: NetworkProtocol = NetworkService()) {
-//        self.service = service
-        self.service = TestNetworkService()
+        self.service = service
+//        self.service = TestNetworkService()
         super.init()
     }
     
@@ -64,27 +64,24 @@ class SignViewModel: BaseViewModel {
     
     // 로그인
     func login(accessToken: String) {
-//        let parameters = ["kakaoAccessToken": accessToken]        
-        let parameters = TestResponseData.SUCCESS.getDictionary()
+        let parameters = ["accessToken": accessToken]
+//        let parameters = TestResponseData.SUCCESS.getDictionary()
         
         willStartLoading()
         service.POST(headerType: HeaderType.test,
-                     urlType: UrlType.test,
+                     urlType: UrlType.testLocal,
                      endPoint: EndPoint.login.get(),
                      parameters: parameters,
                      returnType: BaseResponseModel.self)
             .sink { [weak self] completion in
-                guard let self = self else {
-                    return
-                }
-                
                 switch completion {
                 case .failure(_):
-                    self.showToast(title: "")
+                    self?.showToast(title: "")
                 case .finished:
                     break
                 }
-                self.didFinishLoading()
+                self?.didFinishLoading()
+                
             } receiveValue: { [weak self] responseData in
                 guard let result = responseData.result else {
                     return

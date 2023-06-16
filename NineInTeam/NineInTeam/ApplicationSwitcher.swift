@@ -19,9 +19,9 @@ struct ApplicationSwitcher: View {
                 .environmentObject(coordinator)
         } else {
             SignInView()
-                .onAppear {
-                    viewModel.autoLogin()
-                }
+//                .onAppear {
+//                    viewModel.autoLogin()
+//                }
         }
         
     }
