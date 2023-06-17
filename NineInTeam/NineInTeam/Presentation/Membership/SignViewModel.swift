@@ -12,19 +12,17 @@ import FirebaseStorage
 
 class SignViewModel: BaseViewModel {
     
-    var service: NetworkProtocol
-    
-    @Published var isSingIn = false    
+    private var service: NetworkProtocol
+    private var credentialManager = CredentialManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
-//        self.service = TestNetworkService()
         super.init()
     }
     
     func autoLogin() {
         // UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
-        isSingIn = true
+        credentialManager.isSingIn = true
     }
     
     func canOpen(_ url: URL) {
@@ -50,12 +48,12 @@ class SignViewModel: BaseViewModel {
     }
     
     // 카카오 로그인 클로저
-    func kakaoLoginClosure(oauthToken: OAuthToken?, error: Error?) {
+    private func kakaoLoginClosure(oauthToken: OAuthToken?, error: Error?) {
         if let error = error {
             showAlert(title: error.localizedDescription)
         } else {
             if let accessToken = oauthToken?.accessToken {
-                login(accessToken: accessToken)
+                kakaoLogin(accessToken: accessToken)
             } else {
                 showAlert(title: "토큰을 가져오지 못했습니다.")
             }
@@ -63,35 +61,40 @@ class SignViewModel: BaseViewModel {
     }
     
     // 로그인
-    func login(accessToken: String) {
+    func kakaoLogin(accessToken: String) {
         let parameters = ["accessToken": accessToken]
-//        let parameters = TestResponseData.SUCCESS.getDictionary()
         
         willStartLoading()
         service.POST(headerType: HeaderType.test,
-                     urlType: UrlType.testLocal,
+                     urlType: UrlType.testDomain,
                      endPoint: EndPoint.login.get(),
                      parameters: parameters,
-                     returnType: BaseResponseModel.self)
+                     returnType: KakaoLoginResponse.self)
             .sink { [weak self] completion in
                 switch completion {
-                case .failure(_):
+                case .failure(let error):
+                    print("DEBUG RESPONSE FAIL: \(error.localizedDescription)")
                     self?.showToast(title: "")
                 case .finished:
+                    print("DEBUG RESPONSE FINISHED!")
                     break
                 }
                 self?.didFinishLoading()
                 
             } receiveValue: { [weak self] responseData in
-                guard let result = responseData.result else {
-                    return
-                }
-                
-                if result.contains(ResponseConstant.kSuccess) {
-                    self?.isSingIn = true
+                print("DEBUG RESPONSE DATA: \(responseData)")
+
+                if let responseData = responseData.detail {
+                    print("DEBUG USERDATA: \(responseData)")
+                    let userData = UserData(email: responseData.email,
+                                            nickName: responseData.nickname,
+                                            profileImageUrl: responseData.imageUrl)
+                    self?.credentialManager.userData = userData
+                    self?.credentialManager.isSingIn = true
                 } else {
-                    //
+                    print("DEBUG USERDATA: X")
                 }
+
             }
             .store(in: &cancellables)
     }
@@ -109,7 +112,7 @@ class SignViewModel: BaseViewModel {
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: BaseResponseModel.self)
+                     returnType: KakaoLoginResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return

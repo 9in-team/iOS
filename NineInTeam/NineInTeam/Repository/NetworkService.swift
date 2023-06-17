@@ -66,6 +66,9 @@ class NetworkService: NetworkProtocol {
                  parameters: [String: Any] = [:],
                  returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { [weak self] promise in
+            
+            print("DEBUG PROMISE: \(promise)")
+            
             guard let self = self else {
                 return promise(.failure(LifeCycleError.memoryLeak))
             }
@@ -87,20 +90,37 @@ class NetworkService: NetworkProtocol {
                         
             self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
                 print("data :: \(String(decoding: data, as: UTF8.self))")
-                guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
-                    throw NetworkError.responseError
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    throw NetworkError.unknown
                 }
-                return data
+                
+                let statusCode = httpResponse.statusCode
+                
+                switch statusCode {
+                case 100...399:
+                    return data
+                case 400...499:
+                    throw NetworkError.clientError(statusCode: statusCode)
+                case 500...599:
+                    throw NetworkError.serverError(statusCode: statusCode)
+                default:
+                    throw NetworkError.unknown
+                }
+                
             }
             .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { (completion) in
                 if case let .failure(error) = completion {
+                    print("DEBUG POST ERROR: \(error)")
                     switch error {
                     case let decodingError as DecodingError:
                         promise(.failure(decodingError))
                     case let apiError as NetworkError:
                         promise(.failure(apiError))
+                    case let urlError as URLError:
+                        promise(.failure(urlError))
                     default:
                         promise(.failure(NetworkError.unknown))
                     }
