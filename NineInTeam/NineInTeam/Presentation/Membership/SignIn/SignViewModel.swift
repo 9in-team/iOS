@@ -8,7 +8,6 @@
 import UIKit
 import KakaoSDKAuth
 import KakaoSDKUser
-import FirebaseStorage
 
 class SignViewModel: BaseViewModel {
     
@@ -155,29 +154,5 @@ class SignViewModel: BaseViewModel {
             }
         }
     }
-    
-    // Firebase Image Upload
-    func uploadImage(_ image: UIImage, completion: @escaping (URL) -> Void) {
-        willStartLoading()
-                                                        
-        guard let data = image.jpegData(compressionQuality: 0.9) else {
-            showToast(title: "이미지 변환에 실패했습니다.")
-            return
-        }
-       
-        let folder = "ProfileImage"
-        let imageName = UUID().uuidString + String(Date().timeIntervalSince1970)
-        let path = "\(folder)/\(imageName)"
-        
-        FirebaseStorageManager.uploadImage(imageData: data, path: path) { [weak self] url, error in
-            if error != nil {
-                self?.showToast(title: "이미지 업로드를 실패했습니다.")
-            } else {
-                completion(url!)                
-            }
-            
-            self?.didFinishLoading()
-        }               
-    }
-    
+
 }

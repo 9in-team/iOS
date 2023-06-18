@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F022A3F1E29007B66CD /* KeychainManager.swift */; };
 		390F8F052A3F30EE007B66CD /* LoginServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */; };
-		390F8F082A3F3992007B66CD /* KakaoAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F072A3F3992007B66CD /* KakaoAuthTests.swift */; };
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
@@ -140,7 +139,6 @@
 /* Begin PBXFileReference section */
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProvider.swift; sourceTree = "<group>"; };
-		390F8F072A3F3992007B66CD /* KakaoAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthTests.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
 				39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */,
 				3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */,
-				390F8F072A3F3992007B66CD /* KakaoAuthTests.swift */,
 			);
 			path = NineInTeamTests;
 			sourceTree = "<group>";
@@ -1047,7 +1044,6 @@
 				DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */,
 				399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */,
 				39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */,
-				390F8F082A3F3992007B66CD /* KakaoAuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

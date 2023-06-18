@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// TODO: ProfileEditView
+// [] Photo Picker View + Firebase ImageUpload 기능 추후 구현 필요.
+// [] 서버에서 받은 데이터로 이미지 가져오기
 struct ProfileEditView: View {
     
     @StateObject private var coordinator = Coordinator()
@@ -14,7 +17,7 @@ struct ProfileEditView: View {
     
     @EnvironmentObject private var userAuthManager: UserAuthManager
     
-    @State private var editedNickname: String = "김진홍"
+    @State private var editedNickname: String = ""
     
 }
 
@@ -41,13 +44,14 @@ extension ProfileEditView {
                 .frame(width: 230)
             
             actionButton(title: "수정", imageName: "Check") {
-                
+                print("수정")
             }
             .frame(width: 230)
             
             Spacer()
             
-            actionButton(title: "로그아웃", imageName: "Logout") { // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
+            // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
+            actionButton(title: "로그아웃", imageName: "Logout") {
                 userAuthManager.logout()
             }
             .frame(width: 230)
@@ -61,8 +65,13 @@ extension ProfileEditView {
         ZStack {
             Circle()
                 .fill(Color(hexcode: "D9D9D9"))
-            Image(uiImage: viewModel.profileImage ?? UIImage())
+            
+            Image(uiImage: viewModel.profileImage ?? UIImage(named: "Avatar")!)
+                .resizable()
+                .scaledToFill()
                 .clipShape(Circle())
+                .frame(width: 140, height: 140)
+            
             VStack {
                 Spacer()
                 
@@ -95,11 +104,11 @@ extension ProfileEditView {
             
             TextWithFont(text: "이메일 주소", size: 12)
             
-            TextWithFont(text: $viewModel.email.wrappedValue ?? "9in.team@9in.team", size: 16)
+            TextWithFont(text: $viewModel.email.wrappedValue, size: 16)
             
             Line()
-               .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
-               .frame(height: 1)
+                .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
+                .frame(height: 1)
         }
         .foregroundColor(
             Color(hexcode: "000000")
@@ -111,10 +120,10 @@ extension ProfileEditView {
         VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "닉네임", size: 12)
                 .opacity(0.6)
-                        
+            
             TextField("", text: $viewModel.nickname)
                 .opacity(0.87)
-                
+            
             Rectangle()
                 .frame(height: 1)
                 .opacity(0.42)
@@ -148,3 +157,11 @@ extension ProfileEditView {
     }
     
 }
+
+#if DEBUG
+struct ProfileEditView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileEditView()
+    }
+}
+#endif
