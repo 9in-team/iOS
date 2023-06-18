@@ -13,7 +13,7 @@ import FirebaseStorage
 class SignViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
-    private var credentialManager = CredentialManager.shared
+    private var authManager = UserAuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -22,7 +22,7 @@ class SignViewModel: BaseViewModel {
     
     func autoLogin() {
         // UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
-        credentialManager.isSingIn = true
+        authManager.isSingIn = true
     }
     
     func canOpen(_ url: URL) {
@@ -89,8 +89,8 @@ class SignViewModel: BaseViewModel {
                     let userData = UserData(email: responseData.email,
                                             nickName: responseData.nickname,
                                             profileImageUrl: responseData.imageUrl)
-                    self?.credentialManager.userData = userData
-                    self?.credentialManager.isSingIn = true
+                    self?.authManager.userData = userData
+                    self?.authManager.isSingIn = true
                 } else {
                     print("DEBUG USERDATA: X")
                 }

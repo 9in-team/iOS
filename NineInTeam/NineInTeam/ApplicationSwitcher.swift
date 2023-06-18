@@ -11,13 +11,13 @@ struct ApplicationSwitcher: View {
     
     @StateObject var viewModel = SignViewModel()
     @StateObject var coordinator = Coordinator(isRoot: true)
-    @ObservedObject private var credentialManager = CredentialManager.shared
+    @ObservedObject private var authManager = UserAuthManager.shared
     
     var body: some View {
-        if credentialManager.isSingIn {
+        if authManager.isSingIn {
             MainView()
                 .environmentObject(coordinator)
-                .environmentObject(credentialManager)
+                .environmentObject(authManager)
                 .ignoresSafeArea()
         } else {
             SignInView()

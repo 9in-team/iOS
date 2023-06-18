@@ -12,6 +12,7 @@ struct ProfileEditView: View {
     @StateObject var coordinator = Coordinator()
     
     @StateObject var viewModel = ProfileEditViewModel()
+    @EnvironmentObject var credentialManager: UserAuthManager
     
     @State var editedNickname: String = "김진홍"
     
@@ -42,13 +43,17 @@ extension ProfileEditView {
             bottomButton()
                 .frame(width: 230)
         }
+        .onAppear {
+            viewModel.getProfileData()
+        }
     }
     
     func profileImage() -> some View {
         ZStack {
             Circle()
                 .fill(Color(hexcode: "D9D9D9"))
-            
+            Image(uiImage: viewModel.profileImage ?? UIImage())
+                .clipShape(Circle())
             VStack {
                 Spacer()
                 
@@ -78,9 +83,10 @@ extension ProfileEditView {
     
     func email() -> some View {
         VStack(alignment: .leading, spacing: 5) {
+            
             TextWithFont(text: "이메일 주소", size: 12)
             
-            TextWithFont(text: "9in.team@9in.team", size: 16)
+            TextWithFont(text: $viewModel.email.wrappedValue ?? "9in.team@9in.team", size: 16)
             
             Line()
                .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
@@ -96,8 +102,8 @@ extension ProfileEditView {
         VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "닉네임", size: 12)
                 .opacity(0.6)
-            
-            TextField("", text: $editedNickname)
+                        
+            TextField("", text: $viewModel.nickname)
                 .opacity(0.87)
                 
             Rectangle()
