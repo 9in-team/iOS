@@ -44,9 +44,6 @@ extension SignInView {
                 
             }
         }
-        .onOpenURL(perform: { url in
-            viewModel.canOpen(url)
-        })
     }
     
     private func kakaoLoginView() -> some View {

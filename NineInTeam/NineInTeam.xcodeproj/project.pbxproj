@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F022A3F1E29007B66CD /* KeychainManager.swift */; };
+		390F8F052A3F30EE007B66CD /* LoginServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */; };
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
@@ -27,8 +28,8 @@
 		39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */; };
 		39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */; };
 		39D8DCCD2A3C5ECA007530A9 /* KakaoLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCC2A3C5ECA007530A9 /* KakaoLoginResponse.swift */; };
-		39D8DCCF2A3C5EDA007530A9 /* KakaoUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCE2A3C5EDA007530A9 /* KakaoUserData.swift */; };
-		39D8DCD12A3C602A007530A9 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCD02A3C602A007530A9 /* UsersData.swift */; };
+		39D8DCCF2A3C5EDA007530A9 /* KakaoUserApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCE2A3C5EDA007530A9 /* KakaoUserApiModel.swift */; };
+		39D8DCD12A3C602A007530A9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCD02A3C602A007530A9 /* UserData.swift */; };
 		39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01912A176E0D00A12674 /* FontContstant.swift */; };
 		39EB01942A177FFD00A12674 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01932A177FFD00A12674 /* Font.swift */; };
 		39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */; };
@@ -137,6 +138,7 @@
 
 /* Begin PBXFileReference section */
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProvider.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
@@ -152,8 +154,8 @@
 		39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagCell.swift; sourceTree = "<group>"; };
 		39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagViewModel.swift; sourceTree = "<group>"; };
 		39D8DCCC2A3C5ECA007530A9 /* KakaoLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginResponse.swift; sourceTree = "<group>"; };
-		39D8DCCE2A3C5EDA007530A9 /* KakaoUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoUserData.swift; sourceTree = "<group>"; };
-		39D8DCD02A3C602A007530A9 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
+		39D8DCCE2A3C5EDA007530A9 /* KakaoUserApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoUserApiModel.swift; sourceTree = "<group>"; };
+		39D8DCD02A3C602A007530A9 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -280,10 +282,18 @@
 			isa = PBXGroup;
 			children = (
 				39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */,
-				39D8DCD02A3C602A007530A9 /* UsersData.swift */,
-				390F8F022A3F1E29007B66CD /* KeychainManager.swift */,
+				39D8DCD02A3C602A007530A9 /* UserData.swift */,
+				390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */,
 			);
 			path = Management;
+			sourceTree = "<group>";
+		};
+		390F8F062A3F3875007B66CD /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				390F8F022A3F1E29007B66CD /* KeychainManager.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		3999833029EED2070009372F /* NineInTeam */ = {
@@ -342,7 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				39D8DCCC2A3C5ECA007530A9 /* KakaoLoginResponse.swift */,
-				39D8DCCE2A3C5EDA007530A9 /* KakaoUserData.swift */,
+				39D8DCCE2A3C5EDA007530A9 /* KakaoUserApiModel.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -543,6 +553,7 @@
 		DEA2B6722970309300B77335 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				390F8F062A3F3875007B66CD /* Security */,
 				DE47790A29F169FC00C0EC3E /* Navigation */,
 				DE6FBDEF2990EBD200816A7D /* Theme */,
 				DE6FBDEE2990EBCC00816A7D /* App */,
@@ -946,6 +957,7 @@
 				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
+				390F8F052A3F30EE007B66CD /* LoginServiceProvider.swift in Sources */,
 				DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */,
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
@@ -956,12 +968,12 @@
 				DEB0D37529C0AE3C00B5E1B9 /* MyPostView.swift in Sources */,
 				39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */,
 				DEB0D37729C0AE4900B5E1B9 /* MyPostViewModel.swift in Sources */,
-				39D8DCD12A3C602A007530A9 /* UsersData.swift in Sources */,
+				39D8DCD12A3C602A007530A9 /* UserData.swift in Sources */,
 				DE6FBDE82990E89200816A7D /* View.swift in Sources */,
 				390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
 				3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */,
-				39D8DCCF2A3C5EDA007530A9 /* KakaoUserData.swift in Sources */,
+				39D8DCCF2A3C5EDA007530A9 /* KakaoUserApiModel.swift in Sources */,
 				DEC82E2729AA8A4300D17C50 /* ImagePicker.swift in Sources */,
 				DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* NineInTeam.swift in Sources */,

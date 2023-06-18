@@ -8,7 +8,6 @@
 import SwiftUI
 import KakaoSDKCommon
 import Firebase
-import KakaoSDKCommon
 
 @main
 struct NineInTeamApp: App {
@@ -18,8 +17,6 @@ struct NineInTeamApp: App {
     init() {
         if let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String {
             KakaoSDK.initSDK(appKey: kakaoAppKey)
-        } else {
-
         }
         
         FirebaseApp.configure()

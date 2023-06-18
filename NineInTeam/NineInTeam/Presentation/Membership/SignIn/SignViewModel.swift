@@ -13,7 +13,7 @@ import FirebaseStorage
 class SignViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
-    private var authManager = UserAuthManager.shared
+    private var userAuthManager = UserAuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -21,18 +21,8 @@ class SignViewModel: BaseViewModel {
     }
     
     func autoLogin() {
-        // UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
-        authManager.isSingIn = true
-    }
-    
-    func canOpen(_ url: URL) {
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            if AuthController.handleOpenUrl(url: url) {
-                // Toast message : "open"
-            }
-        } else {
-            // Toast message : "don't open"
-        }
+        // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
+        userAuthManager.isSingIn = true
     }
     
     func requestKakaoLogin() {
@@ -74,31 +64,31 @@ class SignViewModel: BaseViewModel {
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    print("DEBUG RESPONSE FAIL: \(error.localizedDescription)")
-                    self?.showToast(title: "")
+                    print("DEBUG RESPONSE: FAIL \(error.localizedDescription)")
+                    self?.showAlert(title: "문제가 발생했습니다.")
                 case .finished:
-                    print("DEBUG RESPONSE FINISHED!")
-                    break
+                    print("DEBUG RESPONSE: FINISHED!")
                 }
                 self?.didFinishLoading()
-                
             } receiveValue: { [weak self] responseData in
-                print("DEBUG RESPONSE DATA: \(responseData)")
-
                 if let responseData = responseData.detail {
                     print("DEBUG USERDATA: \(responseData)")
                     let userData = UserData(email: responseData.email,
                                             nickName: responseData.nickname,
                                             profileImageUrl: responseData.imageUrl,
                                             loginService: .kakao)
-                    self?.authManager.userData = userData
-                    self?.authManager.isSingIn = true
+                    self?.userAuthManager.userData = userData
+                    self?.userAuthManager.isSingIn = true
                 } else {
-                    print("DEBUG USERDATA: X")
+                    print("DEBUG USERDATA: 토큰 전달 후 받은 받은 데이터 없음")
+                    return
                 }
-
             }
             .store(in: &cancellables)
+    }
+    
+    func getLoginSession() {
+        self.kakaoLogin(accessToken: userAuthManager.fetchKakaoLoginToken())
     }
     
     // 회원가입

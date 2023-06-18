@@ -29,7 +29,6 @@ class ProfileEditViewModel: BaseViewModel {
         } else {
             print("프로필 없음")
         }
-        
     }
     
     func getImageData(url: String, completion: @escaping(UIImage?) -> Void) {
@@ -39,6 +38,7 @@ class ProfileEditViewModel: BaseViewModel {
             // [] URL 받아서 Image로 변경하기. -> 가능하면 이미지 캐시하기.
             // [] 뷰에 표시할 때 백엔드 서버에서 불러오기.
             // [] 변경 시 사진 서버에 올리고, 뷰 업데이트하기.
+            completion(nil)
         } else {
             completion(nil)
         }

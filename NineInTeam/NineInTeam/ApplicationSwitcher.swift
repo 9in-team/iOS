@@ -10,22 +10,24 @@ import SwiftUI
 struct ApplicationSwitcher: View {
     
     @StateObject var viewModel = SignViewModel()
+
     @StateObject var coordinator = Coordinator(isRoot: true)
-    @ObservedObject private var authManager = UserAuthManager.shared
+
+    @ObservedObject private var userAuthManager = UserAuthManager.shared
     
     var body: some View {
-        if authManager.isSingIn {
+        if userAuthManager.isSingIn {
             MainView()
                 .environmentObject(coordinator)
-                .environmentObject(authManager)
+                .environmentObject(userAuthManager)
                 .ignoresSafeArea()
                 .onAppear {
-                    viewModel.kakaoLogin(accessToken: authManager.fetchKakaoLoginToken())
+                    viewModel.getLoginSession()
                 }
         } else {
             SignInView()
                 .ignoresSafeArea()
         }
-        
     }
+    
 }

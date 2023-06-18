@@ -66,9 +66,7 @@ class NetworkService: NetworkProtocol {
                  parameters: [String: Any] = [:],
                  returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { [weak self] promise in
-            
-            print("DEBUG PROMISE: \(promise)")
-            
+        
             guard let self = self else {
                 return promise(.failure(LifeCycleError.memoryLeak))
             }

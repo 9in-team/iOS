@@ -13,5 +13,5 @@ struct UserData {
     let profileImageUrl: String
     var myTeam: [Team]?
     var joinedTeam: [Team]?
-    let loginService: LoginService
+    let loginService: LoginServiceProvider
 }

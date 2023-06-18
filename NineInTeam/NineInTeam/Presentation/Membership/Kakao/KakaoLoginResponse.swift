@@ -8,5 +8,5 @@
 import Foundation
 
 struct KakaoLoginResponse: Codable {
-    let detail: KakaoUserData?
+    let detail: KakaoUserApiModel?
 }
