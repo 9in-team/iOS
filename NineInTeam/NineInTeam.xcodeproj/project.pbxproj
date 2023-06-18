@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F022A3F1E29007B66CD /* KeychainManager.swift */; };
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
@@ -135,6 +136,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
@@ -274,6 +276,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390F8F012A3F1A1B007B66CD /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */,
+				39D8DCD02A3C602A007530A9 /* UsersData.swift */,
+				390F8F022A3F1E29007B66CD /* KeychainManager.swift */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
 		3999833029EED2070009372F /* NineInTeam */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,9 +503,8 @@
 		DEA2B66729702FC100B77335 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */,
+				DEE7BC152989180900FE7FEC /* SignViewModel.swift */,
 				DEA2B66829702FD000B77335 /* SignInView.swift */,
-				39D8DCD02A3C602A007530A9 /* UsersData.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -544,8 +555,8 @@
 		DEA2B6752970320700B77335 /* Membership */ = {
 			isa = PBXGroup;
 			children = (
+				390F8F012A3F1A1B007B66CD /* Management */,
 				39D8DCCB2A3C5EB8007530A9 /* Kakao */,
-				DEE7BC152989180900FE7FEC /* SignViewModel.swift */,
 				DEA2B66729702FC100B77335 /* SignIn */,
 			);
 			path = Membership;
@@ -947,6 +958,7 @@
 				DEB0D37729C0AE4900B5E1B9 /* MyPostViewModel.swift in Sources */,
 				39D8DCD12A3C602A007530A9 /* UsersData.swift in Sources */,
 				DE6FBDE82990E89200816A7D /* View.swift in Sources */,
+				390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
 				3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */,
 				39D8DCCF2A3C5EDA007530A9 /* KakaoUserData.swift in Sources */,
@@ -1167,10 +1179,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
-				DEVELOPMENT_TEAM = AN529668XK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1191,6 +1203,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1202,10 +1215,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
-				DEVELOPMENT_TEAM = AN529668XK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1226,6 +1239,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

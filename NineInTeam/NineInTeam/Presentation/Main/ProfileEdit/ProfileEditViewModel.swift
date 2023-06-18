@@ -36,17 +36,9 @@ class ProfileEditViewModel: BaseViewModel {
         
         if let url = URL(string: url) {
             // TODO: 이미지 가져오는 작업 어떻게 해야 효율적일지 확인해서 작업
-            // TODO: 로그인 작업 구조화
-                URLSession.shared.dataTask(with: url) { data, _, error in
-                    if error != nil {
-                        completion(nil)
-                    }
-                    
-                    if let data = data {
-                        return completion(UIImage(data: data))
-                    }
-                }
-                .resume()
+            // [] URL 받아서 Image로 변경하기. -> 가능하면 이미지 캐시하기.
+            // [] 뷰에 표시할 때 백엔드 서버에서 불러오기.
+            // [] 변경 시 사진 서버에 올리고, 뷰 업데이트하기.
         } else {
             completion(nil)
         }

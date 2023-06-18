@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ProfileEditView: View {
     
-    @StateObject var coordinator = Coordinator()
+    @StateObject private var coordinator = Coordinator()
+    @StateObject private var viewModel = ProfileEditViewModel()
     
-    @StateObject var viewModel = ProfileEditViewModel()
-    @EnvironmentObject var credentialManager: UserAuthManager
+    @EnvironmentObject private var userAuthManager: UserAuthManager
     
-    @State var editedNickname: String = "김진홍"
+    @State private var editedNickname: String = "김진홍"
     
 }
 
@@ -40,8 +40,17 @@ extension ProfileEditView {
             nickname()
                 .frame(width: 230)
             
-            bottomButton()
-                .frame(width: 230)
+            actionButton(title: "수정", imageName: "Check") {
+                
+            }
+            .frame(width: 230)
+            
+            Spacer()
+            
+            actionButton(title: "로그아웃", imageName: "Logout") { // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
+                userAuthManager.logout()
+            }
+            .frame(width: 230)
         }
         .onAppear {
             viewModel.getProfileData()
@@ -113,20 +122,22 @@ extension ProfileEditView {
         .foregroundColor(Color(hexcode: "000000"))
     }
     
-    func bottomButton() -> some View {
+    func actionButton(title: String,
+                      imageName: String,
+                      action: @escaping () -> Void) -> some View {
         Button {
-            // viewModel.edit
+            action()
         } label: {
             RoundedRectangle(cornerRadius: 4)
                 .fill(ColorConstant.main.color())
                 .frame(height: 42)
                 .overlay(
                     HStack(spacing: 11) {
-                        Image("Check")
+                        Image(imageName)
                             .resizable()
                             .frame(width: 18, height: 13)
                         
-                        TextWithFont(text: "수정", font: .robotoMedium, size: 15)
+                        TextWithFont(text: title, font: .robotoMedium, size: 15)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 )

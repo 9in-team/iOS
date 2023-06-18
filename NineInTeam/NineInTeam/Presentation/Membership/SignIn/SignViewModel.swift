@@ -53,6 +53,7 @@ class SignViewModel: BaseViewModel {
             showAlert(title: error.localizedDescription)
         } else {
             if let accessToken = oauthToken?.accessToken {
+                KeychainManager.shared.saveLoginToken(token: accessToken)
                 kakaoLogin(accessToken: accessToken)
             } else {
                 showAlert(title: "토큰을 가져오지 못했습니다.")
@@ -88,7 +89,8 @@ class SignViewModel: BaseViewModel {
                     print("DEBUG USERDATA: \(responseData)")
                     let userData = UserData(email: responseData.email,
                                             nickName: responseData.nickname,
-                                            profileImageUrl: responseData.imageUrl)
+                                            profileImageUrl: responseData.imageUrl,
+                                            loginService: .kakao)
                     self?.authManager.userData = userData
                     self?.authManager.isSingIn = true
                 } else {

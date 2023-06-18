@@ -19,6 +19,9 @@ struct ApplicationSwitcher: View {
                 .environmentObject(coordinator)
                 .environmentObject(authManager)
                 .ignoresSafeArea()
+                .onAppear {
+                    viewModel.kakaoLogin(accessToken: authManager.fetchKakaoLoginToken())
+                }
         } else {
             SignInView()
                 .ignoresSafeArea()
