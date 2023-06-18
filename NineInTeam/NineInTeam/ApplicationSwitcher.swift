@@ -16,18 +16,22 @@ struct ApplicationSwitcher: View {
     @ObservedObject private var userAuthManager = UserAuthManager.shared
     
     var body: some View {
-        if userAuthManager.isSingIn {
-            MainView()
-                .environmentObject(coordinator)
-                .environmentObject(userAuthManager)
-                .ignoresSafeArea()
-                .onAppear {
-                    viewModel.getLoginSession()
-                }
-        } else {
-            SignInView()
-                .ignoresSafeArea()
+        
+        Group {
+            if userAuthManager.isSingIn {
+                MainView()
+                    .onAppear {
+                        coordinator.popToRoot()
+                        viewModel.getLoginSession()
+                    }
+            } else {
+                SignInView()
+            }
         }
+        .ignoresSafeArea()
+        .environmentObject(coordinator)
+        .environmentObject(userAuthManager)
+
     }
     
 }

@@ -9,13 +9,18 @@ import SwiftUI
 
 struct SignInView: View {
          
-    @StateObject var viewModel = SignViewModel()
+    @StateObject private var viewModel = SignViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
+    
+    var body: some View {
+        mainBody
+    }
     
 }
 
 extension SignInView {
     
-    var body: some View {
+    var mainBody: some View {
         ZStack {
             ColorConstant.main.color()
                 .edgesIgnoringSafeArea(.all)
