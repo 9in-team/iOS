@@ -15,6 +15,7 @@
 
 import SwiftUI
 import Combine
+import KakaoSDKUser
 
 class UserAuthManager: ObservableObject {
     
@@ -26,17 +27,19 @@ class UserAuthManager: ObservableObject {
     
     static let shared = UserAuthManager()
     
-    private init() {
-
-    }
+    private init() { }
     
     func fetchKakaoLoginToken() -> String {
         return keychainManager.getToken()
     }
 
     func logout() {
-        self.isSingIn = false
-        self.userData = nil
+        UserApi.shared.logout { _ in
+            self.isSingIn = false
+            self.userData = nil
+            self.keychainManager.deleteToken()
+            print("DEBUG LOGOUT")
+        }
     }
 
 }

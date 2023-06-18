@@ -33,4 +33,8 @@ extension KeychainManager {
         return self.testKakaoToken
     }
     
+    func deleteToken() {
+        self.testKakaoToken = ""
+    }
+    
 }

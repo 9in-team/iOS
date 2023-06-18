@@ -87,10 +87,11 @@ class SignViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
+    // 기존 토큰으로 로그인
     func getLoginSession() {
         self.kakaoLogin(accessToken: userAuthManager.fetchKakaoLoginToken())
     }
-    
+
     // 회원가입
     func join(email: String, nickname: String, imageUrl: String = "") {
         var parameters = ["email": email,

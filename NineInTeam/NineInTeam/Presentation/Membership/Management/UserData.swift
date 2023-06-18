@@ -11,7 +11,7 @@ struct UserData {
     let email: String
     let nickName: String
     let profileImageUrl: String
-    var myTeam: [Team]?
-    var joinedTeam: [Team]?
+    var myTeam: [Team] = []
+    var joinedTeam: [Team] = []
     let loginService: LoginServiceProvider
 }
