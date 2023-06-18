@@ -21,8 +21,8 @@ struct ApplicationSwitcher: View {
             if userAuthManager.isSingIn {
                 MainView()
                     .onAppear {
-                        coordinator.popToRoot()
                         viewModel.getLoginSession()
+                        coordinator.popToRoot()
                     }
             } else {
                 SignInView()

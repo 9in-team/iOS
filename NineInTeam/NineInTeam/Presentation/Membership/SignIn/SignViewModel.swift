@@ -65,7 +65,13 @@ class SignViewModel: BaseViewModel {
                 switch completion {
                 case .failure(let error):
                     print("DEBUG RESPONSE: FAIL \(error.localizedDescription)")
-                    self?.showAlert(title: "문제가 발생했습니다.")
+                    if self?.userAuthManager.isSingIn == true {
+                        self?.userAuthManager.logout()
+                        print("DEBUG: 토큰만료")
+                        self?.showAlert(title: "다시 로그인 해주세요.")
+                    } else {
+                        self?.showAlert(title: "로그인에 실패했습니다.")
+                    }
                 case .finished:
                     print("DEBUG RESPONSE: FINISHED!")
                 }
