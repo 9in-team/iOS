@@ -18,13 +18,6 @@ struct ProfileEditView: View {
     @State private var showPhotoPicker = false
     private let photoPicker = PhotoPicker()
     @State var cancellables = Set<AnyCancellable>()
-    @State private var image: UIImage = UIImage() {
-        didSet {
-            print("이미지 셋업됨")
-        }
-    }
-    
-    @EnvironmentObject private var userAuthManager: UserAuthManager
     
     @State private var editedNickname: String = ""
     
@@ -39,9 +32,6 @@ extension ProfileEditView {
                                                  useDismissButton: true,
                                                  title: "회원정보 수정",
                                                  useProfileButton: false))
-        }
-        .onAppear {
-            viewModel.getProfileData()
         }
         .onDisappear {
             self.cancellables = .init()
@@ -59,29 +49,7 @@ extension ProfileEditView {
                 .frame(width: 230)
             
             actionButton(title: "수정", imageName: "Check") {
-                // TODO:
-                // [v] 이름 업데이트
-                // [v] Firebase에 이미지 올리기 -> Server에 이미지 URL 업데이트하기. -> 이미지 다시불러오기.
-                viewModel.uploadImage { imageUrl in
-                    viewModel.willStartLoading()
-                    if let userData = userAuthManager.userData {
-                        print("DEBUG: STORED IMAGE URL: \(imageUrl.absoluteString)")
-                        let nickName = self.editedNickname
-                        let currentImageUrl = userData.profileImageUrl
-                        userAuthManager.updateData(nickname: nickName, imageUrl: imageUrl) { result in
-                            switch result {
-                            case .success(_):
-                                print("⚠️ (DEBUG) 이미지 삭제 시작")
-                                viewModel.deleteOldImage(urlString: currentImageUrl)
-                            case .failure(let error):
-                                error.printAndTypeCatch(location: "IMAGE UPDATE DATA")
-                                return
-                            }
-                        }
-                    }
-                    viewModel.didFinishLoading()
-                }
-                
+                viewModel.editUserData()
             }
             .frame(width: 230)
             
@@ -89,7 +57,7 @@ extension ProfileEditView {
             
             // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
             actionButton(title: "로그아웃", imageName: "Logout") {
-                userAuthManager.logout()
+                viewModel.logout()
             }
             .frame(width: 230)
         }
@@ -130,11 +98,9 @@ extension ProfileEditView {
                                     return
                                 case .finished:
                                     print("이미지 송신 완료")
-                                    break
                                 }
                         } receiveValue: { image in
                             viewModel.profileImage = image
-                            self.cancellables = .init()
                         }
                         .store(in: &cancellables)
 
@@ -182,7 +148,7 @@ extension ProfileEditView {
             TextWithFont(text: "닉네임", size: 12)
                 .opacity(0.6)
             
-            TextField("", text: $editedNickname)
+            TextField("", text: $viewModel.nickname)
                 .opacity(0.87)
                 .onAppear {
                     editedNickname = viewModel.nickname

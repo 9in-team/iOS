@@ -12,8 +12,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
-    var image: UIImage?
-    var imageSubject: PassthroughSubject<UIImage, Error> = .init()
+    private var imageSubject: PassthroughSubject<UIImage, Error> = .init()
     var imagePublisher: AnyPublisher<UIImage, Error> {
         return self.imageSubject.eraseToAnyPublisher()
     }

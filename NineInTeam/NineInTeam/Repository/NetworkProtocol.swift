@@ -21,4 +21,10 @@ protocol NetworkProtocol {
                             parameters: [String: Any],
                             returnType: T.Type) -> Future<T, Error>
     
+    func PUT<T: Decodable>(headerType: HeaderType,
+                            urlType: UrlType,
+                            endPoint: String,
+                            parameters: [String: Any],
+                            returnType: T.Type) -> Future<T, Error>
+    
 }

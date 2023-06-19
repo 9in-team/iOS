@@ -41,8 +41,19 @@ class UserAuthManager: ObservableObject {
             self.isSingIn = false
             self.userData = nil
             self.keychainManager.deleteToken()
-            print("DEBUG LOGOUT")
         }
+    }
+    
+    func getId() -> Int? {
+        if let userData = userData {
+            return userData.id
+        } else {
+            return nil
+        }
+    }
+    
+    func setUserData(_ data: UserData) {
+        self.userData = data
     }
     
     func putRequest(bodyData: UserUpdateApiModel, endpoint: String) throws -> URLRequest {
@@ -70,7 +81,6 @@ class UserAuthManager: ObservableObject {
         request.httpBody = encodedReqData
         
         return request
-        
     }
     
     func putUserData(bodyData: UserUpdateApiModel,
@@ -115,21 +125,20 @@ class UserAuthManager: ObservableObject {
                         print("완료")
                         completion(.success(()))
                     }
-                }, receiveValue: {[unowned self] updatedData in
-                    self.userData = UserData(id: currentData.id,
+                }, receiveValue: {[weak self] updatedData in
+                    self?.userData = UserData(id: currentData.id,
                                              email: currentData.email,
                                              nickName: updatedData.nickname,
                                              profileImageUrl: updatedData.imageUrl,
                                              loginService: currentData.loginService)
                     print("DEBUG UPDATEDDATA: \(updatedData)")
-                    return
                 })
                 .store(in: &cancellable)
         }
     }
 }
 
-struct UserUpdateResponse: Decodable {
+struct UserUpdateResponse: Codable {
     let detail: UserUpdateApiModel
 }
 

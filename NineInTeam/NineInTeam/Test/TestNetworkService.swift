@@ -30,7 +30,7 @@ class TestNetworkService: NetworkProtocol {
                 urlType: UrlType,
                 endPoint: String,
                 parameters: [String: Any],
-                returnType: T.Type) -> Future<T, Error> where T: Decodable, T: Encodable {
+                returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return result(parameters, T.self)
     }
     
