@@ -8,18 +8,17 @@
 import SwiftUI
 import Combine
 
-// TODO: ProfileEditView
-// [] Photo Picker View + Firebase ImageUpload 기능 추후 구현 필요.
-// [] 서버에서 받은 데이터로 이미지 가져오기
 struct ProfileEditView: View {
     
-    @StateObject private var coordinator = Coordinator()
-    @StateObject private var viewModel = ProfileEditViewModel()
-    @State private var showPhotoPicker = false
     private let photoPicker = PhotoPicker()
-    @State var cancellables = Set<AnyCancellable>()
     
-    @State private var editedNickname: String = ""
+    @StateObject private var coordinator = Coordinator()
+    
+    @StateObject private var viewModel = ProfileEditViewModel()
+    
+    @State private var cancellables = Set<AnyCancellable>()
+    
+    @State private var showPhotoPicker = false
     
 }
 
@@ -49,7 +48,7 @@ extension ProfileEditView {
                 .frame(width: 230)
             
             actionButton(title: "수정", imageName: "Check") {
-                viewModel.editUserData()
+                viewModel.editUserProfile()
             }
             .frame(width: 230)
             
@@ -83,22 +82,26 @@ extension ProfileEditView {
             }
             
             VStack {
+                
                 Spacer()
                 
                 HStack {
+                    
                     Spacer()
                     
                     Button {
                         showPhotoPicker.toggle()
+                        
                         photoPicker.imagePublisher
                             .sink { completion in
                                 switch completion {
                                 case .failure(let error):
-                                    print("DEBUG IMAGE RECEIVEERROR: \(error.localizedDescription)")
+                                    error.printAndTypeCatch(location: "IMAGE RECEIVEERROR")
                                     return
                                 case .finished:
                                     print("이미지 송신 완료")
                                 }
+                                
                         } receiveValue: { image in
                             viewModel.profileImage = image
                         }
@@ -150,9 +153,6 @@ extension ProfileEditView {
             
             TextField("", text: $viewModel.nickname)
                 .opacity(0.87)
-                .onAppear {
-                    editedNickname = viewModel.nickname
-                }
             
             Rectangle()
                 .frame(height: 1)

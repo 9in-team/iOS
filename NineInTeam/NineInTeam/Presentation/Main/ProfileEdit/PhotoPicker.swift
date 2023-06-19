@@ -40,7 +40,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
         
         deinit {
-            print("PhotoPicker Deinit")
+            print("Deinit: PhotoPicker")
         }
         
         func imagePickerController(_ picker: UIImagePickerController,

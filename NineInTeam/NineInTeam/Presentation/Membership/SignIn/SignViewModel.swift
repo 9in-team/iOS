@@ -12,6 +12,7 @@ import KakaoSDKUser
 class SignViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
+    
     private var userAuthManager = UserAuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
@@ -48,13 +49,15 @@ class SignViewModel: BaseViewModel {
                 showAlert(title: "토큰을 가져오지 못했습니다.")
             }
         }
+        
     }
     
-    // 로그인
+    // 카카오 로그인
     func kakaoLogin(accessToken: String) {
         let parameters = ["accessToken": accessToken]
         
         willStartLoading()
+        
         service.POST(headerType: HeaderType.test,
                      urlType: UrlType.testDomain,
                      endPoint: EndPoint.login.get(),
@@ -62,38 +65,40 @@ class SignViewModel: BaseViewModel {
                      returnType: UserDataApiResponse.self)
             .sink { [weak self] completion in
                 switch completion {
-                case .failure(let error):
-                    print("DEBUG RESPONSE: FAIL \(error.localizedDescription)")
+                case .failure(_):
                     if self?.userAuthManager.isSingIn == true {
                         self?.userAuthManager.logout()
-                        print("DEBUG: 토큰만료")
                         self?.showAlert(title: "다시 로그인 해주세요.")
                     } else {
                         self?.showAlert(title: "로그인에 실패했습니다.")
                     }
                 case .finished:
-                    print("DEBUG RESPONSE: FINISHED!")
+                    break
                 }
                 self?.didFinishLoading()
+                
             } receiveValue: { [weak self] responseData in
                 if let responseData = responseData.detail {
-                    print("DEBUG USERDATA: \(responseData)")
+
                     let userData = UserData(id: responseData.id,
                                             email: responseData.email,
                                             nickName: responseData.nickname,
                                             profileImageUrl: responseData.imageUrl,
-                                            loginService: .kakao)
+                                            signInProvider: .kakao)
+                    
                     self?.userAuthManager.userData = userData
                     self?.userAuthManager.isSingIn = true
+                    
                 } else {
-                    print("DEBUG USERDATA: 토큰 전달 후 받은 받은 데이터 없음")
                     return
                 }
+                
             }
             .store(in: &cancellables)
+        
     }
     
-    // 기존 토큰으로 로그인
+    // 기존 토큰으로 자동로그인
     func getLoginSession() {
         self.kakaoLogin(accessToken: userAuthManager.fetchKakaoLoginToken())
     }
@@ -107,6 +112,7 @@ class SignViewModel: BaseViewModel {
         }        
         
         willStartLoading()
+        
         service.POST(headerType: HeaderType.test,
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),

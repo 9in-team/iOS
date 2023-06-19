@@ -11,15 +11,20 @@ import FirebaseStorage
 final class ProfileEditViewModel: BaseViewModel {
     
     @Published var nickname: String = ""
+    
     @Published var email: String = ""
+    
     @Published var profileImage: UIImage?
+    
     private var profileImageUrl: String = ""
+    
     private var userAuthManager = UserAuthManager.shared
+    
     private var networkService = NetworkService()
     
     override init() {
         super.init()
-        getProfileData()
+        loadUserProfile()
     }
     
 }
@@ -30,7 +35,9 @@ extension ProfileEditViewModel {
         userAuthManager.logout()
     }
     
-    func getProfileData() {
+    // 프로필 로드
+    func loadUserProfile() {
+        
         if let userData = userAuthManager.userData {
             self.email = userData.email
             self.nickname = userData.nickName
@@ -52,22 +59,24 @@ extension ProfileEditViewModel {
         } else {
             self.showAlert(title: "프로필 로드 실패")
         }
+        
     }
     
-    func editUserData() {
+    // 프로필 수정
+    func editUserProfile() {
+        
         let currentImageUrl = profileImageUrl
         let updatedName = nickname
         
         self.willStartLoading()
-        // 이미지 업로드
+
         uploadImage { [weak self] imageUrl in
             guard let self = self else { return }
             
-            let parameters: [String: Any] = [
-                "nickname": updatedName,
-                "imageId": imageUrl.absoluteString
-            ]
+            let body: [String: Any]? = try? UserUpdateApiModel(nickname: updatedName,
+                                                               imageUrl: imageUrl.absoluteString).toDictionary()
             
+            guard let parameters = body else {return}
             guard let userdata  = userAuthManager.userData else { return }
             
             let endpoint = "account/\(userdata.id)"
@@ -81,29 +90,31 @@ extension ProfileEditViewModel {
             .sink { result in
                 switch result {
                 case .failure(let error):
-                    error.printAndTypeCatch(location: "editUserData2")
+                    error.printAndTypeCatch(location: "editUserData")
                     return
                 case .finished:
-                    print("완료")
-                    self.getProfileData()
+                    self.loadUserProfile()
                 }
             } receiveValue: { updatedData in
                 let data = UserData(id: userdata.id,
                                     email: userdata.email,
                                     nickName: updatedData.nickname,
                                     profileImageUrl: updatedData.imageUrl,
-                                    loginService: userdata.loginService)
-                print("DEBUG FINISHED DATA: \(data)")
+                                    signInProvider: userdata.signInProvider)
+
                 self.userAuthManager.setUserData(data)
                 self.deleteOldImage(urlString: currentImageUrl)
                 self.didFinishLoading()
             }
             .store(in: &cancellables)
         }
+        
     }
     
+    // URL -> Image
     private func loadImageData(urlString: String,
                                completion: @escaping(Result<UIImage, Error>) -> Void) {
+        
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url) { data, _, error in
                 if let error = error {
@@ -116,10 +127,12 @@ extension ProfileEditViewModel {
             }
             .resume()
         }
+        
     }
     
     // Firebase Image Upload
     private func uploadImage(completion: @escaping (URL) -> Void) {
+        
         willStartLoading()
         
         let data = self.profileImage?.pngData()
@@ -144,21 +157,22 @@ extension ProfileEditViewModel {
             self.didFinishLoading()
             return
         }
+        
     }
     
-    // Firebase 업로드 성공 시 기존 이미지 삭제
+    // Firebase Image Delete
     private func deleteOldImage(urlString: String) {
-        print("⚠️ (DEBUG) 이미지 삭제 시작")
+        
         FirebaseStorageManager.deleteImage(urlString: urlString) { result in
             switch result {
             case .success(_):
-                print("FB 이미지 삭제 완료")
+                break
             case .failure(let error):
                 error.printAndTypeCatch(location: "DELETE OLD IMAGE")
                 return
             }
         }
+        
     }
-
     
 }
