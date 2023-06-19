@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class NetworkService: NetworkProtocol {
-    
+
     private var session = URLSession.shared
     private var cancellables = Set<AnyCancellable>()
     
@@ -96,12 +96,10 @@ class NetworkService: NetworkProtocol {
                 let statusCode = httpResponse.statusCode
                 
                 switch statusCode {
-                case 100...399:
+                case 200...399:
                     return data
-                case 400...499:
-                    throw NetworkError.clientError(statusCode: statusCode)
-                case 500...599:
-                    throw NetworkError.serverError(statusCode: statusCode)
+                case 400...599:
+                    throw NetworkError.statusCode(statusCode)
                 default:
                     throw NetworkError.unknown
                 }

@@ -12,6 +12,7 @@
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
+		394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95852A3FFC3E00501B32 /* PhotoPicker.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
@@ -27,8 +28,8 @@
 		39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */; };
 		39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */; };
 		39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */; };
-		39D8DCCD2A3C5ECA007530A9 /* KakaoLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCC2A3C5ECA007530A9 /* KakaoLoginResponse.swift */; };
-		39D8DCCF2A3C5EDA007530A9 /* KakaoUserApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCE2A3C5EDA007530A9 /* KakaoUserApiModel.swift */; };
+		39D8DCCD2A3C5ECA007530A9 /* UserDataApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCC2A3C5ECA007530A9 /* UserDataApiResponse.swift */; };
+		39D8DCCF2A3C5EDA007530A9 /* UserApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCE2A3C5EDA007530A9 /* UserApiModel.swift */; };
 		39D8DCD12A3C602A007530A9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCD02A3C602A007530A9 /* UserData.swift */; };
 		39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01912A176E0D00A12674 /* FontContstant.swift */; };
 		39EB01942A177FFD00A12674 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB01932A177FFD00A12674 /* Font.swift */; };
@@ -139,6 +140,7 @@
 /* Begin PBXFileReference section */
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProvider.swift; sourceTree = "<group>"; };
+		394A95852A3FFC3E00501B32 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
@@ -153,8 +155,8 @@
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
 		39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagCell.swift; sourceTree = "<group>"; };
 		39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagViewModel.swift; sourceTree = "<group>"; };
-		39D8DCCC2A3C5ECA007530A9 /* KakaoLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginResponse.swift; sourceTree = "<group>"; };
-		39D8DCCE2A3C5EDA007530A9 /* KakaoUserApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoUserApiModel.swift; sourceTree = "<group>"; };
+		39D8DCCC2A3C5ECA007530A9 /* UserDataApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataApiResponse.swift; sourceTree = "<group>"; };
+		39D8DCCE2A3C5EDA007530A9 /* UserApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiModel.swift; sourceTree = "<group>"; };
 		39D8DCD02A3C602A007530A9 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -351,8 +353,8 @@
 		39D8DCCB2A3C5EB8007530A9 /* Kakao */ = {
 			isa = PBXGroup;
 			children = (
-				39D8DCCC2A3C5ECA007530A9 /* KakaoLoginResponse.swift */,
-				39D8DCCE2A3C5EDA007530A9 /* KakaoUserApiModel.swift */,
+				39D8DCCC2A3C5ECA007530A9 /* UserDataApiResponse.swift */,
+				39D8DCCE2A3C5EDA007530A9 /* UserApiModel.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -387,6 +389,7 @@
 			children = (
 				DE5E998B29D4780100D32B8E /* ProfileEditView.swift */,
 				DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */,
+				394A95852A3FFC3E00501B32 /* PhotoPicker.swift */,
 			);
 			path = ProfileEdit;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				DEB0D36D29BB6B8D00B5E1B9 /* TeamDetailView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
 				DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */,
+				394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
 				DEB0D37B29C0AECD00B5E1B9 /* MyResumeViewModel.swift in Sources */,
 				DEB0D37329C0ADD700B5E1B9 /* MySubscribeViewModel.swift in Sources */,
@@ -973,7 +977,7 @@
 				390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
 				3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */,
-				39D8DCCF2A3C5EDA007530A9 /* KakaoUserApiModel.swift in Sources */,
+				39D8DCCF2A3C5EDA007530A9 /* UserApiModel.swift in Sources */,
 				DEC82E2729AA8A4300D17C50 /* ImagePicker.swift in Sources */,
 				DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* NineInTeam.swift in Sources */,
@@ -1032,7 +1036,7 @@
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
-				39D8DCCD2A3C5ECA007530A9 /* KakaoLoginResponse.swift in Sources */,
+				39D8DCCD2A3C5ECA007530A9 /* UserDataApiResponse.swift in Sources */,
 				DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1191,10 +1195,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1216,6 +1222,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 9inTeam;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1227,10 +1234,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1252,6 +1261,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 9inTeam;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

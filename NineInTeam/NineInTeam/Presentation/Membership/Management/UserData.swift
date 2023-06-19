@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct UserData {
+struct UserData: Codable {
+    let id: Int
     let email: String
     let nickName: String
     let profileImageUrl: String

@@ -59,7 +59,7 @@ class SignViewModel: BaseViewModel {
                      urlType: UrlType.testDomain,
                      endPoint: EndPoint.login.get(),
                      parameters: parameters,
-                     returnType: KakaoLoginResponse.self)
+                     returnType: UserDataApiResponse.self)
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
@@ -78,7 +78,8 @@ class SignViewModel: BaseViewModel {
             } receiveValue: { [weak self] responseData in
                 if let responseData = responseData.detail {
                     print("DEBUG USERDATA: \(responseData)")
-                    let userData = UserData(email: responseData.email,
+                    let userData = UserData(id: responseData.id,
+                                            email: responseData.email,
                                             nickName: responseData.nickname,
                                             profileImageUrl: responseData.imageUrl,
                                             loginService: .kakao)
@@ -110,7 +111,7 @@ class SignViewModel: BaseViewModel {
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: KakaoLoginResponse.self)
+                     returnType: UserDataApiResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return
