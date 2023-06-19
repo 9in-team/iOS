@@ -63,10 +63,22 @@ extension ProfileEditView {
                 // [v] 이름 업데이트
                 // [v] Firebase에 이미지 올리기 -> Server에 이미지 URL 업데이트하기. -> 이미지 다시불러오기.
                 viewModel.uploadImage { imageUrl in
-                    print("DEBUG: STORED IMAGE URL: \(imageUrl.absoluteString)")
-                    let nickName = self.editedNickname
                     viewModel.willStartLoading()
-                    userAuthManager.updateData(nickname: nickName, imageUrl: imageUrl)
+                    if let userData = userAuthManager.userData {
+                        print("DEBUG: STORED IMAGE URL: \(imageUrl.absoluteString)")
+                        let nickName = self.editedNickname
+                        let currentImageUrl = userData.profileImageUrl
+                        userAuthManager.updateData(nickname: nickName, imageUrl: imageUrl) { result in
+                            switch result {
+                            case .success(_):
+                                print("⚠️ (DEBUG) 이미지 삭제 시작")
+                                viewModel.deleteOldImage(urlString: currentImageUrl)
+                            case .failure(let error):
+                                error.printAndTypeCatch(location: "IMAGE UPDATE DATA")
+                                return
+                            }
+                        }
+                    }
                     viewModel.didFinishLoading()
                 }
                 

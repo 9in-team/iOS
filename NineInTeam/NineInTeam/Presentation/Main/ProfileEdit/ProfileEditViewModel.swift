@@ -34,8 +34,8 @@ class ProfileEditViewModel: BaseViewModel {
         }
     }
     
-    func getImageData(url: String, completion: @escaping(UIImage) -> Void) {
-        let errorImage = UIImage(named: "Send")!
+    private func getImageData(url: String, completion: @escaping(UIImage) -> Void) {
+        let errorImage = UIImage()
         
         // TODO: 실 운영시 server에 userimage url 요청
         if let url = URL(string: url) {
@@ -65,6 +65,8 @@ class ProfileEditViewModel: BaseViewModel {
     func uploadImage(completion: @escaping (URL) -> Void) {
         willStartLoading()
         
+        guard let userData = credentialManager.userData else { return }
+        let currentImageUrl = userData.profileImageUrl
         let data = self.profileImage?.pngData()
         if let data = data {
             let folder = "ProfileImage"
@@ -83,6 +85,19 @@ class ProfileEditViewModel: BaseViewModel {
             self.showToast(title: "이미지 변환에 실패했습니다.")
             self.didFinishLoading()
             return
+        }
+    }
+    
+    // Firebase 업로드 성공 시 기존 이미지 삭제
+    func deleteOldImage(urlString: String) {
+        FirebaseStorageManager.deleteImage(urlString: urlString) { result in
+            switch result {
+            case .success(_):
+                print("삭제 완료")
+            case .failure(let error):
+                error.printAndTypeCatch(location: "DELETE OLD IMAGE")
+                return
+            }
         }
     }
     

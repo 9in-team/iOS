@@ -45,7 +45,7 @@ class UserAuthManager: ObservableObject {
         }
     }
     
-    func putRequest<T: Encodable>(bodyData: T, endpoint: String) throws -> URLRequest {
+    func putRequest(bodyData: UserUpdateApiModel, endpoint: String) throws -> URLRequest {
         
         let baseUrl = "https://9inteam.heon.dev/\(endpoint)"
         
@@ -91,26 +91,29 @@ class UserAuthManager: ObservableObject {
     }
     
     func putPublisher(bodyData: UserUpdateApiModel,
-                      endpoint: String) -> AnyPublisher<UserApiModel, Error>? {
+                      endpoint: String) -> AnyPublisher<UserUpdateResponse, Error>? {
         return try? putUserData(bodyData: bodyData, endpoint: endpoint)
             .tryMap { try self.validateRequest($0.data, $0.response) }
-            .decode(type: UserApiModel.self, decoder: JSONDecoder())
+            .decode(type: UserUpdateResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
     
-    func updateData(nickname: String, imageUrl: URL) {
+    func updateData(nickname: String, imageUrl: URL, completion: @escaping (Result<Void, Error>) -> Void) {
         if let currentData = userData {
             
             let model = UserUpdateApiModel(nickname: nickname, imageUrl: imageUrl.absoluteString)
             
             putPublisher(bodyData: model, endpoint: "account/\(currentData.id)")?
-                .sink(receiveCompletion: { completion in
-                    switch completion {
+                .map(\.detail)
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { result in
+                    switch result {
                     case .failure(let error):
-                        self.errorPrinter(error)
-                        return
+                        error.printAndTypeCatch(location: "updateData")
+                        completion(.failure(error))
                     case .finished:
                         print("완료")
+                        completion(.success(()))
                     }
                 }, receiveValue: {[unowned self] updatedData in
                     self.userData = UserData(id: currentData.id,
@@ -122,49 +125,15 @@ class UserAuthManager: ObservableObject {
                     return
                 })
                 .store(in: &cancellable)
-            
-            //
-            //            .tryMap(\.detail)
-            //            .sink { completion in
-            //                switch completion {
-            //                case .failure(let error):
-            //                    print("DEBUG UPDATE DATA ERROR: \(error.localizedDescription)")
-            //                case .finished:
-            //                    break
-            //                }
-            //            } receiveValue: { receivedData in
-            //                guard let currentData = self.userData else { return }
-            //                if let updatedApiData = receivedData {
-            //
-            //                    let updatedUserData = UserData(id: currentData.id,
-            //                                        email: currentData.email,
-            //                                        nickName: updatedApiData.nickname,
-            //                                        profileImageUrl: updatedApiData.imageUrl,
-            //                                        loginService: currentData.loginService)
-            //
-            //                    self.userData = updatedUserData
-            //                }
-            //                return
-            //            }
-            //            .store(in: &cancellable)
         }
     }
-    
-    private func errorPrinter(_ error: Error) {
-        if let error = error as? NetworkError {
-            print("❗️(DEBUG) NetworkError:  \(error.localizedDescription)")
-        } else if let error = error as? DecodingError {
-            print("❗️(DEBUG) DecodingError:  \(error.localizedDescription)")
-        } else if let error = error as? URLError {
-            print("❗️(DEBUG) URLError:  \(error.localizedDescription)")
-        } else {
-            print("❗️(DEBUG) 알수없는 에러:  \(error.localizedDescription)")
-        }
-    }
-    
 }
 
-struct UserUpdateApiModel: Encodable {
+struct UserUpdateResponse: Decodable {
+    let detail: UserUpdateApiModel
+}
+
+struct UserUpdateApiModel: Codable {
     let nickname: String
     let imageUrl: String
     

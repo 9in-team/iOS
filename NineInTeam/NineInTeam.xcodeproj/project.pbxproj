@@ -13,6 +13,7 @@
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
 		394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95852A3FFC3E00501B32 /* PhotoPicker.swift */; };
+		394A95882A4052CB00501B32 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95872A4052CB00501B32 /* Error.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
@@ -141,6 +142,7 @@
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* LoginServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProvider.swift; sourceTree = "<group>"; };
 		394A95852A3FFC3E00501B32 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		394A95872A4052CB00501B32 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				DEB34E992971704A00C0B973 /* Data.swift */,
 				DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */,
 				39EB01932A177FFD00A12674 /* Font.swift */,
+				394A95872A4052CB00501B32 /* Error.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -959,6 +962,7 @@
 				39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
 				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
+				394A95882A4052CB00501B32 /* Error.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
 				390F8F052A3F30EE007B66CD /* LoginServiceProvider.swift in Sources */,
