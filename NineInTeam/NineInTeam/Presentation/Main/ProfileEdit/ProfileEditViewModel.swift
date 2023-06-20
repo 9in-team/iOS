@@ -31,6 +31,7 @@ final class ProfileEditViewModel: BaseViewModel {
 
 extension ProfileEditViewModel {
     
+    // 로그아웃
     func logout() {
         userAuthManager.logout()
     }
@@ -162,7 +163,6 @@ extension ProfileEditViewModel {
     
     // Firebase Image Delete
     private func deleteOldImage(urlString: String) {
-        
         FirebaseStorageManager.deleteImage(urlString: urlString) { result in
             switch result {
             case .success(_):
@@ -172,7 +172,6 @@ extension ProfileEditViewModel {
                 return
             }
         }
-        
     }
     
 }

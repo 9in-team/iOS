@@ -9,15 +9,20 @@ import Foundation
 
 extension Error {
     
-    func printAndTypeCatch(location: String = "") {
-        if let error = self as? NetworkError {
-            print("❗️DEBUG (\(location)) NetworkError:  \(error.localizedDescription)")
-        } else if let error = self as? DecodingError {
-            print("❗️DEBUG (\(location)) DecodingError:  \(error.localizedDescription)")
-        } else if let error = self as? URLError {
-            print("❗️DEBUG (\(location)) URLError:  \(error.localizedDescription)")
-        } else {
-            print("❗️DEBUG (\(location)) 알수없는 에러:  \(self.localizedDescription)")
+    func printAndTypeCatch(location: String = #function) {
+        print("❗️DEBUG -> (\(location)) \(errorTypeDescription): \(self.localizedDescription)")
+    }
+    
+    private var errorTypeDescription: String {
+        switch self {
+        case is NetworkError:
+            return "Network Error"
+        case is DecodingError:
+            return "Decoding Error"
+        case is URLError:
+            return "URL Error"
+        default:
+            return "Unknown Error"
         }
     }
     
