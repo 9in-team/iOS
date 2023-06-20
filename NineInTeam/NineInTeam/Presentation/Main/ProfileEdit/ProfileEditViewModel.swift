@@ -52,7 +52,7 @@ extension ProfileEditViewModel {
                         self?.profileImage = image
                     }
                 case .failure(let error):
-                    error.printAndTypeCatch(location: "getProfileData")
+                    error.printAndTypeCatch()
                     self?.showAlert(title: "프로필 이미지 로드 실패")
                 }
             }
@@ -90,7 +90,7 @@ extension ProfileEditViewModel {
             .sink { result in
                 switch result {
                 case .failure(let error):
-                    error.printAndTypeCatch(location: "editUserData")
+                    error.printAndTypeCatch()
                     return
                 case .finished:
                     self.loadUserProfile()
@@ -168,7 +168,7 @@ extension ProfileEditViewModel {
             case .success(_):
                 break
             case .failure(let error):
-                error.printAndTypeCatch(location: "DELETE OLD IMAGE")
+                error.printAndTypeCatch()
                 return
             }
         }

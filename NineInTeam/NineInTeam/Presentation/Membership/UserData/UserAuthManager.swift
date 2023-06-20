@@ -48,17 +48,3 @@ class UserAuthManager: ObservableObject {
     }
     
 }
-
-struct UserUpdateResponse: Codable {
-    let detail: UserUpdateApiModel
-}
-
-struct UserUpdateApiModel: Codable {
-    let nickname: String
-    let imageUrl: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case nickname
-        case imageUrl = "imageId"
-    }
-}

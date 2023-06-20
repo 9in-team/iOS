@@ -14,5 +14,5 @@ struct UserData: Codable {
     let profileImageUrl: String
     var myTeam: [Team] = []
     var joinedTeam: [Team] = []
-    let signInProvider: SignInServiceProvider
+    let signInProvider: SignInProviderType
 }

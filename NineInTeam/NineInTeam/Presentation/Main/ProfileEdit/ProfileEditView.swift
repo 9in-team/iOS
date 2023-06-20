@@ -96,7 +96,7 @@ extension ProfileEditView {
                             .sink { completion in
                                 switch completion {
                                 case .failure(let error):
-                                    error.printAndTypeCatch(location: "IMAGE RECEIVEERROR")
+                                    error.printAndTypeCatch()
                                     return
                                 case .finished:
                                     print("이미지 송신 완료")
