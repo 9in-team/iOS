@@ -20,6 +20,8 @@ enum Destination {
     case writePost
 
     case mySubscribe
+    case subscribeTag
+    case myWish
 
     case myPost
     case postDetail
@@ -45,6 +47,10 @@ enum Destination {
             WritePostView()
         case .mySubscribe:
             MySubscribeView()
+        case .subscribeTag:
+            SubscribeTagView()
+        case .myWish:
+            MyWishView()
         case .myPost:
             MyPostView()
         case .postDetail:
