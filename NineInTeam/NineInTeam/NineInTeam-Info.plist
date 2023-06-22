@@ -20,19 +20,6 @@
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoadsForMediaUsageDescription</key>
-		<dict/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>kakaocdn.net</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<string>YES</string>
-			</dict>
-		</dict>
-	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>GodoB.otf</string>
