@@ -10,19 +10,28 @@ import SwiftUI
 struct ApplicationSwitcher: View {
     
     @StateObject var viewModel = SignViewModel()
-    
+
     @StateObject var coordinator = Coordinator(isRoot: true)
+
+    @ObservedObject private var userAuthManager = UserAuthManager.shared
     
     var body: some View {
-        if viewModel.isSingIn {
-            MainView()
-                .environmentObject(coordinator)
-        } else {
-            SignInView()
-                .onAppear {
-                    viewModel.autoLogin()
-                }
-        }
         
+        Group {
+            if userAuthManager.isSingIn {
+                MainView()
+                    .onAppear {
+                        viewModel.getLoginSession()
+                        coordinator.popToRoot()
+                    }
+            } else {
+                SignInView()
+            }
+        }
+        .ignoresSafeArea()
+        .environmentObject(coordinator)
+        .environmentObject(userAuthManager)
+
     }
+    
 }

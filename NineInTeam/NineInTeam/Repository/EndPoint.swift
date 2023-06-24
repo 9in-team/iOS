@@ -19,7 +19,7 @@ enum EndPoint {
         case .join:
             return "join"
         case .login:
-            return "login"
+            return "account"
         case .logout:
             return "logout"
         }

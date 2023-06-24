@@ -8,33 +8,21 @@
 import UIKit
 import KakaoSDKAuth
 import KakaoSDKUser
-import FirebaseStorage
 
 class SignViewModel: BaseViewModel {
     
-    var service: NetworkProtocol
+    private var service: NetworkProtocol
     
-    @Published var isSingIn = false    
+    private var userAuthManager = UserAuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
-//        self.service = service
-        self.service = TestNetworkService()
+        self.service = service
         super.init()
     }
     
     func autoLogin() {
-        // UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
-        isSingIn = true
-    }
-    
-    func canOpen(_ url: URL) {
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            if AuthController.handleOpenUrl(url: url) {
-                // Toast message : "open"
-            }
-        } else {
-            // Toast message : "don't open"
-        }
+        // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
+        userAuthManager.isSingIn = true
     }
     
     func requestKakaoLogin() {
@@ -50,55 +38,71 @@ class SignViewModel: BaseViewModel {
     }
     
     // 카카오 로그인 클로저
-    func kakaoLoginClosure(oauthToken: OAuthToken?, error: Error?) {
+    private func kakaoLoginClosure(oauthToken: OAuthToken?, error: Error?) {
         if let error = error {
             showAlert(title: error.localizedDescription)
         } else {
             if let accessToken = oauthToken?.accessToken {
-                login(accessToken: accessToken)
+                KeychainManager.shared.saveLoginToken(token: accessToken)
+                kakaoLogin(accessToken: accessToken)
             } else {
                 showAlert(title: "토큰을 가져오지 못했습니다.")
             }
         }
+        
     }
     
-    // 로그인
-    func login(accessToken: String) {
-//        let parameters = ["kakaoAccessToken": accessToken]        
-        let parameters = TestResponseData.SUCCESS.getDictionary()
+    // 카카오 로그인
+    func kakaoLogin(accessToken: String) {
+        let parameters = ["accessToken": accessToken]
         
         willStartLoading()
+        
         service.POST(headerType: HeaderType.test,
-                     urlType: UrlType.test,
+                     urlType: UrlType.testDomain,
                      endPoint: EndPoint.login.get(),
                      parameters: parameters,
-                     returnType: BaseResponseModel.self)
+                     returnType: UserDataApiResponse.self)
             .sink { [weak self] completion in
-                guard let self = self else {
-                    return
-                }
-                
                 switch completion {
                 case .failure(_):
-                    self.showToast(title: "")
+                    if self?.userAuthManager.isSingIn == true {
+                        self?.userAuthManager.logout()
+                        self?.showAlert(title: "다시 로그인 해주세요.")
+                    } else {
+                        self?.showAlert(title: "로그인에 실패했습니다.")
+                    }
                 case .finished:
                     break
                 }
-                self.didFinishLoading()
+                self?.didFinishLoading()
+                
             } receiveValue: { [weak self] responseData in
-                guard let result = responseData.result else {
+                if let responseData = responseData.detail {
+
+                    let userData = UserData(id: responseData.id,
+                                            email: responseData.email,
+                                            nickName: responseData.nickname,
+                                            profileImageUrl: responseData.imageUrl,
+                                            signInProvider: .kakao)
+                    
+                    self?.userAuthManager.userData = userData
+                    self?.userAuthManager.isSingIn = true
+                    
+                } else {
                     return
                 }
                 
-                if result.contains(ResponseConstant.kSuccess) {
-                    self?.isSingIn = true
-                } else {
-                    //
-                }
             }
             .store(in: &cancellables)
+        
     }
     
+    // 기존 토큰으로 자동로그인
+    func getLoginSession() {
+        self.kakaoLogin(accessToken: userAuthManager.fetchKakaoLoginToken())
+    }
+
     // 회원가입
     func join(email: String, nickname: String, imageUrl: String = "") {
         var parameters = ["email": email,
@@ -108,11 +112,12 @@ class SignViewModel: BaseViewModel {
         }        
         
         willStartLoading()
+        
         service.POST(headerType: HeaderType.test,
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: BaseResponseModel.self)
+                     returnType: UserDataApiResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return
@@ -156,29 +161,5 @@ class SignViewModel: BaseViewModel {
             }
         }
     }
-    
-    // Firebase Image Upload
-    func uploadImage(_ image: UIImage, completion: @escaping (URL) -> Void) {
-        willStartLoading()
-                                                        
-        guard let data = image.jpegData(compressionQuality: 0.9) else {
-            showToast(title: "이미지 변환에 실패했습니다.")
-            return
-        }
-       
-        let folder = "ProfileImage"
-        let imageName = UUID().uuidString + String(Date().timeIntervalSince1970)
-        let path = "\(folder)/\(imageName)"
-        
-        FirebaseStorageManager.uploadImage(imageData: data, path: path) { [weak self] url, error in
-            if error != nil {
-                self?.showToast(title: "이미지 업로드를 실패했습니다.")
-            } else {
-                completion(url!)                
-            }
-            
-            self?.didFinishLoading()
-        }               
-    }
-    
+
 }

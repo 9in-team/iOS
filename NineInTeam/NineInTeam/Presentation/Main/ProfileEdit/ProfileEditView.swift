@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ProfileEditView: View {
     
-    @StateObject var coordinator = Coordinator()
+    private let photoPicker = PhotoPicker()
     
-    @StateObject var viewModel = ProfileEditViewModel()
+    @StateObject private var coordinator = Coordinator()
     
-    @State var editedNickname: String = "김진홍"
+    @StateObject private var viewModel = ProfileEditViewModel()
+    
+    @State private var cancellables = Set<AnyCancellable>()
+    
+    @State private var showPhotoPicker = false
     
 }
 
@@ -27,20 +32,33 @@ extension ProfileEditView {
                                                  title: "회원정보 수정",
                                                  useProfileButton: false))
         }
+        .onDisappear {
+            self.cancellables = .init()
+        }
     }
     
     func mainBody() -> some View {
         VStack(spacing: 30) {
             profileImage()
-            
+
             email()
                 .frame(width: 230)
             
             nickname()
                 .frame(width: 230)
             
-            bottomButton()
-                .frame(width: 230)
+            actionButton(title: "수정", imageName: "Check") {
+                viewModel.editUserProfile()
+            }
+            .frame(width: 230)
+            
+            Spacer()
+            
+            // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
+            actionButton(title: "로그아웃", imageName: "Logout") {
+                viewModel.logout()
+            }
+            .frame(width: 230)
         }
     }
     
@@ -49,14 +67,46 @@ extension ProfileEditView {
             Circle()
                 .fill(Color(hexcode: "D9D9D9"))
             
+            if let image = viewModel.profileImage {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(Circle())
+                    .frame(width: 140, height: 140)
+            } else {
+                ProgressView()
+                        .scaleEffect(1.5, anchor: .center)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                        .clipShape(Circle())
+                        .frame(width: 140, height: 140)
+            }
+            
             VStack {
+                
                 Spacer()
                 
                 HStack {
+                    
                     Spacer()
                     
                     Button {
-                        // 프로필 이미지 선택
+                        showPhotoPicker.toggle()
+                        
+                        photoPicker.imagePublisher
+                            .sink { completion in
+                                switch completion {
+                                case .failure(let error):
+                                    error.printAndTypeCatch()
+                                    return
+                                case .finished:
+                                    print("이미지 송신 완료")
+                                }
+                                
+                        } receiveValue: { image in
+                            viewModel.profileImage = image
+                        }
+                        .store(in: &cancellables)
+
                     } label: {
                         Circle()
                             .fill(Color(hexcode: "E0E0E0"))
@@ -66,6 +116,9 @@ extension ProfileEditView {
                                     .resizable()
                                     .frame(width: 18, height: 18)
                             )
+                    }
+                    .sheet(isPresented: $showPhotoPicker) {
+                        self.photoPicker
                     }
                     .circleShadows([Shadow(color: .black, opacity: 0.12, radius: 18, locationY: 1),
                                     Shadow(color: .black, opacity: 0.14, radius: 10, locationY: 6),
@@ -78,13 +131,14 @@ extension ProfileEditView {
     
     func email() -> some View {
         VStack(alignment: .leading, spacing: 5) {
+            
             TextWithFont(text: "이메일 주소", size: 12)
             
-            TextWithFont(text: "9in.team@9in.team", size: 16)
+            TextWithFont(text: $viewModel.email.wrappedValue, size: 16)
             
             Line()
-               .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
-               .frame(height: 1)
+                .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
+                .frame(height: 1)
         }
         .foregroundColor(
             Color(hexcode: "000000")
@@ -97,9 +151,9 @@ extension ProfileEditView {
             TextWithFont(text: "닉네임", size: 12)
                 .opacity(0.6)
             
-            TextField("", text: $editedNickname)
+            TextField("", text: $viewModel.nickname)
                 .opacity(0.87)
-                
+            
             Rectangle()
                 .frame(height: 1)
                 .opacity(0.42)
@@ -107,20 +161,22 @@ extension ProfileEditView {
         .foregroundColor(Color(hexcode: "000000"))
     }
     
-    func bottomButton() -> some View {
+    func actionButton(title: String,
+                      imageName: String,
+                      action: @escaping () -> Void) -> some View {
         Button {
-            // viewModel.edit
+            action()
         } label: {
             RoundedRectangle(cornerRadius: 4)
                 .fill(ColorConstant.main.color())
                 .frame(height: 42)
                 .overlay(
                     HStack(spacing: 11) {
-                        Image("Check")
+                        Image(imageName)
                             .resizable()
                             .frame(width: 18, height: 13)
                         
-                        TextWithFont(text: "수정", font: .robotoMedium, size: 15)
+                        TextWithFont(text: title, font: .robotoMedium, size: 15)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                     }
                 )
@@ -131,3 +187,11 @@ extension ProfileEditView {
     }
     
 }
+
+#if DEBUG
+struct ProfileEditView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileEditView()
+    }
+}
+#endif

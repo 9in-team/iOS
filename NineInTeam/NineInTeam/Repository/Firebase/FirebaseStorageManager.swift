@@ -13,7 +13,7 @@ class FirebaseStorageManager {
     
     static func uploadImage(imageData: Data, path: String, completion: @escaping (URL?, Error?) -> Void) {
         let metaData = StorageMetadata()
-        metaData.contentType = "image/png"                
+        metaData.contentType = "image/png"
         
         let firebaseReference = Storage.storage().reference().child("\(path)")
         
@@ -31,17 +31,29 @@ class FirebaseStorageManager {
             }
         }
     }
-       
+    
     static func downloadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
         let storageReference = Storage.storage().reference(forURL: urlString)
         let megaByte = Int64(1 * 1024 * 1024)
         
-        storageReference.getData(maxSize: megaByte) { data, error in
+        storageReference.getData(maxSize: megaByte) { data, _ in
             guard let imageData = data else {
                 completion(nil)
                 return
             }
             completion(UIImage(data: imageData))
+        }
+    }
+    
+    static func deleteImage(urlString: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let storageReference = Storage.storage().reference(forURL: urlString)
+        
+        storageReference.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
         }
     }
     

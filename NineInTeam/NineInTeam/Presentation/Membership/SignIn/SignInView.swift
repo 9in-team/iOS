@@ -9,57 +9,82 @@ import SwiftUI
 
 struct SignInView: View {
          
-    @StateObject var viewModel = SignViewModel()
+    @StateObject private var viewModel = SignViewModel()
+    @EnvironmentObject private var coordinator: Coordinator
+    
+    var body: some View {
+        mainBody
+    }
     
 }
 
 extension SignInView {
     
-    var body: some View {
+    var mainBody: some View {
         ZStack {
             ColorConstant.main.color()
-                .edgesIgnoringSafeArea(.all)                                                          
-                        
+                .edgesIgnoringSafeArea(.all)
             VStack {
+                Spacer()
+                
                 TextWithFont(text: "9in.team", font: .godoB, size: 48)
-                    .foregroundColor(Color(hexcode: "FFFFFF"))
+                    .foregroundColor(ColorConstant.white.color())
                 
                 TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: .godoB, size: 16)
-                    .foregroundColor(Color(hexcode: "FFFFFF"))
+                    .foregroundColor(ColorConstant.white.color())
+                
+                Spacer()
             }            
          
             VStack {
                 Spacer()
-             
-                Button(action: {
-                    viewModel.requestKakaoLogin()
-                }, label: {
-                    HStack {
-                        Image("KakaoSymbol")
-                     
-                        Spacer()
-                        
-                        TextWithFont(text: "카카오로그인", font: .robotoMedium, size: 16)
-                            .foregroundColor(Color(hexcode: "FFFFFF").opacity(0.85))
-                        
-                        Spacer()
-                    }
-                    .padding(.horizontal, 15)
-                    .frame(height: 50)
-                    .background(Color(hexcode: "FEE500"))
-                    .cornerRadius(5)
-                })
-                .padding(.horizontal, 20)
-                .padding()
+                
+                kakaoLoginView()
+                    .padding(.horizontal, 20)
+                    .padding()
+                
+                Rectangle()
+                    .fill(Color.clear)
+                    .frame(height: 48)
+                
             }
         }
-        .showNavigationBar(NavigationBar(useDismissButton: true,
-                                         title: "",
-                                         useProfileButton: false,
-                                         useChatButton: false))
-        .onOpenURL(perform: { url in
-            viewModel.canOpen(url)
+    }
+    
+    private func kakaoLoginView() -> some View {
+        Button(action: {
+            viewModel.requestKakaoLogin()
+        }, label: {
+            ZStack {
+                HStack {
+                    Image("KakaoSymbol")
+                        .resizable()
+                        .scaledToFit()
+                 
+                    Spacer()
+                    
+                    Text("카카오 로그인")
+                        .font(.system(size: 16))
+                        .foregroundColor(ColorConstant.black.color().opacity(0.85))
+                    
+                    Spacer()
+                }
+                .frame(height: 16)
+            }
+            .padding(.horizontal, 15)
+            .frame(height: 50)
+            .background(ColorConstant.kakaoContainer.color())
+            .cornerRadius(12)
         })
     }
     
 }
+
+#if DEBUG
+struct SignInView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInView()
+            .ignoresSafeArea()
+    }
+}
+#endif
