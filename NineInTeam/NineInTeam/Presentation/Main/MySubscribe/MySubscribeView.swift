@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MySubscribeView: View {
 
+    @EnvironmentObject var coordinator: Coordinator
+    
     @StateObject var viewModel = MySubscribeViewModel()
     
 }
@@ -16,32 +18,55 @@ struct MySubscribeView: View {
 extension MySubscribeView {
     
     var body: some View {
-        BaseView(appState: viewModel.appState) {
+        BaseView(appState: viewModel.appState, coordinator: coordinator) {
             mainBody()
-                .showNavigationBar(NavigationBar(useDismissButton: false, title: "9in.team"))
+                .showNavigationBar(NavigationBar(coordinator: coordinator,
+                                                 useDismissButton: false,
+                                                 title: "9in.team"))
         }
     }
     
     func mainBody() -> some View {
-        VStack(spacing: 20) {
-            NavigationLink {
-                SubscribeTagView()
-            } label: {
-                subscribing()
-            }
-            .padding(.horizontal, 20)
-
-            ScrollView {
-                Rectangle()
-                    .frame(height: 0.1)
-                    .foregroundColor(Color.clear)
-
-                ForEach(viewModel.subscribes, id: \.self) { subscriber in
-                    SubscribeCellView(subscribe: subscriber)
-                        .padding(.horizontal, 20)
+        ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 20) {
+                Button {
+                    coordinator.push(destination: .subscribeTag)
+                } label: {
+                    subscribing()
                 }
+                .padding(.horizontal, 20)
 
+                ScrollView {
+                    Rectangle()
+                        .frame(height: 0.1)
+                        .foregroundColor(Color.clear)
+
+                    ForEach(viewModel.subscribes, id: \.self) { subscriber in
+                        SubscribeCellView(subscribe: subscriber)
+                            .padding(.horizontal, 20)
+                    }
+
+                }
             }
+                        
+            Button {
+                coordinator.push(destination: .myWish)
+            } label: {
+                Circle()
+                    .frame(width: 56, height: 56)
+                    .foregroundColor(
+                        Color(hexcode: "9C27B0")
+                    )
+                    .circleShadows([Shadow(color: .black, opacity: 0.12, radius: 18, locationY: 1),
+                                    Shadow(color: .black, opacity: 0.14, radius: 10, locationY: 6),
+                                    Shadow(color: .black, opacity: 0.2, radius: 5, locationY: 3)])
+                    .overlay(
+                        Image("Like")
+                            .resizable()
+                            .frame(width: 20, height: 18)
+                    )
+            }
+            .padding(.trailing, 14)
         }
     }
     

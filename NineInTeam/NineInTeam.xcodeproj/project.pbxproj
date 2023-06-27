@@ -51,6 +51,8 @@
 		DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */; };
 		DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBDF02990EBDB00816A7D /* ColorConstant.swift */; };
 		DE6FBDF32990ED9100816A7D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FBDF22990ED9100816A7D /* Color.swift */; };
+		DE7057592A43287600C87D6A /* MyWishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7057582A43287600C87D6A /* MyWishView.swift */; };
+		DE70575B2A43292300C87D6A /* MyWishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE70575A2A43292200C87D6A /* MyWishViewModel.swift */; };
 		DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7729D8860D00CB90FE /* ChatListView.swift */; };
 		DE7B0B7A29D8861A00CB90FE /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7929D8861A00CB90FE /* ChatListViewModel.swift */; };
 		DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */; };
@@ -185,6 +187,8 @@
 		DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DE6FBDF02990EBDB00816A7D /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
 		DE6FBDF22990ED9100816A7D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		DE7057582A43287600C87D6A /* MyWishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishView.swift; sourceTree = "<group>"; };
+		DE70575A2A43292200C87D6A /* MyWishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishViewModel.swift; sourceTree = "<group>"; };
 		DE7B0B7729D8860D00CB90FE /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		DE7B0B7929D8861A00CB90FE /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
@@ -447,6 +451,15 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		DE7057572A43286500C87D6A /* MyWish */ = {
+			isa = PBXGroup;
+			children = (
+				DE7057582A43287600C87D6A /* MyWishView.swift */,
+				DE70575A2A43292200C87D6A /* MyWishViewModel.swift */,
+			);
+			path = MyWish;
+			sourceTree = "<group>";
+		};
 		DE7B0B7629D8847100CB90FE /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +619,7 @@
 			children = (
 				DEB0D37E29C3474800B5E1B9 /* Subscribe */,
 				39D6560029F184FF00C17C1B /* Tag */,
+				DE7057572A43286500C87D6A /* MyWish */,
 				DEB0D37029C09EB300B5E1B9 /* MySubscribeView.swift */,
 				DEB0D37229C0ADD700B5E1B9 /* MySubscribeViewModel.swift */,
 			);
@@ -998,6 +1012,7 @@
 				DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */,
 				394A958C2A40A6C300501B32 /* CustomEncodingError.swift in Sources */,
 				DE9BD35D295853B300F28F1A /* NineInTeam.swift in Sources */,
+				DE7057592A43287600C87D6A /* MyWishView.swift in Sources */,
 				DEB0D36729B76EC100B5E1B9 /* Team.swift in Sources */,
 				DEB38C9629CDE1FC00EF915E /* SubmissionFormType.swift in Sources */,
 				39FC1C6629DC4DDB00C08070 /* ChatDetailViewModel.swift in Sources */,
@@ -1032,6 +1047,7 @@
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
 				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
 				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,
+				DE70575B2A43292300C87D6A /* MyWishViewModel.swift in Sources */,
 				DEB0D36929B7714D00B5E1B9 /* TeamCellView.swift in Sources */,
 				DE5E998C29D4780100D32B8E /* ProfileEditView.swift in Sources */,
 				399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */,
