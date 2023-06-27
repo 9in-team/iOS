@@ -8,8 +8,10 @@
 import Foundation
 
 enum KeychainError: Error {
+    
     case saveError(Error)
     case updateError
     case readError
     case readDataConvertError
+    
 }

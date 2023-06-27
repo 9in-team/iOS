@@ -22,16 +22,21 @@ class UserAuthManager: ObservableObject {
     static let shared = UserAuthManager()
     
     private init() { }
-//    
-//    func fetchKakaoLoginToken() -> String {
-//        return keychainManager.getToken()
-//    }
-//    
-    func logout() {
+
+    func fetchKakaoLoginToken() throws -> String {
+        do {
+            return try KeychainManager.shared.getToken(signInProvider: .kakao, tokenType: .accessToken)
+        } catch {
+            throw error
+        }
+    }
+    
+    func logout(signInProvider: SignInProviderType = .kakao) {
+
         UserApi.shared.logout { _ in
             self.isSingIn = false
             self.userData = nil
-            self.keychainManager.deleteToken(signInProvider: .kakao)
+            self.keychainManager.deleteToken(signInProvider: signInProvider)
         }
     }
     

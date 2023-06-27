@@ -8,6 +8,8 @@
 import Foundation
 
 enum KeychainServiceType: String {
+    
     case accessToken = "access-token"
     case refreshToken = "refresh-token"
+    
 }

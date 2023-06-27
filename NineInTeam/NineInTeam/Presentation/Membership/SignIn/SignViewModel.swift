@@ -43,7 +43,6 @@ class SignViewModel: BaseViewModel {
             showAlert(title: error.localizedDescription)
         } else {
             if let accessToken = oauthToken?.accessToken {
-//                KeychainManager.shared.setToken(accessToken)
                 do {
                     try KeychainManager.shared.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
                     print("✅DEBUG: 토큰 저장 성공! ( kakaoLoginClosure )")
@@ -99,7 +98,6 @@ class SignViewModel: BaseViewModel {
                 } else {
                     return
                 }
-                
             }
             .store(in: &cancellables)
         
@@ -107,18 +105,14 @@ class SignViewModel: BaseViewModel {
     
     // 기존 토큰으로 자동로그인
     func getLoginSession() {
-        
         do {
-            let token = try KeychainManager.shared.getToken(signInProvider: .kakao, tokenType: .accessToken)
-            print("✅ DEBUG: TOKEN 가져오기 성공 -> 토큰 < \(token) >")
-
+            let token = try userAuthManager.fetchKakaoLoginToken()
             self.kakaoLogin(accessToken: token)
-            
         } catch {
             self.userAuthManager.logout()
         }
     }
-
+    
     // 회원가입
     func join(email: String, nickname: String, imageUrl: String = "") {
         var parameters = ["email": email,
