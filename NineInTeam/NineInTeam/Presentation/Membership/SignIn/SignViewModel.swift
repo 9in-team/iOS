@@ -43,7 +43,7 @@ class SignViewModel: BaseViewModel {
             showAlert(title: error.localizedDescription)
         } else {
             if let accessToken = oauthToken?.accessToken {
-                KeychainManager.shared.saveLoginToken(token: accessToken)
+//                let result = KeychainManager.shared.saveAccessToken(token: accessToken, signInProvider: .kakao)
                 kakaoLogin(accessToken: accessToken)
             } else {
                 showAlert(title: "토큰을 가져오지 못했습니다.")
