@@ -31,7 +31,7 @@ class UserAuthManager: ObservableObject {
         UserApi.shared.logout { _ in
             self.isSingIn = false
             self.userData = nil
-            self.keychainManager.deleteToken()
+            self.keychainManager.deleteToken(signInProvider: .kakao)
         }
     }
     
