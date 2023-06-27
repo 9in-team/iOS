@@ -20,7 +20,7 @@ enum KeychainError: Error {
 
 final class KeychainManager {
     
-    @AppStorage("TokenTest") private var testKakaoToken: String = "" // FIXME: 실 운영시 Keychain API로 암호화 해야함
+//    @AppStorage("TokenTest") private var testKakaoToken: String = "" // FIXME: 실 운영시 Keychain API로 암호화 해야함
 
     static let shared = KeychainManager()
     
@@ -29,14 +29,19 @@ final class KeychainManager {
 }
 
 extension KeychainManager {
-
-    func getToken() -> String {
-        print("DEBUG TOKEN: < \(self.testKakaoToken) >")
-        return self.testKakaoToken
-    }
-    
+//
+//    func getToken() -> String {
+//        print("DEBUG TOKEN: < \(self.testKakaoToken) >")
+//        return self.testKakaoToken
+//    }
+//    
+//    func setToken(_ token: String) {
+//        self.testKakaoToken = token
+//    }
+//    
     func deleteToken() {
-        self.testKakaoToken = ""
+//        self.testKakaoToken = ""
+        self.delete(account: .kakao)
     }
     
 }
@@ -54,8 +59,9 @@ extension KeychainManager {
             print("✅ DEBUG: KEYCHAIN 저장 성공")
             return Result.success(())
         } else {
-            print("❗️ DEBUG: TOKEN SAVE Error -> \(result)")
             let updateResult = updateAccessToken(tokenData, query: query)
+            print("❗️ DEBUG: TOKEN SAVE Error -> result: \(result), updateResult: \(updateResult)")
+
             return updateResult == errSecSuccess
             ? Result.success(())
             : Result.failure(KeychainError.updateError)
@@ -67,12 +73,12 @@ extension KeychainManager {
         return SecItemUpdate(query, attributesToUpdate)
     }
     
-    func getToken(service: String, signInProvider: SignInProviderType) -> String? {
+    func getToken(service: String = "access-token", signInProvider: SignInProviderType) -> String? {
         let fetchedData = read(service: service, account: signInProvider.rawValue)
         
         if let fetchedData = fetchedData {
             let data = String(data: fetchedData, encoding: .utf8)
-            print("✅ DEBUG: 가져온 토큰 데이터 -> \(data)")
+            print("✅ DEBUG: \(#function) 가져온 토큰 데이터 -> \(data)")
             return data
         } else {
             print("❗️ 가져온 토큰 데이터: 없음")
@@ -116,7 +122,7 @@ extension KeychainManager {
         return (result as? Data)
     }
     
-    func delete(service: String, account: String) {
+    func delete(service: String = "access-token", account: SignInProviderType) {
         
         let query = [
             kSecAttrService: service,

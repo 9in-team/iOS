@@ -22,11 +22,11 @@ class UserAuthManager: ObservableObject {
     static let shared = UserAuthManager()
     
     private init() { }
-    
-    func fetchKakaoLoginToken() -> String {
-        return keychainManager.getToken()
-    }
-    
+//    
+//    func fetchKakaoLoginToken() -> String {
+//        return keychainManager.getToken()
+//    }
+//    
     func logout() {
         UserApi.shared.logout { _ in
             self.isSingIn = false

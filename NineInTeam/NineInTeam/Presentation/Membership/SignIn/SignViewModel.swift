@@ -43,7 +43,15 @@ class SignViewModel: BaseViewModel {
             showAlert(title: error.localizedDescription)
         } else {
             if let accessToken = oauthToken?.accessToken {
-//                let result = KeychainManager.shared.saveAccessToken(token: accessToken, signInProvider: .kakao)
+//                KeychainManager.shared.setToken(accessToken)
+                let tokenSaveResult = KeychainManager.shared.saveAccessToken(token: accessToken, signInProvider: .kakao)
+                switch tokenSaveResult {
+                case .success(_):
+                    print("✅DEBUG: 토큰 저장 성공! ( kakaoLoginClosure )")
+                case .failure(let error):
+                    print("❗️DEBUG: 토큰 저장 실패 \(error.localizedDescription)  ( kakaoLoginClosure )")
+                }
+                
                 kakaoLogin(accessToken: accessToken)
             } else {
                 showAlert(title: "토큰을 가져오지 못했습니다.")
@@ -100,7 +108,15 @@ class SignViewModel: BaseViewModel {
     
     // 기존 토큰으로 자동로그인
     func getLoginSession() {
-        self.kakaoLogin(accessToken: userAuthManager.fetchKakaoLoginToken())
+        
+        if let loadedToken = KeychainManager.shared.getToken(signInProvider: .kakao) {
+            print("✅DEBUG: \(#function) KEYCHAIN 세션 가져오기 성공 -> 토큰 < \(loadedToken) >")
+            self.kakaoLogin(accessToken: loadedToken)
+        } else {
+            print("❗️DEBUG: KEYCHAIN 세션 가져오기 실패 -> 토큰이 nil이거나 KEYCHAIN 로드 오류 >")
+            print("자동 로그아웃 됩니다.")
+            self.userAuthManager.logout()
+        }
     }
 
     // 회원가입

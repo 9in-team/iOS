@@ -22,6 +22,7 @@ struct ApplicationSwitcher: View {
                 MainView()
                     .onAppear {
                         viewModel.getLoginSession()
+                        
                         coordinator.popToRoot()
                     }
             } else {
