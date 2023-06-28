@@ -34,11 +34,13 @@ class UserAuthManager: ObservableObject {
     }
     
     func logout(signInProvider: SignInProviderType = .kakao) {
-
-        UserApi.shared.logout { _ in
-            self.isSingIn = false
-            self.userData = nil
-            self.keychainManager.deleteToken(signInProvider: signInProvider)
+        self.isSingIn = false
+        self.userData = nil
+        self.keychainManager.deleteToken(signInProvider: signInProvider)
+        UserApi.shared.logout { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
         }
     }
     
