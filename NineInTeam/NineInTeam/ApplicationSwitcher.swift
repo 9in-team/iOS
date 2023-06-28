@@ -21,8 +21,13 @@ struct ApplicationSwitcher: View {
             if userAuthManager.isSingIn {
                 MainView()
                     .onAppear {
-                        viewModel.getLoginSession()
-                        coordinator.popToRoot()
+                        viewModel.kakaoLoginWithSession { error in
+                            if let error = error {
+                                return
+                            } else {
+                                coordinator.popToRoot()
+                            }
+                        }
                     }
             } else {
                 SignInView()

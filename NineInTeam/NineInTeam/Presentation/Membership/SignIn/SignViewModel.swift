@@ -8,8 +8,9 @@
 import UIKit
 import KakaoSDKAuth
 import KakaoSDKUser
+import KakaoSDKCommon
 
-class SignViewModel: BaseViewModel {
+final class SignViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
     
@@ -20,40 +21,34 @@ class SignViewModel: BaseViewModel {
         super.init()
     }
     
+    // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
     func autoLogin() {
-        // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
         userAuthManager.isSingIn = true
     }
     
+    // 카카오 로그인
     func kakaoLogin() {
-        
         willStartLoading()
-        
-        userAuthManager.requestKakaoLogin { [unowned self] error in
-            if let keychainError = error as? KeychainError {
-                // 알럿 -> 키체인 에러 (사용자: 토큰 저장 실패)
-                self.showAlert(title: "로그인 실패")
-            } else if let kakaoAuthError = error as? KakaoAuthError {
-                // 알럿 -> 키체인 에러
-                self.showAlert(title: "로그인에 실패했습니다.")
-            }
-            self.didFinishLoading()
-        }
 
+        userAuthManager.requestKakaoLogin { [weak self] error in
+            if let error = error {
+                self?.loginErrorPrinter(error)
+                self?.showAlert(title: "로그인에 실패했습니다.")
+            }
+            self?.didFinishLoading()
+        }
     }
     
-    func getLoginSession() {
-        print("DEBUG: \(#function) 로그인 세션을 가져옵니다.")
-        print("DEBUG: 상태 -> 로그인 상태: \(userAuthManager.isSingIn), 유저데이터: \(userAuthManager.userData), UserID: \(userAuthManager.getId())")
+    // 카카오 로그인 (기존세션)
+    func kakaoLoginWithSession(completion: @escaping (Error?) -> Void) {
         userAuthManager.getLoginSession { [weak self] error in
-            print("DEBUG: \(#function) 로그인 세션 가져오기 완료.")
-            if let error = error as? KakaoAuthError {
-                print("DEBUG: \(#function) \(error.localizedDescription)")
+            if let error = error {
+                self?.loginErrorPrinter(error)
                 self?.userAuthManager.logout()
-                return
+                completion(error)
             }
+            completion(nil)
         }
-        
     }
     
     // 회원가입
@@ -91,7 +86,7 @@ class SignViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
-    func requestUserDataForJoin() {
+    private func requestUserDataForJoin() {
         UserApi.shared.me { [weak self] (user, error) in
             if let error = error {
                 self?.showAlert(title: error.localizedDescription)
@@ -112,6 +107,16 @@ class SignViewModel: BaseViewModel {
                     self?.join(email: email, nickname: nickname)
                 }
             }
+        }
+    }
+    
+    private func loginErrorPrinter(_ error: Error, sender: String = #function) {
+        if let keychainError = error as? KeychainError {
+            print("DEBUG: \(sender) message: \(error.localizedDescription)")
+        } else if let kakaoAuthError = error as? KakaoAuthError {
+            print("DEBUG: \(sender) message: \(error.localizedDescription)")
+        } else {
+            print("DEBUG: \(sender) message: \(error.localizedDescription)")
         }
     }
 

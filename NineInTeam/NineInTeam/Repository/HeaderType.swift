@@ -9,6 +9,7 @@ enum HeaderType {
     
     case none
     case test
+    case testKakaoApi(token: String)
     
     func get() -> [String: String] {
         switch self {
@@ -16,6 +17,8 @@ enum HeaderType {
             return [:]
         case .test:
             return ["Content-Type": "application/json"]
+        case .testKakaoApi(let token):
+            return ["Content-Type": "application/x-www-form-urlencoded", "Authorization": "Bearer \(token)"]
         }
     }
     

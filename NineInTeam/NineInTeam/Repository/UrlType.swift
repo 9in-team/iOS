@@ -11,6 +11,7 @@ enum UrlType {
     case testLocal
     case testLocal2
     case testDomain
+    case kakaoApi
 
     func get() -> String {
         switch self {
@@ -22,6 +23,8 @@ enum UrlType {
             return "http://0.0.0.0:8080/"
         case .testDomain:
             return "https://9inteam.heon.dev/"
+        case .kakaoApi:
+            return "https://kapi.kakao.com/"
         }
     }
     

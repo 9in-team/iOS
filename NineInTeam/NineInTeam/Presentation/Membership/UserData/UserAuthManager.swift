@@ -10,7 +10,6 @@ import Combine
 import KakaoSDKUser
 import KakaoSDKAuth
 
-
 class UserAuthManager: ObservableObject {
     
     private var keychainManager = KeychainManager.shared
@@ -39,7 +38,7 @@ class UserAuthManager: ObservableObject {
         self.keychainManager.deleteToken(signInProvider: signInProvider)
         UserApi.shared.logout { error in
             if let error = error {
-                print(error.localizedDescription)
+                print("DEBUG: 카카오 로그아웃 실패: \(error.localizedDescription)")
             }
         }
     }
@@ -71,15 +70,7 @@ extension UserAuthManager {
                     try self?.requestKakaoSession(oauthToken: oauthToken)
                     completion(nil)
                 } catch {
-                    // 에러 처리 로직
-                    // 카카오톡 로그인 실패
-                    if let error = error as? KakaoAuthError {
-                        print("DEBUG: \(#function) \(error.localizedDescription)")
-                        completion(error)
-                    } else if let error = error as? KeychainError {
-                        print("DEBUG: \(#function) \(error.localizedDescription)")
-                        completion(error)
-                    }
+                    completion(error)
                 }
             }
         } else {
@@ -89,15 +80,9 @@ extension UserAuthManager {
                         completion(error)
                     }
                     try self?.requestKakaoSession(oauthToken: oauthToken)
+                    completion(nil)
                 } catch {
-                    // 카카오 웹 로그인 실패
-                    if let keychainError = error as? KeychainError {
-                        // 알럿 -> 키체인 에러 (사용자: 토큰 저장 실패)
-                        completion(keychainError)
-                    } else if let kakaoAuthError = error as? KakaoAuthError {
-                        // 알럿 -> 키체인 에러
-                        completion(kakaoAuthError)
-                    }
+                    completion(error)
                 }
             }
         }
@@ -109,7 +94,7 @@ extension UserAuthManager {
         if let accessToken = oauthToken?.accessToken {
             do {
                 try KeychainManager.shared.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
-                print("✅DEBUG: 토큰 저장 성공! ( kakaoLoginClosure )")
+                print("✅ DEBUG: 토큰 저장 성공! ( kakaoLoginClosure )")
                 var loginError: KakaoAuthError?
                 kakaoLogin(accessToken: accessToken) { error in
                     if let error = error {
@@ -118,12 +103,12 @@ extension UserAuthManager {
                 }
                 
                 if let loginError = loginError {
-                    print("DEBUG: \(#function) \(loginError.localizedDescription)")
+                    print("❗️DEBUG: \(#function) \(loginError.localizedDescription)")
                     throw loginError
                 }
                 
             } catch {
-                print("DEBUG: \(#function) \(error.localizedDescription)")
+                print("❗️DEBUG: \(#function) \(error.localizedDescription)")
                 throw error
             }
         } else {
@@ -213,4 +198,15 @@ enum KakaoAuthError: Error {
             return "토큰은 유효하지만 카카오 유저 데이터를 가져오지 못했습니다.."
         }
     }
+}
+
+extension UserAuthManager {
+    
+    func testLogin(accesstoken: String, completion: @escaping (Error?) -> Void) {
+        self.kakaoLogin(accessToken: accesstoken) { error in
+            completion(error)
+        }
+    }
+    
+    
 }

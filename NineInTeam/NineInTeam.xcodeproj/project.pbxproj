@@ -12,6 +12,7 @@
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
+		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95852A3FFC3E00501B32 /* PhotoPicker.swift */; };
 		394A95882A4052CB00501B32 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95872A4052CB00501B32 /* Error.swift */; };
 		394A958A2A40A37400501B32 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95892A40A37400501B32 /* Encodable.swift */; };
@@ -149,6 +150,7 @@
 /* Begin PBXFileReference section */
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
+		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		394A95852A3FFC3E00501B32 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		394A95872A4052CB00501B32 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		394A95892A40A37400501B32 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				DE9BD36D295853B900F28F1A /* NineInTeamTests.swift */,
 				39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */,
 				3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */,
+				392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */,
 			);
 			path = NineInTeamTests;
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				DE9BD36E295853B900F28F1A /* NineInTeamTests.swift in Sources */,
 				399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */,
 				39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */,
+				392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
