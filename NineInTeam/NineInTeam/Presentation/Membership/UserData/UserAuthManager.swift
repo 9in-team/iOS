@@ -24,6 +24,9 @@ class UserAuthManager: ObservableObject {
     
     private init() { }
     
+}
+
+extension UserAuthManager {
     func fetchKakaoLoginToken() throws -> String {
         do {
             return try KeychainManager.shared.getToken(signInProvider: .kakao, tokenType: .accessToken)
@@ -57,6 +60,7 @@ class UserAuthManager: ObservableObject {
     
 }
 
+// 카카오 로그인 로직
 extension UserAuthManager {
     
     func requestKakaoLogin(completion: @escaping (Error?) -> Void) {
@@ -179,27 +183,7 @@ extension UserAuthManager {
 
 }
 
-enum KakaoAuthError: Error {
-
-    case unknown
-    case tokenIsNil
-    case sessionExpired
-    case userdataFetchFailure
-    
-    var localizedDescription: String {
-        switch self {
-        case .unknown:
-            return "알수없는 카카오 인증 에러"
-        case .tokenIsNil:
-            return "카카오 인증 토큰이 Nil입니다."
-        case .sessionExpired:
-            return "카카오 인증 세션이 만료되었습니다."
-        case .userdataFetchFailure:
-            return "토큰은 유효하지만 카카오 유저 데이터를 가져오지 못했습니다.."
-        }
-    }
-}
-
+// Test Stub
 extension UserAuthManager {
     
     func testLogin(accesstoken: String, completion: @escaping (Error?) -> Void) {
@@ -207,6 +191,5 @@ extension UserAuthManager {
             completion(error)
         }
     }
-    
     
 }

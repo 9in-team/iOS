@@ -14,6 +14,7 @@
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
 		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		392B97612A4C5BF200112529 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97602A4C5BF200112529 /* KeychainServiceTests.swift */; };
+		392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97622A4C60E900112529 /* KakaoAuthError.swift */; };
 		394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95852A3FFC3E00501B32 /* PhotoPicker.swift */; };
 		394A95882A4052CB00501B32 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95872A4052CB00501B32 /* Error.swift */; };
 		394A958A2A40A37400501B32 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95892A40A37400501B32 /* Encodable.swift */; };
@@ -153,6 +154,7 @@
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
 		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		392B97602A4C5BF200112529 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
+		392B97622A4C60E900112529 /* KakaoAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthError.swift; sourceTree = "<group>"; };
 		394A95852A3FFC3E00501B32 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		394A95872A4052CB00501B32 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		394A95892A40A37400501B32 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			children = (
 				39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */,
 				39D8DCD02A3C602A007530A9 /* UserData.swift */,
+				392B97622A4C60E900112529 /* KakaoAuthError.swift */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
+				392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */,
 				39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */,
 				DEB0D38329C349BD00B5E1B9 /* Post.swift in Sources */,
 				39DD090F2A4B371E00F69828 /* KeychainError.swift in Sources */,
