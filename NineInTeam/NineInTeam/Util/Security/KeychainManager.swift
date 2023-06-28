@@ -18,7 +18,7 @@ final class KeychainManager {
 
 extension KeychainManager {
     
-    private func createData(data: String, service: KeychainServiceType, account: String) -> Result<Void, Error> {
+    private func createData(data: String, service: KeychainServiceType, account: String) throws {
         let targetData = Data(data.utf8)
         
         let query = [
@@ -30,28 +30,29 @@ extension KeychainManager {
         
         let result = SecItemAdd(query, nil)
         
-        if result == errSecSuccess {
-            return Result.success(())
-        } else {
-            // 이미 존재하는 데이터 있는 경우 업데이트 쿼리 작업
-            do {
-                return try updateData(targetData, query: query)
-            } catch {
-                return .failure(KeychainError.saveError(error))
-            }
+        if result != errSecSuccess {
+            throw KeychainError.saveError
         }
+        
     }
     
-    private func updateData(_ data: Data, query: CFDictionary) throws -> Result<Void, Error> {
-        let targetData = [kSecValueData: data] as CFDictionary
+    private func updateData(data: String, service: KeychainServiceType, account: String) throws {
         
-        let result = SecItemUpdate(query, targetData)
+        let targetData = Data(data.utf8)
         
-        if result == errSecSuccess {
-            return Result.success(())
-        } else {
-            return Result.failure(KeychainError.updateError)
+        let query = [
+            kSecValueData: targetData, // 암호화할 데이터
+            kSecClass: kSecClassGenericPassword, // 데이터의 유형
+            kSecAttrService: service.rawValue,
+            kSecAttrAccount: account
+        ] as CFDictionary
+        
+        let result = SecItemAdd(query, nil)
+
+        if result != errSecSuccess {
+            throw KeychainError.updateError
         }
+        
     }
     
     private func readData(service: KeychainServiceType, account: String) throws -> String {
@@ -94,13 +95,17 @@ extension KeychainManager {
 extension KeychainManager {
     
     func saveToken(_ token: String, signInProvider: SignInProviderType, tokenType: KeychainServiceType) throws {
-        let savedResult = createData(data: token, service: tokenType, account: signInProvider.rawValue)
-        switch savedResult {
-        case .success(_):
-            break
-        case .failure(let error):
-            throw error
+        
+        let createResult: Void? = try? createData(data: token, service: tokenType, account: signInProvider.rawValue)
+
+        if createResult == nil {
+            do {
+                try updateData(data: token, service: tokenType, account: signInProvider.rawValue)
+            } catch {
+                throw KeychainError.updateError
+            }
         }
+
     }
     
     func getToken(signInProvider: SignInProviderType, tokenType: KeychainServiceType) throws -> String {
