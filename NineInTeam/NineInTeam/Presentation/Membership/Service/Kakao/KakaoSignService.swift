@@ -28,14 +28,14 @@ class KakaoSignService {
     
     func requestKakaoLogin(completion: @escaping (Error?) -> Void) {
         if UserApi.isKakaoTalkLoginAvailable() {
-            UserApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
+            UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
                 do {
                     if let error = error {
                         print("DEBUG: \(#function) \(error.localizedDescription)")
                         completion(error)
                     }
                     
-                    try self?.requestKakaoSignInSession(oauthToken: oauthToken)
+                    try self.requestKakaoSignInSession(oauthToken: oauthToken)
                     completion(nil)
                 } catch {
                     completion(error)
@@ -111,19 +111,19 @@ class KakaoSignService {
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] responseData in
+            } receiveValue: { responseData in
                 if let responseData = responseData.detail {
                     let userData = UserData(id: responseData.id,
                                             email: responseData.email,
                                             nickName: responseData.nickname,
                                             profileImageUrl: responseData.imageUrl,
                                             signInProvider: .kakao)
-                    self?.authManager.userData = userData
-                    self?.authManager.isSingIn = true
-                    self?.authManager.lastSignInProvider = .kakao
+                    self.authManager.userData = userData
+                    self.authManager.isSingIn = true
+                    self.authManager.lastSignInProvider = .kakao
                     completion(nil)
                 } else {
-                    self?.authManager.logout()
+                    self.authManager.logout()
                     completion(KakaoAuthError.userdataFetchFailure)
                 }
             }

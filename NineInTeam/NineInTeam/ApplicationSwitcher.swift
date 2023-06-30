@@ -21,11 +21,11 @@ struct ApplicationSwitcher: View {
             if userAuthManager.isSingIn {
                 MainView()
                     .onAppear {
+                        coordinator.popToRoot()
                         viewModel.kakaoLoginWithSession { error in
                             if let error = error {
+                                print("DEBUG: 세션가져오기 오류 \(error)")
                                 return
-                            } else {
-                                coordinator.popToRoot()
                             }
                         }
                     }

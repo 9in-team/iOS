@@ -38,20 +38,20 @@ final class SignViewModel: BaseViewModel {
                 self?.showAlert(title: "로그인 성공")
             }
             self?.didFinishLoading()
-            
         }
         
     }
     
     // 카카오 로그인 (기존세션)
     func kakaoLoginWithSession(completion: @escaping (Error?) -> Void) {
-        userAuthManager.getSession { [weak self] error in
+        userAuthManager.getSession { error in
             if let error = error {
-                self?.loginErrorPrinter(error)
-                self?.userAuthManager.logout()
+                self.loginErrorPrinter(error)
+                self.userAuthManager.logout()
                 completion(error)
+            } else {
+                completion(nil)
             }
-            completion(nil)
         }
     }
     
