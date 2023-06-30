@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserApiModel: Codable {
+struct KakaoUserData: Codable {
     let id: Int
     let email: String
     let nickname: String

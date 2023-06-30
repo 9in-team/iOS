@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct UserDataApiResponse: Codable {
-    let detail: UserApiModel?
+struct KakaoUserDataResponse: Codable {
+    let detail: KakaoUserData?
 }

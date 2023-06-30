@@ -74,7 +74,7 @@ extension ProfileEditViewModel {
         uploadImage { [weak self] imageUrl in
             guard let self = self else { return }
             
-            let body: [String: Any]? = try? UserUpdateApiModel(nickname: updatedName,
+            let body: [String: Any]? = try? UserProfileUpdateDao(nickname: updatedName,
                                                                imageUrl: imageUrl.absoluteString).toDictionary()
             
             guard let parameters = body else {return}
@@ -86,7 +86,7 @@ extension ProfileEditViewModel {
                                urlType: .testDomain,
                                endPoint: endpoint,
                                parameters: parameters,
-                               returnType: UserUpdateResponse.self)
+                               returnType: UserProfileUpdateDaoResponse.self)
             .map(\.detail)
             .sink { result in
                 switch result {

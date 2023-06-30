@@ -30,18 +30,22 @@ final class SignViewModel: BaseViewModel {
     func kakaoLogin() {
         willStartLoading()
 
-        userAuthManager.requestKakaoLogin { [weak self] error in
+        userAuthManager.login(provider: .kakao) { [weak self] error in
             if let error = error {
                 self?.loginErrorPrinter(error)
-                self?.showAlert(title: "로그인에 실패했습니다.")
+                self?.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
+            } else {
+                self?.showAlert(title: "로그인 성공")
             }
             self?.didFinishLoading()
+            
         }
+        
     }
     
     // 카카오 로그인 (기존세션)
     func kakaoLoginWithSession(completion: @escaping (Error?) -> Void) {
-        userAuthManager.getLoginSession { [weak self] error in
+        userAuthManager.getSession { [weak self] error in
             if let error = error {
                 self?.loginErrorPrinter(error)
                 self?.userAuthManager.logout()
@@ -65,7 +69,7 @@ final class SignViewModel: BaseViewModel {
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: UserDataApiResponse.self)
+                     returnType: KakaoUserDataResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return

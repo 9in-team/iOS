@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserUpdateApiModel: Codable {
+struct UserProfileUpdateDao: Codable {
     let nickname: String
     let imageUrl: String
     
