@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct SignInView: View {
          
@@ -38,20 +39,35 @@ extension SignInView {
          
             VStack {
                 Spacer()
+
+                kakaoSignInButton()
+                    .padding(.horizontal, 36)
                 
-                kakaoLoginView()
-                    .padding(.horizontal, 20)
-                    .padding()
+                appleSignInButton()
+                    .padding(.horizontal, 36)
                 
                 Rectangle()
                     .fill(Color.clear)
                     .frame(height: 48)
-                
             }
         }
     }
     
-    private func kakaoLoginView() -> some View {
+    private func appleSignInButton() -> some View {
+        SignInWithAppleButton(.signIn) { asAuthorizationAppleIDRequest in
+            //
+        } onCompletion: { result in
+            switch result {
+            case .success(let auth):
+                print(auth.description)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        .frame(height: 50)
+    }
+    
+    private func kakaoSignInButton() -> some View {
         Button(action: {
             viewModel.kakaoLogin()
         }, label: {
