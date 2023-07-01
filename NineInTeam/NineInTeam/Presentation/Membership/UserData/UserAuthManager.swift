@@ -23,7 +23,7 @@ class UserAuthManager: ObservableObject {
     static let shared = UserAuthManager()
     
     private init() { }
-    
+
 }
 
 extension UserAuthManager {
@@ -80,12 +80,20 @@ extension UserAuthManager {
     
 }
 
-// 카카오 로그인 바인더
+// 카카오 로그인 Test Stub
+#if canImport(XCTest)
 extension UserAuthManager {
     
-
+    func saveKakaoAccessToken(accessToken: String) throws {
+        do {
+            try keychainManager.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
+        } catch {
+            throw error
+        }
+    }
     
 }
+#endif
 
 enum LoginError: Error {
     

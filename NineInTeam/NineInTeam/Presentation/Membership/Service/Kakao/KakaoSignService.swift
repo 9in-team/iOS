@@ -17,7 +17,7 @@ class KakaoSignService {
     private var networkService: NetworkService
     private var cancellables = Set<AnyCancellable>()
 
-    init(authManager: UserAuthManager, networkService: NetworkService = NetworkService()) {
+    init(authManager: UserAuthManager = UserAuthManager.shared, networkService: NetworkService = NetworkService()) {
         self.networkService = networkService
         self.authManager = authManager
     }
@@ -169,12 +169,16 @@ class KakaoSignService {
 }
 
 // Test Stub
+#if canImport(XCTest)
 extension KakaoSignService {
     
+    func setAuthManager(_ authManager: UserAuthManager) {
+        self.authManager = authManager
+    }
+    
     func testLogin(accesstoken: String, completion: @escaping (Error?) -> Void) {
-        self.kakaoLogin(accessToken: accesstoken) { error in
-            completion(error)
-        }
+        self.kakaoLogin(accessToken: accesstoken, completion: completion)
     }
     
 }
+#endif

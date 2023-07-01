@@ -364,6 +364,7 @@
 		3999833029EED2070009372F /* NineInTeam */ = {
 			isa = PBXGroup;
 			children = (
+				DE9BD3902958610C00F28F1A /* .swiftlint.yml */,
 				3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */,
 				DEC82E1D29A648CA00D17C50 /* GoogleService-Info.plist */,
 				DEB34E9D2973E7EA00C0B973 /* NineInTeam-Info.plist */,
@@ -377,7 +378,6 @@
 				DEA2B66D2970304800B77335 /* CustomView */,
 				DEC82E1729A3A3A000D17C50 /* Test */,
 				DE9BD362295853B800F28F1A /* Preview Content */,
-				DE9BD3902958610C00F28F1A /* .swiftlint.yml */,
 			);
 			path = NineInTeam;
 			sourceTree = "<group>";
@@ -1007,7 +1007,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint --config \"$SRCROOT/NineInTeam/.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
