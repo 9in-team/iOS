@@ -23,21 +23,24 @@ extension ChatDetailView {
             mainBody()
         }
         .showNavigationBar(NavigationBar(useDismissButton: true, title: title, useChatButton: false))
+        .onAppear {
+            viewModel.getChatDetail(chatId: 0)
+        }
     }
 
     func mainBody() -> some View {
         VStack(spacing: 0) {
             ScrollView {
-                ChatBubbleView(direction: .right) {
-                    TextWithFont(text: "안녕하세요 여쭤보고 싶은게 있어서요 혹시 같이 앱 만들어 보실래요?", size: 16)
-                }
-
-                ChatBubbleView(direction: .left) {
-                    TextWithFont(text: "형 하이", size: 16)
-                }
-
-                ChatBubbleView(direction: .right) {
-                    TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", size: 16)
+                ForEach(viewModel.chats, id: \.self) { chat in
+                    if viewModel.userId == chat.userId {
+                        ChatBubbleView(direction: .right) {
+                            TextWithFont(text: chat.message, size: 16)
+                        }
+                    } else {
+                        ChatBubbleView(direction: .left) {
+                            TextWithFont(text: chat.message, size: 16)
+                        }
+                    }
                 }
             }
 

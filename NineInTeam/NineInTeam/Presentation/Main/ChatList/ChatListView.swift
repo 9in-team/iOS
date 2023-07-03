@@ -25,17 +25,18 @@ extension ChatListView {
                                                  title: "대화방 목록",
                                                  useChatButton: false))
         }
+        .onAppear {
+            viewModel.getChatRoom()
+        }
     }
     
     func mainBody() -> some View {
         ScrollView {            
             VStack {
-                NavigationLink(destination: ChatDetailView()) {
-                    ChatCellView()
-                }
-
-                NavigationLink(destination: ChatDetailView()) {
-                    ChatCellView()
+                ForEach(viewModel.chatRooms, id: \.self) { chatRoom in
+                    NavigationLink(destination: ChatDetailView()) {
+                        ChatCellView(chatRoom: chatRoom)
+                    }
                 }
             }
         }
