@@ -27,33 +27,17 @@ class KakaoSignService {
     }
     
     func requestKakaoLogin(completion: @escaping (Error?) -> Void) {
-        if UserApi.isKakaoTalkLoginAvailable() {
-            UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
-                do {
-                    if let error = error {
-                        print("DEBUG: \(#function) \(error.localizedDescription)")
-                        completion(error)
-                    }
-                    
-                    try self.requestKakaoSignInSession(oauthToken: oauthToken)
-                    completion(nil)
-                } catch {
+        UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+            do {
+                if let error = error {
                     completion(error)
                 }
-            }
-        } else {
-            UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
-                do {
-                    if let error = error {
-                        completion(error)
-                    }
-                    
-                    try self.requestKakaoSignInSession(oauthToken: oauthToken)
-                    
-                    completion(nil)
-                } catch {
-                    completion(error)
-                }
+                
+                try self.requestKakaoSignInSession(oauthToken: oauthToken)
+                
+                completion(nil)
+            } catch {
+                completion(error)
             }
         }
     }

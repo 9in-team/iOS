@@ -41,9 +41,8 @@ final class KakaoLoginTests: XCTestCase {
     func testKakaoLogin() {
         // Given
         // 실제 로그인 토큰으로 작업하여야 합니다.
-        let authenticatedLoginToken = "jeMSKu_N8_PwPSn8lnthiS6xHrGmYrw9zKEDB5jiCisM0wAAAYkLOX-4" // <-
-        
-        // When
+        let authenticatedLoginToken = "" // <- 실제 키 투입.
+ㄹ        // When
         let expectation1 = XCTestExpectation(description: "testLogin Completion을 받았습니다.")
         let expectation2 = XCTestExpectation(description: "로그인에 성공했습니다.")
         
@@ -52,13 +51,13 @@ final class KakaoLoginTests: XCTestCase {
             expectation1.fulfill()
             if let error = error {
                 if let keychainError = error as? KeychainError {
-                    print("DEBUG: \(#function) \(error)")
+                    print("XCT DEBUG: \(#function) \(error)")
                     // 알럿 -> 키체인 에러 (사용자: 토큰 저장 실패)
                 } else if let kakaoAuthError = error as? KakaoAuthError {
-                    print("DEBUG: \(#function) \(error)")
+                    print("XCT DEBUG: \(#function) \(error)")
                     // 알럿 -> 키체인 에러
                 } else if let error = error as? KakaoSDKCommon.SdkError {
-                    print("DEBUG: \(#function) \(error)")
+                    print("XCT DEBUG: \(#function) \(error)")
                 }
                 XCTFail("카카오 로그인 에러발생 \(error)")
             } else {
