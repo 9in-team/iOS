@@ -32,7 +32,7 @@ extension AuthManager {
         switch provider {
         case .kakao:
             KakaoAuthService(authManager: self)
-                .requestKakaoLogin(completion: completion)
+                .requestLogin(completion: completion)
         default:
             completion(LoginError.notSigned)
         }

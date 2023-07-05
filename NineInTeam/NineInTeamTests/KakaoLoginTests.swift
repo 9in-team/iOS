@@ -42,7 +42,8 @@ final class KakaoLoginTests: XCTestCase {
         // Given
         // 실제 로그인 토큰으로 작업하여야 합니다.
         let authenticatedLoginToken = "" // <- 실제 키 투입.
-ㄹ        // When
+        
+        // When
         let expectation1 = XCTestExpectation(description: "testLogin Completion을 받았습니다.")
         let expectation2 = XCTestExpectation(description: "로그인에 성공했습니다.")
         
@@ -72,7 +73,7 @@ final class KakaoLoginTests: XCTestCase {
     // POST Error 발생 시 Crash 발생
     func testLogout() {
         // Given
-        let authenticatedLoginToken = "jeMSKu_N8_PwPSn8lnthiS6xHrGmYrw9zKEDB5jiCisM0wAAAYkLOX-4"
+        let authenticatedLoginToken = ""
         AuthManager.shared.isSingIn = true
         AuthManager.shared.userData = .init(id: 99999999999,
                                                 email: "test",
