@@ -23,13 +23,13 @@
 		3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
-		3993A9A52A4E9BC9007063EB /* KakaoSignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoSignService.swift */; };
+		3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
 		3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999833129EED3CE0009372F /* ReceivedPostCell.swift */; };
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
 		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
-		39A7C38D2A3E1164005064D9 /* UserAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */; };
+		39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C38C2A3E1164005064D9 /* AuthManager.swift */; };
 		39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
@@ -165,13 +165,13 @@
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NineInTeam.entitlements; sourceTree = "<group>"; };
-		3993A9A42A4E9BC9007063EB /* KakaoSignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignService.swift; sourceTree = "<group>"; };
+		3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTeamsTests.swift; sourceTree = "<group>"; };
 		3999833129EED3CE0009372F /* ReceivedPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivedPostCell.swift; sourceTree = "<group>"; };
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
-		39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthManager.swift; sourceTree = "<group>"; };
+		39A7C38C2A3E1164005064D9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
@@ -310,8 +310,7 @@
 		390F8F012A3F1A1B007B66CD /* UserData */ = {
 			isa = PBXGroup;
 			children = (
-				39A7C38C2A3E1164005064D9 /* UserAuthManager.swift */,
-				392B97622A4C60E900112529 /* KakaoAuthError.swift */,
+				39A7C38C2A3E1164005064D9 /* AuthManager.swift */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -354,9 +353,10 @@
 		3993A9A62A4E9BD8007063EB /* Kakao */ = {
 			isa = PBXGroup;
 			children = (
+				3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */,
 				39D8DCCC2A3C5ECA007530A9 /* KakaoUserDataResponse.swift */,
 				39D8DCCE2A3C5EDA007530A9 /* KakaoUserData.swift */,
-				3993A9A42A4E9BC9007063EB /* KakaoSignService.swift */,
+				392B97622A4C60E900112529 /* KakaoAuthError.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -1022,7 +1022,7 @@
 				DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */,
 				DEB0D36D29BB6B8D00B5E1B9 /* TeamDetailView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
-				3993A9A52A4E9BC9007063EB /* KakaoSignService.swift in Sources */,
+				3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */,
 				DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */,
 				394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
@@ -1068,7 +1068,7 @@
 				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
-				39A7C38D2A3E1164005064D9 /* UserAuthManager.swift in Sources */,
+				39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,

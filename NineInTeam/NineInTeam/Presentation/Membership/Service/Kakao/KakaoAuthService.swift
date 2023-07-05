@@ -1,5 +1,5 @@
 //
-//  KakaoSignService.swift
+//  KakaoAuthService.swift
 //  NineInTeam
 //
 //  Created by HeonJin Ha on 2023/06/30.
@@ -11,13 +11,13 @@ import KakaoSDKUser
 import KakaoSDKAuth
 
 // 카카오 로그인 로직
-class KakaoSignService {
+class KakaoAuthService {
     
-    private var authManager: UserAuthManager
+    private var authManager: AuthManager
     private var networkService: NetworkService
     private var cancellables = Set<AnyCancellable>()
 
-    init(authManager: UserAuthManager = UserAuthManager.shared, networkService: NetworkService = NetworkService()) {
+    init(authManager: AuthManager = AuthManager.shared, networkService: NetworkService = NetworkService()) {
         self.networkService = networkService
         self.authManager = authManager
     }
@@ -154,9 +154,9 @@ class KakaoSignService {
 
 // Test Stub
 #if canImport(XCTest)
-extension KakaoSignService {
+extension KakaoAuthService {
     
-    func setAuthManager(_ authManager: UserAuthManager) {
+    func setAuthManager(_ authManager: AuthManager) {
         self.authManager = authManager
     }
     

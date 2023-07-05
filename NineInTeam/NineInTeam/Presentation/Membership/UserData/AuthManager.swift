@@ -1,5 +1,5 @@
 //
-//  UserAuthManager.swift
+//  AuthManager.swift
 //  NineInTeam
 //
 //  Created by HeonJin Ha on 2023/06/18.
@@ -10,7 +10,7 @@ import Combine
 import KakaoSDKUser
 import KakaoSDKAuth
 
-class UserAuthManager: ObservableObject {
+class AuthManager: ObservableObject {
     
     private var keychainManager = KeychainManager.shared
     private var networkService = NetworkService()
@@ -20,18 +20,18 @@ class UserAuthManager: ObservableObject {
     @AppStorage("isSignIn") var isSingIn = false
     @Published var userData: UserData?
     
-    static let shared = UserAuthManager()
+    static let shared = AuthManager()
     
     private init() { }
 
 }
 
-extension UserAuthManager {
+extension AuthManager {
     
     func login(provider: SignInProviderType, completion: @escaping (Error?) -> Void) {
         switch provider {
         case .kakao:
-            KakaoSignService(authManager: self)
+            KakaoAuthService(authManager: self)
                 .requestKakaoLogin(completion: completion)
         default:
             completion(LoginError.notSigned)
@@ -42,7 +42,7 @@ extension UserAuthManager {
         
         switch lastSignInProvider {
         case .kakao:
-            KakaoSignService(authManager: self)
+            KakaoAuthService(authManager: self)
                 .getLoginSession(completion: completion)
         default:
             completion(LoginError.unknownSession)
@@ -59,7 +59,7 @@ extension UserAuthManager {
         
         switch lastSignInProvider {
         case .kakao:
-            KakaoSignService(authManager: self).kakaoLogout()
+            KakaoAuthService(authManager: self).kakaoLogout()
         default:
             return
         }
@@ -82,7 +82,7 @@ extension UserAuthManager {
 
 // 카카오 로그인 Test Stub
 #if canImport(XCTest)
-extension UserAuthManager {
+extension AuthManager {
     
     func saveKakaoAccessToken(accessToken: String) throws {
         do {

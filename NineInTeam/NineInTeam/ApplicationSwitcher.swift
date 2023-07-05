@@ -13,12 +13,12 @@ struct ApplicationSwitcher: View {
 
     @StateObject var coordinator = Coordinator(isRoot: true)
 
-    @ObservedObject private var userAuthManager = UserAuthManager.shared
+    @ObservedObject private var authManager = AuthManager.shared
     
     var body: some View {
         
         Group {
-            if userAuthManager.isSingIn {
+            if authManager.isSingIn {
                 MainView()
                     .onAppear {
                         coordinator.popToRoot()
@@ -35,7 +35,7 @@ struct ApplicationSwitcher: View {
         }
         .ignoresSafeArea()
         .environmentObject(coordinator)
-        .environmentObject(userAuthManager)
+        .environmentObject(authManager)
 
     }
     

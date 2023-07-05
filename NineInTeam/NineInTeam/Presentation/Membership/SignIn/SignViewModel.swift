@@ -14,7 +14,7 @@ final class SignViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
     
-    private var userAuthManager = UserAuthManager.shared
+    private var authManager = AuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -23,14 +23,14 @@ final class SignViewModel: BaseViewModel {
     
     // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
     func autoLogin() {
-        userAuthManager.isSingIn = true
+        authManager.isSingIn = true
     }
     
     // 카카오 로그인
     func kakaoLogin() {
         willStartLoading()
 
-        userAuthManager.login(provider: .kakao) { [weak self] error in
+        authManager.login(provider: .kakao) { [weak self] error in
             if let error = error {
                 self?.loginErrorPrinter(error)
                 self?.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
@@ -44,10 +44,10 @@ final class SignViewModel: BaseViewModel {
     
     // 카카오 로그인 (기존세션)
     func kakaoLoginWithSession(completion: @escaping (Error?) -> Void) {
-        userAuthManager.getSession { error in
+        authManager.getSession { error in
             if let error = error {
                 self.loginErrorPrinter(error)
-                self.userAuthManager.logout()
+                self.authManager.logout()
                 completion(error)
             } else {
                 completion(nil)

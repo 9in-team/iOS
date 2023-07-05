@@ -16,7 +16,7 @@ struct TestKakaoLogoutResponse: Decodable {
 
 final class KakaoLoginTests: XCTestCase {
     
-    var sut: KakaoSignService!
+    var sut: KakaoAuthService!
     var keychainManager: KeychainManager!
     var networkService: NetworkService!
     var cancellables: Set<AnyCancellable>!
@@ -73,8 +73,8 @@ final class KakaoLoginTests: XCTestCase {
     func testLogout() {
         // Given
         let authenticatedLoginToken = "jeMSKu_N8_PwPSn8lnthiS6xHrGmYrw9zKEDB5jiCisM0wAAAYkLOX-4"
-        UserAuthManager.shared.isSingIn = true
-        UserAuthManager.shared.userData = .init(id: 99999999999,
+        AuthManager.shared.isSingIn = true
+        AuthManager.shared.userData = .init(id: 99999999999,
                                                 email: "test",
                                                 nickName: "test",
                                                 profileImageUrl: "test",
@@ -86,9 +86,9 @@ final class KakaoLoginTests: XCTestCase {
         
         // Then
         // 아래 2개의 Assert Test 용으로 테스트 환경 에선 실제 로그아웃은 실패 함.
-        UserAuthManager.shared.logout()
-        XCTAssertFalse(UserAuthManager.shared.isSingIn, "로그아웃 후에는 로그인 상태가 false여야 합니다.")
-        XCTAssertNil(UserAuthManager.shared.userData, "로그아웃 후에는 유저데이터가 nil 값을 가져야합니다.")
+        AuthManager.shared.logout()
+        XCTAssertFalse(AuthManager.shared.isSingIn, "로그아웃 후에는 로그인 상태가 false여야 합니다.")
+        XCTAssertNil(AuthManager.shared.userData, "로그아웃 후에는 유저데이터가 nil 값을 가져야합니다.")
         expectation1.fulfill()
         
         // 실제로 로그아웃 작업.

@@ -18,7 +18,7 @@ final class ProfileEditViewModel: BaseViewModel {
     
     private var profileImageUrl: String = ""
     
-    private var userAuthManager = UserAuthManager.shared
+    private var authManager = AuthManager.shared
     
     private var networkService = NetworkService()
     
@@ -33,13 +33,13 @@ extension ProfileEditViewModel {
     
     // 로그아웃
     func logout() {
-        userAuthManager.logout()
+        authManager.logout()
     }
     
     // 프로필 로드
     func loadUserProfile() {
         
-        if let userData = userAuthManager.userData {
+        if let userData = authManager.userData {
             self.email = userData.email
             self.nickname = userData.nickName
             self.profileImageUrl = userData.profileImageUrl
@@ -78,7 +78,7 @@ extension ProfileEditViewModel {
                                                                imageUrl: imageUrl.absoluteString).toDictionary()
             
             guard let parameters = body else {return}
-            guard let userdata  = userAuthManager.userData else { return }
+            guard let userdata  = authManager.userData else { return }
             
             let endpoint = "account/\(userdata.id)"
             
@@ -103,7 +103,7 @@ extension ProfileEditViewModel {
                                     profileImageUrl: updatedData.imageUrl,
                                     signInProvider: userdata.signInProvider)
 
-                self.userAuthManager.setUserData(data)
+                self.authManager.setUserData(data)
                 self.deleteOldImage(urlString: currentImageUrl)
                 self.didFinishLoading()
             }
