@@ -107,43 +107,48 @@ extension KakaoAuthService {
     // 카카오 로그인
     private func requestSession(with accessToken: String, completion: @escaping (KakaoAuthError?) -> Void) {
         
+        cancellables = []
+        
         let parameters = ["accessToken": accessToken]
         
-        networkService.POST(headerType: HeaderType.test,
-                            urlType: UrlType.testDomain,
-                            endPoint: EndPoint.login.get(),
-                            parameters: parameters,
-                            returnType: KakaoUserDataResponse.self)
-        .sink { [weak self] result in
-            switch result {
-            case .failure(let error):
-                if self?.authManager.isSingIn == true {
-                    self?.authManager.logout()
-                    print("DEBUG: \(#function) \(error.localizedDescription)")
-                    completion(KakaoAuthError.sessionExpired)
-                } else {
-                    completion(KakaoAuthError.unknown)
+//        DispatchQueue.global().asyncAfter(deadline: .now() + 20) {
+            self.networkService.POST(headerType: HeaderType.test,
+                                     urlType: UrlType.testDomain,
+                                     endPoint: EndPoint.login.get(),
+                                     parameters: parameters,
+                                     returnType: KakaoUserDataResponse.self)
+            .sink { [weak self] result in
+                switch result {
+                case .failure(let error):
+                    if self?.authManager.isSingIn == true {
+                        self?.authManager.logout()
+                        print("DEBUG: \(#function) \(error.localizedDescription)")
+                        completion(KakaoAuthError.sessionExpired)
+                    } else {
+                        completion(KakaoAuthError.unknown)
+                    }
+                case .finished:
+                    break
                 }
-            case .finished:
-                break
+            } receiveValue: { responseData in
+                if let responseData = responseData.detail {
+                    let userData = UserData(id: responseData.id,
+                                            email: responseData.email,
+                                            nickName: responseData.nickname,
+                                            profileImageUrl: responseData.imageUrl,
+                                            signInProvider: .kakao)
+                    self.authManager.userData = userData
+                    self.authManager.isSingIn = true
+                    self.authManager.lastSignInProvider = .kakao
+                    completion(nil)
+                } else {
+                    self.authManager.logout()
+                    completion(KakaoAuthError.userdataFetchFailure)
+                }
             }
-        } receiveValue: { responseData in
-            if let responseData = responseData.detail {
-                let userData = UserData(id: responseData.id,
-                                        email: responseData.email,
-                                        nickName: responseData.nickname,
-                                        profileImageUrl: responseData.imageUrl,
-                                        signInProvider: .kakao)
-                self.authManager.userData = userData
-                self.authManager.isSingIn = true
-                self.authManager.lastSignInProvider = .kakao
-                completion(nil)
-            } else {
-                self.authManager.logout()
-                completion(KakaoAuthError.userdataFetchFailure)
-            }
-        }
-        .store(in: &cancellables)
+            .store(in: &self.cancellables)
+//        }
+
     }
     
     private func fetchKakaoLoginToken() throws -> String {
