@@ -54,17 +54,13 @@ extension SignInView {
     }
     
     private func appleSignInButton() -> some View {
-        SignInWithAppleButton(.signIn) { asAuthorizationAppleIDRequest in
-            //
-        } onCompletion: { result in
-            switch result {
-            case .success(let auth):
-                print(auth.description)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        SignInWithAppleButton(.signIn,
+                              onRequest: viewModel.appleSignInOnRequest,
+                              onCompletion: viewModel.appleSignInCompletionHandler)
         .frame(height: 50)
+        .task {
+            
+        }
     }
     
     private func kakaoSignInButton() -> some View {

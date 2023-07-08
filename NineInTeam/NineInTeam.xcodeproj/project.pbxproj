@@ -336,6 +336,14 @@
 			path = DAO;
 			sourceTree = "<group>";
 		};
+		396D2AAC2A5511D00042D4D4 /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				396D2AAA2A550EBE0042D4D4 /* AppleAuthService.swift */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
 		3993A9A22A4E9B81007063EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +355,7 @@
 		3993A9A32A4E9BA8007063EB /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				396D2AAC2A5511D00042D4D4 /* Apple */,
 				3993A9A62A4E9BD8007063EB /* Kakao */,
 			);
 			path = Service;
@@ -359,7 +368,6 @@
 				39D8DCCC2A3C5ECA007530A9 /* KakaoUserDataResponse.swift */,
 				39D8DCCE2A3C5EDA007530A9 /* KakaoUserData.swift */,
 				392B97622A4C60E900112529 /* KakaoAuthError.swift */,
-				396D2AAA2A550EBE0042D4D4 /* AppleAuthService.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";

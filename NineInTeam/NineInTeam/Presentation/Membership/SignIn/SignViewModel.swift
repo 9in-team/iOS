@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 import KakaoSDKAuth
 import KakaoSDKUser
 import KakaoSDKCommon
@@ -20,6 +21,38 @@ final class SignViewModel: BaseViewModel {
         self.service = service
         super.init()
     }
+    
+}
+
+// MARK: - Apple Login
+
+extension SignViewModel {
+    
+    func appleSignInOnRequest(_ request: ASAuthorizationAppleIDRequest) {
+        request.requestedScopes = [.fullName, .email]
+    }
+    
+    func appleSignInCompletionHandler(_ result: Result<ASAuthorization, Error>) {
+        switch result {
+        case .success(let authResult):
+            try? AppleAuthService(authManager: authManager).signIn(with: authResult)
+            
+        case .failure(let error):
+            print("Apple SignIn Error: \(error.localizedDescription)")
+            return
+        }
+    }
+    
+    func getAppleSignInSession() {
+        
+    }
+    
+}
+
+
+
+// MARK: - Kakao Login
+extension SignViewModel {
     
     // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
     func autoLogin() {

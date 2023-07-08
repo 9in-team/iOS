@@ -38,6 +38,15 @@ extension AuthManager {
         }
     }
     
+    func login(provider: SignInProviderType) throws {
+        switch provider {
+        case .apple:
+            return
+        default:
+            throw LoginError.notSigned
+        }
+    }
+    
     func getSession(completion: @escaping (Error?) -> Void) {
         
         switch lastSignInProvider {
