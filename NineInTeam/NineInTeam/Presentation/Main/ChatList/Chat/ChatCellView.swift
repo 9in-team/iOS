@@ -26,7 +26,7 @@ extension ChatCellView {
             VStack(alignment: .leading, spacing: 3) {
                 TextWithFont(text: "조상현", size: 16)
                                
-                TextWithFont(text: "안녕하세요!!! 여쭤보고 싶은게 있어서요 혹시 시간 되시나요?", font: .robotoMedium, size: 14)
+                TextWithFont(text: chatRoom.recentMessage, font: .robotoMedium, size: 14)
                     .opacity(0.38)
                     .lineLimit(1)
                 
