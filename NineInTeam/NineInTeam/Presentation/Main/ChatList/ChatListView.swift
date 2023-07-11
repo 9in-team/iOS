@@ -34,7 +34,7 @@ extension ChatListView {
         ScrollView {            
             VStack {
                 ForEach(viewModel.chatRooms, id: \.self) { chatRoom in
-                    NavigationLink(destination: ChatDetailView()) {
+                    NavigationLink(destination: ChatDetailView(chatId: chatRoom.roomId)) {
                         ChatCellView(chatRoom: chatRoom)
                     }
                 }

@@ -11,6 +11,7 @@ struct ChatDetailView: View {
 
     @StateObject var viewModel = ChatDetailViewModel()
 
+    let chatId: Int
     var title: String = "최강헌"
     @State var userInputText: String = "같이 고고"
 
@@ -24,7 +25,7 @@ extension ChatDetailView {
         }
         .showNavigationBar(NavigationBar(useDismissButton: true, title: title, useChatButton: false))
         .onAppear {
-            viewModel.getChatDetail(chatId: 0)
+            viewModel.getChatDetail(chatId: chatId)
         }
     }
 
@@ -86,7 +87,7 @@ extension ChatDetailView {
 struct ChatDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChatDetailView()
+            ChatDetailView(chatId: 0)
         }
     }
 }
