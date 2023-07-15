@@ -12,9 +12,12 @@ struct SignInView: View {
          
     @StateObject private var viewModel = SignViewModel()
     @EnvironmentObject private var coordinator: Coordinator
+    @State var loginTask: Task<(), Error>?
     
     var body: some View {
-        mainBody
+        BaseView(appState: viewModel.appState) {
+            mainBody
+        }
     }
     
 }
@@ -43,9 +46,6 @@ extension SignInView {
                 kakaoSignInButton()
                     .padding(.horizontal, 36)
                 
-                appleSignInButton()
-                    .padding(.horizontal, 36)
-                
                 Rectangle()
                     .fill(Color.clear)
                     .frame(height: 48)
@@ -53,23 +53,9 @@ extension SignInView {
         }
     }
     
-    private func appleSignInButton() -> some View {
-        SignInWithAppleButton(.signIn) { asAuthorizationAppleIDRequest in
-            //
-        } onCompletion: { result in
-            switch result {
-            case .success(let auth):
-                print(auth.description)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        .frame(height: 50)
-    }
-    
     private func kakaoSignInButton() -> some View {
         Button(action: {
-            Task { await viewModel.kakaoLogin() }
+            viewModel.kakaoLogin()
         }, label: {
             ZStack {
                 HStack {

@@ -31,8 +31,14 @@ extension AuthManager {
     func login(provider: SignInProviderType, completion: @escaping (Error?) -> Void) {
         switch provider {
         case .kakao:
-            KakaoAuthService(authManager: self)
-                .requestLogin(completion: completion)
+            KakaoAuthService(authManager: self).requestLogin { result in
+                switch result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+            }
         default:
             completion(LoginError.notSigned)
         }

@@ -14,8 +14,8 @@ class BaseViewModel: ObservableObject {
 
     var cancellables = Set<AnyCancellable>()
     
-    init(appState: AppState = .init()) {
-        self.appState = appState
+    init(appState: AppState = AppState()) {
+        self._appState = Published(initialValue: appState)
         print("init : \(self)")
     }
     

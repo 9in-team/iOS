@@ -31,22 +31,22 @@ class KakaoAuthService {
 // MARK: - Public Methods
 extension KakaoAuthService {
     
-    func requestLogin(completion: @escaping (Error?) -> Void) {
-        UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+    func requestLogin(completion: @escaping (Result<Void, Error>) -> Void) {
+        UserApi.shared.loginWithKakaoAccount { token, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
             do {
-                if let error = error {
-                    completion(error)
-                }
-                
-                try self.requestSignInSession(with: oauthToken)
-                
-                completion(nil)
+                try self.requestSignInSession(with: token)
+                completion(.success(()))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }
-    
+        
     // 기존 토큰으로 자동로그인
     func getLoginSession(completion: @escaping (Error?) -> Void) {
         do {
@@ -81,7 +81,7 @@ extension KakaoAuthService {
         if let accessToken = oauthToken?.accessToken {
             do {
                 try KeychainManager.shared.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
-                Task { await requestSession(with: accessToken) }
+                requestSession(with: accessToken)
             } catch {
                 throw error
             }
@@ -91,7 +91,7 @@ extension KakaoAuthService {
     }
 
     // 카카오 로그인
-    private func requestSession(with accessToken: String) async {
+    private func requestSession(with accessToken: String) {
         
         cancellables = []
         
@@ -119,18 +119,18 @@ extension KakaoAuthService {
                 case .finished:
                     break
                 }
-            } receiveValue: { responseData in
+            } receiveValue: {[weak self] responseData in
                 if let responseData = responseData.detail {
                     let userData = UserData(id: responseData.id,
                                             email: responseData.email,
                                             nickName: responseData.nickname,
                                             profileImageUrl: responseData.imageUrl,
                                             signInProvider: .kakao)
-                    self.authManager.userData = userData
-                    self.authManager.isSingIn = true
-                    self.authManager.lastSignInProvider = .kakao
+                    self?.authManager.userData = userData
+                    self?.authManager.isSingIn = true
+                    self?.authManager.lastSignInProvider = .kakao
                 } else {
-                    self.authManager.logout()
+                    self?.authManager.logout()
                 }
             }
             .store(in: &self.cancellables)
