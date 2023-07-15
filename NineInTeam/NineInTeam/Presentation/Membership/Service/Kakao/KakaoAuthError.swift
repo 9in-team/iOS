@@ -23,7 +23,8 @@ enum KakaoAuthError: Error {
         case .sessionExpired:
             return "카카오 인증 세션이 만료되었습니다."
         case .userdataFetchFailure:
-            return "토큰은 유효하지만 카카오 유저 데이터를 가져오지 못했습니다.."
+            return "토큰은 유효하지만 카카오 유저 데이터를 가져오지 못했습니다."
         }
     }
+    
 }

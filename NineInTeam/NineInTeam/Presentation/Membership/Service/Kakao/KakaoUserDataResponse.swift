@@ -8,5 +8,7 @@
 import Foundation
 
 struct KakaoUserDataResponse: Codable {
+    
     let detail: KakaoUserData?
+    
 }

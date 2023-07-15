@@ -30,10 +30,10 @@ final class SignViewModel: BaseViewModel {
     func kakaoLogin() {
         willStartLoading()
         
-        authManager.login(provider: .kakao) { error in
+        authManager.login(provider: .kakao) { [weak self] error in
             if let error = error {
-                self.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
-                self.didFinishLoading()
+                self?.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
+                self?.didFinishLoading()
             }
         }
     }
@@ -45,8 +45,7 @@ final class SignViewModel: BaseViewModel {
                 self.loginErrorPrinter(error)
                 self.authManager.logout()
                 completion(error)
-            } else {
-                completion(nil)
+                return
             }
         }
     }

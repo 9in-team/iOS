@@ -11,11 +11,16 @@ import Combine
 class NetworkService: NetworkProtocol {
     
     private var session = URLSession.shared
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     
 }
 
 extension NetworkService {
+    
+    func cancel() {
+        cancellables = .init()
+    }
+    
     // MARK: - GET
     func GET<T>(headerType: HeaderType,
                 urlType: UrlType,

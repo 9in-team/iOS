@@ -22,7 +22,6 @@
 		3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F22A41E92300AF9622 /* UserProfileUpdateDao.swift */; };
 		3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
-		396D2AAB2A550EBE0042D4D4 /* AppleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396D2AAA2A550EBE0042D4D4 /* AppleAuthService.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
@@ -164,7 +163,6 @@
 		3959A4F22A41E92300AF9622 /* UserProfileUpdateDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUpdateDao.swift; sourceTree = "<group>"; };
 		3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUpdateDaoResponse.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
-		396D2AAA2A550EBE0042D4D4 /* AppleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuthService.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NineInTeam.entitlements; sourceTree = "<group>"; };
 		3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				39D8DCCC2A3C5ECA007530A9 /* KakaoUserDataResponse.swift */,
 				39D8DCCE2A3C5EDA007530A9 /* KakaoUserData.swift */,
 				392B97622A4C60E900112529 /* KakaoAuthError.swift */,
-				396D2AAA2A550EBE0042D4D4 /* AppleAuthService.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -1072,7 +1069,6 @@
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */,
-				396D2AAB2A550EBE0042D4D4 /* AppleAuthService.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
