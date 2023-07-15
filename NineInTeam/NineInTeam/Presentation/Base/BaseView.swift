@@ -27,6 +27,10 @@ struct BaseView<Content: View>: View {
 extension BaseView {
     
     var body: some View {
+        mainBody
+    }
+    
+    var mainBody: some View {
         ZStack {
             coordinator.navigationLinkSection()
             

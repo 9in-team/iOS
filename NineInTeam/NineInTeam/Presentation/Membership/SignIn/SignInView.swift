@@ -69,7 +69,7 @@ extension SignInView {
     
     private func kakaoSignInButton() -> some View {
         Button(action: {
-            viewModel.kakaoLogin()
+            Task { await viewModel.kakaoLogin() }
         }, label: {
             ZStack {
                 HStack {

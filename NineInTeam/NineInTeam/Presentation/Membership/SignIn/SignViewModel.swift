@@ -27,7 +27,7 @@ final class SignViewModel: BaseViewModel {
     }
     
     // 카카오 로그인
-    func kakaoLogin() {
+    func kakaoLogin() async {
         willStartLoading()
 
         authManager.login(provider: .kakao) { [weak self] error in
@@ -37,8 +37,9 @@ final class SignViewModel: BaseViewModel {
             } else {
                 self?.showAlert(title: "로그인 성공")
             }
-            self?.didFinishLoading()
         }
+        
+        self.didFinishLoading()
         
     }
     

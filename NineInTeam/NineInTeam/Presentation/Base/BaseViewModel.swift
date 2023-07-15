@@ -6,13 +6,16 @@
 //
 
 import Combine
+import SwiftUI
+
 class BaseViewModel: ObservableObject {
     
-    let appState: AppState = AppState()
+    @Published var appState: AppState
 
     var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(appState: AppState = .init()) {
+        self.appState = appState
         print("init : \(self)")
     }
     
@@ -29,10 +32,12 @@ class BaseViewModel: ObservableObject {
     }
     
     func showAlert(title: String) {
+        print("DEBUG Alert: \(title)")
         appState.showAlert(title: title)
     }
     
     func showToast(title: String) {
+        print("DEBUG Toast: \(title)")
         appState.showToast(title: title)
     }
     

@@ -22,7 +22,7 @@ final class ProfileEditViewModel: BaseViewModel {
     
     private var networkService = NetworkService()
     
-    override init() {
+    init() {
         super.init()
         loadUserProfile()
     }

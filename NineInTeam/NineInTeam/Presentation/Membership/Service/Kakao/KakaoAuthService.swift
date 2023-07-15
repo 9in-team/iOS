@@ -53,8 +53,6 @@ extension KakaoAuthService {
             self.requestSession(with: try fetchKakaoLoginToken()) { error in
                 if let error = error {
                     completion(error)
-                } else {
-                    completion(nil)
                 }
             }
         } catch {
@@ -83,25 +81,61 @@ extension KakaoAuthService {
         if let accessToken = oauthToken?.accessToken {
             do {
                 try KeychainManager.shared.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
-                
-                var loginError: KakaoAuthError?
-                
-                requestSession(with: accessToken) { error in
-                    if let error = error {
-                        loginError = error
-                    }
-                }
-                
-                if let loginError = loginError {
-                    throw loginError
-                }
-                
+                Task { await requestSession(with: accessToken) }
             } catch {
                 throw error
             }
         } else {
             throw KakaoAuthError.tokenIsNil
         }
+    }
+
+    // 카카오 로그인
+    private func requestSession(with accessToken: String) async {
+        
+        cancellables = []
+        
+        let parameters = ["accessToken": accessToken]
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
+            self.networkService.POST(headerType: HeaderType.test,
+                                     urlType: UrlType.testDomain,
+                                     endPoint: EndPoint.login.get(),
+                                     parameters: parameters,
+                                     returnType: KakaoUserDataResponse.self)
+            .mapError({ [weak self] error in
+                if self?.authManager.isSingIn == true {
+                    self?.authManager.logout()
+                    print("DEBUG: \(#function) \(error.localizedDescription)")
+                    return KakaoAuthError.sessionExpired
+                } else {
+                    return KakaoAuthError.unknown
+                }
+            })
+            .sink { result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .finished:
+                    break
+                }
+            } receiveValue: { responseData in
+                if let responseData = responseData.detail {
+                    let userData = UserData(id: responseData.id,
+                                            email: responseData.email,
+                                            nickName: responseData.nickname,
+                                            profileImageUrl: responseData.imageUrl,
+                                            signInProvider: .kakao)
+                    self.authManager.userData = userData
+                    self.authManager.isSingIn = true
+                    self.authManager.lastSignInProvider = .kakao
+                } else {
+                    self.authManager.logout()
+                }
+            }
+            .store(in: &self.cancellables)
+        }
+
     }
     
     // 카카오 로그인
@@ -111,7 +145,7 @@ extension KakaoAuthService {
         
         let parameters = ["accessToken": accessToken]
         
-//        DispatchQueue.global().asyncAfter(deadline: .now() + 20) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
             self.networkService.POST(headerType: HeaderType.test,
                                      urlType: UrlType.testDomain,
                                      endPoint: EndPoint.login.get(),
@@ -147,7 +181,7 @@ extension KakaoAuthService {
                 }
             }
             .store(in: &self.cancellables)
-//        }
+        }
 
     }
     
