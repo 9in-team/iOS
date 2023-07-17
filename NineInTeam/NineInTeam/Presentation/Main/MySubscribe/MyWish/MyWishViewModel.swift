@@ -29,7 +29,7 @@ class MyWishViewModel: BaseViewModel {
 
     private func requestTeams() {
         service.GET(headerType: .test,
-                    urlType: .testLocal2,
+                    urlType: .testDomain,
                     endPoint: "myWishTeam",
                     parameters: [:],
                     returnType: TeamResponse.self)

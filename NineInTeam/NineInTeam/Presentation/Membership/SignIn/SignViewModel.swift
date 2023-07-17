@@ -8,101 +8,48 @@
 import UIKit
 import KakaoSDKAuth
 import KakaoSDKUser
+import KakaoSDKCommon
 
-class SignViewModel: BaseViewModel {
+final class SignViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
     
-    private var userAuthManager = UserAuthManager.shared
+    private var authManager = AuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
         super.init()
     }
     
+    // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
     func autoLogin() {
-        // [테스트용] UserDefaults 에서 애플, 카카오 로그인 데이터 가져오기
-        userAuthManager.isSingIn = true
-    }
-    
-    func requestKakaoLogin() {
-        if UserApi.isKakaoTalkLoginAvailable() {
-            UserApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
-                self?.kakaoLoginClosure(oauthToken: oauthToken, error: error)
-            }
-        } else {
-            UserApi.shared.loginWithKakaoAccount { [weak self] (oauthToken, error) in
-                self?.kakaoLoginClosure(oauthToken: oauthToken, error: error)
-            }
-        }
-    }
-    
-    // 카카오 로그인 클로저
-    private func kakaoLoginClosure(oauthToken: OAuthToken?, error: Error?) {
-        if let error = error {
-            showAlert(title: error.localizedDescription)
-        } else {
-            if let accessToken = oauthToken?.accessToken {
-                KeychainManager.shared.saveLoginToken(token: accessToken)
-                kakaoLogin(accessToken: accessToken)
-            } else {
-                showAlert(title: "토큰을 가져오지 못했습니다.")
-            }
-        }
-        
+        authManager.isSingIn = true
     }
     
     // 카카오 로그인
-    func kakaoLogin(accessToken: String) {
-        let parameters = ["accessToken": accessToken]
-        
+    func kakaoLogin() {
         willStartLoading()
         
-        service.POST(headerType: HeaderType.test,
-                     urlType: UrlType.testDomain,
-                     endPoint: EndPoint.login.get(),
-                     parameters: parameters,
-                     returnType: UserDataApiResponse.self)
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(_):
-                    if self?.userAuthManager.isSingIn == true {
-                        self?.userAuthManager.logout()
-                        self?.showAlert(title: "다시 로그인 해주세요.")
-                    } else {
-                        self?.showAlert(title: "로그인에 실패했습니다.")
-                    }
-                case .finished:
-                    break
-                }
+        authManager.login(provider: .kakao) { [weak self] error in
+            if let error = error {
+                self?.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
                 self?.didFinishLoading()
-                
-            } receiveValue: { [weak self] responseData in
-                if let responseData = responseData.detail {
-
-                    let userData = UserData(id: responseData.id,
-                                            email: responseData.email,
-                                            nickName: responseData.nickname,
-                                            profileImageUrl: responseData.imageUrl,
-                                            signInProvider: .kakao)
-                    
-                    self?.userAuthManager.userData = userData
-                    self?.userAuthManager.isSingIn = true
-                    
-                } else {
-                    return
-                }
-                
             }
-            .store(in: &cancellables)
-        
+        }
     }
     
-    // 기존 토큰으로 자동로그인
-    func getLoginSession() {
-        self.kakaoLogin(accessToken: userAuthManager.fetchKakaoLoginToken())
+    // 카카오 로그인 (기존세션)
+    func kakaoLoginWithSession(completion: @escaping (Error?) -> Void) {
+        authManager.getSession { error in
+            if let error = error {
+                self.loginErrorPrinter(error)
+                self.authManager.logout()
+                completion(error)
+                return
+            }
+        }
     }
-
+    
     // 회원가입
     func join(email: String, nickname: String, imageUrl: String = "") {
         var parameters = ["email": email,
@@ -117,7 +64,7 @@ class SignViewModel: BaseViewModel {
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: UserDataApiResponse.self)
+                     returnType: KakaoUserDataResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return
@@ -138,7 +85,7 @@ class SignViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
-    func requestUserDataForJoin() {
+    private func requestUserDataForJoin() {
         UserApi.shared.me { [weak self] (user, error) in
             if let error = error {
                 self?.showAlert(title: error.localizedDescription)
@@ -159,6 +106,16 @@ class SignViewModel: BaseViewModel {
                     self?.join(email: email, nickname: nickname)
                 }
             }
+        }
+    }
+    
+    private func loginErrorPrinter(_ error: Error, sender: String = #function) {
+        if let keychainError = error as? KeychainError {
+            print("DEBUG: \(sender) message: \(error.localizedDescription)")
+        } else if let kakaoAuthError = error as? KakaoAuthError {
+            print("DEBUG: \(sender) message: \(error.localizedDescription)")
+        } else {
+            print("DEBUG: \(sender) message: \(error.localizedDescription)")
         }
     }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct SignInView: View {
          
@@ -13,7 +14,9 @@ struct SignInView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        mainBody
+        BaseView(appState: viewModel.appState) {
+            mainBody
+        }
     }
     
 }
@@ -38,22 +41,20 @@ extension SignInView {
          
             VStack {
                 Spacer()
-                
-                kakaoLoginView()
-                    .padding(.horizontal, 20)
-                    .padding()
+
+                kakaoSignInButton()
+                    .padding(.horizontal, 36)
                 
                 Rectangle()
                     .fill(Color.clear)
                     .frame(height: 48)
-                
             }
         }
     }
     
-    private func kakaoLoginView() -> some View {
+    private func kakaoSignInButton() -> some View {
         Button(action: {
-            viewModel.requestKakaoLogin()
+            viewModel.kakaoLogin()
         }, label: {
             ZStack {
                 HStack {

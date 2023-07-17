@@ -18,11 +18,11 @@ final class ProfileEditViewModel: BaseViewModel {
     
     private var profileImageUrl: String = ""
     
-    private var userAuthManager = UserAuthManager.shared
+    private var authManager = AuthManager.shared
     
     private var networkService = NetworkService()
     
-    override init() {
+    init() {
         super.init()
         loadUserProfile()
     }
@@ -33,13 +33,13 @@ extension ProfileEditViewModel {
     
     // 로그아웃
     func logout() {
-        userAuthManager.logout()
+        authManager.logout()
     }
     
     // 프로필 로드
     func loadUserProfile() {
         
-        if let userData = userAuthManager.userData {
+        if let userData = authManager.userData {
             self.email = userData.email
             self.nickname = userData.nickName
             self.profileImageUrl = userData.profileImageUrl
@@ -74,11 +74,11 @@ extension ProfileEditViewModel {
         uploadImage { [weak self] imageUrl in
             guard let self = self else { return }
             
-            let body: [String: Any]? = try? UserUpdateApiModel(nickname: updatedName,
+            let body: [String: Any]? = try? UserProfileUpdateDao(nickname: updatedName,
                                                                imageUrl: imageUrl.absoluteString).toDictionary()
             
             guard let parameters = body else {return}
-            guard let userdata  = userAuthManager.userData else { return }
+            guard let userdata  = authManager.userData else { return }
             
             let endpoint = "account/\(userdata.id)"
             
@@ -86,7 +86,7 @@ extension ProfileEditViewModel {
                                urlType: .testDomain,
                                endPoint: endpoint,
                                parameters: parameters,
-                               returnType: UserUpdateResponse.self)
+                               returnType: UserProfileUpdateDaoResponse.self)
             .map(\.detail)
             .sink { result in
                 switch result {
@@ -103,7 +103,7 @@ extension ProfileEditViewModel {
                                     profileImageUrl: updatedData.imageUrl,
                                     signInProvider: userdata.signInProvider)
 
-                self.userAuthManager.setUserData(data)
+                self.authManager.setUserData(data)
                 self.deleteOldImage(urlString: currentImageUrl)
                 self.didFinishLoading()
             }

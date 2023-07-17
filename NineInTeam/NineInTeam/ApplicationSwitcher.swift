@@ -13,16 +13,21 @@ struct ApplicationSwitcher: View {
 
     @StateObject var coordinator = Coordinator(isRoot: true)
 
-    @ObservedObject private var userAuthManager = UserAuthManager.shared
+    @ObservedObject private var authManager = AuthManager.shared
     
     var body: some View {
         
         Group {
-            if userAuthManager.isSingIn {
+            if authManager.isSingIn {
                 MainView()
                     .onAppear {
-                        viewModel.getLoginSession()
                         coordinator.popToRoot()
+                        viewModel.kakaoLoginWithSession { error in
+                            if let error = error {
+                                print("DEBUG: 세션가져오기 오류 \(error)")
+                                return
+                            }
+                        }
                     }
             } else {
                 SignInView()
@@ -30,7 +35,7 @@ struct ApplicationSwitcher: View {
         }
         .ignoresSafeArea()
         .environmentObject(coordinator)
-        .environmentObject(userAuthManager)
+        .environmentObject(authManager)
 
     }
     
