@@ -17,6 +17,14 @@ class AppState: ObservableObject {
     @Published var toastState: Bool = false
     var toastTitle: String = ""
     
+    init() {
+        print("INIT DEBUG: AppState")
+    }
+    
+    deinit {
+        print("DEINIT DEBUG: AppState")
+    }
+    
     func willStartLoading() {
         loadingState = true
     }
@@ -36,13 +44,16 @@ class AppState: ObservableObject {
     }
     
     func showToast(title: String) {
-        toastState = true
         toastTitle = title
+        toastState = true
+        print("DEBUG Toast: title: \(title), state: \(toastState)")
+
     }
     
     func closeToast() {
-        toastState = false
         toastTitle = ""
+        toastState = false
+        print("DEBUG Toast: \(#function) state: \(toastState)")
     }
     
 }

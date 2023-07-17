@@ -39,6 +39,7 @@ extension KeychainManager {
     private func updateData(data: String, service: KeychainServiceType, account: String) throws {
         
         let targetData = Data(data.utf8)
+        print("DEBUG:\(#function) Data\(targetData)")
         
         let query = [
             kSecValueData: targetData, // 암호화할 데이터
@@ -50,8 +51,11 @@ extension KeychainManager {
         let result = SecItemAdd(query, nil)
 
         if result != errSecSuccess {
+            print("DEBUG:\(#function) Error")
             throw KeychainError.updateError
         }
+        
+        print("DEBUG:\(#function) 완료")
         
     }
     
@@ -96,14 +100,12 @@ extension KeychainManager {
     
     func saveToken(_ token: String, signInProvider: SignInProviderType, tokenType: KeychainServiceType) throws {
         
-        let createResult: Void? = try? createData(data: token, service: tokenType, account: signInProvider.rawValue)
-
-        if createResult == nil {
-            do {
-                try updateData(data: token, service: tokenType, account: signInProvider.rawValue)
-            } catch {
-                throw KeychainError.updateError
-            }
+        deleteToken(signInProvider: signInProvider)
+        
+        do {
+            try createData(data: token, service: tokenType, account: signInProvider.rawValue)
+        } catch {
+            throw KeychainError.saveError
         }
 
     }

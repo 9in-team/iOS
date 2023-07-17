@@ -48,10 +48,11 @@ final class KeychainServiceTests: XCTestCase {
         }
         
         // 토큰 삭제
-        XCTAssertNoThrow(try sut.deleteToken(signInProvider: .kakao))
-    
+        sut.deleteToken(signInProvider: .kakao)
+        
         do {
-            try sut.getToken(signInProvider: .kakao, tokenType: .accessToken)
+            let token = try sut.getToken(signInProvider: .kakao, tokenType: .accessToken)
+            XCTFail("토큰이 제거되지 않았습니다. \(token)")
         } catch {
             deleteSuccess.fulfill()
         }

@@ -62,17 +62,13 @@ extension SignViewModel {
     // 카카오 로그인
     func kakaoLogin() {
         willStartLoading()
-
+        
         authManager.login(provider: .kakao) { [weak self] error in
             if let error = error {
-                self?.loginErrorPrinter(error)
                 self?.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
-            } else {
-                self?.showAlert(title: "로그인 성공")
+                self?.didFinishLoading()
             }
-            self?.didFinishLoading()
         }
-        
     }
     
     // 카카오 로그인 (기존세션)
@@ -82,8 +78,7 @@ extension SignViewModel {
                 self.loginErrorPrinter(error)
                 self.authManager.logout()
                 completion(error)
-            } else {
-                completion(nil)
+                return
             }
         }
     }

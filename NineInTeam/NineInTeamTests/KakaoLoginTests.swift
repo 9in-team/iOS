@@ -10,6 +10,12 @@ import Combine
 import KakaoSDKCommon
 @testable import NineInTeam
 
+// MARK: Naming Structure
+// test_UnitOfWork_StateUnderTest_ExpectedBehavior
+// test_[struct or claas]]_[Variable & Funtions]]_[Expected Result]
+
+// Testing Structure: Given When Then
+
 struct TestKakaoLogoutResponse: Decodable {
     let id: Float
 }
@@ -38,7 +44,7 @@ final class KakaoLoginTests: XCTestCase {
     }
 
     // 토큰으로 로그인 세션 받기 테스트 (세션 확인)
-    func testKakaoLogin() {
+    func test_KakaoAuthService_testLogin_ShuldBeNotThrowError() {
         // Given
         // 실제 로그인 토큰으로 작업하여야 합니다.
         let authenticatedLoginToken = "" // <- 실제 키 투입.
@@ -71,7 +77,7 @@ final class KakaoLoginTests: XCTestCase {
                 
     // 로그아웃 테스트 (실제 로그인 된 토큰으로 진행 필요)
     // POST Error 발생 시 Crash 발생
-    func testLogout() {
+    func test_AuthManager_logout_ShuldBeNotThrowError() {
         // Given
         let authenticatedLoginToken = ""
         AuthManager.shared.isSingIn = true

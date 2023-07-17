@@ -17,13 +17,15 @@ class KakaoAuthService {
     private var networkService: NetworkService
     private var cancellables = Set<AnyCancellable>()
     
-    init(authManager: AuthManager = AuthManager.shared, networkService: NetworkService = NetworkService()) {
+    init(authManager: AuthManager = .shared, networkService: NetworkService) {
+        print("DEBUG INIT: KakaoAuthService")
+        self.cancellables = .init()
         self.networkService = networkService
         self.authManager = authManager
     }
     
     deinit {
-        print("Deinit: KakaoSignService")
+        print("DEBUG Deinit: KakaoSignService")
     }
     
 }
@@ -31,34 +33,40 @@ class KakaoAuthService {
 // MARK: - Public Methods
 extension KakaoAuthService {
     
-    func requestLogin(completion: @escaping (Error?) -> Void) {
-        UserApi.shared.loginWithKakaoAccount { oauthToken, error in
-            do {
+    func requestLogin(completion: @escaping (Result<Void, Error>) -> Void) {
+        networkService.cancel()
+
+        UserApi.shared.loginWithKakaoAccount { token, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let token = token else {
+                completion(.failure(KakaoAuthError.tokenIsNil))
+                return
+            }
+            
+            self.requestSignInSession(with: token) { error in
+                
                 if let error = error {
-                    completion(error)
+                    completion(.failure(error))
+                    return
+                } else {
+                    completion(.success(()))
                 }
-                
-                try self.requestSignInSession(with: oauthToken)
-                
-                completion(nil)
-            } catch {
-                completion(error)
             }
         }
     }
-    
+
     // 기존 토큰으로 자동로그인
     func getLoginSession(completion: @escaping (Error?) -> Void) {
         do {
-            self.requestSession(with: try fetchKakaoLoginToken()) { error in
-                if let error = error {
-                    completion(error)
-                } else {
-                    completion(nil)
-                }
-            }
+            let token = try fetchKakaoLoginToken()
+            requestSession(with: token, completion: completion)
+            return
         } catch {
             completion(error)
+            return
         }
     }
     
@@ -78,72 +86,61 @@ extension KakaoAuthService {
     
     /// 토큰을 통해 로그인 세션 요청
     /// - 에러처리: KakaoAuthError or KeychainError
-    private func requestSignInSession(with oauthToken: OAuthToken?) throws {
-        
-        if let accessToken = oauthToken?.accessToken {
-            do {
-                try KeychainManager.shared.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
-                
-                var loginError: KakaoAuthError?
-                
-                requestSession(with: accessToken) { error in
-                    if let error = error {
-                        loginError = error
-                    }
-                }
-                
-                if let loginError = loginError {
-                    throw loginError
-                }
-                
-            } catch {
-                throw error
-            }
-        } else {
-            throw KakaoAuthError.tokenIsNil
+    private func requestSignInSession(with oauthToken: OAuthToken, completion: @escaping (Error?) -> Void) {
+        let accessToken = oauthToken.accessToken
+        do {
+            try KeychainManager.shared.saveToken(accessToken, signInProvider: .kakao, tokenType: .accessToken)
+            requestSession(with: accessToken, completion: completion)
+        } catch {
+            completion(error)
         }
     }
     
     // 카카오 로그인
-    private func requestSession(with accessToken: String, completion: @escaping (KakaoAuthError?) -> Void) {
+    private func requestSession(with accessToken: String,
+                                completion: @escaping (KakaoAuthError?) -> Void) {
+        networkService.cancel()
         
         let parameters = ["accessToken": accessToken]
         
-        networkService.POST(headerType: HeaderType.test,
-                            urlType: UrlType.testDomain,
-                            endPoint: EndPoint.login.get(),
-                            parameters: parameters,
-                            returnType: KakaoUserDataResponse.self)
-        .sink { [weak self] result in
+        self.networkService.POST(headerType: HeaderType.test,
+                                 urlType: UrlType.testDomain,
+                                 endPoint: EndPoint.login.get(),
+                                 parameters: parameters,
+                                 returnType: KakaoUserDataResponse.self)
+        .sink { result in
             switch result {
             case .failure(let error):
-                if self?.authManager.isSingIn == true {
-                    self?.authManager.logout()
-                    print("DEBUG: \(#function) \(error.localizedDescription)")
-                    completion(KakaoAuthError.sessionExpired)
-                } else {
-                    completion(KakaoAuthError.unknown)
-                }
+                self.requestSessionFailureHandler(error: error, completion: completion)
             case .finished:
-                break
+                completion(nil)
             }
-        } receiveValue: { responseData in
+        } receiveValue: { [weak self] responseData in
             if let responseData = responseData.detail {
                 let userData = UserData(id: responseData.id,
                                         email: responseData.email,
                                         nickName: responseData.nickname,
                                         profileImageUrl: responseData.imageUrl,
                                         signInProvider: .kakao)
-                self.authManager.userData = userData
-                self.authManager.isSingIn = true
-                self.authManager.lastSignInProvider = .kakao
-                completion(nil)
+                self?.authManager.userData = userData
+                self?.authManager.isSingIn = true
+                self?.authManager.lastSignInProvider = .kakao
             } else {
-                self.authManager.logout()
+                self?.authManager.logout()
                 completion(KakaoAuthError.userdataFetchFailure)
             }
+        }.store(in: &self.cancellables)
+
+    }
+    
+    private func requestSessionFailureHandler(error: Error, completion: @escaping (KakaoAuthError?) -> Void) {
+        if self.authManager.isSingIn == true {
+            self.authManager.logout()
+            print("DEBUG: \(#function) \(error.localizedDescription)")
+            completion(KakaoAuthError.sessionExpired)
+        } else {
+            completion(KakaoAuthError.unknown)
         }
-        .store(in: &cancellables)
     }
     
     private func fetchKakaoLoginToken() throws -> String {

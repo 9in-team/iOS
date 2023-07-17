@@ -13,7 +13,7 @@ import KakaoSDKAuth
 class AuthManager: ObservableObject {
     
     private var keychainManager = KeychainManager.shared
-    private var networkService = NetworkService()
+    private var networkService: NetworkService
     private var cancellables = Set<AnyCancellable>()
     
     @AppStorage("lastSignProvider") var lastSignInProvider: SignInProviderType = .notSigned
@@ -22,7 +22,9 @@ class AuthManager: ObservableObject {
     
     static let shared = AuthManager()
     
-    private init() { }
+    private init(networkService: NetworkService = .init()) {
+        self.networkService = networkService
+    }
 
 }
 
@@ -31,8 +33,14 @@ extension AuthManager {
     func login(provider: SignInProviderType, completion: @escaping (Error?) -> Void) {
         switch provider {
         case .kakao:
-            KakaoAuthService(authManager: self)
-                .requestLogin(completion: completion)
+            KakaoAuthService(networkService: networkService).requestLogin { result in
+                switch result {
+                case .success(_):
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+            }
         default:
             completion(LoginError.notSigned)
         }
@@ -51,8 +59,7 @@ extension AuthManager {
         
         switch lastSignInProvider {
         case .kakao:
-            KakaoAuthService(authManager: self)
-                .getLoginSession(completion: completion)
+            KakaoAuthService(networkService: networkService).getLoginSession(completion: completion)
         default:
             completion(LoginError.unknownSession)
         }
@@ -60,7 +67,6 @@ extension AuthManager {
     }
     
     func logout() {
-        
         self.isSingIn = false
         self.userData = nil
         
@@ -68,7 +74,7 @@ extension AuthManager {
         
         switch lastSignInProvider {
         case .kakao:
-            KakaoAuthService(authManager: self).kakaoLogout()
+            KakaoAuthService(networkService: networkService).kakaoLogout()
         default:
             return
         }

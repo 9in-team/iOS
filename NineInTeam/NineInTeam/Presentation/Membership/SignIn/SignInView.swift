@@ -14,7 +14,9 @@ struct SignInView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        mainBody
+        BaseView(appState: viewModel.appState) {
+            mainBody
+        }
     }
     
 }
@@ -41,9 +43,6 @@ extension SignInView {
                 Spacer()
 
                 kakaoSignInButton()
-                    .padding(.horizontal, 36)
-                
-                appleSignInButton()
                     .padding(.horizontal, 36)
                 
                 Rectangle()
