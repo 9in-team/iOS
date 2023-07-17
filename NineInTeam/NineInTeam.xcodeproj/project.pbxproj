@@ -115,6 +115,8 @@
 		DEB38C9629CDE1FC00EF915E /* SubmissionFormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */; };
 		DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */; };
 		DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9A29CEF77100EF915E /* BaseAlert.swift */; };
+		DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */; };
+		DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCCF212A50873F00CEA032 /* ChatRoom.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
 		DEC0F10129AE1FC70035851E /* ApplicationSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */; };
 		DEC6A82D2991D8D300AD0873 /* GodoB.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEC6A82C2991D8D300AD0873 /* GodoB.otf */; };
@@ -262,6 +264,8 @@
 		DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionFormType.swift; sourceTree = "<group>"; };
 		DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionForm.swift; sourceTree = "<group>"; };
 		DEB38C9A29CEF77100EF915E /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
+		DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		DEBCCF212A50873F00CEA032 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		DEC0F10029AE1FC70035851E /* ApplicationSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSwitcher.swift; sourceTree = "<group>"; };
 		DEC6A82C2991D8D300AD0873 /* GodoB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GodoB.otf; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 				39FC1C6529DC4DDB00C08070 /* ChatDetailViewModel.swift */,
 				399E76F029DAF403007AE239 /* ChatBubbleView.swift */,
 				39FC1C6729DC4DF300C08070 /* ChatBubbleShape.swift */,
+				DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */,
 			);
 			path = ChatDetail;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 		DE7B0B7B29D88A7A00CB90FE /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DEBCCF212A50873F00CEA032 /* ChatRoom.swift */,
 				DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */,
 			);
 			path = Chat;
@@ -1072,6 +1078,8 @@
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
+				3959A4F32A41E92300AF9622 /* UserUpdateApiModel.swift in Sources */,
+				DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */,
 				39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
@@ -1082,6 +1090,8 @@
 				DEB0D37129C09EB300B5E1B9 /* MySubscribeView.swift in Sources */,
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
+				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
+				3959A4F52A41E93300AF9622 /* UserUpdateResponse.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
