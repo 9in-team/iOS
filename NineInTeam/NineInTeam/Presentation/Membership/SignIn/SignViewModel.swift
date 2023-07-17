@@ -13,12 +13,12 @@ import KakaoSDKCommon
 
 final class SignViewModel: BaseViewModel {
     
-    private var service: NetworkProtocol
+    private var networkService: NetworkProtocol
     
     private var authManager = AuthManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
-        self.service = service
+        self.networkService = service
         super.init()
     }
     
@@ -28,28 +28,28 @@ final class SignViewModel: BaseViewModel {
 
 extension SignViewModel {
     
+    // 로그인 요청 데이터
     func appleSignInOnRequest(_ request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]
     }
     
-    func appleSignInCompletionHandler(_ result: Result<ASAuthorization, Error>) {
-        switch result {
+    // 애플 로그인 요청 (애플서버에서 토큰 받은 후 -> 백엔드 서버로 요청하는 로직)
+    func appleSignInRequestToServer(_ authResult: Result<ASAuthorization, Error>) {
+        switch authResult {
         case .success(let authResult):
-            try? AppleAuthService(authManager: authManager).signIn(with: authResult)
-            
+            try? AppleAuthService(with: networkService).signIn(with: authResult)
         case .failure(let error):
             print("Apple SignIn Error: \(error.localizedDescription)")
             return
         }
     }
     
+    // 애플 로그인 세션 가져오기
     func getAppleSignInSession() {
         
     }
     
 }
-
-
 
 // MARK: - Kakao Login
 extension SignViewModel {
@@ -82,6 +82,9 @@ extension SignViewModel {
             }
         }
     }
+}
+
+extension SignViewModel {
     
     // 회원가입
     func join(email: String, nickname: String, imageUrl: String = "") {
@@ -93,11 +96,11 @@ extension SignViewModel {
         
         willStartLoading()
         
-        service.POST(headerType: HeaderType.test,
+        networkService.POST(headerType: HeaderType.test,
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: KakaoUserDataResponse.self)
+                     returnType: SignInDaoResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return

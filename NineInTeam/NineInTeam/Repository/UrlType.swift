@@ -16,7 +16,7 @@ enum UrlType {
     func get() -> String {
         switch self {
         case .test:
-            return "http://223.130.134.106:8080/"
+            return "https://9in.team/"
         case .testLocal:
             return "http://127.0.0.1:8080/"
         case .testLocal2:

@@ -107,7 +107,7 @@ extension KakaoAuthService {
                                  urlType: UrlType.testDomain,
                                  endPoint: EndPoint.login.get(),
                                  parameters: parameters,
-                                 returnType: KakaoUserDataResponse.self)
+                                 returnType: SignInDaoResponse.self)
         .sink { result in
             switch result {
             case .failure(let error):

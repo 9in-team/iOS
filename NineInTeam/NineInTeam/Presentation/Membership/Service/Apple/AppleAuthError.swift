@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum AppleAuthError: Error {
+    
+    case tokenIsNil
+    case jsonEncodeFailure
+    case jsonIsNil
+    
+}

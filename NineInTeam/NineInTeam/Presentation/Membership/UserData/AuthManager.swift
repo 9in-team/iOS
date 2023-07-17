@@ -22,8 +22,8 @@ class AuthManager: ObservableObject {
     
     static let shared = AuthManager()
     
-    private init(networkService: NetworkService = .init()) {
-        self.networkService = networkService
+    private init() {
+        self.networkService = NetworkService()
     }
 
 }

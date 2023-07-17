@@ -8,6 +8,7 @@
 import Foundation
 
 struct UserData: Codable {
+    
     let id: Int
     let email: String
     let nickName: String
@@ -15,4 +16,5 @@ struct UserData: Codable {
     var myTeam: [Team] = []
     var joinedTeam: [Team] = []
     let signInProvider: SignInProviderType
+    
 }

@@ -43,23 +43,23 @@ extension SignInView {
                 Spacer()
 
                 kakaoSignInButton()
-                    .padding(.horizontal, 36)
+                
+                appleSignInButton()
                 
                 Rectangle()
                     .fill(Color.clear)
                     .frame(height: 48)
             }
+            .padding(.horizontal, 36)
+
         }
     }
     
     private func appleSignInButton() -> some View {
         SignInWithAppleButton(.signIn,
-                              onRequest: viewModel.appleSignInOnRequest,
-                              onCompletion: viewModel.appleSignInCompletionHandler)
+                              onRequest: viewModel.appleSignInOnRequest(_:),
+                              onCompletion: viewModel.appleSignInRequestToServer)
         .frame(height: 50)
-        .task {
-            
-        }
     }
     
     private func kakaoSignInButton() -> some View {
