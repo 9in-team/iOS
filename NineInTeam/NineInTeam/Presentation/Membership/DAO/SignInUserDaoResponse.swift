@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KakaoUserData: Codable {
+struct SignInUserDaoResponse: Codable {
     
     let id: Int
     let email: String
