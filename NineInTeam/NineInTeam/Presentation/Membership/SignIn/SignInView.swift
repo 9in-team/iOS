@@ -12,7 +12,6 @@ struct SignInView: View {
          
     @StateObject private var viewModel = SignViewModel()
     @EnvironmentObject private var coordinator: Coordinator
-    @State var loginTask: Task<(), Error>?
     
     var body: some View {
         BaseView(appState: viewModel.appState) {
