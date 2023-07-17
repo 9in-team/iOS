@@ -74,7 +74,7 @@ extension ChatBubbleView {
 #if DEBUG
 struct ChatBubbleView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatDetailView()
+        ChatDetailView(chatId: 0)
         ChatBubbleView(direction: .left) {
             TextWithFont(text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", font: .robotoRegular, size: 16)
         }
