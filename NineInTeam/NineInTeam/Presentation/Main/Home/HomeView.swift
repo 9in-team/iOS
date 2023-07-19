@@ -43,7 +43,7 @@ extension HomeView {
                 
                 ForEach(viewModel.teams, id: \.teamId) { team in
                     Button {
-                        coordinator.push(destination: .teamDetail(team.teamId))
+                        coordinator.push(destination: .teamDetail(team.teamId)) 
                     } label: {
                         TeamCellView(team: team)
                             .padding(.horizontal, 20)

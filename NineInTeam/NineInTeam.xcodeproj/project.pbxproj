@@ -64,6 +64,8 @@
 		DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */; };
 		DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */; };
 		DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */; };
+		DE866CD22A68134E00C5EBE9 /* SubmitResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE866CD12A68134E00C5EBE9 /* SubmitResumeView.swift */; };
+		DE866CD42A68144C00C5EBE9 /* SubmitResumeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE866CD32A68144C00C5EBE9 /* SubmitResumeViewModel.swift */; };
 		DE9BD35D295853B300F28F1A /* NineInTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* NineInTeam.swift */; };
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
 		DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD363295853B800F28F1A /* Preview Assets.xcassets */; };
@@ -209,6 +211,8 @@
 		DE7B0B7C29D88A9100CB90FE /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
 		DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewWrapper.swift; sourceTree = "<group>"; };
 		DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		DE866CD12A68134E00C5EBE9 /* SubmitResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitResumeView.swift; sourceTree = "<group>"; };
+		DE866CD32A68144C00C5EBE9 /* SubmitResumeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitResumeViewModel.swift; sourceTree = "<group>"; };
 		DE9BD359295853B300F28F1A /* NineInTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NineInTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD35C295853B300F28F1A /* NineInTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeam.swift; sourceTree = "<group>"; };
 		DE9BD360295853B800F28F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -525,6 +529,15 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		DE866CD02A68123600C5EBE9 /* SubmitResume */ = {
+			isa = PBXGroup;
+			children = (
+				DE866CD12A68134E00C5EBE9 /* SubmitResumeView.swift */,
+				DE866CD32A68144C00C5EBE9 /* SubmitResumeViewModel.swift */,
+			);
+			path = SubmitResume;
+			sourceTree = "<group>";
+		};
 		DE9BD350295853B300F28F1A = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +673,7 @@
 				DEB0D36429B76D3000B5E1B9 /* HomeViewModel.swift */,
 				DEB0D36B29BB6B7C00B5E1B9 /* TeamDetail */,
 				DEB0D39029C889A300B5E1B9 /* WritePost */,
+				DE866CD02A68123600C5EBE9 /* SubmitResume */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1045,6 +1059,7 @@
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
 				390F8F052A3F30EE007B66CD /* SignInProviderType.swift in Sources */,
 				DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */,
+				DE866CD42A68144C00C5EBE9 /* SubmitResumeViewModel.swift in Sources */,
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
 				DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */,
@@ -1078,7 +1093,7 @@
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
-				3959A4F32A41E92300AF9622 /* UserUpdateApiModel.swift in Sources */,
+				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
 				DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */,
 				39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
@@ -1091,7 +1106,7 @@
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
 				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
-				3959A4F52A41E93300AF9622 /* UserUpdateResponse.swift in Sources */,
+				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
@@ -1114,6 +1129,7 @@
 				DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */,
 				DE7B0B7A29D8861A00CB90FE /* ChatListViewModel.swift in Sources */,
 				DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */,
+				DE866CD22A68134E00C5EBE9 /* SubmitResumeView.swift in Sources */,
 				DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */,
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
