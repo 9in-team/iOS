@@ -12,6 +12,10 @@ class SubmitResumeViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
     
+    @Published var teamDetail: TeamDetail?
+    
+//    @Published var a: String = ""
+    
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
     }

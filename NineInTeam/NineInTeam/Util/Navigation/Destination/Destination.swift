@@ -18,7 +18,7 @@ enum Destination {
     case home
     case teamDetail(Int)
     case writePost
-    case submitResume
+    case submitResume(TeamDetail)
 
     case mySubscribe
     case subscribeTag
@@ -46,8 +46,8 @@ enum Destination {
             TeamDetailView(teamId: teamId)
         case .writePost:
             WritePostView()
-        case .submitResume:
-            SubmitResumeView()
+        case .submitResume(let teamDetail):
+            SubmitResumeView(teamDetail: teamDetail)
         case .mySubscribe:
             MySubscribeView()
         case .subscribeTag:
