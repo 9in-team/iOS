@@ -69,7 +69,7 @@ extension View {
                 ZStack {
                     ForEach(shadows, id: \.self) { shadow in
                         RoundedRectangle(cornerRadius: cornerRadius)
-                            .fill(.white)
+                            .fill(.white.opacity(0.01))
                             .shadow(color: shadow.getColor(), radius: shadow.radius,
                                     x: shadow.locationX, y: shadow.locationY)
                     }
