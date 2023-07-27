@@ -127,7 +127,8 @@ extension MyResumeView {
                                     }
                                     .padding(14)
                                 )
-                                .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 14, locationX: 0, locationY: 3),
+                                .rectangleShadows(cornerRadius: 14,
+                                                  [Shadow(color: .black, opacity: 0.12, radius: 14, locationX: 0, locationY: 3),
                                                    Shadow(color: .black, opacity: 0.14, radius: 10, locationX: 0, locationY: 8),
                                                    Shadow(color: .black, opacity: 0.2, radius: 5, locationX: 0, locationY: 5)])
                                 .offset(x: alertPoint.x, y: alertPoint.y)
