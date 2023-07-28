@@ -9,12 +9,17 @@ import SwiftUI
 
 struct SubmitResumeView: View {
 
-    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var coordinator = Coordinator()
     
     @StateObject var viewModel = SubmitResumeViewModel()
     
     // <- 해당 화면에 들어올 때 pk 값으로 디테일값을 다시 조회하는게 나은지 고민 다시 조회한다면 viewModel 에서 참조
     let teamDetail: TeamDetail
+    
+    @State var text: String = ""
+    @State var image: String = ""
+    @State var file: String = ""
+    @State var choice: String = ""
     
 }
 
@@ -39,18 +44,24 @@ extension SubmitResumeView {
                 
                 recruitmentRole()
                 
-//                submissionForm()
+                submissionForm()
+                
+                submitButton()
             }
             .padding(.horizontal, 20)
         }
     }
     
     func teamSubject() -> some View {
-        TextWithFont(text: teamDetail.subject, font: .robotoMedium, size: 20)
-            .foregroundColor(
-                Color(hexcode: "000000")
-                    .opacity(0.87)
-            )
+        HStack {
+            TextWithFont(text: teamDetail.subject, font: .robotoMedium, size: 24)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.87)
+                )
+            
+            Spacer()
+        }
     }
     
     func recruitmentRole() -> some View {
@@ -153,25 +164,142 @@ extension SubmitResumeView {
                         }
                     }
                     
-                    answer(type: form.type)
-                        .padding(.bottom, 20)
+                    answer(type: form.type, options: form.options)
+                        .padding(.bottom, 10)
                 }
             }
             .padding(.horizontal, 5)
         }
     }
     
-    func answer(type: SubmissionFormType) -> some View {
-        VStack {
+    func answer(type: SubmissionFormType, options: [String]? = nil) -> some View {
+        VStack(alignment: .leading) {
             switch type {
             case .text:
-                Text("text")
+                ZStack(alignment: .topLeading) {
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color(hexcode: "000000")
+                            .opacity(0.23)
+                        )
+                    
+                    TextWithFont(text: "답변", font: .robotoBold, size: 12)
+                        .foregroundColor(
+                            Color(hexcode: "000000")
+                                .opacity(0.6)
+                        )
+                        .padding(.horizontal, 5)
+                        .background(
+                            Rectangle()
+                                .fill(Color(hexcode: "FFFFFF"))
+                        )
+                        .offset(x: 12, y: -5)
+                    
+                    ScrollView {
+                        TextField("답변", text: $text)
+                            .font(.system(size: 16))
+                    }
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                }
+                .frame(maxWidth: .infinity)
             case .image:
-                Text("image")
+                Button {
+                    // TODO: Choice Image
+                } label: {
+                    Rectangle()
+                        .fill(Color(hexcode: "D9D9D9"))
+                        .frame(height: 93)
+                        .overlay {
+                            Image("Image")
+                                .frame(width: 24, height: 24)
+                        }
+                }
             case .file:
-                Text("file")
+                VStack(alignment: .leading, spacing: 14) {
+                    // TODO:  ForEach
+                    HStack {
+                        Image("File")
+                            .resizable()
+                            .frame(width: 16, height: 20)
+
+                        TextWithFont(text: "포트폴리오.pdf", size: 14)
+                    }
+                    .padding(.leading, 10)
+                    
+                    
+                    Button {
+                        // TODO: Choice File
+                    } label: {
+                        Circle()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color(hexcode: "E0E0E0"))
+                            .overlay {
+                                Image("Plus")
+                                    .resizable()
+                                    .frame(width: 14, height: 14)
+                            }
+                    }
+                    .padding(.leading, 6)
+                }
             case .choice:
-                Text("choice")
+                VStack(spacing: 0) {
+                    ForEach(options ?? [], id: \.self) { option in
+                        Button {
+                            choice = option
+                        } label: {
+                            HStack(spacing: 0) {
+                                Rectangle()
+                                    .fill(.clear)
+                                    .frame(width: 42, height: 42)
+                                    .overlay {
+                                        if choice == option {
+                                            Image("Choice")
+                                                .resizable()
+                                                .frame(width: 18, height: 18)
+                                        } else {
+                                            Image("NotChecked")
+                                                .resizable()
+                                                .frame(width: 18, height: 18)
+                                        }
+                                    }
+                                
+                                TextWithFont(text: option, size: 14)
+                                    .foregroundColor(Color(hexcode: "000000")).opacity(0.87)
+                                
+                                Spacer()
+                            }
+                        }
+                        .frame(height: 42)
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+    
+    func submitButton() -> some View {
+        VStack(spacing: 5) {
+            TextWithFont(text: "제출 후 수정 및 삭제 불가능합니다.", size: 12)
+            
+            Button {
+                
+            } label: {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(ColorConstant.main.color())
+                    .frame(height: 42)
+                    .overlay(
+                        HStack(spacing: 11) {
+                            Image("Check")
+                                .resizable()
+                                .frame(width: 18, height: 18)
+                            
+                            TextWithFont(text: "지원서 제출", font: .robotoMedium, size: 15)
+                                .foregroundColor(Color(hexcode: "FFFFFF"))
+                        }
+                    )
+                    .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                                       Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                                       Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
             }
         }
     }
