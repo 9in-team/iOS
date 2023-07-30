@@ -14,7 +14,6 @@ class HomeViewModel: BaseViewModel {
     
     @Published var teams: [Team] = []
     @Published var teamDetail: TeamDetail?
-    
     @Published var content: String = ""
     @Published var subject: String = ""
     @Published var openChatUrl: String = ""
@@ -22,9 +21,14 @@ class HomeViewModel: BaseViewModel {
     @Published var subjectType: SubjectType = .project
     @Published var roles: [Role] = []
     @Published var templates: [TeamTemplate] = []
+    
+    @Published var roleTitle: String = ""
+    @Published var roleCount: Int = 1
+    @Published var question: String = ""
 
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
+        super.init()
     }
     
     func requestFristPage() {
@@ -35,7 +39,7 @@ class HomeViewModel: BaseViewModel {
         requestTeamDetail(teamId: teamId)
     }
 
-    func write(accountId: Int, content: PostWriteTeam) {
+    func write(accountId: Int, content: Team) {
         postWriteTeam(accountId: accountId, content: content) {
 
         }
@@ -81,46 +85,43 @@ class HomeViewModel: BaseViewModel {
         .store(in: &cancellables)
     }
 
-    private func postWriteTeam(accountId: Int, content: PostWriteTeam, completion: () -> Void) {
+    private func postWriteTeam(accountId: Int, content: Team, completion: () -> Void) {
         service.POST(headerType: .test,
                      urlType: .testDomain,
                      endPoint: "team/\(accountId)",
                      parameters: [:],
-                     returnType: ResultWriteTeam.self)
+                     returnType: Team.self)
         .sink { result in
             print(result)
         } receiveValue: { responseData in
-            if let error = responseData.errorMessage {
-                print(error)
-                return
-            }
+            print(responseData)
         }
         .store(in: &cancellables)
     }
     
 }
 
-struct PostWriteTeam: Decodable {
-    let subjectType: String
-    let subject: String
-    let types: [String]
-    let roles: [RecruitmentRole]
-    let content: String
-    let teamTemplates: [TeamTemplate]
-    let openChatUrl: String
-}
-
+// struct PostWriteTeam: Decodable {
+//     let subjectType: String
+//     let subject: String
+//     let types: [String]
+//     let roles: [RecruitmentRole]
+//     let content: String
+//     let teamTemplates: [TeamTemplate]
+//     let openChatUrl: String
+// }
+//
 struct ResultWriteTeam: Decodable {
-    let detail: DetailWriteTeam
+    let detail: Team
     let errorMessage: String?
 }
-
-struct DetailWriteTeam: Decodable {
-    let teamId: Int
-    let openChatUrl: String
-    let content: String
-    let teamTemplates: [TeamTemplate]
-    let types: [String]
-    let subjectType: String
-    let roles: [RecruitmentRole]
-}
+//
+// struct DetailWriteTeam: Decodable {
+//     let teamId: Int
+//     let openChatUrl: String
+//     let content: String
+//     let teamTemplates: [TeamTemplate]
+//     let types: [String]
+//     let subjectType: String
+//     let roles: [Role]
+// }

@@ -124,7 +124,7 @@ extension TeamDetailView {
         }
     }
 
-    func roleCell(role: RecruitmentRole) -> some View {
+    func roleCell(role: Role) -> some View {
         VStack(alignment: .center, spacing: 0) {
             Spacer()
 

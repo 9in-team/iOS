@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct WritePostView: View {
     
@@ -16,8 +17,11 @@ struct WritePostView: View {
     @State private var selectedIndex: Int = 0
     @State private var showAddTagAlert: Bool = false
     @State private var showSubmitAlert: Bool = false
-
-    @State var chatRoomLink: String = ""
+    @State private var showRoleAlert = false
+    
+    @State var templateIndex: Int = 1
+    
+    private let allTags = ["Python", "Spring Framework", "AWS", "iOS", "HTML", "Java", "JavaScript", "C#", "C++", "JPA", "React", "Node", "Vue", "MySQL", "Kotlin", "Android", "SQL"]
     
 }
 
@@ -27,6 +31,9 @@ extension WritePostView {
         BaseView(appState: viewModel.appState) {
             mainBody()
                 .showNavigationBar(NavigationBar(useDismissButton: true, title: "모집글 작성"))
+        }
+        .drawOnRootViewController(isPresented: $showRoleAlert) {
+            roleAlert()
         }
     }
     
@@ -107,7 +114,8 @@ extension WritePostView {
     
     func tag() -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            TextWithFont(text: "태그", font: .robotoBold, size: 12)
+            TextWithFont(text: "태그",
+                         font: .robotoBold, size: 12)
                 .foregroundColor(
                     Color(hexcode: "000000")
                         .opacity(0.6)
@@ -115,12 +123,23 @@ extension WritePostView {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(viewModel.hashtags, id: \.self) { tag in
+                    ForEach(viewModel.hashtags.indices, id: \.self) { index in
+                        let tag = viewModel.hashtags[index]
                         tagCell(tag)
+                            .onTapGesture {
+                                let target = viewModel.hashtags.filter { $0.name == tag.name }
+                                viewModel.hashtags.remove(at: index)
+                            }
                     }
                     
-                    Button {
-                        showAddTagAlert = true
+                    Menu {
+                        ForEach(allTags, id: \.self) { tag in
+                            Button {
+                                viewModel.hashtags.append(HashTag(tag))
+                            } label: {
+                                Text(tag)
+                            }
+                        }
                     } label: {
                         Circle()
                             .frame(width: 28, height: 28)
@@ -131,11 +150,7 @@ extension WritePostView {
                                     .frame(width: 14, height: 14)
                             }
                     }
-                    .drawOnRootViewController(isPresented: $showAddTagAlert) {
-                        BaseAlert {
-                            Text("showAddTagAlert = false")
-                        }
-                    }
+
                 }
             }
         }
@@ -161,7 +176,7 @@ extension WritePostView {
                         VStack(alignment: .center, spacing: 0) {
                             Spacer()
                             
-                            TextWithFont(text: role.name, font: .robotoMedium, size: 20)
+                            TextWithFont(text: role.title, font: .robotoMedium, size: 20)
                                 .frame(height: 60, alignment: .top)
                                 .foregroundColor(
                                     Color(hexcode: "000000")
@@ -188,7 +203,7 @@ extension WritePostView {
                     }
                          
                     Button {
-                        showSubmitAlert = true
+                        showRoleAlert = true
                     } label: {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 120, height: 120)
@@ -198,11 +213,6 @@ extension WritePostView {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                             }
-                    }
-                    .drawOnRootViewController(isPresented: $showSubmitAlert) {
-                        BaseAlert {
-                            Text("showAddRecruitmentRoleAlert = false")
-                        }
                     }
                 }
             }
@@ -231,15 +241,14 @@ extension WritePostView {
                 
                 Spacer()
             }
-            
-            ScrollView {
-                // TextField로 변경
-                TextWithFont(text: "asdf\nasdfa]nasdfa\nadf\nasdfasd\nasdf", size: 16)
-            }
-            .padding(.vertical, 16)
-            .padding(.horizontal, 12)
+            TextEditor(text: $viewModel.content)
+                .textInputAutocapitalization(.never)
+                .autocorrectionDisabled()
+                .textCase(.none)
+                .padding(.vertical, 16)
+                .padding(.horizontal, 12)
         }
-        .frame(height: 230)
+        .frame(minHeight: 64, maxHeight: 230)
         .frame(maxWidth: .infinity)
     }
     
@@ -252,77 +261,43 @@ extension WritePostView {
                 )
             
             VStack(spacing: 20) {
-                
                 // 팀 템플릿
                 ForEach(viewModel.templates, id: \.self) { form in
-
+                    TeamTemplateForm(form: form)
                 }
                 
-                Button {
-                    showSubmitAlert = true
-                } label: {
-                    Circle()
-                        .frame(width: 56, height: 56)
-                        .foregroundColor(Color(hexcode: "E0E0E0"))
-                        .overlay {
-                            Image("Plus")
-                                .resizable()
-                                .frame(width: 14, height: 14)
+                Menu {
+                    ForEach(TeamTemplateType.allCases.indices) { index in
+                        let template = TeamTemplateType(rawValue: index)!
+                        Button {
+                            let newTemplate = TeamTemplate(number: templateIndex, type: template, question: "", options: [])
+                            templateIndex += 1
+                            viewModel.templates.append(newTemplate)
+                        } label: {
+                            Text(template.text() ?? "")
                         }
-                }
-                .drawOnRootViewController(isPresented: $showSubmitAlert) {
-                    BaseAlert {
-                        Text("showAddSubmissionFormAlert = false")
                     }
+                } label: {
+                    plusCircleButton {}
                 }
+
             }
             .padding(.horizontal, 5)
         }
     }
     
-    private func teamTemplateView(_ form: TeamTemplate) -> some View {
-        HStack(spacing: 8) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(Color(hexcode: "000000")
-                        .opacity(0.23)
-                    )
-                    .frame(width: 62, height: 62)
-                    .overlay(
-                        TextWithFont(text: "\(form.number ?? 0)", font: .robotoMedium, size: 12)
-                            .foregroundColor(Color(hexcode: "FFFFFF"))
-                            .padding(6)
-                            .background(ColorConstant.main.color())
-                            .clipShape(Circle())
-                            .offset(x: -31, y: -31)
-                    )
-                
-                VStack(spacing: 5) {
-                    Image(form.type.asset())
+    private func plusCircleButton(action: @escaping() -> Void) -> some View {
+        Button {
+            action()
+        } label: {
+            Circle()
+                .frame(width: 56, height: 56)
+                .foregroundColor(Color(hexcode: "E0E0E0"))
+                .overlay {
+                    Image("Plus")
                         .resizable()
-                        .frame(width: form.type.assetSize().width, height: form.type.assetSize().height)
-                        .padding(.top, 3)
-                    
-                    TextWithFont(text: form.type.text(), size: 12)
+                        .frame(width: 14, height: 14)
                 }
-            }
-            
-            VStack(alignment: .leading, spacing: 8) {
-                TextWithFont(text: form.question, size: 16)
-                    .foregroundColor(
-                        Color(hexcode: "000000")
-                            .opacity(0.6)
-                    )
-                          
-                Divider()
-                    .frame(height: 1)
-                    .foregroundColor(
-                        Color(hexcode: "000000")
-                            .opacity(0.42)
-                    )
-                    .border(Color(hexcode: "000000").opacity(0.42),
-                            width: 1)
-            }
         }
     }
     
@@ -342,7 +317,7 @@ extension WritePostView {
                 )
             
             VStack(alignment: .leading, spacing: 5) {
-                TextField("", text: $chatRoomLink)
+                TextField("채팅방 링크를 기재해 주세요", text: $viewModel.openChatUrl)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -361,26 +336,59 @@ extension WritePostView {
     }
     
     func bottomButton() -> some View {
-        Button {
-            // viewModel.write
-        } label: {
-            RoundedRectangle(cornerRadius: 4)
-                .fill(ColorConstant.main.color())
+        BaseButton(title: "작성하기", imageName: "Write") {
+            // viewModel.write(accountId: <#T##Int#>, content: "")
+            print("작성하기 버튼 눌렀음")
+        }
+    }
+    
+    private func roleAlert() -> some View {
+        BaseAlert {
+            VStack {
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.init(uiColor: .secondarySystemFill))
+                    
+                    TextField("모집대상을 입력하세요", text: $viewModel.roleTitle)
+                        .padding(.horizontal)
+                        .cornerRadius(12)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .textCase(.none)
+                    
+                }
                 .frame(height: 42)
-                .overlay(
-                    HStack(spacing: 11) {
-                        Image("Write")
-                            .resizable()
-                            .frame(width: 18, height: 18)
-                        
-                        TextWithFont(text: "작성하기", font: .robotoMedium, size: 15)
-                            .foregroundColor(Color(hexcode: "FFFFFF"))
+                .padding(.top)
+
+                Stepper("\($viewModel.roleCount.wrappedValue)") {
+                    viewModel.roleCount += 1
+                } onDecrement: {
+                    viewModel.roleCount -= 1
+                }
+                    
+                Spacer()
+                
+                BaseButton(title: "확인", imageName: nil) {
+                    if viewModel.roleTitle.isEmpty {
+                        viewModel.showToast(title: "모집대상을 입력해주세요.")
+                        return
                     }
-                )
-                .rectangleShadows(cornerRadius: 4,
-                    [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
-                                   Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
-                                   Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
+                    let role = Role(title: viewModel.roleTitle, count: viewModel.roleCount)
+                    viewModel.roles.append(role)
+                    showRoleAlert = false
+                }
+                
+                BaseButton(title: "취소", imageName: nil) {
+                    showRoleAlert = false
+                }
+            }
+            .padding()
+        }
+        .onDisappear {
+            viewModel.roleCount = 1
+            viewModel.roleTitle = ""
+            print("disappear")
         }
     }
     

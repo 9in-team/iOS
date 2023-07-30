@@ -14,9 +14,14 @@ enum SubjectType: Int, Codable, CaseIterable {
     var title: String {
         switch self {
         case .project:
-            return "PROJECT"
+            return "프로젝트"
         case .study:
-            return "Study"
+            return "스터디"
         }
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case project = "PROJECT"
+        case study = "STUDY"
     }
 }

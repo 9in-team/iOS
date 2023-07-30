@@ -47,7 +47,7 @@ extension ProfileEditView {
             nickname()
                 .frame(width: 230)
             
-            actionButton(title: "수정", imageName: "Check") {
+            BaseButton(title: "수정", imageName: "Check") {
                 viewModel.editUserProfile()
             }
             .frame(width: 230)
@@ -55,7 +55,7 @@ extension ProfileEditView {
             Spacer()
             
             // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
-            actionButton(title: "로그아웃", imageName: "Logout") {
+            BaseButton(title: "로그아웃", imageName: "Logout") {
                 viewModel.logout()
             }
             .frame(width: 230)
@@ -161,31 +161,6 @@ extension ProfileEditView {
         .foregroundColor(Color(hexcode: "000000"))
     }
     
-    func actionButton(title: String,
-                      imageName: String,
-                      action: @escaping () -> Void) -> some View {
-        Button {
-            action()
-        } label: {
-            RoundedRectangle(cornerRadius: 4)
-                .fill(ColorConstant.main.color())
-                .frame(height: 42)
-                .overlay(
-                    HStack(spacing: 11) {
-                        Image(imageName)
-                            .resizable()
-                            .frame(width: 18, height: 13)
-                        
-                        TextWithFont(text: title, font: .robotoMedium, size: 15)
-                            .foregroundColor(Color(hexcode: "FFFFFF"))
-                    }
-                )
-                .rectangleShadows(cornerRadius: 4,
-                                  [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
-                                   Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
-                                   Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 1)])
-        }
-    }
     
 }
 

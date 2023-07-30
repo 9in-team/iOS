@@ -17,12 +17,15 @@ struct RadioButtonGroups: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             
-            ForEach(SubjectType.allCases.indices) { index in
-                let type = SubjectType(rawValue: index) ?? .project
-                RadioButtonField(index: index, title: type.title) {
-                    selectedType = type
+            HStack {
+                ForEach(SubjectType.allCases.indices) { index in
+                    let type = SubjectType(rawValue: index) ?? .project
+                    RadioButtonField(index: index, title: type.title, isChecked: type == selectedType) {
+                        selectedType = type
+                    }
                 }
             }
+      
             Spacer()
         }
     }

@@ -13,9 +13,10 @@
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
 		391D53002A76704B00EE1F8A /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D52FF2A76704B00EE1F8A /* TeamResponse.swift */; };
-		391D53022A76705B00EE1F8A /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53012A76705B00EE1F8A /* Role.swift */; };
 		391D53042A76706500EE1F8A /* SubjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53032A76706500EE1F8A /* SubjectType.swift */; };
 		391D53062A76707000EE1F8A /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53052A76707000EE1F8A /* HashTag.swift */; };
+		391D53082A769F2000EE1F8A /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53072A769F2000EE1F8A /* BaseButton.swift */; };
+		391D530A2A76B14D00EE1F8A /* TeamTemplateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53092A76B14D00EE1F8A /* TeamTemplateForm.swift */; };
 		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		392B97612A4C5BF200112529 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97602A4C5BF200112529 /* KeychainServiceTests.swift */; };
 		392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97622A4C60E900112529 /* KakaoAuthError.swift */; };
@@ -160,9 +161,10 @@
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
 		391D52FF2A76704B00EE1F8A /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
-		391D53012A76705B00EE1F8A /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		391D53032A76706500EE1F8A /* SubjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectType.swift; sourceTree = "<group>"; };
 		391D53052A76707000EE1F8A /* HashTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
+		391D53072A769F2000EE1F8A /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		391D53092A76B14D00EE1F8A /* TeamTemplateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTemplateForm.swift; sourceTree = "<group>"; };
 		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		392B97602A4C5BF200112529 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		392B97622A4C60E900112529 /* KakaoAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthError.swift; sourceTree = "<group>"; };
@@ -342,7 +344,7 @@
 			children = (
 				391D52FF2A76704B00EE1F8A /* TeamResponse.swift */,
 				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
-				391D53012A76705B00EE1F8A /* Role.swift */,
+				DEB38C9329CC964900EF915E /* RecruitmentRole.swift */,
 				391D53032A76706500EE1F8A /* SubjectType.swift */,
 				391D53052A76707000EE1F8A /* HashTag.swift */,
 			);
@@ -622,6 +624,7 @@
 				DEA2B66B2970301A00B77335 /* BaseView.swift */,
 				DEB34E78297039FF00C0B973 /* BaseViewModel.swift */,
 				DEC82E0E29966D1400D17C50 /* BaseResponseModel.swift */,
+				391D53072A769F2000EE1F8A /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -722,7 +725,6 @@
 			children = (
 				391D52FC2A76703100EE1F8A /* Model */,
 				DEB0D36829B7714D00B5E1B9 /* TeamCellView.swift */,
-				DEB38C9329CC964900EF915E /* RecruitmentRole.swift */,
 				DEB38C9729CDE2AA00EF915E /* TeamTemplate.swift */,
 				DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */,
 			);
@@ -777,6 +779,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB0D39129C889E900B5E1B9 /* WritePostView.swift */,
+				391D53092A76B14D00EE1F8A /* TeamTemplateForm.swift */,
 			);
 			path = WritePost;
 			sourceTree = "<group>";
@@ -1070,6 +1073,7 @@
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
 				DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */,
+				391D53082A769F2000EE1F8A /* BaseButton.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignInView.swift in Sources */,
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
@@ -1094,6 +1098,7 @@
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DE47790929F1634100C0EC3E /* Coordinator.swift in Sources */,
 				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,
+				391D530A2A76B14D00EE1F8A /* TeamTemplateForm.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */,
@@ -1115,7 +1120,6 @@
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
 				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
-				391D53022A76705B00EE1F8A /* Role.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
