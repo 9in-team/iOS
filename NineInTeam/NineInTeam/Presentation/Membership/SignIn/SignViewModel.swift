@@ -44,6 +44,7 @@ final class SignViewModel: BaseViewModel {
             if let error = error {
                 self.loginErrorPrinter(error)
                 self.authManager.logout()
+                self.showToast(title: "로그인 후 이용해주세요.")
                 completion(error)
                 return
             }
