@@ -15,7 +15,7 @@ final class SignViewModel: BaseViewModel {
     
     private var networkService: NetworkProtocol
     
-    private var authManager = AuthManager.shared
+    private var authManager = AuthenticationManager.shared
     
     init(service: NetworkProtocol = NetworkService()) {
         self.networkService = service
@@ -98,7 +98,7 @@ extension SignViewModel {
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: SignInResponseData.self)
+                     returnType: SignInResponse.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return

@@ -13,7 +13,7 @@ struct ApplicationSwitcher: View {
 
     @StateObject var coordinator = Coordinator(isRoot: true)
 
-    @ObservedObject private var authManager = AuthManager.shared
+    @ObservedObject private var authManager = AuthenticationManager.shared
     
     var body: some View {
         

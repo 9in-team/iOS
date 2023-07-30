@@ -1,5 +1,5 @@
 //
-//  AuthManager.swift
+//  AuthenticationManager.swift
 //  NineInTeam
 //
 //  Created by HeonJin Ha on 2023/06/18.
@@ -11,7 +11,7 @@ import KakaoSDKUser
 import KakaoSDKAuth
 import AuthenticationServices
 
-class AuthManager: ObservableObject {
+class AuthenticationManager: ObservableObject {
     
     private var keychainManager = KeychainManager.shared
     private var networkService: NetworkService
@@ -21,7 +21,7 @@ class AuthManager: ObservableObject {
     @AppStorage("isSignIn") var isSingIn = false
     @Published var userData: UserData?
     
-    static let shared = AuthManager()
+    static let shared = AuthenticationManager()
     
     private init() {
         self.networkService = NetworkService()
@@ -29,7 +29,7 @@ class AuthManager: ObservableObject {
 
 }
 
-extension AuthManager {
+extension AuthenticationManager {
     
     func login(provider: SignInProviderType, completion: @escaping (Error?) -> Void) {
         switch provider {
@@ -44,7 +44,7 @@ extension AuthManager {
                     }
                 }
         default:
-            completion(LoginError.notSigned)
+            completion(SignInError.notSigned)
         }
     }
     
@@ -68,7 +68,7 @@ extension AuthManager {
         case .kakao:
             KakaoAuthService(with: networkService).getLoginSession(completion: completion)
         default:
-            completion(LoginError.unknownSession)
+            completion(SignInError.unknownSession)
         }
         
     }
@@ -108,7 +108,7 @@ extension AuthManager {
 
 // 카카오 로그인 Test Stub
 #if canImport(XCTest)
-extension AuthManager {
+extension AuthenticationManager {
     
     func saveKakaoAccessToken(accessToken: String) throws {
         do {
@@ -120,11 +120,3 @@ extension AuthManager {
     
 }
 #endif
-
-enum LoginError: Error {
-    
-    case notSigned
-    case notImplemented
-    case unknownSession
-    
-}

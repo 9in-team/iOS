@@ -80,8 +80,8 @@ final class KakaoLoginTests: XCTestCase {
     func test_AuthManager_logout_ShuldBeNotThrowError() {
         // Given
         let authenticatedLoginToken = ""
-        AuthManager.shared.isSingIn = true
-        AuthManager.shared.userData = .init(id: 99999999999,
+        AuthenticationManager.shared.isSingIn = true
+        AuthenticationManager.shared.userData = .init(id: 99999999999,
                                                 email: "test",
                                                 nickName: "test",
                                                 profileImageUrl: "test",
@@ -93,9 +93,9 @@ final class KakaoLoginTests: XCTestCase {
         
         // Then
         // 아래 2개의 Assert Test 용으로 테스트 환경 에선 실제 로그아웃은 실패 함.
-        AuthManager.shared.logout()
-        XCTAssertFalse(AuthManager.shared.isSingIn, "로그아웃 후에는 로그인 상태가 false여야 합니다.")
-        XCTAssertNil(AuthManager.shared.userData, "로그아웃 후에는 유저데이터가 nil 값을 가져야합니다.")
+        AuthenticationManager.shared.logout()
+        XCTAssertFalse(AuthenticationManager.shared.isSingIn, "로그아웃 후에는 로그인 상태가 false여야 합니다.")
+        XCTAssertNil(AuthenticationManager.shared.userData, "로그아웃 후에는 유저데이터가 nil 값을 가져야합니다.")
         expectation1.fulfill()
         
         // 실제로 로그아웃 작업.

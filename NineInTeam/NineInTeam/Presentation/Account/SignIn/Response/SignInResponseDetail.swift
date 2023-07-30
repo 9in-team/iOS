@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignInUserDaoResponse: Codable {
+struct SignInResponseDetail: Codable {
     
     let id: Int
     let email: String

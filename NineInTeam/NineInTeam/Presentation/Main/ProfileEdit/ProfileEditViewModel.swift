@@ -18,7 +18,7 @@ final class ProfileEditViewModel: BaseViewModel {
     
     private var profileImageUrl: String = ""
     
-    private var authManager = AuthManager.shared
+    private var authManager = AuthenticationManager.shared
     
     private var networkService = NetworkService()
     
@@ -74,7 +74,7 @@ extension ProfileEditViewModel {
         uploadImage { [weak self] imageUrl in
             guard let self = self else { return }
             
-            let body: [String: Any]? = try? UserProfileUpdateDao(nickname: updatedName,
+            let body: [String: Any]? = try? ProfileUpdateResponseDetail(nickname: updatedName,
                                                                imageUrl: imageUrl.absoluteString).toDictionary()
             
             guard let parameters = body else {return}
@@ -86,7 +86,7 @@ extension ProfileEditViewModel {
                                urlType: .test,
                                endPoint: endpoint,
                                parameters: parameters,
-                               returnType: UserProfileUpdateDaoResponse.self)
+                               returnType: ProfileUpdateResponse.self)
             .map(\.detail)
             .sink { result in
                 switch result {

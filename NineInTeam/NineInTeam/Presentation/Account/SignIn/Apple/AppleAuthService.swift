@@ -11,12 +11,12 @@ import AuthenticationServices
 
 final class AppleAuthService {
     
-    private let authManager: AuthManager
+    private let authManager: AuthenticationManager
     private let networkService: NetworkProtocol
     private var cancellables: Set<AnyCancellable>
     
     init(with networkService: NetworkProtocol, cancellables: Set<AnyCancellable> = []) {
-        self.authManager = AuthManager.shared
+        self.authManager = AuthenticationManager.shared
         self.networkService = networkService
         self.cancellables = cancellables
     }
@@ -56,7 +56,7 @@ extension AppleAuthService {
                             urlType: .test,
                             endPoint: EndPoint.loginWithApple.get(),
                             parameters: body,
-                            returnType: SignInResponseData.self)
+                            returnType: SignInResponse.self)
         .tryCompactMap { response in
             guard let detail = response.detail else {
                 throw AppleAuthError.tokenIsNil

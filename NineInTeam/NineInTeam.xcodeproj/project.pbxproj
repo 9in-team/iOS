@@ -12,6 +12,7 @@
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
+		391D52F82A76250F00EE1F8A /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D52F72A76250F00EE1F8A /* SignInError.swift */; };
 		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		392B97612A4C5BF200112529 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97602A4C5BF200112529 /* KeychainServiceTests.swift */; };
 		392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97622A4C60E900112529 /* KakaoAuthError.swift */; };
@@ -19,8 +20,8 @@
 		394A95882A4052CB00501B32 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95872A4052CB00501B32 /* Error.swift */; };
 		394A958A2A40A37400501B32 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95892A40A37400501B32 /* Encodable.swift */; };
 		394A958C2A40A6C300501B32 /* CustomEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A958B2A40A6C300501B32 /* CustomEncodingError.swift */; };
-		3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F22A41E92300AF9622 /* UserProfileUpdateDao.swift */; };
-		3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */; };
+		3959A4F32A41E92300AF9622 /* ProfileUpdateResponseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F22A41E92300AF9622 /* ProfileUpdateResponseDetail.swift */; };
+		3959A4F52A41E93300AF9622 /* ProfileUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* ProfileUpdateResponse.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */; };
@@ -29,7 +30,7 @@
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
 		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
-		39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C38C2A3E1164005064D9 /* AuthManager.swift */; };
+		39A7C38D2A3E1164005064D9 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C38C2A3E1164005064D9 /* AuthenticationManager.swift */; };
 		39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
@@ -40,8 +41,8 @@
 		39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */; };
 		39D655FD29F17C5400C17C1B /* SubscribeTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */; };
 		39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */; };
-		39D8DCCD2A3C5ECA007530A9 /* SignInResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCC2A3C5ECA007530A9 /* SignInResponseData.swift */; };
-		39D8DCCF2A3C5EDA007530A9 /* SignInUserDaoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCE2A3C5EDA007530A9 /* SignInUserDaoResponse.swift */; };
+		39D8DCCD2A3C5ECA007530A9 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCC2A3C5ECA007530A9 /* SignInResponse.swift */; };
+		39D8DCCF2A3C5EDA007530A9 /* SignInResponseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCCE2A3C5EDA007530A9 /* SignInResponseDetail.swift */; };
 		39D8DCD12A3C602A007530A9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8DCD02A3C602A007530A9 /* UserData.swift */; };
 		39DD090D2A4B371000F69828 /* KeychainServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DD090C2A4B371000F69828 /* KeychainServiceType.swift */; };
 		39DD090F2A4B371E00F69828 /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DD090E2A4B371E00F69828 /* KeychainError.swift */; };
@@ -158,6 +159,7 @@
 /* Begin PBXFileReference section */
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
+		391D52F72A76250F00EE1F8A /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		392B97602A4C5BF200112529 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		392B97622A4C60E900112529 /* KakaoAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthError.swift; sourceTree = "<group>"; };
@@ -165,8 +167,8 @@
 		394A95872A4052CB00501B32 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		394A95892A40A37400501B32 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		394A958B2A40A6C300501B32 /* CustomEncodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEncodingError.swift; sourceTree = "<group>"; };
-		3959A4F22A41E92300AF9622 /* UserProfileUpdateDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUpdateDao.swift; sourceTree = "<group>"; };
-		3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUpdateDaoResponse.swift; sourceTree = "<group>"; };
+		3959A4F22A41E92300AF9622 /* ProfileUpdateResponseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateResponseDetail.swift; sourceTree = "<group>"; };
+		3959A4F42A41E93300AF9622 /* ProfileUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateResponse.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NineInTeam.entitlements; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
-		39A7C38C2A3E1164005064D9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		39A7C38C2A3E1164005064D9 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
@@ -186,8 +188,8 @@
 		39D655FA29F17C4300C17C1B /* SubscribeTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagView.swift; sourceTree = "<group>"; };
 		39D655FC29F17C5400C17C1B /* SubscribeTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagCell.swift; sourceTree = "<group>"; };
 		39D655FE29F17D1F00C17C1B /* SubscribeTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeTagViewModel.swift; sourceTree = "<group>"; };
-		39D8DCCC2A3C5ECA007530A9 /* SignInResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponseData.swift; sourceTree = "<group>"; };
-		39D8DCCE2A3C5EDA007530A9 /* SignInUserDaoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserDaoResponse.swift; sourceTree = "<group>"; };
+		39D8DCCC2A3C5ECA007530A9 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		39D8DCCE2A3C5EDA007530A9 /* SignInResponseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponseDetail.swift; sourceTree = "<group>"; };
 		39D8DCD02A3C602A007530A9 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		39DD090C2A4B371000F69828 /* KeychainServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceType.swift; sourceTree = "<group>"; };
 		39DD090E2A4B371E00F69828 /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
@@ -317,15 +319,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		390F8F012A3F1A1B007B66CD /* UserData */ = {
-			isa = PBXGroup;
-			children = (
-				39D8DCD02A3C602A007530A9 /* UserData.swift */,
-				39A7C38C2A3E1164005064D9 /* AuthManager.swift */,
-			);
-			path = UserData;
-			sourceTree = "<group>";
-		};
 		390F8F062A3F3875007B66CD /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,34 +329,40 @@
 			path = Security;
 			sourceTree = "<group>";
 		};
-		3959A4F62A41E9D100AF9622 /* DAO */ = {
+		391D52F62A76240400EE1F8A /* ProfileUpdate */ = {
 			isa = PBXGroup;
 			children = (
-				39D8DCCC2A3C5ECA007530A9 /* SignInResponseData.swift */,
-				39D8DCCE2A3C5EDA007530A9 /* SignInUserDaoResponse.swift */,
-				3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */,
-				3959A4F22A41E92300AF9622 /* UserProfileUpdateDao.swift */,
+				3959A4F42A41E93300AF9622 /* ProfileUpdateResponse.swift */,
+				3959A4F22A41E92300AF9622 /* ProfileUpdateResponseDetail.swift */,
 			);
-			path = DAO;
+			path = ProfileUpdate;
+			sourceTree = "<group>";
+		};
+		391D52F92A76258C00EE1F8A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				39D8DCCC2A3C5ECA007530A9 /* SignInResponse.swift */,
+				39D8DCCE2A3C5EDA007530A9 /* SignInResponseDetail.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		3959A4F62A41E9D100AF9622 /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				39D8DCD02A3C602A007530A9 /* UserData.swift */,
+			);
+			path = UserModel;
 			sourceTree = "<group>";
 		};
 		396D2AAC2A5511D00042D4D4 /* Apple */ = {
 			isa = PBXGroup;
 			children = (
 				39C128AC2A657C8C00B232D6 /* AppleAuthService.swift */,
-				39C128AE2A657CB000B232D6 /* AppleSignInRequest.swift */,
 				39C128B02A657CEB00B232D6 /* AppleAuthError.swift */,
+				39C128AE2A657CB000B232D6 /* AppleSignInRequest.swift */,
 			);
 			path = Apple;
-			sourceTree = "<group>";
-		};
-		3993A9A32A4E9BA8007063EB /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				396D2AAC2A5511D00042D4D4 /* Apple */,
-				3993A9A62A4E9BD8007063EB /* Kakao */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		3993A9A62A4E9BD8007063EB /* Kakao */ = {
@@ -589,7 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				DEA2B66A2970301000B77335 /* Base */,
-				DEA2B6752970320700B77335 /* Membership */,
+				DEA2B6752970320700B77335 /* Account */,
 				DE6FBDE42990E82700816A7D /* Main */,
 				DE4779552A079AE800C0EC3E /* CustomModel */,
 			);
@@ -602,6 +601,9 @@
 				DEA2B66829702FD000B77335 /* SignInView.swift */,
 				DEE7BC152989180900FE7FEC /* SignViewModel.swift */,
 				390F8F042A3F30EE007B66CD /* SignInProviderType.swift */,
+				3993A9A62A4E9BD8007063EB /* Kakao */,
+				396D2AAC2A5511D00042D4D4 /* Apple */,
+				391D52F92A76258C00EE1F8A /* Response */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -650,15 +652,16 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		DEA2B6752970320700B77335 /* Membership */ = {
+		DEA2B6752970320700B77335 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				3993A9A32A4E9BA8007063EB /* Service */,
-				3959A4F62A41E9D100AF9622 /* DAO */,
-				390F8F012A3F1A1B007B66CD /* UserData */,
+				39A7C38C2A3E1164005064D9 /* AuthenticationManager.swift */,
+				391D52F72A76250F00EE1F8A /* SignInError.swift */,
 				DEA2B66729702FC100B77335 /* SignIn */,
+				3959A4F62A41E9D100AF9622 /* UserModel */,
+				391D52F62A76240400EE1F8A /* ProfileUpdate */,
 			);
-			path = Membership;
+			path = Account;
 			sourceTree = "<group>";
 		};
 		DEB0D35A29AF7E3D00B5E1B9 /* Home */ = {
@@ -1071,7 +1074,7 @@
 				390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */,
 				DEB34E9A2971704A00C0B973 /* Data.swift in Sources */,
 				3999833229EED3CE0009372F /* ReceivedPostCell.swift in Sources */,
-				39D8DCCF2A3C5EDA007530A9 /* SignInUserDaoResponse.swift in Sources */,
+				39D8DCCF2A3C5EDA007530A9 /* SignInResponseDetail.swift in Sources */,
 				DEC82E2729AA8A4300D17C50 /* ImagePicker.swift in Sources */,
 				DE7B0B7D29D88A9100CB90FE /* ChatCellView.swift in Sources */,
 				394A958C2A40A6C300501B32 /* CustomEncodingError.swift in Sources */,
@@ -1086,11 +1089,11 @@
 				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
-				39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */,
+				39A7C38D2A3E1164005064D9 /* AuthenticationManager.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
-				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
-				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
+				3959A4F32A41E92300AF9622 /* ProfileUpdateResponseDetail.swift in Sources */,
+				3959A4F32A41E92300AF9622 /* ProfileUpdateResponseDetail.swift in Sources */,
 				DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */,
 				39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
@@ -1101,9 +1104,9 @@
 				39DD090F2A4B371E00F69828 /* KeychainError.swift in Sources */,
 				DEB0D37129C09EB300B5E1B9 /* MySubscribeView.swift in Sources */,
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
-				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
+				3959A4F52A41E93300AF9622 /* ProfileUpdateResponse.swift in Sources */,
 				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
-				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
+				3959A4F52A41E93300AF9622 /* ProfileUpdateResponse.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
@@ -1111,6 +1114,7 @@
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
 				DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */,
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
+				391D52F82A76250F00EE1F8A /* SignInError.swift in Sources */,
 				39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
 				DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */,
@@ -1142,7 +1146,7 @@
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
-				39D8DCCD2A3C5ECA007530A9 /* SignInResponseData.swift in Sources */,
+				39D8DCCD2A3C5ECA007530A9 /* SignInResponse.swift in Sources */,
 				DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct SignInResponseData: Codable {
+struct SignInResponse: Codable {
     
-    let detail: SignInUserDaoResponse?
+    let detail: SignInResponseDetail?
     
 }

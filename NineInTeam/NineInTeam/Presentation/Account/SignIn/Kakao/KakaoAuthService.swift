@@ -13,11 +13,11 @@ import KakaoSDKAuth
 // 카카오 로그인 로직
 class KakaoAuthService {
     
-    private var authManager: AuthManager
+    private var authManager: AuthenticationManager
     private var networkService: NetworkService
     private var cancellables = Set<AnyCancellable>()
     
-    init(with networkService: NetworkService, authManager: AuthManager = .shared) {
+    init(with networkService: NetworkService, authManager: AuthenticationManager = .shared) {
         print("DEBUG INIT: KakaoAuthService")
         self.cancellables = .init()
         self.networkService = networkService
@@ -107,7 +107,7 @@ extension KakaoAuthService {
                                  urlType: UrlType.test,
                                  endPoint: EndPoint.loginWithKakao.get(),
                                  parameters: parameters,
-                                 returnType: SignInResponseData.self)
+                                 returnType: SignInResponse.self)
         .sink { result in
             switch result {
             case .failure(let error):
@@ -157,7 +157,7 @@ extension KakaoAuthService {
 #if canImport(XCTest)
 extension KakaoAuthService {
     
-    func setAuthManager(_ authManager: AuthManager) {
+    func setAuthManager(_ authManager: AuthenticationManager) {
         self.authManager = authManager
     }
     
