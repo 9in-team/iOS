@@ -9,37 +9,14 @@ import SwiftUI
 
 struct WritePostView: View {
     
-    @StateObject var viewModel = HomeViewModel()
+    @StateObject private var viewModel = HomeViewModel()
     
     @State private var isShowAlert: Bool = false
     @State private var anyAlert: AnyView = AnyView(EmptyView())
-    
-    let category: [String] = ["스터디", "프로젝트"]
     @State private var selectedIndex: Int = 0
-    
-    @State private var subject: String = ""
-    
     @State private var showAddTagAlert: Bool = false
-    @State private var tags: [String] = ["알고리즘"]
-    
-    @State private var showAddRecruitmentRoleAlert: Bool = false
-    @State private var recruitmentRoles: [RecruitmentRole] = [RecruitmentRole(title: "프론트엔트 개발자", count: 4),
-                                                      RecruitmentRole(title: "디자이너", count: 4)]
-    
-    @State private var showAddSubmissionFormAlert: Bool = false
-    @State private var submissionForms: [SubmissionForm] = [SubmissionForm(number: 1,
-                                                                   type: .text,
-                                                                   question: "solved.ac 티어가 어떻게 되세요?"),
-                                                    SubmissionForm(number: 2,
-                                                                   type: .image,
-                                                                   question: "solved.ac 프로필 사진 찍어주세요"),
-                                                    SubmissionForm(number: 3,
-                                                                   type: .file,
-                                                                   question: "포트폴리오 첨부해주세요"),
-                                                    SubmissionForm(number: 4,
-                                                                   type: .choice,
-                                                                   question: "열심히 하실거죠?")]
-    
+    @State private var showSubmitAlert: Bool = false
+
     @State var chatRoomLink: String = ""
     
 }
@@ -57,40 +34,38 @@ extension WritePostView {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 30) {
 
-                radioGroup()
-                    .padding(.horizontal, 20)
-
-                title()
-                    .padding(.horizontal, 20)
-
-                tag()
-                    .padding(.horizontal, 20)
+                Group {
+                    radioGroup(selected: $viewModel.subjectType)
+                    
+                    titleView()
+                    
+                    tag()
+                }
+                .padding(.horizontal, 20)
 
                 recruitmentRole()
 
-                teamExplanation()
-                    .padding(.horizontal, 20)
+                Group {
+                    teamExplanation()
+                    
+                    submissionForm()
+                    
+                    teamChatRoomLink()
+                    
+                    bottomButton()
+                }
+                .padding(.horizontal, 20)
 
-                submissionForm()
-                    .padding(.horizontal, 20)
-
-                teamChatRoomLink()
-                    .padding(.horizontal, 20)
-
-                bottomButton()
-                    .padding(.horizontal, 20)
             }
             .padding(.bottom, 10)
         }
     }
     
-    func radioGroup() -> some View {
-        RadioButtonGroups(items: category) { index in
-            selectedIndex = index
-        }
+    private func radioGroup(selected: Binding<SubjectType>) -> some View {
+        RadioButtonGroups($viewModel.subjectType)
     }
     
-    func title() -> some View {
+    private func titleView() -> some View {
         VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "제목", font: .robotoBold, size: 12)
                 .foregroundColor(
@@ -100,7 +75,7 @@ extension WritePostView {
                 .padding(.bottom, 4)
             
             VStack(alignment: .leading, spacing: 5) {
-                TextField("", text: $subject)
+                TextField("제목을 입력하세요.", text: $viewModel.subject)
                     .foregroundColor(
                         Color(hexcode: "000000")
                             .opacity(0.87)
@@ -118,6 +93,18 @@ extension WritePostView {
         }
     }
     
+    private func tagCell(_ tag: HashTag) -> some View {
+        TextWithFont(text: tag.name, size: 13)
+            .padding(.vertical, 6)
+            .padding(.horizontal, 10)
+            .foregroundColor(Color(hexcode: "000000"))
+            .background(
+                Capsule(style: .continuous)
+                    .stroke(Color(hexcode: "000000").opacity(0.26))
+            )
+            .frame(height: 35)
+    }
+    
     func tag() -> some View {
         VStack(alignment: .leading, spacing: 5) {
             TextWithFont(text: "태그", font: .robotoBold, size: 12)
@@ -128,16 +115,8 @@ extension WritePostView {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(tags, id: \.self) { tag in
-                        TextWithFont(text: tag, size: 13)
-                            .padding(.vertical, 6)
-                            .padding(.horizontal, 10)
-                            .foregroundColor(Color(hexcode: "000000"))
-                            .background(
-                                Capsule(style: .continuous)
-                                    .stroke(Color(hexcode: "000000").opacity(0.26))
-                            )
-                            .frame(height: 35)
+                    ForEach(viewModel.hashtags, id: \.self) { tag in
+                        tagCell(tag)
                     }
                     
                     Button {
@@ -178,11 +157,11 @@ extension WritePostView {
                         .fill(.clear)
                         .frame(width: 10, height: 120)
 
-                    ForEach(recruitmentRoles, id: \.self) { role in
+                    ForEach(viewModel.roles, id: \.self) { role in
                         VStack(alignment: .center, spacing: 0) {
                             Spacer()
                             
-                            TextWithFont(text: role.title, font: .robotoMedium, size: 20)
+                            TextWithFont(text: role.name, font: .robotoMedium, size: 20)
                                 .frame(height: 60, alignment: .top)
                                 .foregroundColor(
                                     Color(hexcode: "000000")
@@ -209,7 +188,7 @@ extension WritePostView {
                     }
                          
                     Button {
-                        showAddRecruitmentRoleAlert = true
+                        showSubmitAlert = true
                     } label: {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 120, height: 120)
@@ -220,7 +199,7 @@ extension WritePostView {
                                     .frame(width: 30, height: 30)
                             }
                     }
-                    .drawOnRootViewController(isPresented: $showAddRecruitmentRoleAlert) {
+                    .drawOnRootViewController(isPresented: $showSubmitAlert) {
                         BaseAlert {
                             Text("showAddRecruitmentRoleAlert = false")
                         }
@@ -273,54 +252,14 @@ extension WritePostView {
                 )
             
             VStack(spacing: 20) {
-                ForEach(submissionForms, id: \.self) { form in
-                    HStack(spacing: 8) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(Color(hexcode: "000000")
-                                    .opacity(0.23)
-                                )
-                                .frame(width: 62, height: 62)
-                                .overlay(
-                                    TextWithFont(text: "\(form.number ?? 0)", font: .robotoMedium, size: 12)
-                                        .foregroundColor(Color(hexcode: "FFFFFF"))
-                                        .padding(6)
-                                        .background(ColorConstant.main.color())
-                                        .clipShape(Circle())
-                                        .offset(x: -31, y: -31)
-                                )
-                            
-                            VStack(spacing: 5) {
-                                Image(form.type.asset())
-                                    .resizable()
-                                    .frame(width: form.type.assetSize().width, height: form.type.assetSize().height)
-                                    .padding(.top, 3)
-                                
-                                TextWithFont(text: form.type.text(), size: 12)
-                            }
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 8) {
-                            TextWithFont(text: form.question, size: 16)
-                                .foregroundColor(
-                                    Color(hexcode: "000000")
-                                        .opacity(0.6)
-                                )
-                                      
-                            Divider()
-                                .frame(height: 1)
-                                .foregroundColor(
-                                    Color(hexcode: "000000")
-                                        .opacity(0.42)
-                                )
-                                .border(Color(hexcode: "000000").opacity(0.42),
-                                        width: 1)
-                        }
-                    }
+                
+                // 팀 템플릿
+                ForEach(viewModel.templates, id: \.self) { form in
+
                 }
                 
                 Button {
-                    showAddSubmissionFormAlert = true
+                    showSubmitAlert = true
                 } label: {
                     Circle()
                         .frame(width: 56, height: 56)
@@ -331,13 +270,59 @@ extension WritePostView {
                                 .frame(width: 14, height: 14)
                         }
                 }
-                .drawOnRootViewController(isPresented: $showAddSubmissionFormAlert) {
+                .drawOnRootViewController(isPresented: $showSubmitAlert) {
                     BaseAlert {
                         Text("showAddSubmissionFormAlert = false")
                     }
                 }
             }
             .padding(.horizontal, 5)
+        }
+    }
+    
+    private func teamTemplateView(_ form: TeamTemplate) -> some View {
+        HStack(spacing: 8) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(Color(hexcode: "000000")
+                        .opacity(0.23)
+                    )
+                    .frame(width: 62, height: 62)
+                    .overlay(
+                        TextWithFont(text: "\(form.number ?? 0)", font: .robotoMedium, size: 12)
+                            .foregroundColor(Color(hexcode: "FFFFFF"))
+                            .padding(6)
+                            .background(ColorConstant.main.color())
+                            .clipShape(Circle())
+                            .offset(x: -31, y: -31)
+                    )
+                
+                VStack(spacing: 5) {
+                    Image(form.type.asset())
+                        .resizable()
+                        .frame(width: form.type.assetSize().width, height: form.type.assetSize().height)
+                        .padding(.top, 3)
+                    
+                    TextWithFont(text: form.type.text(), size: 12)
+                }
+            }
+            
+            VStack(alignment: .leading, spacing: 8) {
+                TextWithFont(text: form.question, size: 16)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.6)
+                    )
+                          
+                Divider()
+                    .frame(height: 1)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.42)
+                    )
+                    .border(Color(hexcode: "000000").opacity(0.42),
+                            width: 1)
+            }
         }
     }
     

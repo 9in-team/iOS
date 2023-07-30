@@ -7,7 +7,7 @@
 
 import CoreFoundation
 
-enum SubmissionFormType: String, Codable {
+enum TeamTemplateType: String, Codable {
     
     case text = "text"
     case image = "image"

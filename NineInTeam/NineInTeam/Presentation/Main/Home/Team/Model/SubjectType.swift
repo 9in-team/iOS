@@ -7,7 +7,16 @@
 
 import Foundation
 
-enum SubjectType: String, Codable {
-    case project = "PROJECT"
-    case study = "Study"
+enum SubjectType: Int, Codable, CaseIterable {
+    case project = 0
+    case study = 1
+    
+    var title: String {
+        switch self {
+        case .project:
+            return "PROJECT"
+        case .study:
+            return "Study"
+        }
+    }
 }

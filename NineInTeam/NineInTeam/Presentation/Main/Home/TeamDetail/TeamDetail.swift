@@ -14,7 +14,7 @@ struct TeamDetail: Decodable {
     var hashtags: [String]
     var roles: [RecruitmentRole]
     var content: String
-    var applyTemplate: [SubmissionForm]
+    var applyTemplate: [TeamTemplate]
     var lastModified: String
     var liked: Bool
 }

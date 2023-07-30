@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Role: Codable {
+struct Role: Codable, Hashable {
     let name: String
     let count: Int
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HashTag: Codable {
+struct HashTag: Codable, Hashable {
     let name: String
     
     init(_ name: String) {

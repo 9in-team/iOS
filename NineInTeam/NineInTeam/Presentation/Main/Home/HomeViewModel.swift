@@ -14,6 +14,14 @@ class HomeViewModel: BaseViewModel {
     
     @Published var teams: [Team] = []
     @Published var teamDetail: TeamDetail?
+    
+    @Published var content: String = ""
+    @Published var subject: String = ""
+    @Published var openChatUrl: String = ""
+    @Published var hashtags: [HashTag] = []
+    @Published var subjectType: SubjectType = .project
+    @Published var roles: [Role] = []
+    @Published var templates: [TeamTemplate] = []
 
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
@@ -98,7 +106,7 @@ struct PostWriteTeam: Decodable {
     let types: [String]
     let roles: [RecruitmentRole]
     let content: String
-    let teamTemplates: [SubmissionForm]
+    let teamTemplates: [TeamTemplate]
     let openChatUrl: String
 }
 
@@ -111,7 +119,7 @@ struct DetailWriteTeam: Decodable {
     let teamId: Int
     let openChatUrl: String
     let content: String
-    let teamTemplates: [SubmissionForm]
+    let teamTemplates: [TeamTemplate]
     let types: [String]
     let subjectType: String
     let roles: [RecruitmentRole]

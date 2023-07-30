@@ -9,32 +9,21 @@ import SwiftUI
 
 struct RadioButtonGroups: View {
     
-    let items: [String]
-    var scrollable: Bool = false
-    let completion: (Int) -> Void
-    
-    @State var selectedIndex: Int = 0
-    
-    var body: some View {
-        if scrollable {
-            ScrollView(.horizontal, showsIndicators: false) {
-                radioButtons
-            }
-        } else {
-            HStack {
-                radioButtons
-                
-                Spacer()
-            }
-        }
+    @Binding private var selectedType: SubjectType
+
+    init(_ type: Binding<SubjectType>) {
+        self._selectedType = type
     }
-    
-    var radioButtons: some View {
-        ForEach(Array(zip(items.indices, items)), id: \.0) { index, title in
-            RadioButtonField(index: index, title: title, isChecked: selectedIndex == index) {
-                selectedIndex = index
-                completion(selectedIndex)
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            
+            ForEach(SubjectType.allCases.indices) { index in
+                let type = SubjectType(rawValue: index) ?? .project
+                RadioButtonField(index: index, title: type.title) {
+                    selectedType = type
+                }
             }
+            Spacer()
         }
     }
     

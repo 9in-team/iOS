@@ -117,7 +117,7 @@
 		DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9129CB294D00EF915E /* DefaultAlert.swift */; };
 		DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9329CC964900EF915E /* RecruitmentRole.swift */; };
 		DEB38C9629CDE1FC00EF915E /* SubmissionFormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */; };
-		DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */; };
+		DEB38C9829CDE2AA00EF915E /* TeamTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9729CDE2AA00EF915E /* TeamTemplate.swift */; };
 		DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9A29CEF77100EF915E /* BaseAlert.swift */; };
 		DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */; };
 		DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCCF212A50873F00CEA032 /* ChatRoom.swift */; };
@@ -270,7 +270,7 @@
 		DEB38C9129CB294D00EF915E /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
 		DEB38C9329CC964900EF915E /* RecruitmentRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentRole.swift; sourceTree = "<group>"; };
 		DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionFormType.swift; sourceTree = "<group>"; };
-		DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionForm.swift; sourceTree = "<group>"; };
+		DEB38C9729CDE2AA00EF915E /* TeamTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTemplate.swift; sourceTree = "<group>"; };
 		DEB38C9A29CEF77100EF915E /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
 		DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DEBCCF212A50873F00CEA032 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
@@ -341,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				391D52FF2A76704B00EE1F8A /* TeamResponse.swift */,
+				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
 				391D53012A76705B00EE1F8A /* Role.swift */,
 				391D53032A76706500EE1F8A /* SubjectType.swift */,
 				391D53052A76707000EE1F8A /* HashTag.swift */,
@@ -720,10 +721,9 @@
 			isa = PBXGroup;
 			children = (
 				391D52FC2A76703100EE1F8A /* Model */,
-				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
 				DEB0D36829B7714D00B5E1B9 /* TeamCellView.swift */,
 				DEB38C9329CC964900EF915E /* RecruitmentRole.swift */,
-				DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */,
+				DEB38C9729CDE2AA00EF915E /* TeamTemplate.swift */,
 				DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */,
 			);
 			path = Team;
@@ -1138,7 +1138,7 @@
 				DEB34E79297039FF00C0B973 /* BaseViewModel.swift in Sources */,
 				DE7B0B7A29D8861A00CB90FE /* ChatListViewModel.swift in Sources */,
 				DEC82E0F29966D1400D17C50 /* BaseResponseModel.swift in Sources */,
-				DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */,
+				DEB38C9829CDE2AA00EF915E /* TeamTemplate.swift in Sources */,
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
 				394A958A2A40A37400501B32 /* Encodable.swift in Sources */,

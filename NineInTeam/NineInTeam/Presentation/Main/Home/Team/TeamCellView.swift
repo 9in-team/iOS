@@ -44,8 +44,8 @@ extension TeamCellView {
             Spacer()
             
             HStack {
-                ForEach(team.hashtags, id: \.self) { hashtag in
-                    TextWithFont(text: "#\(hashtag)", size: 13)
+                ForEach(team.types, id: \.self) { type in
+                    TextWithFont(text: "#\(type.name)", size: 13)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.87)
@@ -63,12 +63,12 @@ extension TeamCellView {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 3) {
-                    TextWithFont(text: team, size: 12)
+                    TextWithFont(text: "team", size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                         )
                     
-                    TextWithFont(text: team.lastModified, size: 12)
+                    TextWithFont(text: "team.lastModified", size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                                 .opacity(0.38)
@@ -88,11 +88,10 @@ extension TeamCellView {
 
 #if DEBUG
 struct TeamCellView_Previews: PreviewProvider {
+    
     static var previews: some View {
-
-        let team = TestObject.team
-        TeamCellView(team: team)
-
+        TeamCellView(team: TestObject.team)
     }
+    
 }
 #endif
