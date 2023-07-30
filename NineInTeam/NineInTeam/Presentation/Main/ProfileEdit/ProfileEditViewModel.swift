@@ -54,11 +54,11 @@ extension ProfileEditViewModel {
                     }
                 case .failure(let error):
                     error.printAndTypeCatch()
-                    self?.showAlert(title: "프로필 이미지 로드 실패")
+                    self?.showToast(title: "프로필 이미지 로드 실패")
                 }
             }
         } else {
-            self.showAlert(title: "프로필 로드 실패")
+            self.showToast(title: "프로필 로드 실패")
         }
         
     }

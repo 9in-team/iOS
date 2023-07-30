@@ -32,7 +32,7 @@ final class SignViewModel: BaseViewModel {
         
         authManager.login(provider: .kakao) { [weak self] error in
             if let error = error {
-                self?.showAlert(title: "로그인에 실패했어요. \(error.localizedDescription)")
+                self?.showToast(title: "로그인에 실패했어요. \(error.localizedDescription)")
                 self?.didFinishLoading()
             }
         }
@@ -91,12 +91,12 @@ final class SignViewModel: BaseViewModel {
                 self?.showAlert(title: error.localizedDescription)
             } else {
                 guard let email = user?.kakaoAccount?.email else {
-                    self?.showAlert(title: "카카오톡 회원정보를 가져오지 못했습니다.")
+                    self?.showToast(title: "카카오톡 회원정보를 가져오지 못했습니다.")
                     return
                 }
                 
                 guard let nickname = user?.kakaoAccount?.profile?.nickname else {
-                    self?.showAlert(title: "카카오톡 회원정보를 가져오지 못했습니다.")
+                    self?.showToast(title: "카카오톡 회원정보를 가져오지 못했습니다.")
                     return
                 }
                 
