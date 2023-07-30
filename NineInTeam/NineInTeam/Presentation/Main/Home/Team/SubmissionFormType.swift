@@ -7,7 +7,7 @@
 
 import CoreFoundation
 
-enum SubmissionFormType: String, Decodable {
+enum SubmissionFormType: String, Codable {
     
     case text = "text"
     case image = "image"

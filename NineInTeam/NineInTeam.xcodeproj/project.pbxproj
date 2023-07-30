@@ -12,6 +12,10 @@
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
+		391D53002A76704B00EE1F8A /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D52FF2A76704B00EE1F8A /* TeamResponse.swift */; };
+		391D53022A76705B00EE1F8A /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53012A76705B00EE1F8A /* Role.swift */; };
+		391D53042A76706500EE1F8A /* SubjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53032A76706500EE1F8A /* SubjectType.swift */; };
+		391D53062A76707000EE1F8A /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53052A76707000EE1F8A /* HashTag.swift */; };
 		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		392B97612A4C5BF200112529 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97602A4C5BF200112529 /* KeychainServiceTests.swift */; };
 		392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97622A4C60E900112529 /* KakaoAuthError.swift */; };
@@ -155,6 +159,10 @@
 /* Begin PBXFileReference section */
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
+		391D52FF2A76704B00EE1F8A /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
+		391D53012A76705B00EE1F8A /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		391D53032A76706500EE1F8A /* SubjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectType.swift; sourceTree = "<group>"; };
+		391D53052A76707000EE1F8A /* HashTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
 		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		392B97602A4C5BF200112529 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		392B97622A4C60E900112529 /* KakaoAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthError.swift; sourceTree = "<group>"; };
@@ -327,6 +335,17 @@
 				39DD090E2A4B371E00F69828 /* KeychainError.swift */,
 			);
 			path = Security;
+			sourceTree = "<group>";
+		};
+		391D52FC2A76703100EE1F8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				391D52FF2A76704B00EE1F8A /* TeamResponse.swift */,
+				391D53012A76705B00EE1F8A /* Role.swift */,
+				391D53032A76706500EE1F8A /* SubjectType.swift */,
+				391D53052A76707000EE1F8A /* HashTag.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3959A4F62A41E9D100AF9622 /* DAO */ = {
@@ -700,6 +719,7 @@
 		DEB0D36A29B7715200B5E1B9 /* Team */ = {
 			isa = PBXGroup;
 			children = (
+				391D52FC2A76703100EE1F8A /* Model */,
 				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
 				DEB0D36829B7714D00B5E1B9 /* TeamCellView.swift */,
 				DEB38C9329CC964900EF915E /* RecruitmentRole.swift */,
@@ -1032,10 +1052,12 @@
 				DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */,
 				394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
+				391D53062A76707000EE1F8A /* HashTag.swift in Sources */,
 				DEB0D37B29C0AECD00B5E1B9 /* MyResumeViewModel.swift in Sources */,
 				DEB0D37329C0ADD700B5E1B9 /* MySubscribeViewModel.swift in Sources */,
 				DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */,
 				39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */,
+				391D53042A76706500EE1F8A /* SubjectType.swift in Sources */,
 				39DD090D2A4B371000F69828 /* KeychainServiceType.swift in Sources */,
 				39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
@@ -1078,12 +1100,13 @@
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
-				3959A4F32A41E92300AF9622 /* UserUpdateApiModel.swift in Sources */,
+				3959A4F32A41E92300AF9622 /* UserProfileUpdateDao.swift in Sources */,
 				DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */,
 				39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */,
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
 				392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */,
+				391D53002A76704B00EE1F8A /* TeamResponse.swift in Sources */,
 				39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */,
 				DEB0D38329C349BD00B5E1B9 /* Post.swift in Sources */,
 				39DD090F2A4B371E00F69828 /* KeychainError.swift in Sources */,
@@ -1091,7 +1114,8 @@
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
 				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
-				3959A4F52A41E93300AF9622 /* UserUpdateResponse.swift in Sources */,
+				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
+				391D53022A76705B00EE1F8A /* Role.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,

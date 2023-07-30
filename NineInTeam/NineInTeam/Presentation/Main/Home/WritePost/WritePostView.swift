@@ -11,23 +11,23 @@ struct WritePostView: View {
     
     @StateObject var viewModel = HomeViewModel()
     
-    @State var isShowAlert: Bool = false
-    @State var anyAlert: AnyView = AnyView(EmptyView())
+    @State private var isShowAlert: Bool = false
+    @State private var anyAlert: AnyView = AnyView(EmptyView())
     
     let category: [String] = ["스터디", "프로젝트"]
-    @State var selectedIndex: Int = 0
+    @State private var selectedIndex: Int = 0
     
-    @State var subject: String = ""
+    @State private var subject: String = ""
     
-    @State var showAddTagAlert: Bool = false
-    @State var tags: [String] = ["알고리즘"]
+    @State private var showAddTagAlert: Bool = false
+    @State private var tags: [String] = ["알고리즘"]
     
-    @State var showAddRecruitmentRoleAlert: Bool = false
-    @State var recruitmentRoles: [RecruitmentRole] = [RecruitmentRole(title: "프론트엔트 개발자", count: 4),
+    @State private var showAddRecruitmentRoleAlert: Bool = false
+    @State private var recruitmentRoles: [RecruitmentRole] = [RecruitmentRole(title: "프론트엔트 개발자", count: 4),
                                                       RecruitmentRole(title: "디자이너", count: 4)]
     
-    @State var showAddSubmissionFormAlert: Bool = false
-    @State var submissionForms: [SubmissionForm] = [SubmissionForm(number: 1,
+    @State private var showAddSubmissionFormAlert: Bool = false
+    @State private var submissionForms: [SubmissionForm] = [SubmissionForm(number: 1,
                                                                    type: .text,
                                                                    question: "solved.ac 티어가 어떻게 되세요?"),
                                                     SubmissionForm(number: 2,

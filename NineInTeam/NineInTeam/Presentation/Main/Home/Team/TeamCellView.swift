@@ -63,7 +63,7 @@ extension TeamCellView {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 3) {
-                    TextWithFont(text: team.leader, size: 12)
+                    TextWithFont(text: team, size: 12)
                         .foregroundColor(
                             Color(hexcode: "000000")
                         )
@@ -90,12 +90,7 @@ extension TeamCellView {
 struct TeamCellView_Previews: PreviewProvider {
     static var previews: some View {
 
-        let team = Team(teamId: 0,
-                        subject: "개발자를 모집합니다",
-                        leader: "김진홍",
-                        hashtags: ["알고리즘", "Java"],
-                        lastModified: "2023-05-11 01:02:12")
-
+        let team = TestObject.team
         TeamCellView(team: team)
 
     }

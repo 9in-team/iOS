@@ -8,9 +8,17 @@
 import Foundation
 
 #if DEBUG
-let dummyTeam = Team(teamId: 1,
-                     subject: "SUBJECT",
-                     leader: "LEADER",
-                     hashtags: ["HASHTAG1", "HASHTAG2", "HASHTAG3"],
-                     lastModified: "23시간 전")
+
+enum TestObject {
+    static let team = Team(teamId: 0,
+                         subject: "열심히 할 사람 구함",
+                         openChatUrl: "http://9in-proejct.chat",
+                         teamTemplates: [ ],
+                         types: [HashTag("KOTLIN"), HashTag("JAVA"), HashTag("MYSQL")],
+                         subjectType: .project,
+                         roles: [
+                            Role(name: "프론트앤드", count: 2),
+                            Role(name: "백엔드", count: 3)
+                         ])
+}
 #endif
