@@ -62,7 +62,7 @@ final class SignViewModel: BaseViewModel {
         willStartLoading()
         
         service.POST(headerType: HeaderType.test,
-                     urlType: UrlType.test,
+                     urlType: UrlType.test9inTeam,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
                      returnType: KakaoUserDataResponse.self)

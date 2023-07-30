@@ -9,8 +9,9 @@ enum EndPoint {
     
     case none
     case join
-    case login
+    case loginWithKakao
     case logout
+    case updateProfile(Int)
     
     func get() -> String {
         switch self {
@@ -18,10 +19,12 @@ enum EndPoint {
             return ""
         case .join:
             return "join"
-        case .login:
-            return "account"
+        case .loginWithKakao:
+            return "login-with-kakao"
         case .logout:
             return "logout"
+        case .updateProfile(let userId):
+            return "account/\(userId)"
         }
     }
     

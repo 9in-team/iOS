@@ -104,8 +104,8 @@ extension KakaoAuthService {
         let parameters = ["accessToken": accessToken]
         
         self.networkService.POST(headerType: HeaderType.test,
-                                 urlType: UrlType.testDomain,
-                                 endPoint: EndPoint.login.get(),
+                                 urlType: UrlType.test9inTeam,
+                                 endPoint: EndPoint.loginWithKakao.get(),
                                  parameters: parameters,
                                  returnType: KakaoUserDataResponse.self)
         .sink { result in
