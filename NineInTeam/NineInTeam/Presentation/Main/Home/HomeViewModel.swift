@@ -35,7 +35,7 @@ class HomeViewModel: BaseViewModel {
 
     private func requestTeams() {
         service.GET(headerType: .test,
-                    urlType: .testDomain,
+                    urlType: .test,
                     endPoint: "teams",
                     parameters: [:],
                     returnType: TeamResponse.self)
@@ -55,7 +55,7 @@ class HomeViewModel: BaseViewModel {
 
     private func requestTeamDetail(teamId: Int) {
         service.GET(headerType: .test,
-                    urlType: .testDomain,
+                    urlType: .test,
                     endPoint: "teams/\(teamId)",
                     parameters: [:],
                     returnType: TeamDetail.self)
@@ -75,7 +75,7 @@ class HomeViewModel: BaseViewModel {
 
     private func postWriteTeam(accountId: Int, content: PostWriteTeam, completion: () -> Void) {
         service.POST(headerType: .test,
-                     urlType: .testDomain,
+                     urlType: .test,
                      endPoint: "team/\(accountId)",
                      parameters: [:],
                      returnType: ResultWriteTeam.self)

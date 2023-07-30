@@ -34,6 +34,14 @@ class TestNetworkService: NetworkProtocol {
         return result(parameters, T.self)
     }
     
+    func DELETE<T>(headerType: HeaderType,
+                   urlType: UrlType,
+                   endPoint: String,
+                   parameters: [String: Any],
+                   returnType: T.Type) -> Future<T, Error> where T: Decodable {
+        return result(parameters, T.self)
+    }
+    
     func result<T>(_ parameters: [String: Any], _ returnType: T.Type) -> Future<T, Error> where T: Decodable {
         return Future<T, Error> { promise in
             guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else {

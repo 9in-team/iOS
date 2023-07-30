@@ -86,7 +86,10 @@ extension NetworkService {
                     request.addValue(value, forHTTPHeaderField: key)
                 }
             
-            if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
+            if let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) {
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print("JSON 형식의 String 출력:\(jsonString)")
+                }
                 request.httpBody = jsonData
             }
             
@@ -132,6 +135,58 @@ extension NetworkService {
             
             var request = URLRequest(url: url)
             request.httpMethod = "PUT"
+            
+            _ = headerType
+                .get()
+                .map { (key, value) in
+                    request.addValue(value, forHTTPHeaderField: key)
+                }
+            
+            if let jsonData = try? JSONSerialization.data(withJSONObject: parameters) {
+                request.httpBody = jsonData
+            }
+            
+            tryDataTaskPublisher(request: request)
+                .decode(type: T.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { (completion) in
+                    if case let .failure(error) = completion {
+                        print("DEBUG POST ERROR: \(error)")
+                        switch error {
+                        case let decodingError as DecodingError:
+                            promise(.failure(decodingError))
+                        case let apiError as NetworkError:
+                            promise(.failure(apiError))
+                        case let urlError as URLError:
+                            promise(.failure(urlError))
+                        default:
+                            promise(.failure(NetworkError.unknown))
+                        }
+                    }
+                }, receiveValue: {
+                    promise(.success($0))
+                })
+                .store(in: &self.cancellables)
+        }
+    }
+    
+    func DELETE<T>(headerType: HeaderType,
+                   urlType: UrlType,
+                   endPoint: String,
+                   parameters: [String: Any],
+                   returnType: T.Type) -> Future<T, Error> where T: Decodable {
+        return Future<T, Error> { [weak self] promise in
+            
+            guard let self = self else {
+                return promise(.failure(LifeCycleError.memoryLeak))
+            }
+            
+            guard let url = URL(string: "\(urlType.get())\(endPoint)") else {
+                return promise(.failure(NetworkError.invalidURL))
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
             
             _ = headerType
                 .get()

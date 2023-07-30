@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import KakaoSDKUser
 import KakaoSDKAuth
+import AuthenticationServices
 
 class AuthManager: ObservableObject {
     
@@ -33,33 +34,39 @@ extension AuthManager {
     func login(provider: SignInProviderType, completion: @escaping (Error?) -> Void) {
         switch provider {
         case .kakao:
-            KakaoAuthService(networkService: networkService).requestLogin { result in
-                switch result {
-                case .success(_):
-                    completion(nil)
-                case .failure(let error):
-                    completion(error)
+            KakaoAuthService(with: networkService)
+                .requestLogin { result in
+                    switch result {
+                    case .success(_):
+                        completion(nil)
+                    case .failure(let error):
+                        completion(error)
+                    }
                 }
-            }
         default:
             completion(LoginError.notSigned)
         }
     }
     
-    func login(provider: SignInProviderType) throws {
-        switch provider {
-        case .apple:
-            return
-        default:
-            throw LoginError.notSigned
+    func appleLogin(provider: SignInProviderType = .apple, authResult: Result<ASAuthorization, Error>) throws {
+        switch authResult {
+        case .success(let authorization):
+            do {
+                try AppleAuthService(with: networkService).signIn(with: authorization)
+            } catch {
+                throw error
+            }
+        case .failure(let error):
+            throw error
         }
+
     }
     
     func getSession(completion: @escaping (Error?) -> Void) {
         
         switch lastSignInProvider {
         case .kakao:
-            KakaoAuthService(networkService: networkService).getLoginSession(completion: completion)
+            KakaoAuthService(with: networkService).getLoginSession(completion: completion)
         default:
             completion(LoginError.unknownSession)
         }
@@ -74,7 +81,7 @@ extension AuthManager {
         
         switch lastSignInProvider {
         case .kakao:
-            KakaoAuthService(networkService: networkService).kakaoLogout()
+            KakaoAuthService(with: networkService).kakaoLogout()
         default:
             return
         }
@@ -91,6 +98,10 @@ extension AuthManager {
     
     func setUserData(_ data: UserData) {
         self.userData = data
+    }
+    
+    func accountDeletion() {
+        
     }
     
 }

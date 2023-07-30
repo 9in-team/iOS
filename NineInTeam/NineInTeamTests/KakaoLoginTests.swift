@@ -99,7 +99,7 @@ final class KakaoLoginTests: XCTestCase {
         expectation1.fulfill()
         
         // 실제로 로그아웃 작업.
-        networkService.POST(headerType: .testKakaoApi(token: authenticatedLoginToken),
+        networkService.POST(headerType: .testJWT(token: authenticatedLoginToken),
                             urlType: .kakaoApi,
                             endPoint: "v1/user/logout",
                             returnType: TestKakaoLogoutResponse.self)

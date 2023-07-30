@@ -34,13 +34,11 @@ extension SignViewModel {
     }
     
     // 애플 로그인 요청 (애플서버에서 토큰 받은 후 -> 백엔드 서버로 요청하는 로직)
-    func appleSignInRequestToServer(_ authResult: Result<ASAuthorization, Error>) {
-        switch authResult {
-        case .success(let authResult):
-            try? AppleAuthService(with: networkService).signIn(with: authResult)
-        case .failure(let error):
-            print("Apple SignIn Error: \(error.localizedDescription)")
-            return
+    func appleLogin(_ authResult: Result<ASAuthorization, Error>) {
+        do {
+            try authManager.appleLogin(authResult: authResult)
+        } catch {
+            print("DEBUG: AppleLogin RestAPI 서버 요청 오류 \(error)")
         }
     }
     
@@ -100,7 +98,7 @@ extension SignViewModel {
                      urlType: UrlType.test,
                      endPoint: EndPoint.join.get(),
                      parameters: parameters,
-                     returnType: SignInDaoResponse.self)
+                     returnType: SignInResponseData.self)
             .sink { [weak self] completion in
                 guard let self = self else {
                     return

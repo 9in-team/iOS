@@ -17,7 +17,7 @@ class KakaoAuthService {
     private var networkService: NetworkService
     private var cancellables = Set<AnyCancellable>()
     
-    init(authManager: AuthManager = .shared, networkService: NetworkService) {
+    init(with networkService: NetworkService, authManager: AuthManager = .shared) {
         print("DEBUG INIT: KakaoAuthService")
         self.cancellables = .init()
         self.networkService = networkService
@@ -104,10 +104,10 @@ extension KakaoAuthService {
         let parameters = ["accessToken": accessToken]
         
         self.networkService.POST(headerType: HeaderType.test,
-                                 urlType: UrlType.testDomain,
-                                 endPoint: EndPoint.login.get(),
+                                 urlType: UrlType.test,
+                                 endPoint: EndPoint.loginWithKakao.get(),
                                  parameters: parameters,
-                                 returnType: SignInDaoResponse.self)
+                                 returnType: SignInResponseData.self)
         .sink { result in
             switch result {
             case .failure(let error):

@@ -83,7 +83,7 @@ extension ProfileEditViewModel {
             let endpoint = "account/\(userdata.id)"
             
             networkService.PUT(headerType: .test,
-                               urlType: .testDomain,
+                               urlType: .test,
                                endPoint: endpoint,
                                parameters: parameters,
                                returnType: UserProfileUpdateDaoResponse.self)

@@ -58,7 +58,7 @@ extension SignInView {
     private func appleSignInButton() -> some View {
         SignInWithAppleButton(.signIn,
                               onRequest: viewModel.appleSignInOnRequest(_:),
-                              onCompletion: viewModel.appleSignInRequestToServer)
+                              onCompletion: viewModel.appleLogin(_:))
         .frame(height: 50)
     }
     
