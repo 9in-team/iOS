@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class SubmitResumeViewModel: BaseViewModel {
     
@@ -14,7 +15,10 @@ class SubmitResumeViewModel: BaseViewModel {
     
     @Published var teamDetail: TeamDetail?
     
-//    @Published var a: String = ""
+    @Published var answerText: String = ""
+    @Published var answerImage: UIImage? = nil
+    @Published var answerFileList: [URL] = []
+    @Published var answerChoice: String = ""
     
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service

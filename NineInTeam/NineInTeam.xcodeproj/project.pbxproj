@@ -66,6 +66,7 @@
 		DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */; };
 		DE866CD22A68134E00C5EBE9 /* SubmitResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE866CD12A68134E00C5EBE9 /* SubmitResumeView.swift */; };
 		DE866CD42A68144C00C5EBE9 /* SubmitResumeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE866CD32A68144C00C5EBE9 /* SubmitResumeViewModel.swift */; };
+		DE9A1A332A77DCAF00CD933E /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A1A322A77DCAF00CD933E /* DocumentPicker.swift */; };
 		DE9BD35D295853B300F28F1A /* NineInTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9BD35C295853B300F28F1A /* NineInTeam.swift */; };
 		DE9BD361295853B800F28F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD360295853B800F28F1A /* Assets.xcassets */; };
 		DE9BD364295853B800F28F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE9BD363295853B800F28F1A /* Preview Assets.xcassets */; };
@@ -213,6 +214,7 @@
 		DE7B0B8029DEE97F00CB90FE /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		DE866CD12A68134E00C5EBE9 /* SubmitResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitResumeView.swift; sourceTree = "<group>"; };
 		DE866CD32A68144C00C5EBE9 /* SubmitResumeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitResumeViewModel.swift; sourceTree = "<group>"; };
+		DE9A1A322A77DCAF00CD933E /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		DE9BD359295853B300F28F1A /* NineInTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NineInTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9BD35C295853B300F28F1A /* NineInTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineInTeam.swift; sourceTree = "<group>"; };
 		DE9BD360295853B800F28F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -453,7 +455,6 @@
 			children = (
 				DE5E998B29D4780100D32B8E /* ProfileEditView.swift */,
 				DE5E998D29D4799000D32B8E /* ProfileEditViewModel.swift */,
-				394A95852A3FFC3E00501B32 /* PhotoPicker.swift */,
 			);
 			path = ProfileEdit;
 			sourceTree = "<group>";
@@ -536,6 +537,15 @@
 				DE866CD32A68144C00C5EBE9 /* SubmitResumeViewModel.swift */,
 			);
 			path = SubmitResume;
+			sourceTree = "<group>";
+		};
+		DE9A1A312A77DC9000CD933E /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				394A95852A3FFC3E00501B32 /* PhotoPicker.swift */,
+				DE9A1A322A77DCAF00CD933E /* DocumentPicker.swift */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 		DE9BD350295853B300F28F1A = {
@@ -643,6 +653,7 @@
 		DEA2B6722970309300B77335 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DE9A1A312A77DC9000CD933E /* Feature */,
 				390F8F062A3F3875007B66CD /* Security */,
 				DE47790A29F169FC00C0EC3E /* Navigation */,
 				DE6FBDEF2990EBD200816A7D /* Theme */,
@@ -1056,6 +1067,7 @@
 				39EB01942A177FFD00A12674 /* Font.swift in Sources */,
 				394A95882A4052CB00501B32 /* Error.swift in Sources */,
 				399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */,
+				DE9A1A332A77DCAF00CD933E /* DocumentPicker.swift in Sources */,
 				DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */,
 				390F8F052A3F30EE007B66CD /* SignInProviderType.swift in Sources */,
 				DEB0D36129B0E7EC00B5E1B9 /* RoundedCorner.swift in Sources */,
@@ -1309,12 +1321,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NineInTeam/NineInTeam.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AN529668XK;
+				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1336,7 +1346,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "9inTeam Provisioning Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1350,12 +1359,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NineInTeam/NineInTeam.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NineInTeam/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AN529668XK;
+				DEVELOPMENT_TEAM = AN529668XK;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1377,7 +1384,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.csh.9in-team";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "9inTeam Provisioning Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

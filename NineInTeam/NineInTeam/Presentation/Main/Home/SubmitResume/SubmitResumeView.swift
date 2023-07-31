@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SubmitResumeView: View {
 
@@ -16,11 +17,14 @@ struct SubmitResumeView: View {
     // <- 해당 화면에 들어올 때 pk 값으로 디테일값을 다시 조회하는게 나은지 고민 다시 조회한다면 viewModel 에서 참조
     let teamDetail: TeamDetail
     
-    @State var text: String = ""
-    @State var image: String = ""
-    @State var file: String = ""
-    @State var choice: String = ""
+    private let photoPicker = PhotoPicker()
+    private let documentPicker = DocumentPicker()
     
+    @State private var showPhotoPicker = false
+    @State private var showDocumentPicker = false
+    
+    @State private var cancellables = Set<AnyCancellable>()
+      
 }
 
 extension SubmitResumeView {
@@ -172,7 +176,7 @@ extension SubmitResumeView {
         }
     }
     
-    func answer(type: SubmissionFormType, options: [String]? = nil) -> some View {
+    func answer(type: SubmissionFormType, options: [String]?) -> some View {
         VStack(alignment: .leading) {
             switch type {
             case .text:
@@ -195,7 +199,7 @@ extension SubmitResumeView {
                         .offset(x: 12, y: -5)
                     
                     ScrollView {
-                        TextField("답변", text: $text)
+                        TextField("답변", text: $viewModel.answerText)
                             .font(.system(size: 16))
                     }
                     .padding(.vertical, 16)
@@ -204,31 +208,74 @@ extension SubmitResumeView {
                 .frame(maxWidth: .infinity)
             case .image:
                 Button {
-                    // TODO: Choice Image
+                    showPhotoPicker.toggle()
+                    
+                    photoPicker.imagePublisher
+                        .sink { completion in
+                            switch completion {
+                            case .failure(let error):
+                                error.printAndTypeCatch()
+                                return
+                            case .finished:
+                                print("이미지 송신 완료")
+                            }
+                            
+                    } receiveValue: { image in
+                        viewModel.answerImage = image
+                    }
+                    .store(in: &cancellables)
                 } label: {
                     Rectangle()
                         .fill(Color(hexcode: "D9D9D9"))
                         .frame(height: 93)
                         .overlay {
-                            Image("Image")
-                                .frame(width: 24, height: 24)
+                            if let image = viewModel.answerImage {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 93)
+                            } else {
+                                Image("Image")
+                                    .frame(width: 24, height: 24)
+                            }
+                        }
+                }
+                .sheet(isPresented: $showPhotoPicker) {
+                    self.photoPicker
+                        .onDisappear {
+                            cancellables = .init()
                         }
                 }
             case .file:
                 VStack(alignment: .leading, spacing: 14) {
-                    // TODO:  ForEach
-                    HStack {
-                        Image("File")
-                            .resizable()
-                            .frame(width: 16, height: 20)
+                    ForEach(viewModel.answerFileList, id: \.self) { url in
+                        HStack {
+                            Image("File")
+                                .resizable()
+                                .frame(width: 16, height: 20)
 
-                        TextWithFont(text: "포트폴리오.pdf", size: 14)
+                            TextWithFont(text: url.lastPathComponent, size: 14)
+                        }
+                        .padding(.leading, 10)
                     }
-                    .padding(.leading, 10)
-                    
                     
                     Button {
-                        // TODO: Choice File
+                        showDocumentPicker.toggle()
+                        
+                        documentPicker.urlPublisher
+                            .sink { completion in
+                                switch completion {
+                                case .failure(let error):
+                                    error.printAndTypeCatch()
+                                    return
+                                case .finished:
+                                    print("파일 선택 완료")
+                                }
+                                
+                        } receiveValue: { url in
+                            viewModel.answerFileList.append(url)
+                        }
+                        .store(in: &cancellables)
                     } label: {
                         Circle()
                             .frame(width: 24, height: 24)
@@ -240,19 +287,25 @@ extension SubmitResumeView {
                             }
                     }
                     .padding(.leading, 6)
+                    .sheet(isPresented: $showDocumentPicker) {
+                        self.documentPicker
+                            .onDisappear {
+                                cancellables = .init()
+                            }
+                    }
                 }
             case .choice:
                 VStack(spacing: 0) {
                     ForEach(options ?? [], id: \.self) { option in
                         Button {
-                            choice = option
+                            viewModel.answerChoice = option
                         } label: {
                             HStack(spacing: 0) {
                                 Rectangle()
                                     .fill(.clear)
                                     .frame(width: 42, height: 42)
                                     .overlay {
-                                        if choice == option {
+                                        if viewModel.answerChoice == option {
                                             Image("Choice")
                                                 .resizable()
                                                 .frame(width: 18, height: 18)
