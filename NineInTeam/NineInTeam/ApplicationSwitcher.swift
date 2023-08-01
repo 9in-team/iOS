@@ -22,11 +22,19 @@ struct ApplicationSwitcher: View {
                 MainView()
                     .onAppear {
                         coordinator.popToRoot()
-                        viewModel.kakaoLoginWithSession { error in
-                            if let error = error {
-                                print("DEBUG: 세션가져오기 오류 \(error)")
-                                return
+                        
+                        switch authManager.lastSignInProvider {
+                        case .kakao:
+                            viewModel.kakaoLoginWithSession { error in
+                                if let error = error {
+                                    print("DEBUG: 세션가져오기 오류 \(error)")
+                                    return
+                                }
                             }
+                        case .apple:
+                            viewModel.getAppleSignInSession()
+                        case .notSigned:
+                            authManager.logout()
                         }
                     }
             } else {

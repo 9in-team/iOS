@@ -64,9 +64,17 @@ extension AuthenticationManager {
     
     func getSession(completion: @escaping (Error?) -> Void) {
         
+        print("로그인 세션 가져오기")
         switch lastSignInProvider {
         case .kakao:
             KakaoAuthService(with: networkService).getLoginSession(completion: completion)
+        case .apple:
+            do {
+                try AppleAuthService(with: networkService).getLoginSession()
+            } catch {
+                print(error)
+                completion(error)
+            }
         default:
             completion(SignInError.unknownSession)
         }

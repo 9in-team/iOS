@@ -30,6 +30,7 @@ extension SignViewModel {
     
     // 로그인 요청 데이터
     func appleSignInOnRequest(_ request: ASAuthorizationAppleIDRequest) {
+        willStartLoading()
         request.requestedScopes = [.fullName, .email]
     }
     
@@ -37,14 +38,19 @@ extension SignViewModel {
     func appleLogin(_ authResult: Result<ASAuthorization, Error>) {
         do {
             try authManager.appleLogin(authResult: authResult)
+            self.didFinishLoading()
+
         } catch {
-            print("DEBUG: AppleLogin RestAPI 서버 요청 오류 \(error)")
+            print("DEBUG: AppleLogin ERROR \(error)")
+            self.didFinishLoading()
         }
     }
     
     // 애플 로그인 세션 가져오기
     func getAppleSignInSession() {
-        
+        authManager.getSession { error in
+            print(error)
+        }
     }
     
 }

@@ -12,5 +12,9 @@ enum AppleAuthError: Error {
     case tokenIsNil
     case jsonEncodeFailure
     case jsonIsNil
-    
+    case credentialError
+    case sessionRevoked
+    case idNotFound
+    case unknown
+
 }

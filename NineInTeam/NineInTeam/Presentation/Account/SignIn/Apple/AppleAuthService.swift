@@ -35,47 +35,27 @@ extension AppleAuthService {
         print("Apple signin Credential \(authorization.credential)")
         print("Apple signin Privicder \(authorization.provider)")
         
-        let credential = authorization.credential as! ASAuthorizationAppleIDCredential
-        
-        var json: [String: Any]?
-        
-        do {
-            let body = try appleCredentialHandler(credential)
-            print("Body DEBUG: \(body)")
-            let encodedJSONData = try JSONEncoder().encode(body)
-            
-            json = try JSONSerialization.jsonObject(with: encodedJSONData) as? [String: Any]
-        } catch {
-            throw error
-        }
-        
-        guard let body = json else { throw AppleAuthError.jsonIsNil }
-        print("로그인 진행중...")
-        
-        networkService.POST(headerType: .test,
-                            urlType: .test,
-                            endPoint: EndPoint.loginWithApple.get(),
-                            parameters: body,
-                            returnType: SignInResponse.self)
-        .tryCompactMap { response in
-            guard let detail = response.detail else {
-                throw AppleAuthError.tokenIsNil
+        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            checkSignInState(for: credential.user) { result in
+                switch result {
+                case .success(_):
+                    print("로그인 성공")
+                    do {
+                        try KeychainManager.shared.saveToken(credential.user, signInProvider: .apple, tokenType: .accessToken)
+                        self.authManager.isSingIn = true
+                        self.authManager.lastSignInProvider = .apple
+                        print("userId저장 성공")
+                    } catch {
+                        print("AppleLogin UserId 키체인 저장 실패: \(error.localizedDescription)")
+                    }
+                case .failure(let error):
+                    print("로그인 에러: \(error)")
+                }
             }
-            return detail
+        } else {
+            throw AppleAuthError.credentialError
         }
-        .sink { completion in
-            switch completion {
-            case .finished:
-                print("로그인 완료")
-            case .failure(let error):
-                print(error)
-            }
-        } receiveValue: { receivedData in
-            print("Login DEBUG: \(receivedData)")
-            return
-        }
-        .store(in: &cancellables)
-        
+                
     }
     
     private func appleCredentialHandler(_ credential: ASAuthorizationAppleIDCredential) throws -> AppleSignInRequest {
@@ -83,7 +63,7 @@ extension AppleAuthService {
         let code = credential.authorizationCode
         let token = credential.identityToken
         let user = credential.user
-
+        
         print("DEBUG Credential: \(credential)")
         // print("state : \(state ?? "state is nil")")
         // print("code : \(code ?? "code is nil")")
@@ -96,6 +76,49 @@ extension AppleAuthService {
                                   code: code,
                                   idToken: token,
                                   user: user)
+    }
+    
+    func getLoginSession() throws {
+        if AuthenticationManager.shared.lastSignInProvider == .apple {
+            do {
+                let userId = try KeychainManager.shared.getToken(signInProvider: .apple, tokenType: .accessToken)
+                print("가져온 id값: \(userId)")
+                checkSignInState(for: userId) { result in
+                    switch result {
+                    case .success(_):
+                        print("로그인 성공")
+                    case .failure(let error):
+                        print("로그인 에러: \(error)")
+                    }
+                }
+            } catch {
+                throw error
+            }
+        }
+    }
+    
+    func checkSignInState(for userId: String,
+                          completion: @escaping (Result<Bool, Error>) -> Void) {
+        let provider = ASAuthorizationAppleIDProvider()
+        provider.getCredentialState(forUserID: userId) { state, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            switch state {
+            case .revoked:
+                completion(.failure(AppleAuthError.sessionRevoked))
+            case .authorized:
+                completion(.success(true))
+            case .notFound:
+                completion(.failure(AppleAuthError.idNotFound))
+            case .transferred:
+                completion(.failure(AppleAuthError.unknown))
+            @unknown default:
+                completion(.failure(AppleAuthError.unknown))
+            }
+        }
     }
     
 }

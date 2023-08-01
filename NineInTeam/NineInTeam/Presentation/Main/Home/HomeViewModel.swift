@@ -89,7 +89,6 @@ class HomeViewModel: BaseViewModel {
         }
         .store(in: &cancellables)
     }
-    
 }
 
 struct PostWriteTeam: Decodable {

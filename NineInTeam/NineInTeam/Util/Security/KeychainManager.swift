@@ -105,7 +105,7 @@ extension KeychainManager {
         do {
             try createData(data: token, service: tokenType, account: signInProvider.rawValue)
         } catch {
-            throw KeychainError.saveError
+            throw error
         }
 
     }
