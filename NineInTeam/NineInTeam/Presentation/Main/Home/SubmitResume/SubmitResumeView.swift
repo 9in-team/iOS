@@ -273,7 +273,11 @@ extension SubmitResumeView {
                                 }
                                 
                         } receiveValue: { url in
-                            viewModel.answerFileList.append(url)
+                            if let url = url {
+                                viewModel.answerFileList.append(url)
+                            } else {
+                                // 파일 선택 에러
+                            }
                         }
                         .store(in: &cancellables)
                     } label: {
@@ -294,7 +298,7 @@ extension SubmitResumeView {
                             }
                     }
                 }
-            case .choice:
+            case .choice:                
                 VStack(spacing: 0) {
                     ForEach(options ?? [], id: \.self) { option in
                         Button {
@@ -335,7 +339,7 @@ extension SubmitResumeView {
             TextWithFont(text: "제출 후 수정 및 삭제 불가능합니다.", size: 12)
             
             Button {
-                
+                viewModel.submit()
             } label: {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(ColorConstant.main.color())
