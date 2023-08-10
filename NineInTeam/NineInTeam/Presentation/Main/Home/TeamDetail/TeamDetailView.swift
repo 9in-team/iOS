@@ -26,7 +26,7 @@ extension TeamDetailView {
                                                  title: viewModel.teamDetail?.subject ?? ""))
         }
         .onAppear {
-            viewModel.requestDetailPage(teamId: teamId)
+            // TODO: TeamDetailView Push하기
         }
     }
     

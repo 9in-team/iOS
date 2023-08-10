@@ -35,6 +35,9 @@
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
 		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
 		39A7C38D2A3E1164005064D9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C38C2A3E1164005064D9 /* AuthManager.swift */; };
+		39AB6BD12A8526D100B58659 /* RoleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB6BD02A8526D100B58659 /* RoleAlert.swift */; };
+		39AB6BD32A85274B00B58659 /* WritePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB6BD22A85274B00B58659 /* WritePostViewModel.swift */; };
+		39AB6BD52A852DFF00B58659 /* ResultWriteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB6BD42A852DFF00B58659 /* ResultWriteTeam.swift */; };
 		39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
 		39BD81D529E402ED00F35E0B /* ReceivedPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */; };
@@ -184,6 +187,9 @@
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
 		39A7C38C2A3E1164005064D9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		39AB6BD02A8526D100B58659 /* RoleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleAlert.swift; sourceTree = "<group>"; };
+		39AB6BD22A85274B00B58659 /* WritePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewModel.swift; sourceTree = "<group>"; };
+		39AB6BD42A852DFF00B58659 /* ResultWriteTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWriteTeam.swift; sourceTree = "<group>"; };
 		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
 		39BD81D629E4034B00F35E0B /* ReceivedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostViewModel.swift; sourceTree = "<group>"; };
@@ -779,7 +785,10 @@
 			isa = PBXGroup;
 			children = (
 				DEB0D39129C889E900B5E1B9 /* WritePostView.swift */,
+				39AB6BD22A85274B00B58659 /* WritePostViewModel.swift */,
+				39AB6BD02A8526D100B58659 /* RoleAlert.swift */,
 				391D53092A76B14D00EE1F8A /* TeamTemplateForm.swift */,
+				39AB6BD42A852DFF00B58659 /* ResultWriteTeam.swift */,
 			);
 			path = WritePost;
 			sourceTree = "<group>";
@@ -1117,6 +1126,7 @@
 				39DD090F2A4B371E00F69828 /* KeychainError.swift in Sources */,
 				DEB0D37129C09EB300B5E1B9 /* MySubscribeView.swift in Sources */,
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
+				39AB6BD12A8526D100B58659 /* RoleAlert.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
 				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */,
@@ -1129,6 +1139,7 @@
 				DEB0D37D29C1FFF800B5E1B9 /* TextWithFont.swift in Sources */,
 				39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
+				39AB6BD32A85274B00B58659 /* WritePostViewModel.swift in Sources */,
 				DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
 				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
@@ -1158,6 +1169,7 @@
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
+				39AB6BD52A852DFF00B58659 /* ResultWriteTeam.swift in Sources */,
 				39D8DCCD2A3C5ECA007530A9 /* KakaoUserDataResponse.swift in Sources */,
 				DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */,
 			);
