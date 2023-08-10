@@ -35,7 +35,8 @@ extension ReceivedPostCell {
             })
             .cornerRadius(4)
             .disabled(isApproved)
-            .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+            .rectangleShadows(cornerRadius: 4,
+                              [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
                                Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
                                Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 1)])
     }
@@ -215,7 +216,8 @@ extension ReceivedPostCell {
         }
         .frame(height: 36)
         .cornerRadius(4)
-        .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+        .rectangleShadows(cornerRadius: 4,
+                          [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
                            Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
                            Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])        
     }

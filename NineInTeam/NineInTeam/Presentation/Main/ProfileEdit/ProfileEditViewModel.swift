@@ -54,11 +54,11 @@ extension ProfileEditViewModel {
                     }
                 case .failure(let error):
                     error.printAndTypeCatch()
-                    self?.showAlert(title: "프로필 이미지 로드 실패")
+                    self?.showToast(title: "프로필 이미지 로드 실패")
                 }
             }
         } else {
-            self.showAlert(title: "프로필 로드 실패")
+            self.showToast(title: "프로필 로드 실패")
         }
         
     }
@@ -75,16 +75,14 @@ extension ProfileEditViewModel {
             guard let self = self else { return }
             
             let body: [String: Any]? = try? UserProfileUpdateDao(nickname: updatedName,
-                                                               imageUrl: imageUrl.absoluteString).toDictionary()
+                                                                 imageUrl: imageUrl.absoluteString).toDictionary()
             
             guard let parameters = body else {return}
             guard let userdata  = authManager.userData else { return }
             
-            let endpoint = "account/\(userdata.id)"
-            
             networkService.PUT(headerType: .test,
                                urlType: .testDomain,
-                               endPoint: endpoint,
+                               endPoint: EndPoint.updateProfile(userdata.id).get(),
                                parameters: parameters,
                                returnType: UserProfileUpdateDaoResponse.self)
             .map(\.detail)
@@ -102,7 +100,7 @@ extension ProfileEditViewModel {
                                     nickName: updatedData.nickname,
                                     profileImageUrl: updatedData.imageUrl,
                                     signInProvider: userdata.signInProvider)
-
+                
                 self.authManager.setUserData(data)
                 self.deleteOldImage(urlString: currentImageUrl)
                 self.didFinishLoading()

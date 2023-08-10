@@ -242,9 +242,10 @@ extension TeamDetailView {
                     TextWithFont(text: "지원하기", font: .robotoMedium, size: 15)
                         .foregroundColor(Color(hexcode: "FFFFFF"))
                 )
-                .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
-                   Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
-                   Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
+                .rectangleShadows(cornerRadius: 4,
+                                  [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+                                   Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
+                                   Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])
         }
     }
     

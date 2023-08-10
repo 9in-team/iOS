@@ -62,13 +62,13 @@ extension View {
             .navigationBarTitle("", displayMode: .automatic)
             .navigationBarHidden(true)
     }
-    
-    func rectangleShadows(_ shadows: [Shadow]) -> some View {
+
+    func rectangleShadows(cornerRadius: CGFloat = 0, _ shadows: [Shadow]) -> some View {
         self
             .background(
                 ZStack {
                     ForEach(shadows, id: \.self) { shadow in
-                        RoundedRectangle(cornerRadius: shadow.radius)
+                        RoundedRectangle(cornerRadius: cornerRadius)
                             .fill(.white)
                             .shadow(color: shadow.getColor(), radius: shadow.radius,
                                     x: shadow.locationX, y: shadow.locationY)
