@@ -21,7 +21,7 @@ struct SubmitResumeView: View {
     private let documentPicker = DocumentPicker()
     
     @State private var showPhotoPicker = false
-    @State private var showDocumentPicker = false
+    @State private var showPDFImporter = false
     
     @State private var cancellables = Set<AnyCancellable>()
       
@@ -35,9 +35,6 @@ extension SubmitResumeView {
                 .showNavigationBar(NavigationBar(coordinator: coordinator,
                                                  useDismissButton: true,
                                                  title: "지원하기"))
-        }
-        .onAppear {
-            
         }
     }
     
@@ -85,33 +82,46 @@ extension SubmitResumeView {
     }
     
     func roleCell(role: RecruitmentRole) -> some View {
-        VStack(alignment: .center, spacing: 0) {
-            Spacer()
+        Button {
+            viewModel.selectedRole = role
+        } label: {
+            VStack(alignment: .center, spacing: 0) {
+                Spacer()
 
-            TextWithFont(text: role.title, font: .robotoMedium, size: 20)
-                .frame(height: 60, alignment: .top)
-                .foregroundColor(
-                    Color(hexcode: "000000")
-                        .opacity(0.87)
-                )
-                .lineSpacing(5)
-                .multilineTextAlignment(.center)
+                TextWithFont(text: role.title, font: .robotoMedium, size: 20)
+                    .frame(height: 60, alignment: .top)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.87)
+                    )
+                    .lineSpacing(5)
+                    .multilineTextAlignment(.center)
 
-            TextWithFont(text: "\(role.count)명", font: .robotoMedium, size: 20)
-                .frame(height: 30)
-                .foregroundColor(
-                    Color(hexcode: "000000")
-                        .opacity(0.38)
-                )
+                TextWithFont(text: "\(role.count)명", font: .robotoMedium, size: 20)
+                    .frame(height: 30)
+                    .foregroundColor(
+                        Color(hexcode: "000000")
+                            .opacity(0.38)
+                    )
 
-            Spacer()
+                Spacer()
+            }
+            .frame(width: 120, height: 120)
+            .background(
+                ZStack {
+                    RoundedRectangle(
+                        cornerRadius: 20,
+                        style: .continuous
+                    )
+                    .fill(viewModel.selectedRole == role ? Color(hexcode: "1976D2").opacity(0.3) : .clear)
+                    RoundedRectangle(
+                        cornerRadius: 20,
+                        style: .continuous
+                    )
+                    .stroke(Color(hexcode: "000000").opacity(0.6), lineWidth: 1)
+                }
+            )
         }
-        .frame(width: 120, height: 120)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .strokeBorder(Color(hexcode: "000000").opacity(0.6),
-                              lineWidth: 1)
-        )
     }
     
     func submissionForm() -> some View {
@@ -180,158 +190,153 @@ extension SubmitResumeView {
         VStack(alignment: .leading) {
             switch type {
             case .text:
-                ZStack(alignment: .topLeading) {
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color(hexcode: "000000")
-                            .opacity(0.23)
-                        )
-                    
-                    TextWithFont(text: "답변", font: .robotoBold, size: 12)
-                        .foregroundColor(
-                            Color(hexcode: "000000")
-                                .opacity(0.6)
-                        )
-                        .padding(.horizontal, 5)
-                        .background(
-                            Rectangle()
-                                .fill(Color(hexcode: "FFFFFF"))
-                        )
-                        .offset(x: 12, y: -5)
-                    
-                    ScrollView {
-                        TextField("답변", text: $viewModel.answerText)
-                            .font(.system(size: 16))
-                    }
-                    .padding(.vertical, 16)
-                    .padding(.horizontal, 12)
-                }
-                .frame(maxWidth: .infinity)
+                answerText()
             case .image:
-                Button {
-                    showPhotoPicker.toggle()
-                    
-                    photoPicker.imagePublisher
-                        .sink { completion in
-                            switch completion {
-                            case .failure(let error):
-                                error.printAndTypeCatch()
-                                return
-                            case .finished:
-                                print("이미지 송신 완료")
-                            }
-                            
-                    } receiveValue: { image in
-                        viewModel.answerImage = image
-                    }
-                    .store(in: &cancellables)
-                } label: {
-                    Rectangle()
-                        .fill(Color(hexcode: "D9D9D9"))
-                        .frame(height: 93)
-                        .overlay {
-                            if let image = viewModel.answerImage {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 93)
-                            } else {
-                                Image("Image")
-                                    .frame(width: 24, height: 24)
-                            }
-                        }
-                }
-                .sheet(isPresented: $showPhotoPicker) {
-                    self.photoPicker
-                        .onDisappear {
-                            cancellables = .init()
-                        }
-                }
+                answerImage()
             case .file:
-                VStack(alignment: .leading, spacing: 14) {
-                    ForEach(viewModel.answerFileList, id: \.self) { url in
-                        HStack {
-                            Image("File")
-                                .resizable()
-                                .frame(width: 16, height: 20)
-
-                            TextWithFont(text: url.lastPathComponent, size: 14)
-                        }
-                        .padding(.leading, 10)
-                    }
-                    
-                    Button {
-                        showDocumentPicker.toggle()
-                        
-                        documentPicker.urlPublisher
-                            .sink { completion in
-                                switch completion {
-                                case .failure(let error):
-                                    error.printAndTypeCatch()
-                                    return
-                                case .finished:
-                                    print("파일 선택 완료")
-                                }
-                                
-                        } receiveValue: { url in
-                            if let url = url {
-                                viewModel.answerFileList.append(url)
-                            } else {
-                                // 파일 선택 에러
-                            }
-                        }
-                        .store(in: &cancellables)
-                    } label: {
-                        Circle()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(Color(hexcode: "E0E0E0"))
-                            .overlay {
-                                Image("Plus")
-                                    .resizable()
-                                    .frame(width: 14, height: 14)
-                            }
-                    }
-                    .padding(.leading, 6)
-                    .sheet(isPresented: $showDocumentPicker) {
-                        self.documentPicker
-                            .onDisappear {
-                                cancellables = .init()
-                            }
-                    }
-                }
-            case .choice:                
-                VStack(spacing: 0) {
-                    ForEach(options ?? [], id: \.self) { option in
-                        Button {
-                            viewModel.answerChoice = option
-                        } label: {
-                            HStack(spacing: 0) {
-                                Rectangle()
-                                    .fill(.clear)
-                                    .frame(width: 42, height: 42)
-                                    .overlay {
-                                        if viewModel.answerChoice == option {
-                                            Image("Choice")
-                                                .resizable()
-                                                .frame(width: 18, height: 18)
-                                        } else {
-                                            Image("NotChecked")
-                                                .resizable()
-                                                .frame(width: 18, height: 18)
-                                        }
-                                    }
-                                
-                                TextWithFont(text: option, size: 14)
-                                    .foregroundColor(Color(hexcode: "000000")).opacity(0.87)
-                                
-                                Spacer()
-                            }
-                        }
-                        .frame(height: 42)
-                    }
-                }
+                answerFile()
+            case .choice:
+                answerChoice(options)
             }
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    func answerText() -> some View {
+        ZStack(alignment: .topLeading) {
+            RoundedRectangle(cornerRadius: 4)
+                .stroke(Color(hexcode: "000000")
+                    .opacity(0.23)
+                )
+            
+            TextWithFont(text: "답변", font: .robotoBold, size: 12)
+                .foregroundColor(
+                    Color(hexcode: "000000")
+                        .opacity(0.6)
+                )
+                .padding(.horizontal, 5)
+                .background(
+                    Rectangle()
+                        .fill(Color(hexcode: "FFFFFF"))
+                )
+                .offset(x: 12, y: -5)
+            
+            ScrollView {
+                TextField("답변", text: $viewModel.answerText)
+                    .font(.system(size: 16))
+            }
+            .padding(.vertical, 16)
+            .padding(.horizontal, 12)
+        }
+        .frame(maxWidth: .infinity)
+    }
+    
+    func answerImage() -> some View {
+        Button {
+            showPhotoPicker.toggle()
+            
+            photoPicker.imagePublisher
+                .sink { completion in
+                    switch completion {
+                    case .failure(let error):
+                        error.printAndTypeCatch()
+                        return
+                    case .finished:
+                        print("이미지 송신 완료")
+                    }
+                    
+            } receiveValue: { image in
+                viewModel.answerImage = image
+            }
+            .store(in: &cancellables)
+        } label: {
+            Rectangle()
+                .fill(Color(hexcode: "D9D9D9"))
+                .frame(height: 93)
+                .overlay {
+                    if let image = viewModel.answerImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 93)
+                    } else {
+                        Image("Image")
+                            .frame(width: 24, height: 24)
+                    }
+                }
+        }
+        .sheet(isPresented: $showPhotoPicker) {
+            self.photoPicker
+                .onDisappear {
+                    cancellables = .init()
+                }
+        }
+    }
+    
+    func answerFile() -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            ForEach(viewModel.answerFileList, id: \.self) { url in
+                HStack {
+                    Image("File")
+                        .resizable()
+                        .frame(width: 16, height: 20)
+
+                    TextWithFont(text: url.lastPathComponent, size: 14)
+                }
+                .padding(.leading, 10)
+            }
+
+            Button {
+                showPDFImporter.toggle()
+            } label: {
+                Circle()
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(Color(hexcode: "E0E0E0"))
+                    .overlay {
+                        Image("Plus")
+                            .resizable()
+                            .frame(width: 14, height: 14)
+                    }
+            }
+            .padding(.leading, 6)
+            .fileImporter(isPresented: $showPDFImporter, allowedContentTypes: [.pdf], allowsMultipleSelection: false) { result in
+                viewModel.selectedFile(result)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+        
+    func answerChoice(_ options: [String]?) -> some View {
+        VStack(spacing: 0) {
+            ForEach(options ?? [], id: \.self) { option in
+                Button {
+                    viewModel.answerChoice = option
+                } label: {
+                    HStack(spacing: 0) {
+                        Rectangle()
+                            .fill(.clear)
+                            .frame(width: 42, height: 42)
+                            .overlay {
+                                if viewModel.answerChoice == option {
+                                    Image("Choice")
+                                        .resizable()
+                                        .frame(width: 18, height: 18)
+                                } else {
+                                    Image("NotChecked")
+                                        .resizable()
+                                        .frame(width: 18, height: 18)
+                                }
+                            }
+
+                        TextWithFont(text: option, size: 14)
+                            .foregroundColor(Color(hexcode: "000000")).opacity(0.87)
+
+                        Spacer()
+                    }
+                }
+                .frame(height: 42)
+            }
+        }
     }
     
     func submitButton() -> some View {

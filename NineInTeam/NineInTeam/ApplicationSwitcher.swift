@@ -18,7 +18,7 @@ struct ApplicationSwitcher: View {
     var body: some View {
         
         Group {
-            if authManager.isSingIn {
+//            if authManager.isSingIn {
                 MainView()
                     .onAppear {
                         coordinator.popToRoot()
@@ -29,9 +29,9 @@ struct ApplicationSwitcher: View {
                             }
                         }
                     }
-            } else {
-                SignInView()
-            }
+//            } else {
+//                SignInView()
+//            }
         }
         .ignoresSafeArea()
         .environmentObject(coordinator)

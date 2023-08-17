@@ -11,8 +11,8 @@ import Firebase
 
 class FirebaseStorageManager {
     
-    static let kProfileImage = "ProfileImage"
-    static let kResumePDF = "ResumePDF"
+    static let profileImage = "ProfileImage"
+    static let resumePDF = "ResumePDF"
     
     static func uploadImage(imageData: Data, path: String, completion: @escaping (URL?, Error?) -> Void) {
         let metaData = StorageMetadata()

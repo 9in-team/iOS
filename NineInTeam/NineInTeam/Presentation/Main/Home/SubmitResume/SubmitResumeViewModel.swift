@@ -5,15 +5,16 @@
 //  Created by 조상현 on 2023/07/19.
 //
 
-import Foundation
-import Combine
 import UIKit
+import Combine
 
 class SubmitResumeViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
     
     @Published var teamDetail: TeamDetail?
+    
+    @Published var selectedRole: RecruitmentRole? = nil
     
     @Published var answerText: String = ""
     @Published var answerImage: UIImage? = nil
@@ -25,7 +26,7 @@ class SubmitResumeViewModel: BaseViewModel {
     }
     
     func submit() {
-        uploadPDF() { url, error in
+        uploadPDF { url, error in
             if let error = error {
                 print("error : \(error.localizedDescription)")
             }
@@ -34,9 +35,23 @@ class SubmitResumeViewModel: BaseViewModel {
         }
     }
     
+    func selectedFile(_ result: Result<[URL], Error>) {
+        switch result {
+        case .success(let urls):
+            guard let url = urls.first else {
+                showToast(title: "파일 선택 실패")
+                return
+            }
+             
+            answerFileList.append(url)                               
+        case .failure(_):
+            showToast(title: "파일 선택 실패")
+        }
+    }
+    
     // TODO: PDF 파일 단일 선택인지 복수 선택인지에 따라 비동기 처리하기
     private func uploadPDF(completion: @escaping (URL?, Error?) -> Void) {
-        let folder = FirebaseStorageManager.kResumePDF
+        let folder = FirebaseStorageManager.resumePDF
         
         for url in answerFileList {
             let fileName = url.lastPathComponent
