@@ -26,8 +26,8 @@ final class HomeViewModel: BaseViewModel {
 
     private func requestTeams() {
         service.GET(headerType: .test,
-                    urlType: .testDomain,
-                    endPoint: "teams",
+                    urlType: .test9inTeam,
+                    endPoint: "team",
                     parameters: [:],
                     returnType: TeamResponse.self)
         .sink(receiveCompletion: { completion in

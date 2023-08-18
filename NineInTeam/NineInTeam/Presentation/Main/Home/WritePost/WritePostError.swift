@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum WritePostError: Error {
+    
+    case invalidInputData
+    
+}

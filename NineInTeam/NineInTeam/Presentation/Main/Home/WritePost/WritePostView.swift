@@ -11,15 +11,15 @@ import Combine
 struct WritePostView: View {
     
     @StateObject private var viewModel = WritePostViewModel()
-    
-    @State private var isShowAlert: Bool = false
-    @State private var anyAlert: AnyView = AnyView(EmptyView())
-    @State private var selectedIndex: Int = 0
-    @State private var showAddTagAlert: Bool = false
-    @State private var showSubmitAlert: Bool = false
+        
+    @State private var showAddTagAlert = false
+    @State private var showSubmitAlert = false
     @State private var showRoleAlert = false
+    @State private var isShowAlert = false
 
-    @State var templateIndex: Int = 1
+    @State private var selectedIndex: Int = 0
+    @State private var templateIndex: Int = 1
+    
 }
 
 extension WritePostView {
@@ -43,14 +43,12 @@ extension WritePostView {
                 titleView()
                 
                 tagView()
-                    .padding(.horizontal, -20)
                 
                 recruitmentRole()
-                    .padding(.horizontal, -20)
                 
-                teamExplainTextEditor()
-                
-                submissionForm()
+                BorderedTextEditorWithTitle(title: "팀 설명", text: $viewModel.content)
+
+                submissionForms()
                 
                 teamChatRoomLink()
                 
@@ -62,7 +60,7 @@ extension WritePostView {
     }
     
     private func subjectTypeSwitch(selected: Binding<SubjectType>) -> some View {
-        RadioButtonGroups($viewModel.subjectType)
+        CheckboxButtonGroups($viewModel.subjectType)
             .scrollEnabled(false)
             .padding(.horizontal, 20)
             .padding(.bottom, 14)
@@ -83,11 +81,11 @@ extension WritePostView {
                         .opacity(0.87)
                 )
             
-            underLine()
+            titleUnderLine()
         }
     }
     
-    private func underLine() -> some View {
+    private func titleUnderLine() -> some View {
         Divider()
             .frame(height: 1)
             .foregroundColor(
@@ -104,60 +102,72 @@ extension WritePostView {
         VStack(alignment: .leading, spacing: 14) {
             TextWithFont(text: "태그",
                          font: .robotoBold, size: 12)
-            .padding(.horizontal, 20)
             .foregroundColor(
                 Color(hexcode: "000000")
                     .opacity(0.6)
             )
+            .padding(.horizontal, 20)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 5) {
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(width: 10)
-                    
-                    ForEach(viewModel.hashtags.indices, id: \.self) { index in
-                        let tag = viewModel.hashtags[index]
-                        tagCell(tag)
-                            .onTapGesture {
-                                viewModel.hashtags.remove(at: index)
-                            }
-                    }
-                    
-                    addTagButton()
-                }
-            }
-            .scrollEnabled(viewModel.hashtags.isEmpty ? false : true)
+            tagsScrollView()
         }
+        .padding(.horizontal, -20)
+    }
+    
+    private func tagsScrollView() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 5) {
+                Rectangle()
+                    .fill(.clear)
+                    .frame(width: 17)
+                
+                ForEach(viewModel.hashtags.indices, id: \.self) { index in
+                    let tag = viewModel.hashtags[index]
+                    tagCell(tag)
+                        .onTapGesture {
+                            viewModel.hashtags.remove(at: index)
+                        }
+                }
+                
+                addTagButton()
+                
+                Rectangle()
+                    .fill(.clear)
+                    .frame(width: 17)
+            }
+        }
+        .scrollEnabled(viewModel.hashtags.isEmpty ? false : true)
     }
     
     private func addTagButton() -> some View {
         ZStack {
             Circle()
-                .frame(width: 28, height: 28)
                 .foregroundColor(Color(hexcode: "E0E0E0"))
+                .frame(width: 24, height: 24)
                 .circleShadows([
                     Shadow(color: .black, opacity: 0.12, radius: 1.5, locationY: 2),
                     Shadow(color: .black, opacity: 0.14, radius: 0.5, locationY: 1),
                     Shadow(color: .black, opacity: 0.20, radius: 0.5, locationY: 1)
                                ])
-            
-            Menu {
-                ForEach(viewModel.allTags, id: \.self) { tag in
-                    Button {
-                        viewModel.hashtags.append(HashTag(tag))
-                    } label: {
-                        Text(tag)
-                            .font(.custom(.robotoRegular, size: 13))
-                    }
-                }
-            } label: {
-                Image("Plus")
-                    .resizable()
-                    .frame(width: 14, height: 14)
-            }
+            addTagButtonMenu()
         }
-
+        .frame(height: 32)
+    }
+    
+    private func addTagButtonMenu() -> some View {
+        Menu {
+            ForEach(viewModel.allTag, id: \.self) { tag in
+                Button {
+                    viewModel.hashtags.append(HashTag(tag))
+                } label: {
+                    Text(tag)
+                        .font(.custom(.robotoRegular, size: 13))
+                }
+            }
+        } label: {
+            Image("Plus")
+                .resizable()
+                .frame(width: 14, height: 14)
+        }
     }
     
     private func tagCell(_ tag: HashTag) -> some View {
@@ -182,21 +192,26 @@ extension WritePostView {
                 .padding(.bottom, 14)
                 .padding(.horizontal, 20)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(width: 10, height: 120)
-
-                    ForEach(viewModel.roles, id: \.self) { role in
-                        roleCell(from: role)
-                    }
-                    
-                    roleAddButton()
-                }
-            }
-            .scrollEnabled(viewModel.roles.isEmpty ? false : true)
+            recruitmentRoleCellsScrollView()
         }
+        .padding(.horizontal, -20)
+    }
+    
+    private func recruitmentRoleCellsScrollView() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                Rectangle()
+                    .fill(.clear)
+                    .frame(width: 10, height: 120)
+
+                ForEach(viewModel.roles, id: \.self) { role in
+                    roleCell(from: role)
+                }
+                
+                roleAddButton()
+            }
+        }
+        .scrollEnabled(viewModel.roles.isEmpty ? false : true)
     }
     
     private func roleCell(from role: Role) -> some View {
@@ -244,42 +259,7 @@ extension WritePostView {
         }
     }
     
-    private func teamExplainTextEditor() -> some View {
-        ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 4)
-                .stroke(Color(hexcode: "000000")
-                    .opacity(0.23)
-                )
-            
-            VStack {
-                TextWithFont(text: "팀 설명", font: .robotoBold, size: 12)
-                    .foregroundColor(
-                        Color(hexcode: "000000")
-                            .opacity(0.6)
-                    )
-                    .padding(.horizontal, 5)
-                    .background(
-                        Rectangle()
-                            .fill(Color(hexcode: "FFFFFF"))
-                    )
-                    .offset(x: 12, y: -5)
-                
-                Spacer()
-            }
-            
-            TextEditor(text: $viewModel.content)
-                .textInputAutocapitalization(.never)
-                .autocorrectionDisabled()
-                .textCase(.none)
-                .padding(.vertical, 16)
-                .padding(.horizontal, 12)
-            
-        }
-        .frame(minHeight: 64, maxHeight: 230)
-        .frame(maxWidth: .infinity)
-    }
-    
-    private func submissionForm() -> some View {
+    private func submissionForms() -> some View {
         VStack(alignment: .leading, spacing: 15) {
             TextWithFont(text: "지원 양식", font: .robotoBold, size: 12)
                 .foregroundColor(
@@ -289,17 +269,17 @@ extension WritePostView {
             
             VStack(spacing: 20) {
                 ForEach(viewModel.templates, id: \.self) { form in
-                    TeamTemplateForm(form: form)
+                    SubmissionFormView(form: form)
                 }
                 
-                addFormButton()
+                addFormMenuContainer()
             }
             .padding(.horizontal, 5)
         }
     }
     
-    private func addFormButton() -> some View {
-        ZStack{
+    private func addFormMenuContainer() -> some View {
+        ZStack {
             Circle()
                 .frame(width: 56, height: 56)
                 .foregroundColor(Color(hexcode: "E0E0E0"))
@@ -309,24 +289,35 @@ extension WritePostView {
                     Shadow(color: .black, opacity: 0.20, radius: 2.5, locationY: 3)
                 ])
             
-            Menu {
-                ForEach(TeamTemplateType.allCases.indices) { index in
-                    let template = TeamTemplateType(rawValue: index)!
-                    Button {
-                        let newTemplate = TeamTemplate(number: templateIndex, type: template, question: "", options: [])
-                        templateIndex += 1
-                        viewModel.templates.append(newTemplate)
-                    } label: {
-                        Text(template.text() ?? "")
-                    }
-                }
-            } label: {
-                Image("Plus")
-                    .resizable()
-                    .frame(width: 14, height: 14)
-            }
+            submissionMenu()
         }
       
+    }
+    
+    private func submissionMenu() -> some View {
+        Menu {
+            ForEach(SubmissionFormType.allCases.indices, id: \.self) { index in
+                submissionMenuButton(index: index)
+            }
+        } label: {
+            Image("Plus")
+                .resizable()
+                .frame(width: 16, height: 16)
+        }
+    }
+    
+    private func submissionMenuButton(index: Int) -> some View {
+        let template = SubmissionFormType(rawValue: index)!
+        
+        return Button {
+            let newTemplate = SubmissionForm(number: templateIndex,
+                                             type: template,
+                                             options: [])
+            templateIndex += 1
+            viewModel.templates.append(newTemplate)
+        } label: {
+            Text(template.text())
+        }
     }
     
     private func teamChatRoomLink() -> some View {
@@ -339,10 +330,10 @@ extension WritePostView {
             
             TextWithFont(text: "Slack, 오픈채팅방 등 팀에서 사용할 채팅방 링크를 적어주세요.\n승인 처리한 지원자에게 자동 전달됩니다.",
                          size: 12)
-                .foregroundColor(
-                    Color(hexcode: "000000")
-                        .opacity(0.6)
-                )
+            .foregroundColor(
+                Color(hexcode: "000000")
+                    .opacity(0.6)
+            )
             
             VStack(alignment: .leading, spacing: 5) {
                 TextField("채팅방 링크를 기재해 주세요", text: $viewModel.openChatUrl)
@@ -350,7 +341,7 @@ extension WritePostView {
                         Color(hexcode: "000000")
                             .opacity(0.87)
                     )
-                          
+                
                 Divider()
                     .frame(height: 1)
                     .foregroundColor(
@@ -365,7 +356,7 @@ extension WritePostView {
     
     private func submitButton() -> some View {
         BaseButton(title: "작성하기", imageName: "Write") {
-            viewModel.write()
+            viewModel.submit()
             print("작성하기 버튼 눌렀음")
         }
     }

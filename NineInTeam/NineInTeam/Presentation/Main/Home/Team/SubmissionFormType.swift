@@ -7,7 +7,7 @@
 
 import CoreFoundation
 
-enum TeamTemplateType: Int, Codable, CaseIterable {
+enum SubmissionFormType: Int, Codable, CaseIterable {
     
     case text = 0
     case image = 1

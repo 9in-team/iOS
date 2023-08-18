@@ -10,7 +10,7 @@ struct Team: Codable {
     var teamId: Int
     var subject: String
     var openChatUrl: String
-    var templates: [TeamTemplate]
+    var templates: [SubmissionForm]
     var hashtags: [HashTag]
     var type: SubjectType
     var requiredRoles: [Role]

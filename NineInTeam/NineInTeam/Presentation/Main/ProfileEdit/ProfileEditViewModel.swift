@@ -82,7 +82,7 @@ extension ProfileEditViewModel {
             
             networkService.PUT(headerType: .test,
                                urlType: .testDomain,
-                               endPoint: EndPoint.updateProfile(userdata.id).get(),
+                               endPoint: EndPoint.PUT.updateProfile(userdata.id).urlString(),
                                parameters: parameters,
                                returnType: UserProfileUpdateDaoResponse.self)
             .map(\.detail)

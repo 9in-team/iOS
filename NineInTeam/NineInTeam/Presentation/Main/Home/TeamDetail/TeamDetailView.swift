@@ -25,9 +25,7 @@ extension TeamDetailView {
                                                  useDismissButton: true,
                                                  title: viewModel.teamDetail?.subject ?? ""))
         }
-        .onAppear {
-            // TODO: TeamDetailView Push하기
-        }
+
     }
     
     func mainBody() -> some View {

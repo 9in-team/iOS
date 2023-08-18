@@ -10,6 +10,7 @@ import SwiftUI
 struct SubmissionFormView: View {
     
     let form: SubmissionForm
+    
     @State var question: String = ""
     
     var body: some View {
@@ -60,6 +61,7 @@ struct SubmissionFormView: View {
     }
 }
 
+#if DEBUG
 struct TeamTemplateForm_Previews: PreviewProvider {
     
     static let teamTemplate = SubmissionForm(type: .checkBox, question: "화이팅 하실건가요?")
@@ -68,3 +70,4 @@ struct TeamTemplateForm_Previews: PreviewProvider {
         SubmissionFormView(form: teamTemplate, question: teamTemplate.question)
     }
 }
+#endif

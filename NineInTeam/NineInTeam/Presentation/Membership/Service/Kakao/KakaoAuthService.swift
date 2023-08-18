@@ -105,7 +105,7 @@ extension KakaoAuthService {
         
         self.networkService.POST(headerType: HeaderType.test,
                                  urlType: UrlType.test9inTeam,
-                                 endPoint: EndPoint.loginWithKakao.get(),
+                                 endPoint: EndPoint.POST.loginWithKakao.urlString(),
                                  parameters: parameters,
                                  returnType: KakaoUserDataResponse.self)
         .sink { result in

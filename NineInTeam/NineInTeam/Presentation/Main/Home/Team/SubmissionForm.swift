@@ -8,8 +8,8 @@
 struct SubmissionForm: Hashable, Codable {
     
     var number: Int?
-    var type: TeamTemplateType
-    var question: String
+    var type: SubmissionFormType
+    var question: String = ""
     var options: [String]?
     
 }
