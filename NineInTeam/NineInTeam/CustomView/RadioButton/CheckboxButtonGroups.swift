@@ -1,5 +1,5 @@
 //
-//  RadioButtonGroups.swift
+//  CheckboxButtonGroups.swift
 //  9in.team
 //
 //  Created by 조상현 on 2023/03/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RadioButtonGroups: View {
+struct CheckboxButtonGroups: View {
     
     @Binding private var selectedType: SubjectType
 

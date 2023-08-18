@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct TeamTemplateForm: View {
+struct SubmissionFormView: View {
     
-    let form: TeamTemplate
+    let form: SubmissionForm
     @State var question: String = ""
     
     var body: some View {
@@ -60,8 +60,11 @@ struct TeamTemplateForm: View {
     }
 }
 
-// struct TeamTemplateForm_Previews: PreviewProvider {
-//     static var previews: some View {
-//         TeamTemplateForm(form: <#T##TeamTemplate#>)
-//     }
-// }
+struct TeamTemplateForm_Previews: PreviewProvider {
+    
+    static let teamTemplate = SubmissionForm(type: .checkBox, question: "화이팅 하실건가요?")
+    
+    static var previews: some View {
+        SubmissionFormView(form: teamTemplate, question: teamTemplate.question)
+    }
+}
