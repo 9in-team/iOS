@@ -16,6 +16,7 @@ struct BorderedTextEditorWithTitle: View {
     private let cornerRadius: CGFloat
     private let minHeight: CGFloat
     private let maxHeight: CGFloat
+    private let disableEdit: Bool
     
     @Binding private var text: String
     
@@ -26,7 +27,8 @@ struct BorderedTextEditorWithTitle: View {
          backgroundColor: Color = Color(hexcode: "FFFFFF"),
          cornerRadius: CGFloat = 4,
          minHeight: CGFloat = 64,
-         maxHeight: CGFloat = 230
+         maxHeight: CGFloat = 230,
+         disableEdit: Bool = false
     ) {
         self.title = title
         self._text = text
@@ -36,6 +38,7 @@ struct BorderedTextEditorWithTitle: View {
         self.cornerRadius = cornerRadius
         self.minHeight = minHeight
         self.maxHeight = maxHeight
+        self.disableEdit = disableEdit
     }
     
 }
@@ -73,6 +76,7 @@ extension BorderedTextEditorWithTitle {
             .textCase(.none)
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
+            .disabled(disableEdit)
     }
     
     private var border: some View {
