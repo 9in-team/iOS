@@ -118,6 +118,8 @@
 		DEB38C9629CDE1FC00EF915E /* SubmissionFormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */; };
 		DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */; };
 		DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9A29CEF77100EF915E /* BaseAlert.swift */; };
+		DEBB19782A90E73D00AE4558 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBB19772A90E73D00AE4558 /* URL.swift */; };
+		DEBB197C2A90F11300AE4558 /* FileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBB197B2A90F11300AE4558 /* FileError.swift */; };
 		DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */; };
 		DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBCCF212A50873F00CEA032 /* ChatRoom.swift */; };
 		DEC0F0FF29ACE4480035851E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC0F0FE29ACE4480035851E /* Line.swift */; };
@@ -270,6 +272,8 @@
 		DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionFormType.swift; sourceTree = "<group>"; };
 		DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionForm.swift; sourceTree = "<group>"; };
 		DEB38C9A29CEF77100EF915E /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
+		DEBB19772A90E73D00AE4558 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		DEBB197B2A90F11300AE4558 /* FileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileError.swift; sourceTree = "<group>"; };
 		DEBCCF1F2A4C5EF200CEA032 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DEBCCF212A50873F00CEA032 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		DEC0F0FE29ACE4480035851E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 			children = (
 				DEB34E8F297168CF00C0B973 /* LifeCycleError.swift */,
 				394A958B2A40A6C300501B32 /* CustomEncodingError.swift */,
+				DEBB197B2A90F11300AE4558 /* FileError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -812,6 +817,7 @@
 				39EB01932A177FFD00A12674 /* Font.swift */,
 				394A95872A4052CB00501B32 /* Error.swift */,
 				394A95892A40A37400501B32 /* Encodable.swift */,
+				DEBB19772A90E73D00AE4558 /* URL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1144,10 +1150,12 @@
 				DE866CD22A68134E00C5EBE9 /* SubmitResumeView.swift in Sources */,
 				DEB38C9829CDE2AA00EF915E /* SubmissionForm.swift in Sources */,
 				DE6FBDEC2990EAFC00816A7D /* NavigationBar.swift in Sources */,
+				DEBB197C2A90F11300AE4558 /* FileError.swift in Sources */,
 				DEB34E92297168EB00C0B973 /* HeaderType.swift in Sources */,
 				394A958A2A40A37400501B32 /* Encodable.swift in Sources */,
 				DEB38C9029CB23C800EF915E /* AppState.swift in Sources */,
 				39BD81D729E4034B00F35E0B /* ReceivedPostViewModel.swift in Sources */,
+				DEBB19782A90E73D00AE4558 /* URL.swift in Sources */,
 				DEB0D38A29C62D5B00B5E1B9 /* ResumeCellView.swift in Sources */,
 				DEB0D38529C34A1900B5E1B9 /* PostCellView.swift in Sources */,
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,

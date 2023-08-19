@@ -60,21 +60,21 @@ class FirebaseStorageManager {
         }
     }
     
-    static func uploadPDF(url: URL, path: String, completion: @escaping (URL?, Error?) -> Void) {
+    static func uploadPDF(_ data: Data, path: String, completion: @escaping (URL?, Error?) -> Void) {
+        let metaData = StorageMetadata()
+        metaData.contentType = "application/pdf" 
+        
         let firebaseReference = Storage.storage().reference().child("\(path)")
-        firebaseReference.putFile(from: url, metadata: nil) { metadata, error in
-            guard let _ = metadata else {
+        firebaseReference.putData(data, metadata: metaData) { _, error in
+            if let error = error {
                 completion(nil, error)
-                return
-            }
-            // TODO: 사이즈 제한이 필요하다면 체크
-//            let size = metadata.size
-            
-            firebaseReference.downloadURL { url, error in
-                if let error = error {
-                    completion(nil, error)
-                } else {
-                    completion(url, nil)
+            } else {
+                firebaseReference.downloadURL { url, error in
+                    if let error = error {
+                        completion(nil, error)
+                    } else {
+                        completion(url, nil)
+                    }
                 }
             }
         }

@@ -196,7 +196,8 @@ extension SubmitResumeView {
             case .file:
                 answerFile()
             case .choice:
-                answerChoice(options)
+                answerFile()
+//                answerChoice(options)
             }
         }
         .frame(maxWidth: .infinity)
