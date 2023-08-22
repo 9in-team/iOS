@@ -355,9 +355,13 @@ extension WritePostView {
     }
     
     private func submitButton() -> some View {
-        BaseButton(title: "작성하기", imageName: "Write") {
+        Button {
             viewModel.submit()
             print("작성하기 버튼 눌렀음")
+        } label: {
+            SubmitButton(title: "작성하기",
+                         imageName: "Write",
+                         style: .large(color: .primary, font: .small))
         }
     }
     

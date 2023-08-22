@@ -48,7 +48,7 @@ extension View {
     
     private func mainBar() -> some View {
         ZStack {
-            ColorConstant.main.color()
+            ColorConstant.primary.color()
             
             Rectangle()
                 .fill(Color.white)

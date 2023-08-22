@@ -234,7 +234,7 @@ extension TeamDetailView {
            //
         } label: {
             RoundedRectangle(cornerRadius: 4)
-                .fill(ColorConstant.main.color())
+                .fill(ColorConstant.primary.color())
                 .frame(height: 42)
                 .overlay(
                     TextWithFont(text: "지원하기", font: .robotoMedium, size: 15)

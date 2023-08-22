@@ -15,7 +15,7 @@
 		391D53002A76704B00EE1F8A /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D52FF2A76704B00EE1F8A /* TeamResponse.swift */; };
 		391D53042A76706500EE1F8A /* SubjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53032A76706500EE1F8A /* SubjectType.swift */; };
 		391D53062A76707000EE1F8A /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53052A76707000EE1F8A /* HashTag.swift */; };
-		391D53082A769F2000EE1F8A /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53072A769F2000EE1F8A /* BaseButton.swift */; };
+		391D53082A769F2000EE1F8A /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53072A769F2000EE1F8A /* SubmitButton.swift */; };
 		391D530A2A76B14D00EE1F8A /* SubmissionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53092A76B14D00EE1F8A /* SubmissionFormView.swift */; };
 		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		392B97612A4C5BF200112529 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97602A4C5BF200112529 /* KeychainServiceTests.swift */; };
@@ -29,6 +29,8 @@
 		3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */; };
 		3960884E2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
+		397662912A94C0880002BC3D /* SubmitButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662902A94C0880002BC3D /* SubmitButtonStyle.swift */; };
+		397662932A94C0A40002BC3D /* SubmitButtonFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662922A94C0A40002BC3D /* SubmitButtonFont.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
@@ -168,7 +170,7 @@
 		391D52FF2A76704B00EE1F8A /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
 		391D53032A76706500EE1F8A /* SubjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectType.swift; sourceTree = "<group>"; };
 		391D53052A76707000EE1F8A /* HashTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
-		391D53072A769F2000EE1F8A /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		391D53072A769F2000EE1F8A /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		391D53092A76B14D00EE1F8A /* SubmissionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionFormView.swift; sourceTree = "<group>"; };
 		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		392B97602A4C5BF200112529 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
@@ -182,6 +184,8 @@
 		3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUpdateDaoResponse.swift; sourceTree = "<group>"; };
 		3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextEditorWithTitle.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
+		397662902A94C0880002BC3D /* SubmitButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonStyle.swift; sourceTree = "<group>"; };
+		397662922A94C0A40002BC3D /* SubmitButtonFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonFont.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NineInTeam.entitlements; sourceTree = "<group>"; };
 		3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
@@ -368,6 +372,16 @@
 				3959A4F22A41E92300AF9622 /* UserProfileUpdateDao.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		397662942A94C0F30002BC3D /* SubmitButton */ = {
+			isa = PBXGroup;
+			children = (
+				391D53072A769F2000EE1F8A /* SubmitButton.swift */,
+				397662902A94C0880002BC3D /* SubmitButtonStyle.swift */,
+				397662922A94C0A40002BC3D /* SubmitButtonFont.swift */,
+			);
+			path = SubmitButton;
 			sourceTree = "<group>";
 		};
 		3993A9A22A4E9B81007063EB /* Model */ = {
@@ -634,7 +648,6 @@
 				DEA2B66B2970301A00B77335 /* BaseView.swift */,
 				DEB34E78297039FF00C0B973 /* BaseViewModel.swift */,
 				DEC82E0E29966D1400D17C50 /* BaseResponseModel.swift */,
-				391D53072A769F2000EE1F8A /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -642,6 +655,7 @@
 		DEA2B66D2970304800B77335 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				397662942A94C0F30002BC3D /* SubmitButton */,
 				DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */,
 				DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */,
 				DEA2B66E2970305800B77335 /* LoadingView.swift */,
@@ -1064,6 +1078,7 @@
 				398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */,
 				DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */,
 				DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */,
+				397662932A94C0A40002BC3D /* SubmitButtonFont.swift in Sources */,
 				DEB0D36D29BB6B8D00B5E1B9 /* TeamDetailView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
 				3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */,
@@ -1088,7 +1103,7 @@
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
 				DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */,
-				391D53082A769F2000EE1F8A /* BaseButton.swift in Sources */,
+				391D53082A769F2000EE1F8A /* SubmitButton.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignInView.swift in Sources */,
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
@@ -1172,6 +1187,7 @@
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
 				DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */,
 				DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */,
+				397662912A94C0880002BC3D /* SubmitButtonStyle.swift in Sources */,
 				39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,

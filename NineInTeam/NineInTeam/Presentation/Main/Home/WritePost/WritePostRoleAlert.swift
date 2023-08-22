@@ -42,14 +42,16 @@ extension RoleAlert {
             Text("\(count) 명")
                 .font(.custom(.robotoMedium, size: 18))
             
-            Stepper("") {
+            Stepper {
+                EmptyView()
+            } onIncrement: {
                 count += 1
             } onDecrement: {
                 if count > 1 {
                     count -= 1
                 }
             }
-            .fixedSize()
+            .labelsHidden()
         }
     }
     
@@ -71,7 +73,8 @@ extension RoleAlert {
     
     private func actionButtons() -> some View {
         VStack {
-            BaseButton(title: "확인", imageName: nil) {
+            
+            Button {
                 if roleName.isEmpty {
                     viewModel.showToast(title: "모집할 역할을 입력해주세요.")
                     return
@@ -80,11 +83,18 @@ extension RoleAlert {
                 let role = Role(title: roleName, count: count)
                 viewModel.roles.append(role)
                 showRoleAlert = false
+            } label: {
+                SubmitButton(title: "확인",
+                             style: .medium(color: .primary, font: .small))
             }
             
-            BaseButton(title: "취소", imageName: nil) {
+            Button {
                 showRoleAlert = false
+            } label: {
+                SubmitButton(title: "취소",
+                             style: .medium(color: .primary, font: .small))
             }
+            
         }
     }
         
@@ -97,4 +107,3 @@ struct RoleAlert_Previews: PreviewProvider {
     }
 }
 #endif
-

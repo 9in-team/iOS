@@ -25,7 +25,7 @@ struct SubmissionFormView: View {
                         TextWithFont(text: "\(form.number ?? 0)", font: .robotoMedium, size: 12)
                             .foregroundColor(Color(hexcode: "FFFFFF"))
                             .padding(6)
-                            .background(ColorConstant.main.color())
+                            .background(ColorConstant.primary.color())
                             .clipShape(Circle())
                             .offset(x: -31, y: -31)
                     )

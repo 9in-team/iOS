@@ -47,7 +47,7 @@ extension HomeView {
         NavigationLink(destination: WritePostView()) {
             Circle()
                 .frame(width: 56, height: 56)
-                .foregroundColor(ColorConstant.main.color())
+                .foregroundColor(ColorConstant.primary.color())
                 .circleShadows([Shadow(color: .black, opacity: 0.12, radius: 18, locationY: 1),
                                 Shadow(color: .black, opacity: 0.14, radius: 10, locationY: 6),
                                 Shadow(color: .black, opacity: 0.2, radius: 5, locationY: 3)])

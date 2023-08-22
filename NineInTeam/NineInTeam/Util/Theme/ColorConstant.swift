@@ -9,7 +9,8 @@ import SwiftUI
 
 enum ColorConstant: String {
     
-    case main = "1976D2"
+    case primary = "1976D2"    
+    case secondary = "42A5F5"
     case white = "FFFFFF"
     case black = "000000"
     case kakaoContainer = "FEE500"
