@@ -360,7 +360,7 @@ extension WritePostView {
             print("작성하기 버튼 눌렀음")
         }
         .buttonStyle(
-            SubmitButtonStyle(.large(color: .primary,
+            SubmitButtonStyle(.fullSize(color: .primary,
                                font: .small,
                                imageName: "Write"))
         )

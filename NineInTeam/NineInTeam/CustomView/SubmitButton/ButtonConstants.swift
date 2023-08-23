@@ -10,36 +10,36 @@ import SwiftUI
 enum ButtonConstants {
 
     /// width: 349, height: 48
-    case large(color: ColorConstant, font: SubmitButtonFont, imageName: String? = nil)
+    case fullSize(color: ColorConstant, font: SubmitButtonFont, imageName: String? = nil)
     /// width: 227, height: 42
-    case medium(color: ColorConstant, font: SubmitButtonFont, imageName: String? = nil)
+    case halfSize(color: ColorConstant, font: SubmitButtonFont, imageName: String? = nil)
     
     var backgroundColor: Color {
         switch self {
-        case .large(let color, _, _), .medium(let color, _, _):
+        case .fullSize(let color, _, _), .halfSize(let color, _, _):
             return color.color()
         }
     }
     
     var size: CGSize {
         switch self {
-        case .large:
+        case .fullSize:
             return CGSize(width: 349, height: 48)
-        case .medium:
+        case .halfSize:
             return CGSize(width: 227, height: 42)
         }
     }
     
     var fonts: SubmitButtonFont {
         switch self {
-        case .large(_, let font, _), .medium(_, let font, _):
+        case .fullSize(_, let font, _), .halfSize(_, let font, _):
             return font
         }
     }
     
     var imageName: String? {
         switch self {
-        case .large(_, _, let name), .medium(_, _, let name):
+        case .fullSize(_, _, let name), .halfSize(_, _, let name):
             return name
         }
     }

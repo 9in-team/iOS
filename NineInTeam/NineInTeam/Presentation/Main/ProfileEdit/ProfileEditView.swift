@@ -52,7 +52,7 @@ extension ProfileEditView {
             } label: {
 
             }
-            .buttonStyle(SubmitButtonStyle(.medium(color: .primary, font: .small)))
+            .buttonStyle(SubmitButtonStyle(.halfSize(color: .primary, font: .small)))
             
             Spacer()
             
@@ -60,7 +60,7 @@ extension ProfileEditView {
             Button("로그아웃") {
                 viewModel.logout()
             }
-            .buttonStyle(SubmitButtonStyle(.medium(color: .primary, font: .small, imageName: "Logout")))
+            .buttonStyle(SubmitButtonStyle(.halfSize(color: .primary, font: .small, imageName: "Logout")))
         }
     }
     

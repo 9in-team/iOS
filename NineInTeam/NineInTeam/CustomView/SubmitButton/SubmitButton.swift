@@ -105,7 +105,7 @@ struct BaseButton_Previews: PreviewProvider {
         } label: {
             Text("hi")
         }
-        .buttonStyle(SubmitButtonStyle(.large(color: .primary, font: .normal, imageName: nil)))
+        .buttonStyle(SubmitButtonStyle(.fullSize(color: .primary, font: .normal, imageName: nil)))
     }
 }
 #endif

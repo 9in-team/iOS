@@ -233,7 +233,7 @@ extension ReceivedPostCell {
             }
         }
         .buttonStyle(
-            SubmitButtonStyle(.large(color: .secondary, font: .small))
+            SubmitButtonStyle(.fullSize(color: .secondary, font: .small))
         )
     }
 

@@ -84,12 +84,12 @@ extension RoleAlert {
                 viewModel.roles.append(role)
                 showRoleAlert = false
             }
-            .buttonStyle(SubmitButtonStyle(.medium(color: .primary, font: .small)))
+            .buttonStyle(SubmitButtonStyle(.halfSize(color: .primary, font: .small)))
             
             Button("취소") {
                 showRoleAlert = false
             }
-            .buttonStyle(SubmitButtonStyle(.medium(color: .primary, font: .small)))
+            .buttonStyle(SubmitButtonStyle(.halfSize(color: .primary, font: .small)))
             
         }
     }
