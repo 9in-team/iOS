@@ -74,7 +74,7 @@ extension RoleAlert {
     private func actionButtons() -> some View {
         VStack {
             
-            Button {
+            Button("확인") {
                 if roleName.isEmpty {
                     viewModel.showToast(title: "모집할 역할을 입력해주세요.")
                     return
@@ -83,17 +83,13 @@ extension RoleAlert {
                 let role = Role(title: roleName, count: count)
                 viewModel.roles.append(role)
                 showRoleAlert = false
-            } label: {
-                SubmitButton(title: "확인",
-                             style: .medium(color: .primary, font: .small))
             }
+            .buttonStyle(SubmitButtonStyle(.medium(color: .primary, font: .small)))
             
-            Button {
+            Button("취소") {
                 showRoleAlert = false
-            } label: {
-                SubmitButton(title: "취소",
-                             style: .medium(color: .primary, font: .small))
             }
+            .buttonStyle(SubmitButtonStyle(.medium(color: .primary, font: .small)))
             
         }
     }

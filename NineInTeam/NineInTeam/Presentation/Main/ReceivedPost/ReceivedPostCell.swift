@@ -223,7 +223,7 @@ extension ReceivedPostCell {
     }
 
     func sendMessageButton() -> some View {
-        Button {
+        Button("메시지 전송") {
             switch approvalStatus {
             case .none:
                 print("승인 또는 거절 눌러달라는 알럿 표시")
@@ -231,20 +231,10 @@ extension ReceivedPostCell {
             default:
                 isApproved = true
             }
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(Color(hexcode: "42A5F5"))
-
-                ZStack {
-                    TextWithFont(text: "메시지 전송", font: .robotoMedium, size: 15)
-                        .foregroundColor(Color(hexcode: "FFFFFF"))
-                        .padding(.horizontal, 22)
-                        .padding(.vertical, 8)
-                }
-                .frame(width: 120, height: 42)
-            }
         }
+        .buttonStyle(
+            SubmitButtonStyle(.large(color: .secondary, font: .small))
+        )
     }
 
     func heightSpacer(_ height: CGFloat) -> some View {

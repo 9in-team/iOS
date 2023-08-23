@@ -29,7 +29,7 @@
 		3959A4F52A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */; };
 		3960884E2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
-		397662912A94C0880002BC3D /* SubmitButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662902A94C0880002BC3D /* SubmitButtonStyle.swift */; };
+		397662912A94C0880002BC3D /* ButtonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662902A94C0880002BC3D /* ButtonConstants.swift */; };
 		397662932A94C0A40002BC3D /* SubmitButtonFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662922A94C0A40002BC3D /* SubmitButtonFont.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */; };
@@ -184,7 +184,7 @@
 		3959A4F42A41E93300AF9622 /* UserProfileUpdateDaoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileUpdateDaoResponse.swift; sourceTree = "<group>"; };
 		3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextEditorWithTitle.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
-		397662902A94C0880002BC3D /* SubmitButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonStyle.swift; sourceTree = "<group>"; };
+		397662902A94C0880002BC3D /* ButtonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConstants.swift; sourceTree = "<group>"; };
 		397662922A94C0A40002BC3D /* SubmitButtonFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonFont.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NineInTeam.entitlements; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				391D53072A769F2000EE1F8A /* SubmitButton.swift */,
-				397662902A94C0880002BC3D /* SubmitButtonStyle.swift */,
+				397662902A94C0880002BC3D /* ButtonConstants.swift */,
 				397662922A94C0A40002BC3D /* SubmitButtonFont.swift */,
 			);
 			path = SubmitButton;
@@ -1187,7 +1187,7 @@
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
 				DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */,
 				DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */,
-				397662912A94C0880002BC3D /* SubmitButtonStyle.swift in Sources */,
+				397662912A94C0880002BC3D /* ButtonConstants.swift in Sources */,
 				39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,
