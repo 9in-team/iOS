@@ -193,12 +193,12 @@ extension WritePostView {
                 .padding(.bottom, 14)
                 .padding(.horizontal, 20)
             
-            roleCellsScrollView()
+            recruitmentRoleCellsScrollView()
         }
         .padding(.horizontal, -20)
     }
     
-    private func roleCellsScrollView() -> some View {
+    private func recruitmentRoleCellsScrollView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 clearRectangle()

@@ -29,7 +29,7 @@ class MyWishViewModel: BaseViewModel {
 
     private func requestTeams() {
         service.GET(headerType: .test,
-                    urlType: .testDomain,
+                    urlType: .testServer,
                     endPoint: "myWishTeam",
                     parameters: [:],
                     returnType: TeamResponse.self)
@@ -49,7 +49,7 @@ class MyWishViewModel: BaseViewModel {
 
     private func requestTeamDetail(teamId: Int) {
         service.GET(headerType: .test,
-                    urlType: .testLocal,
+                    urlType: .testServer,
                     endPoint: "teams/\(teamId)",
                     parameters: [:],
                     returnType: TeamDetail.self)

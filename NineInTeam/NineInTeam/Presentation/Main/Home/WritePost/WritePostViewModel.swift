@@ -89,7 +89,7 @@ extension WritePostViewModel {
                             completion: @escaping() -> Void) {
         
         service.POST(headerType: .test,
-                     urlType: .test9inTeam,
+                     urlType: .testServer,
                      endPoint: EndPoint.POST.writeTeam(teamId).urlString(),
                      parameters: [:],
                      returnType: Team.self)
