@@ -53,6 +53,14 @@ extension WritePostViewModel {
         }
     }
     
+    func deleteSubmission(at index: Int) {
+        self.templates.remove(at: index)
+    }
+    
+    func deleteHashtag(at index: Int) {
+        self.hashtags.remove(at: index)
+    }
+    
     private func checkInputData() throws {
         if subject.isEmpty {
             showToast(title: "제목을 입력해주세요.")

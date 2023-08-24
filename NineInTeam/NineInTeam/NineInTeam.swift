@@ -24,7 +24,7 @@ struct NineInTeamApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ApplicationSwitcher()
+            WritePostView()
         }
     }
     

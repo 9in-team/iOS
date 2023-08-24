@@ -11,12 +11,8 @@ import Combine
 struct WritePostView: View {
     
     @StateObject private var viewModel = WritePostViewModel()
-        
-    @State private var showAddTagAlert = false
-    @State private var showSubmitAlert = false
+    
     @State private var showRoleAlert = false
-    @State private var isShowAlert = false
-
     @State private var selectedIndex: Int = 0
     @State private var templateIndex: Int = 1
     
@@ -47,7 +43,7 @@ extension WritePostView {
                 recruitmentRole()
                 
                 BorderedTextEditorWithTitle(title: "팀 설명", text: $viewModel.content)
-
+                
                 submissionForms()
                 
                 teamChatRoomLink()
@@ -61,9 +57,9 @@ extension WritePostView {
     
     private func subjectTypeSwitch(selected: Binding<SubjectType>) -> some View {
         CheckboxButtonGroups($viewModel.subjectType)
-            .scrollEnabled(false)
             .padding(.horizontal, 20)
             .padding(.bottom, 14)
+            .scrollEnabled(false)
     }
     
     private func titleView() -> some View {
@@ -116,45 +112,38 @@ extension WritePostView {
     private func tagsScrollView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 5) {
-                Rectangle()
-                    .fill(.clear)
+                
+                clearRectangle()
                     .frame(width: 17)
                 
                 ForEach(viewModel.hashtags.indices, id: \.self) { index in
                     let tag = viewModel.hashtags[index]
                     tagCell(tag)
                         .onTapGesture {
-                            viewModel.hashtags.remove(at: index)
+                            viewModel.deleteHashtag(at: index)
                         }
                 }
                 
                 addTagButton()
                 
-                Rectangle()
-                    .fill(.clear)
+                clearRectangle()
                     .frame(width: 17)
             }
         }
+        .frame(height: 32)
         .scrollEnabled(viewModel.hashtags.isEmpty ? false : true)
     }
     
     private func addTagButton() -> some View {
-        ZStack {
-            Circle()
-                .foregroundColor(Color(hexcode: "E0E0E0"))
-                .frame(width: 24, height: 24)
-                .circleShadows([
-                    Shadow(color: .black, opacity: 0.12, radius: 1.5, locationY: 2),
-                    Shadow(color: .black, opacity: 0.14, radius: 0.5, locationY: 1),
-                    Shadow(color: .black, opacity: 0.20, radius: 0.5, locationY: 1)
-                               ])
-            addTagButtonMenu()
+        Menu {
+            addTagAction()
+        } label: {
+            tabButtonBackground()
         }
-        .frame(height: 32)
     }
     
-    private func addTagButtonMenu() -> some View {
-        Menu {
+    private func addTagAction() -> some View {
+        Group {
             ForEach(viewModel.allTag, id: \.self) { tag in
                 Button {
                     viewModel.hashtags.append(HashTag(tag))
@@ -163,11 +152,23 @@ extension WritePostView {
                         .font(.custom(.robotoRegular, size: 13))
                 }
             }
-        } label: {
-            Image("Plus")
-                .resizable()
-                .frame(width: 14, height: 14)
         }
+    }
+    
+    private func tabButtonBackground() -> some View {
+        Circle()
+            .foregroundColor(Color(hexcode: "E0E0E0"))
+            .circleShadows([
+                Shadow(color: .black, opacity: 0.12, radius: 1.5, locationY: 2),
+                Shadow(color: .black, opacity: 0.14, radius: 0.5, locationY: 1),
+                Shadow(color: .black, opacity: 0.20, radius: 0.5, locationY: 1)
+            ])
+            .overlay {
+                Image("Plus")
+                    .resizable()
+                    .frame(width: 14, height: 14)
+            }
+            .frame(width: 24, height: 24)
     }
     
     private func tagCell(_ tag: HashTag) -> some View {
@@ -192,18 +193,17 @@ extension WritePostView {
                 .padding(.bottom, 14)
                 .padding(.horizontal, 20)
             
-            recruitmentRoleCellsScrollView()
+            roleCellsScrollView()
         }
         .padding(.horizontal, -20)
     }
     
-    private func recruitmentRoleCellsScrollView() -> some View {
+    private func roleCellsScrollView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                Rectangle()
-                    .fill(.clear)
+                clearRectangle()
                     .frame(width: 10, height: 120)
-
+                
                 ForEach(viewModel.roles, id: \.self) { role in
                     roleCell(from: role)
                 }
@@ -268,45 +268,61 @@ extension WritePostView {
                 )
             
             VStack(spacing: 20) {
-                ForEach(viewModel.templates, id: \.self) { form in
-                    SubmissionFormView(form: form)
+                ForEach(viewModel.templates.indices, id: \.self) { index in
+                    SubmissionFormView(form: viewModel.templates[index],
+                                       editMode: true) {
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                viewModel.deleteSubmission(at: index)
+                            }
+                        }
+                    }
                 }
                 
-                addFormMenuContainer()
+                addSubmisionButton()
             }
             .padding(.horizontal, 5)
         }
     }
     
-    private func addFormMenuContainer() -> some View {
-        ZStack {
-            Circle()
-                .frame(width: 56, height: 56)
-                .foregroundColor(Color(hexcode: "E0E0E0"))
-                .circleShadows([
-                    Shadow(color: .black, opacity: 0.12, radius: 9, locationY: 1),
-                    Shadow(color: .black, opacity: 0.14, radius: 5, locationY: 6),
-                    Shadow(color: .black, opacity: 0.20, radius: 2.5, locationY: 3)
-                ])
-            
-            submissionMenu()
-        }
-      
-    }
-    
-    private func submissionMenu() -> some View {
+    private func addSubmisionButton() -> some View {
         Menu {
             ForEach(SubmissionFormType.allCases.indices, id: \.self) { index in
-                submissionMenuButton(index: index)
+                submissionInMenuButton(index: index)
             }
         } label: {
-            Image("Plus")
-                .resizable()
-                .frame(width: 16, height: 16)
+            submissionMenuLabel()
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 56)
+    }
+    
+    private func submissionMenuLabel() -> some View {
+        HStack {
+            if !viewModel.templates.isEmpty {
+                clearRectangle()
+            }
+            
+            ZStack {
+                Circle()
+                    .foregroundColor(Color(hexcode: "E0E0E0"))
+                    .circleShadows([
+                        Shadow(color: .black, opacity: 0.12, radius: 9, locationY: 1),
+                        Shadow(color: .black, opacity: 0.14, radius: 5, locationY: 6),
+                        Shadow(color: .black, opacity: 0.20, radius: 2.5, locationY: 3)
+                    ])
+                
+                Image("Plus")
+                    .resizable()
+                    .frame(width: 16, height: 16)
+            }
+            .frame(width: 56, height: 56)
+            
+            clearRectangle()
         }
     }
     
-    private func submissionMenuButton(index: Int) -> some View {
+    private func submissionInMenuButton(index: Int) -> some View {
         let template = SubmissionFormType(rawValue: index)!
         
         return Button {
@@ -361,9 +377,14 @@ extension WritePostView {
         }
         .buttonStyle(
             SubmitButtonStyle(.fullSize(color: .primary,
-                               font: .small,
-                               imageName: "Write"))
+                                        font: .small,
+                                        imageName: "Write"))
         )
+    }
+    
+    private func clearRectangle() -> some View {
+        Rectangle()
+            .fill(Color.clear)
     }
     
 }
