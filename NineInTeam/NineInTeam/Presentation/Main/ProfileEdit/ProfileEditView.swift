@@ -47,16 +47,13 @@ extension ProfileEditView {
             nickname()
                 .frame(width: 230)
             
-            Button {
+            Button("수정") {
                 viewModel.editUserProfile()
-            } label: {
-
             }
-            .buttonStyle(SubmitButtonStyle(.halfSize(color: .primary, font: .small)))
+            .buttonStyle(SubmitButtonStyle(.halfSize(color: .primary, font: .small, imageName: "Check")))
             
             Spacer()
             
-            // FIXME: 로그아웃버튼 Fix되면 해당 위치/디자인으로 바꿔야함.
             Button("로그아웃") {
                 viewModel.logout()
             }

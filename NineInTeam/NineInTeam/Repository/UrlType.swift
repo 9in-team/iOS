@@ -14,8 +14,8 @@ enum UrlType {
     func get() -> String {
         switch UrlType.localhost {
         case true:
-            return "https://9in.team/"
-            // return "https://9inteam.heon.dev/"
+            // return "https://9in.team/"
+            return "https://9inteam.heon.dev/"
         case false:
             return "http://127.0.0.1/"
         }
