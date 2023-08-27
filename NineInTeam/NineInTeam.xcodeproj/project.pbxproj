@@ -372,6 +372,7 @@
 			children = (
 				3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */,
 				392B97622A4C60E900112529 /* KakaoAuthError.swift */,
+				3905CFD42A9B2E1C00CF4AB4 /* KakaoSignInButton.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -607,7 +608,6 @@
 				3993A9A62A4E9BD8007063EB /* Kakao */,
 				396D2AAC2A5511D00042D4D4 /* Apple */,
 				391D52F92A76258C00EE1F8A /* Response */,
-				3905CFD42A9B2E1C00CF4AB4 /* KakaoSignInButton.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";

@@ -45,8 +45,8 @@ extension SignViewModel {
     }
     
     func getAppleSignInSession() {
-        authManager.getSession { error in
-            // 백엔드 서버 구현시 작업 필요합니다.
+        authManager.getSession { _ in
+            // 서버측 구현 완료시 id 값을 받아서 사용자데이터 가져오기 Request 구현 필요.
         }
     }
     

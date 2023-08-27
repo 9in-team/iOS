@@ -70,7 +70,7 @@ extension AuthenticationManager {
             KakaoAuthService(with: networkService).getLoginSession(completion: completion)
         case .apple:
             do {
-                try AppleAuthService(with: networkService).getLoginSession()
+                try AppleAuthService(with: networkService).getSignedSession()
             } catch {
                 print(error)
                 completion(error)
@@ -78,7 +78,6 @@ extension AuthenticationManager {
         default:
             completion(SignInError.unknownSession)
         }
-        
     }
     
     func logout() {
