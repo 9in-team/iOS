@@ -27,66 +27,43 @@ extension SignInView {
         ZStack {
             ColorConstant.main.color()
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                Spacer()
-                
-                TextWithFont(text: "9in.team", font: .godoB, size: 48)
-                    .foregroundColor(ColorConstant.white.color())
-                
-                TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: .godoB, size: 16)
-                    .foregroundColor(ColorConstant.white.color())
-                
-                Spacer()
-            }            
-         
-            VStack {
-                Spacer()
-
-                kakaoSignInButton()
-                
-                appleSignInButton()
-                
-                Rectangle()
-                    .fill(Color.clear)
-                    .frame(height: 48)
-            }
-            .padding(.horizontal, 36)
-
+            
+            titleLabel
+            
+            loginButtons
         }
     }
     
-    private func appleSignInButton() -> some View {
-        SignInWithAppleButton(.signIn,
-                              onRequest: viewModel.appleSignInOnRequest(_:),
-                              onCompletion: viewModel.appleLogin(_:))
-        .frame(height: 50)
+    private var titleLabel: some View {
+        VStack(alignment: .center) {
+            TextWithFont(text: "9in.team", font: .godoB, size: 48)
+                .foregroundColor(ColorConstant.white.color())
+            
+            TextWithFont(text: "스터디, 프로젝트 같이 할 사람?", font: .godoB, size: 16)
+                .foregroundColor(ColorConstant.white.color())
+        }
     }
     
-    private func kakaoSignInButton() -> some View {
-        Button(action: {
-            viewModel.kakaoLogin()
-        }, label: {
-            ZStack {
-                HStack {
-                    Image("KakaoSymbol")
-                        .resizable()
-                        .scaledToFit()
-                 
-                    Spacer()
-                    
-                    Text("카카오 로그인")
-                        .font(.system(size: 16))
-                        .foregroundColor(ColorConstant.black.color().opacity(0.85))
-                    
-                    Spacer()
-                }
-                .frame(height: 16)
-            }
-            .padding(.horizontal, 15)
+    private var loginButtons: some View {
+        VStack {
+            Spacer()
+
+            KakaoSignInButton(viewModel: viewModel)
+
+            SignInWithAppleButton(.signIn,
+                                  onRequest: viewModel.appleSignInOnRequest(_:),
+                                  onCompletion: viewModel.appleLogin(_:))
             .frame(height: 50)
-            .background(ColorConstant.kakaoContainer.color())
-            .cornerRadius(12)
-        })
+            
+            bottomSpacer()
+        }
+        .padding(.horizontal, 36)
+    }
+    
+    private func bottomSpacer() -> some View {
+        Rectangle()
+            .fill(Color.clear)
+            .frame(height: 48)
     }
     
 }

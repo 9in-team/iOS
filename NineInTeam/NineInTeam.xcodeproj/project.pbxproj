@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3905CFD52A9B2E1C00CF4AB4 /* KakaoSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3905CFD42A9B2E1C00CF4AB4 /* KakaoSignInButton.swift */; };
 		390F8F032A3F1E29007B66CD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F022A3F1E29007B66CD /* KeychainManager.swift */; };
 		390F8F052A3F30EE007B66CD /* SignInProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390F8F042A3F30EE007B66CD /* SignInProviderType.swift */; };
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
@@ -157,6 +158,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3905CFD42A9B2E1C00CF4AB4 /* KakaoSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignInButton.swift; sourceTree = "<group>"; };
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
 		391D52F72A76250F00EE1F8A /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
@@ -601,9 +603,11 @@
 				DEA2B66829702FD000B77335 /* SignInView.swift */,
 				DEE7BC152989180900FE7FEC /* SignViewModel.swift */,
 				390F8F042A3F30EE007B66CD /* SignInProviderType.swift */,
+				391D52F72A76250F00EE1F8A /* SignInError.swift */,
 				3993A9A62A4E9BD8007063EB /* Kakao */,
 				396D2AAC2A5511D00042D4D4 /* Apple */,
 				391D52F92A76258C00EE1F8A /* Response */,
+				3905CFD42A9B2E1C00CF4AB4 /* KakaoSignInButton.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -656,7 +660,6 @@
 			isa = PBXGroup;
 			children = (
 				39A7C38C2A3E1164005064D9 /* AuthenticationManager.swift */,
-				391D52F72A76250F00EE1F8A /* SignInError.swift */,
 				DEA2B66729702FC100B77335 /* SignIn */,
 				3959A4F62A41E9D100AF9622 /* UserModel */,
 				391D52F62A76240400EE1F8A /* ProfileUpdate */,
@@ -1092,6 +1095,7 @@
 				39A7C38D2A3E1164005064D9 /* AuthenticationManager.swift in Sources */,
 				DEB34E8E297168A500C0B973 /* NetworkError.swift in Sources */,
 				DEB38C9B29CEF77100EF915E /* BaseAlert.swift in Sources */,
+				3905CFD52A9B2E1C00CF4AB4 /* KakaoSignInButton.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* ProfileUpdateResponseDetail.swift in Sources */,
 				3959A4F32A41E92300AF9622 /* ProfileUpdateResponseDetail.swift in Sources */,
 				DEBCCF202A4C5EF200CEA032 /* Chat.swift in Sources */,

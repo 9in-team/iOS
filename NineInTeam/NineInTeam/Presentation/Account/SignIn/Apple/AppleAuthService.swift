@@ -41,7 +41,9 @@ extension AppleAuthService {
                 case .success(_):
                     print("로그인 성공")
                     do {
-                        try KeychainManager.shared.saveToken(credential.user, signInProvider: .apple, tokenType: .accessToken)
+                        try KeychainManager.shared.saveToken(credential.user, 
+                                                             signInProvider: .apple,
+                                                             tokenType: .accessToken)
                         self.authManager.isSingIn = true
                         self.authManager.lastSignInProvider = .apple
                         print("userId저장 성공")
@@ -65,11 +67,8 @@ extension AppleAuthService {
         let user = credential.user
         
         print("DEBUG Credential: \(credential)")
-        // print("state : \(state ?? "state is nil")")
-        // print("code : \(code ?? "code is nil")")
-        // print("token : \(token ?? "token is nil")")
         print("user : \(user)")
-        //
+
         guard let token = token else { throw AppleAuthError.tokenIsNil }
         
         return AppleSignInRequest(state: state,

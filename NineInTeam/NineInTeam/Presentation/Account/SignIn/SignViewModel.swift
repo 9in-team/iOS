@@ -28,13 +28,11 @@ final class SignViewModel: BaseViewModel {
 
 extension SignViewModel {
     
-    // 로그인 요청 데이터
     func appleSignInOnRequest(_ request: ASAuthorizationAppleIDRequest) {
         willStartLoading()
         request.requestedScopes = [.fullName, .email]
     }
     
-    // 애플 로그인 요청 (애플서버에서 토큰 받은 후 -> 백엔드 서버로 요청하는 로직)
     func appleLogin(_ authResult: Result<ASAuthorization, Error>) {
         do {
             try authManager.appleLogin(authResult: authResult)
@@ -46,10 +44,9 @@ extension SignViewModel {
         }
     }
     
-    // 애플 로그인 세션 가져오기
     func getAppleSignInSession() {
         authManager.getSession { error in
-            print(error)
+            // 백엔드 서버 구현시 작업 필요합니다.
         }
     }
     
