@@ -28,12 +28,13 @@ class SubmitResumeViewModel: BaseViewModel {
     func submit() {
         willStartLoading()
             
-        uploadPDF { [weak self] url, error in
+        uploadPDF { [weak self] resultUrl, error in
             if let _ = error {
                 self?.showToast(title: "파일 업로드를 실패했습니다.")
             }
             
             // 이후 작업
+            
             self?.didFinishLoading()
         }
     }
@@ -64,12 +65,8 @@ class SubmitResumeViewModel: BaseViewModel {
                 return
             }
             
-            if let data = url.toData() {                
+            if let data = url.toData() {
                 FirebaseStorageManager.uploadPDF(data, path: path) { resultUrl, error in
-                    if error != nil {
-                        return
-                    }
-                    
                     completion(resultUrl, error)
                 }
             } else {
