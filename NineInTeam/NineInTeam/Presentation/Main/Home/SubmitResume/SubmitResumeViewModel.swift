@@ -64,8 +64,7 @@ class SubmitResumeViewModel: BaseViewModel {
                 return
             }
             
-            if let data = url.toData() {
-                url.stopAccessingSecurityScopedResource()
+            if let data = url.toData() {                
                 FirebaseStorageManager.uploadPDF(data, path: path) { resultUrl, error in
                     if error != nil {
                         return
@@ -75,8 +74,9 @@ class SubmitResumeViewModel: BaseViewModel {
                 }
             } else {
                 completion(nil, FileError.fileConvertError)
-                return
             }
+            
+            url.stopAccessingSecurityScopedResource()
         }
     }
             
