@@ -48,7 +48,7 @@ extension View {
     
     private func mainBar() -> some View {
         ZStack {
-            ColorConstant.main.color()
+            ColorConstant.primary.color()
             
             Rectangle()
                 .fill(Color.white)
@@ -114,6 +114,16 @@ extension View {
     
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners) )
+    }
+    
+    @ViewBuilder
+    func scrollEnabled(_ enabled: Bool) -> some View {
+        if enabled {
+            self
+        } else {
+            simultaneousGesture(DragGesture(minimumDistance: 0),
+                                including: .all)
+        }
     }
     
 }

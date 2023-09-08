@@ -25,9 +25,7 @@ extension TeamDetailView {
                                                  useDismissButton: true,
                                                  title: viewModel.teamDetail?.subject ?? ""))
         }
-        .onAppear {
-            viewModel.requestDetailPage(teamId: teamId)
-        }
+
     }
     
     func mainBody() -> some View {
@@ -124,7 +122,7 @@ extension TeamDetailView {
         }
     }
 
-    func roleCell(role: RecruitmentRole) -> some View {
+    func roleCell(role: Role) -> some View {
         VStack(alignment: .center, spacing: 0) {
             Spacer()
 
@@ -236,7 +234,7 @@ extension TeamDetailView {
            //
         } label: {
             RoundedRectangle(cornerRadius: 4)
-                .fill(ColorConstant.main.color())
+                .fill(ColorConstant.primary.color())
                 .frame(height: 42)
                 .overlay(
                     TextWithFont(text: "지원하기", font: .robotoMedium, size: 15)

@@ -81,8 +81,8 @@ extension ProfileEditViewModel {
             guard let userdata  = authManager.userData else { return }
             
             networkService.PUT(headerType: .test,
-                               urlType: .testDomain,
-                               endPoint: EndPoint.updateProfile(userdata.id).get(),
+                               urlType: .testServer,
+                               endPoint: EndPoint.PUT.updateProfile(userdata.id).urlString(),
                                parameters: parameters,
                                returnType: UserProfileUpdateDaoResponse.self)
             .map(\.detail)

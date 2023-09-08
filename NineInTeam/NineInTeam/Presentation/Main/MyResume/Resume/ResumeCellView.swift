@@ -28,7 +28,7 @@ struct ResumeCellView: View {
         if resume.applyState == .waiting {
             color = Color(hexcode: "000000").opacity(0.87)
         } else if resume.applyState == .invited {
-            color = ColorConstant.main.color()
+            color = ColorConstant.primary.color()
         } else if resume.applyState == .rejected {
             color = Color(hexcode: "000000").opacity(0.38)
         }

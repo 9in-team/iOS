@@ -7,12 +7,19 @@
 
 import CoreFoundation
 
-enum SubmissionFormType: String, Decodable {
+enum SubmissionFormType: Int, Codable, CaseIterable {
     
-    case text = "text"
-    case image = "image"
-    case file = "file"
-    case choice = "radiobox"
+    case text = 0
+    case image = 1
+    case file = 2
+    case checkBox = 3
+    
+    private enum CodingKeys: String, CodingKey {
+        case test = "TEXT"
+        case image = "IMAGE"
+        case file = "FILE"
+        case checkBox = "CHECKBOX"
+    }
     
     func asset() -> String {
         switch self {
@@ -22,7 +29,7 @@ enum SubmissionFormType: String, Decodable {
             return "Image"
         case .file:
             return "File"
-        case .choice:
+        case .checkBox:
             return "Choice"
         }
     }
@@ -35,7 +42,7 @@ enum SubmissionFormType: String, Decodable {
             return CGSize(width: 18, height: 18)
         case .file:
             return CGSize(width: 16, height: 20)
-        case . choice:
+        case .checkBox:
             return CGSize(width: 18, height: 18)
         }
     }
@@ -48,8 +55,8 @@ enum SubmissionFormType: String, Decodable {
             return "이미지"
         case .file:
             return "파일"
-        case . choice:
-            return "선택"
+        case .checkBox:
+            return "체크박스"
         }
     }
     

@@ -16,7 +16,7 @@ struct TabNavigationBar: View {
     
     var body: some View {
         ZStack {
-            ColorConstant.main.color()
+            ColorConstant.primary.color()
                 .ignoresSafeArea()
             
             HStack {

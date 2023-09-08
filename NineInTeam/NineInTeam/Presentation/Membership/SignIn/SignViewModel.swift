@@ -62,8 +62,8 @@ final class SignViewModel: BaseViewModel {
         willStartLoading()
         
         service.POST(headerType: HeaderType.test,
-                     urlType: UrlType.test9inTeam,
-                     endPoint: EndPoint.join.get(),
+                     urlType: UrlType.testServer,
+                     endPoint: EndPoint.GET.join.urlString(),
                      parameters: parameters,
                      returnType: KakaoUserDataResponse.self)
             .sink { [weak self] completion in

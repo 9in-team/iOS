@@ -47,7 +47,7 @@ extension ChatCellView {
                 TextWithFont(text: "1", font: .robotoMedium, size: 12)
                     .foregroundColor(Color(hexcode: "FFFFFF"))
                     .padding(6)
-                    .background(Circle().fill(ColorConstant.main.color()))
+                    .background(Circle().fill(ColorConstant.primary.color()))
                 
                 Spacer()
             }
