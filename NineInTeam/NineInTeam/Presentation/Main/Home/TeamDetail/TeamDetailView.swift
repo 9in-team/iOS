@@ -231,7 +231,9 @@ extension TeamDetailView {
 
     func applyButton() -> some View {
         Button {
-           //
+            if let teamDetail = viewModel.teamDetail {
+                coordinator.push(destination: .submitResume(teamDetail))
+            }
         } label: {
             RoundedRectangle(cornerRadius: 4)
                 .fill(ColorConstant.primary.color())
