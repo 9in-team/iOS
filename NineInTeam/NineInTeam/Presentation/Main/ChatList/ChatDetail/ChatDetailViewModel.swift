@@ -22,7 +22,7 @@ class ChatDetailViewModel: BaseViewModel {
     
     func getChatDetail(chatId: Int) {
         service.GET(headerType: .test,
-                     urlType: .testLocal2,
+                     urlType: .testServer,
                      endPoint: "chats/\(chatId)",
                      parameters: [:],
                      returnType: ChatResponse.self)

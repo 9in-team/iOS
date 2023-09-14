@@ -12,7 +12,7 @@ struct TeamDetail: Decodable {
     var subject: String
     var leaderId: Int
     var hashtags: [String]
-    var roles: [RecruitmentRole]
+    var roles: [Role]
     var content: String
     var applyTemplate: [SubmissionForm]
     var lastModified: String

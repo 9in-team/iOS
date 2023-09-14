@@ -48,7 +48,7 @@ extension View {
     
     private func mainBar() -> some View {
         ZStack {
-            ColorConstant.main.color()
+            ColorConstant.primary.color()
             
             Rectangle()
                 .fill(Color.white)
@@ -62,13 +62,13 @@ extension View {
             .navigationBarTitle("", displayMode: .automatic)
             .navigationBarHidden(true)
     }
-    
-    func rectangleShadows(_ shadows: [Shadow]) -> some View {
+
+    func rectangleShadows(cornerRadius: CGFloat = 0, _ shadows: [Shadow]) -> some View {
         self
             .background(
                 ZStack {
                     ForEach(shadows, id: \.self) { shadow in
-                        RoundedRectangle(cornerRadius: shadow.radius)
+                        RoundedRectangle(cornerRadius: cornerRadius)
                             .fill(.white)
                             .shadow(color: shadow.getColor(), radius: shadow.radius,
                                     x: shadow.locationX, y: shadow.locationY)
@@ -114,6 +114,16 @@ extension View {
     
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners) )
+    }
+    
+    @ViewBuilder
+    func scrollEnabled(_ enabled: Bool) -> some View {
+        if enabled {
+            self
+        } else {
+            simultaneousGesture(DragGesture(minimumDistance: 0),
+                                including: .all)
+        }
     }
     
 }

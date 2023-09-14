@@ -73,7 +73,7 @@ extension MySubscribeView {
     func subscribing() -> some View {
         VStack(spacing: 4) {
             TextWithFont(text: "구독중", font: .robotoBold, size: 14)
-                .foregroundColor(ColorConstant.main.color())
+                .foregroundColor(ColorConstant.primary.color())
                 .multilineTextAlignment(.center)
             
             HStack {
@@ -83,12 +83,12 @@ extension MySubscribeView {
                     TextWithFont(text: "3", font: .robotoMedium, size: 14)
                 }
                 .frame(maxWidth: .infinity)
-                .foregroundColor(ColorConstant.main.color())
+                .foregroundColor(ColorConstant.primary.color())
                 
                 Rectangle()
                     .frame(width: 1, height: 47)
                     .foregroundColor(
-                        ColorConstant.main.color()
+                        ColorConstant.primary.color()
                             .opacity(0.5)
                     )
                 
@@ -98,11 +98,11 @@ extension MySubscribeView {
                     TextWithFont(text: "7", font: .robotoMedium, size: 14)
                 }
                 .frame(maxWidth: .infinity)
-                .foregroundColor(ColorConstant.main.color())
+                .foregroundColor(ColorConstant.primary.color())
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 4)
-                    .stroke(ColorConstant.main.color().opacity(0.5),
+                    .stroke(ColorConstant.primary.color().opacity(0.5),
                             lineWidth: 1)
             )
         }

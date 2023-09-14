@@ -20,7 +20,7 @@ class ChatListViewModel: BaseViewModel {
     // userId? 값이 필요하지 않나?
     func getChatRoom() {
         service.GET(headerType: .test,
-                     urlType: .testLocal2,
+                     urlType: .testServer,
                      endPoint: "chats",
                      parameters: [:],
                      returnType: ChatRoomResponse.self)
