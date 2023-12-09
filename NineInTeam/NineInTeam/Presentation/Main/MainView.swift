@@ -15,7 +15,7 @@ struct MainView: View {
     
     func getColor(isSelected: Bool) -> Color {
         if isSelected {
-            return ColorConstant.main.color()
+            return ColorConstant.primary.color()
         } else {
             return Color(red: 0, green: 0, blue: 0, opacity: 0.6)
         }

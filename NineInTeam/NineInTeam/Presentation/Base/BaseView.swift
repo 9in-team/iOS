@@ -27,23 +27,24 @@ struct BaseView<Content: View>: View {
 extension BaseView {
     
     var body: some View {
-        mainBody
-    }
-    
-    var mainBody: some View {
         ZStack {
             coordinator.navigationLinkSection()
             
             Color(UIColor.white)
-                    
+            
             content
-                 
+        }
+        .overlay(alerts)
+    }
+    
+    private var alerts: some View {
+        Group {
             if appState.alertState {
                 DefaultAlert(title: appState.alertTitle) {
                     appState.closeAlert()
                 }
             }
-                            
+            
             if appState.loadingState {
                 LoadingView()
             }
@@ -57,6 +58,6 @@ extension BaseView {
                     }
             }
         }
+        .animation(.default, value: appState.toastState)
     }
-    
 }

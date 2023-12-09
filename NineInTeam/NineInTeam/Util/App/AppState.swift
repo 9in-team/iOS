@@ -26,34 +26,46 @@ class AppState: ObservableObject {
     }
     
     func willStartLoading() {
-        loadingState = true
+        DispatchQueue.main.async {
+            self.loadingState = true
+        }
     }
     
     func didFinishLoading() {
-        loadingState = false
+        DispatchQueue.main.async {
+            self.loadingState = false
+        }
     }
     
     func showAlert(title: String) {
-        alertState = true
-        alertTitle = title
+        DispatchQueue.main.async {
+            self.alertState = true
+            self.alertTitle = title
+        }
     }
     
     func closeAlert() {
-        alertState = false
-        alertTitle = ""
+        DispatchQueue.main.async {
+            self.alertState = false
+            self.alertTitle = ""
+        }
     }
     
     func showToast(title: String) {
-        toastTitle = title
-        toastState = true
-        print("DEBUG Toast: title: \(title), state: \(toastState)")
+        DispatchQueue.main.async {
+            self.toastTitle = title
+            self.toastState = true
+            print("DEBUG Toast: title: \(title), state: \(self.toastState)")
+        }
 
     }
     
     func closeToast() {
-        toastTitle = ""
-        toastState = false
-        print("DEBUG Toast: \(#function) state: \(toastState)")
+        DispatchQueue.main.async {
+            self.toastTitle = ""
+            self.toastState = false
+            print("DEBUG Toast: \(#function) state: \(self.toastState)")
+        }
     }
     
 }

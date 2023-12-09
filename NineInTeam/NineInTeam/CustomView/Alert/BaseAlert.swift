@@ -9,18 +9,20 @@ import SwiftUI
 
 struct BaseAlert<Content: View>: View {
     
-    let content: Content
+    private let content: Content
+    private let bottomPadding: CGFloat
 
-    init(content: () -> Content) {
+    init(bottomPadding: CGFloat = 60, content: () -> Content) {
+        self.bottomPadding = bottomPadding
         self.content = content()
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .center) {
             Color.black.opacity(0.3).ignoresSafeArea()
             
             content
-                .padding(.bottom, 60)
+                .padding(.bottom, bottomPadding)
                 .frame(maxWidth: 315, maxHeight: 315)
                 .background(Color.white)
                 .cornerRadius(10)

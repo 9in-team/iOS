@@ -13,6 +13,11 @@
 		391824D02A17A816001147BB /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018E2A176C1A00A12674 /* Roboto-Regular.ttf */; };
 		391824D12A17A816001147BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018F2A176C1A00A12674 /* Roboto-Bold.ttf */; };
 		391824D22A17A816001147BB /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB018D2A176C1A00A12674 /* Roboto-Medium.ttf */; };
+		391D53002A76704B00EE1F8A /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D52FF2A76704B00EE1F8A /* TeamResponse.swift */; };
+		391D53042A76706500EE1F8A /* SubjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53032A76706500EE1F8A /* SubjectType.swift */; };
+		391D53062A76707000EE1F8A /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53052A76707000EE1F8A /* HashTag.swift */; };
+		391D53082A769F2000EE1F8A /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53072A769F2000EE1F8A /* SubmitButton.swift */; };
+		391D530A2A76B14D00EE1F8A /* SubmissionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D53092A76B14D00EE1F8A /* SubmissionFormView.swift */; };
 		391D52F82A76250F00EE1F8A /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391D52F72A76250F00EE1F8A /* SignInError.swift */; };
 		392B975C2A4C1CC000112529 /* KakaoLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */; };
 		392B97612A4C5BF200112529 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392B97602A4C5BF200112529 /* KeychainServiceTests.swift */; };
@@ -21,9 +26,13 @@
 		394A95882A4052CB00501B32 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95872A4052CB00501B32 /* Error.swift */; };
 		394A958A2A40A37400501B32 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A95892A40A37400501B32 /* Encodable.swift */; };
 		394A958C2A40A6C300501B32 /* CustomEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A958B2A40A6C300501B32 /* CustomEncodingError.swift */; };
+		3953927A2A85BC29000D17F7 /* WritePostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395392792A85BC29000D17F7 /* WritePostError.swift */; };
+		3960884E2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */; };
 		3959A4F32A41E92300AF9622 /* ProfileUpdateResponseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F22A41E92300AF9622 /* ProfileUpdateResponseDetail.swift */; };
 		3959A4F52A41E93300AF9622 /* ProfileUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959A4F42A41E93300AF9622 /* ProfileUpdateResponse.swift */; };
 		39694FEE29E6D78F00F2C75C /* PostTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39694FED29E6D78F00F2C75C /* PostTextEditor.swift */; };
+		397662912A94C0880002BC3D /* ButtonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662902A94C0880002BC3D /* ButtonConstants.swift */; };
+		397662932A94C0A40002BC3D /* SubmitButtonFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397662922A94C0A40002BC3D /* SubmitButtonFont.swift */; };
 		398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398031282A16602F00AD5B05 /* TeamDetail.swift */; };
 		3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */; };
 		399682602A2612BD00CB04B8 /* FetchTeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3996825F2A2612BD00CB04B8 /* FetchTeamsTests.swift */; };
@@ -31,6 +40,9 @@
 		399E76EF29DAEDD3007AE239 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */; };
 		399E76F129DAF403007AE239 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399E76F029DAF403007AE239 /* ChatBubbleView.swift */; };
 		39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */; };
+		39AB6BD12A8526D100B58659 /* WritePostRoleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB6BD02A8526D100B58659 /* WritePostRoleAlert.swift */; };
+		39AB6BD32A85274B00B58659 /* WritePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB6BD22A85274B00B58659 /* WritePostViewModel.swift */; };
+		39AB6BD52A852DFF00B58659 /* WritePostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB6BD42A852DFF00B58659 /* WritePostResponse.swift */; };
 		39A7C38D2A3E1164005064D9 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C38C2A3E1164005064D9 /* AuthenticationManager.swift */; };
 		39BD3EEC2A14B0DF00E14DCA /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */; };
 		39BD3EEE2A14B51200E14DCA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 39BD3EED2A14B51200E14DCA /* FirebaseStorage */; };
@@ -112,7 +124,7 @@
 		DEB34E9829716F2200C0B973 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E9729716F2200C0B973 /* UIImage.swift */; };
 		DEB34E9A2971704A00C0B973 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34E992971704A00C0B973 /* Data.swift */; };
 		DEB34EAA298FA30200C0B973 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB34EA9298FA30200C0B973 /* EndPoint.swift */; };
-		DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */; };
+		DEB38C8A29C9D90500EF915E /* CheckboxButtonGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8929C9D90500EF915E /* CheckboxButtonGroups.swift */; };
 		DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */; };
 		DEB38C9029CB23C800EF915E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C8F29CB23C800EF915E /* AppState.swift */; };
 		DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB38C9129CB294D00EF915E /* DefaultAlert.swift */; };
@@ -161,6 +173,11 @@
 		3905CFD42A9B2E1C00CF4AB4 /* KakaoSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignInButton.swift; sourceTree = "<group>"; };
 		390F8F022A3F1E29007B66CD /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		390F8F042A3F30EE007B66CD /* SignInProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInProviderType.swift; sourceTree = "<group>"; };
+		391D52FF2A76704B00EE1F8A /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
+		391D53032A76706500EE1F8A /* SubjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectType.swift; sourceTree = "<group>"; };
+		391D53052A76707000EE1F8A /* HashTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
+		391D53072A769F2000EE1F8A /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
+		391D53092A76B14D00EE1F8A /* SubmissionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionFormView.swift; sourceTree = "<group>"; };
 		391D52F72A76250F00EE1F8A /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		392B975B2A4C1CC000112529 /* KakaoLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginTests.swift; sourceTree = "<group>"; };
 		392B97602A4C5BF200112529 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
@@ -169,9 +186,13 @@
 		394A95872A4052CB00501B32 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		394A95892A40A37400501B32 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		394A958B2A40A6C300501B32 /* CustomEncodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEncodingError.swift; sourceTree = "<group>"; };
+		395392792A85BC29000D17F7 /* WritePostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostError.swift; sourceTree = "<group>"; };
+		3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextEditorWithTitle.swift; sourceTree = "<group>"; };
 		3959A4F22A41E92300AF9622 /* ProfileUpdateResponseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateResponseDetail.swift; sourceTree = "<group>"; };
 		3959A4F42A41E93300AF9622 /* ProfileUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateResponse.swift; sourceTree = "<group>"; };
 		39694FED29E6D78F00F2C75C /* PostTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextEditor.swift; sourceTree = "<group>"; };
+		397662902A94C0880002BC3D /* ButtonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConstants.swift; sourceTree = "<group>"; };
+		397662922A94C0A40002BC3D /* SubmitButtonFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonFont.swift; sourceTree = "<group>"; };
 		398031282A16602F00AD5B05 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		3993A9A12A4E9A21007063EB /* NineInTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NineInTeam.entitlements; sourceTree = "<group>"; };
 		3993A9A42A4E9BC9007063EB /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
@@ -180,6 +201,9 @@
 		399E76EE29DAEDD3007AE239 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
 		399E76F029DAF403007AE239 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		39A1B1A22A0F5B9C00D6FA1F /* DebugModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModel.swift; sourceTree = "<group>"; };
+		39AB6BD02A8526D100B58659 /* WritePostRoleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostRoleAlert.swift; sourceTree = "<group>"; };
+		39AB6BD22A85274B00B58659 /* WritePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewModel.swift; sourceTree = "<group>"; };
+		39AB6BD42A852DFF00B58659 /* WritePostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostResponse.swift; sourceTree = "<group>"; };
 		39A7C38C2A3E1164005064D9 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		39BD3EEB2A14B0DF00E14DCA /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		39BD81D429E402ED00F35E0B /* ReceivedPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedPostView.swift; sourceTree = "<group>"; };
@@ -266,7 +290,7 @@
 		DEB34E992971704A00C0B973 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DEB34E9D2973E7EA00C0B973 /* NineInTeam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NineInTeam-Info.plist"; path = "NineInTeam/NineInTeam-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DEB34EA9298FA30200C0B973 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
-		DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroups.swift; sourceTree = "<group>"; };
+		DEB38C8929C9D90500EF915E /* CheckboxButtonGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButtonGroups.swift; sourceTree = "<group>"; };
 		DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		DEB38C8F29CB23C800EF915E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DEB38C9129CB294D00EF915E /* DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlert.swift; sourceTree = "<group>"; };
@@ -471,9 +495,9 @@
 			children = (
 				DE6FBDE52990E83400816A7D /* MainView.swift */,
 				DEB0D36E29BF4FE900B5E1B9 /* BottomNavigationItem.swift */,
+				DEB0D35A29AF7E3D00B5E1B9 /* Home */,
 				DE5E998A29D477D900D32B8E /* ProfileEdit */,
 				DE7B0B7629D8847100CB90FE /* ChatList */,
-				DEB0D35A29AF7E3D00B5E1B9 /* Home */,
 				DEB0D35B29AF7E4500B5E1B9 /* MySubscribe */,
 				39BD81D329E402B900F35E0B /* ReceivedPost */,
 				DEB0D35D29AF7E5100B5E1B9 /* MyPost */,
@@ -625,6 +649,7 @@
 		DEA2B66D2970304800B77335 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				397662942A94C0F30002BC3D /* SubmitButton */,
 				DE6FBDEB2990EAFC00816A7D /* NavigationBar.swift */,
 				DEB0D35E29B0D77900B5E1B9 /* TabViewNavigationBar.swift */,
 				DEA2B66E2970305800B77335 /* LoadingView.swift */,
@@ -636,6 +661,7 @@
 				DEC0F0FE29ACE4480035851E /* Line.swift */,
 				DEB0D36029B0E7EC00B5E1B9 /* RoundedCorner.swift */,
 				DEB0D37C29C1FFF800B5E1B9 /* TextWithFont.swift */,
+				3960884D2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift */,
 				DE7B0B7E29DB0C5E00CB90FE /* LocationViewWrapper.swift */,
 				DEB38C8B29C9D90A00EF915E /* RadioButton */,
 				DEB38C9929CEF72C00EF915E /* Alert */,
@@ -715,9 +741,8 @@
 		DEB0D36A29B7715200B5E1B9 /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				DEB0D36629B76EC100B5E1B9 /* Team.swift */,
+				391D52FC2A76703100EE1F8A /* Model */,
 				DEB0D36829B7714D00B5E1B9 /* TeamCellView.swift */,
-				DEB38C9329CC964900EF915E /* RecruitmentRole.swift */,
 				DEB38C9729CDE2AA00EF915E /* SubmissionForm.swift */,
 				DEB38C9529CDE1FC00EF915E /* SubmissionFormType.swift */,
 			);
@@ -772,6 +797,11 @@
 			isa = PBXGroup;
 			children = (
 				DEB0D39129C889E900B5E1B9 /* WritePostView.swift */,
+				39AB6BD22A85274B00B58659 /* WritePostViewModel.swift */,
+				39AB6BD02A8526D100B58659 /* WritePostRoleAlert.swift */,
+				39AB6BD42A852DFF00B58659 /* WritePostResponse.swift */,
+				395392792A85BC29000D17F7 /* WritePostError.swift */,
+				391D53092A76B14D00EE1F8A /* SubmissionFormView.swift */,
 			);
 			path = WritePost;
 			sourceTree = "<group>";
@@ -809,7 +839,7 @@
 		DEB38C8B29C9D90A00EF915E /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
-				DEB38C8929C9D90500EF915E /* RadioButtonGroups.swift */,
+				DEB38C8929C9D90500EF915E /* CheckboxButtonGroups.swift */,
 				DEB38C8D29C9D94A00EF915E /* RadioButtonField.swift */,
 			);
 			path = RadioButton;
@@ -1041,16 +1071,19 @@
 				398031292A16602F00AD5B05 /* TeamDetail.swift in Sources */,
 				DE7B0B8129DEE97F00CB90FE /* UIScreen.swift in Sources */,
 				DEC82E11299A5B3E00D17C50 /* EmbedCircleImageView.swift in Sources */,
+				397662932A94C0A40002BC3D /* SubmitButtonFont.swift in Sources */,
 				DEB0D36D29BB6B8D00B5E1B9 /* TeamDetailView.swift in Sources */,
 				DEE7BC162989180900FE7FEC /* SignViewModel.swift in Sources */,
 				3993A9A52A4E9BC9007063EB /* KakaoAuthService.swift in Sources */,
 				DEC82E1C29A3B24100D17C50 /* ResponseConstant.swift in Sources */,
 				394A95862A3FFC3E00501B32 /* PhotoPicker.swift in Sources */,
 				DEB34E7E29703B3900C0B973 /* NetworkService.swift in Sources */,
+				391D53062A76707000EE1F8A /* HashTag.swift in Sources */,
 				DEB0D37B29C0AECD00B5E1B9 /* MyResumeViewModel.swift in Sources */,
 				DEB0D37329C0ADD700B5E1B9 /* MySubscribeViewModel.swift in Sources */,
 				DE7B0B7829D8860D00CB90FE /* ChatListView.swift in Sources */,
 				39D655FB29F17C4300C17C1B /* SubscribeTagView.swift in Sources */,
+				391D53042A76706500EE1F8A /* SubjectType.swift in Sources */,
 				39DD090D2A4B371000F69828 /* KeychainServiceType.swift in Sources */,
 				39A1B1A32A0F5B9C00D6FA1F /* DebugModel.swift in Sources */,
 				DE6FBDE62990E83400816A7D /* MainView.swift in Sources */,
@@ -1065,6 +1098,7 @@
 				DEB0D38C29C6C44000B5E1B9 /* SubscribeCellView.swift in Sources */,
 				DEB0D38F29C8866300B5E1B9 /* PostDetailView.swift in Sources */,
 				DEC82E1A29A3A3E000D17C50 /* TestResponseData.swift in Sources */,
+				391D53082A769F2000EE1F8A /* SubmitButton.swift in Sources */,
 				DEA2B66929702FD000B77335 /* SignInView.swift in Sources */,
 				DE6FBDF12990EBDB00816A7D /* ColorConstant.swift in Sources */,
 				DEB34E7C29703B2E00C0B973 /* NetworkProtocol.swift in Sources */,
@@ -1090,6 +1124,7 @@
 				DEC82E0D299667CE00D17C50 /* UrlType.swift in Sources */,
 				DE47790929F1634100C0EC3E /* Coordinator.swift in Sources */,
 				DEB0D39229C889E900B5E1B9 /* WritePostView.swift in Sources */,
+				391D530A2A76B14D00EE1F8A /* SubmissionFormView.swift in Sources */,
 				DEC82E1629A39FAF00D17C50 /* TestNetworkService.swift in Sources */,
 				DEB0D37929C0AEC500B5E1B9 /* MyResumeView.swift in Sources */,
 				39A7C38D2A3E1164005064D9 /* AuthenticationManager.swift in Sources */,
@@ -1103,16 +1138,19 @@
 				DEB38C9429CC964900EF915E /* RecruitmentRole.swift in Sources */,
 				DEB0D36F29BF4FE900B5E1B9 /* BottomNavigationItem.swift in Sources */,
 				392B97632A4C60E900112529 /* KakaoAuthError.swift in Sources */,
+				391D53002A76704B00EE1F8A /* TeamResponse.swift in Sources */,
 				39EB01922A176E0D00A12674 /* FontContstant.swift in Sources */,
 				DEB0D38329C349BD00B5E1B9 /* Post.swift in Sources */,
 				39DD090F2A4B371E00F69828 /* KeychainError.swift in Sources */,
 				DEB0D37129C09EB300B5E1B9 /* MySubscribeView.swift in Sources */,
 				DEB0D36529B76D3000B5E1B9 /* HomeViewModel.swift in Sources */,
+				39AB6BD12A8526D100B58659 /* WritePostRoleAlert.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* ProfileUpdateResponse.swift in Sources */,
 				DEBCCF222A50873F00CEA032 /* ChatRoom.swift in Sources */,
 				3959A4F52A41E93300AF9622 /* ProfileUpdateResponse.swift in Sources */,
 				DEC0F0FF29ACE4480035851E /* Line.swift in Sources */,
 				DEB0D38729C62D4700B5E1B9 /* Resume.swift in Sources */,
+				3960884E2A8F4ADF00FF2289 /* BorderedTextEditorWithTitle.swift in Sources */,
 				DEB38C8E29C9D94A00EF915E /* RadioButtonField.swift in Sources */,
 				DE5E998E29D4799000D32B8E /* ProfileEditViewModel.swift in Sources */,
 				DEB0D38029C3475200B5E1B9 /* Subscribe.swift in Sources */,
@@ -1121,8 +1159,10 @@
 				391D52F82A76250F00EE1F8A /* SignInError.swift in Sources */,
 				39D655FF29F17D1F00C17C1B /* SubscribeTagViewModel.swift in Sources */,
 				DE6FBDF32990ED9100816A7D /* Color.swift in Sources */,
+				39AB6BD32A85274B00B58659 /* WritePostViewModel.swift in Sources */,
 				DEB38C9229CB294D00EF915E /* DefaultAlert.swift in Sources */,
 				DEA2B66F2970305800B77335 /* LoadingView.swift in Sources */,
+				3953927A2A85BC29000D17F7 /* WritePostError.swift in Sources */,
 				DEB0D36329B76CCD00B5E1B9 /* HomeView.swift in Sources */,
 				DEC82E2929AA8B6D00D17C50 /* CircleImageView.swift in Sources */,
 				DE70575B2A43292300C87D6A /* MyWishViewModel.swift in Sources */,
@@ -1145,11 +1185,13 @@
 				DEA2B6712970305E00B77335 /* ToastView.swift in Sources */,
 				DEC82E2B29AB34AF00D17C50 /* FirebaseStorageManager.swift in Sources */,
 				DE7B0B7F29DB0C5E00CB90FE /* LocationViewWrapper.swift in Sources */,
+				397662912A94C0880002BC3D /* ButtonConstants.swift in Sources */,
 				39FC1C6829DC4DF300C08070 /* ChatBubbleShape.swift in Sources */,
 				DEA2B66C2970301A00B77335 /* BaseView.swift in Sources */,
 				DE47790E29F4005700C0EC3E /* Destination.swift in Sources */,
 				DEC82E2529AA78E900D17C50 /* CheckBox.swift in Sources */,
 				DEB34E90297168CF00C0B973 /* LifeCycleError.swift in Sources */,
+				39AB6BD52A852DFF00B58659 /* WritePostResponse.swift in Sources */,
 				39D8DCCD2A3C5ECA007530A9 /* SignInResponse.swift in Sources */,
 				DEB38C8A29C9D90500EF915E /* RadioButtonGroups.swift in Sources */,
 			);

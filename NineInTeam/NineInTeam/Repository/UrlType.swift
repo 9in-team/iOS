@@ -7,25 +7,17 @@
 
 enum UrlType {
     
-    case test
-    case testLocal
-    case testLocal2
-    case testDomain
-    case kakaoApi
+    case testServer
+
+    private static var localhost = true
 
     func get() -> String {
-        switch self {
-        case .test:
-            return "https://9in.team/"
-            // return "http://127.0.0.1:8080/"
-        case .testLocal:
-            return "http://127.0.0.1:8080/"
-        case .testLocal2:
-            return "http://0.0.0.0:8080/"
-        case .testDomain:
+        switch UrlType.localhost {
+        case true:
+            // return "https://9in.team/"
             return "https://9inteam.heon.dev/"
-        case .kakaoApi:
-            return "https://kapi.kakao.com/"
+        case false:
+            return "http://127.0.0.1/"
         }
     }
     

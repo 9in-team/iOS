@@ -25,7 +25,7 @@ extension SignInView {
     
     var mainBody: some View {
         ZStack {
-            ColorConstant.main.color()
+            ColorConstant.primary.color()
                 .edgesIgnoringSafeArea(.all)
             
             titleLabel

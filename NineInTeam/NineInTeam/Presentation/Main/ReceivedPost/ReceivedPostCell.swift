@@ -35,7 +35,8 @@ extension ReceivedPostCell {
             })
             .cornerRadius(4)
             .disabled(isApproved)
-            .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+            .rectangleShadows(cornerRadius: 4,
+                              [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
                                Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
                                Shadow(color: .black, opacity: 0.2, radius: 3, locationX: 0, locationY: 1)])
     }
@@ -215,13 +216,14 @@ extension ReceivedPostCell {
         }
         .frame(height: 36)
         .cornerRadius(4)
-        .rectangleShadows([Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
+        .rectangleShadows(cornerRadius: 4,
+                          [Shadow(color: .black, opacity: 0.12, radius: 5, locationX: 0, locationY: 1),
                            Shadow(color: .black, opacity: 0.14, radius: 2, locationX: 0, locationY: 2),
                            Shadow(color: .black, opacity: 0.2, radius: 1, locationX: 0, locationY: 3)])        
     }
 
     func sendMessageButton() -> some View {
-        Button {
+        Button("메시지 전송") {
             switch approvalStatus {
             case .none:
                 print("승인 또는 거절 눌러달라는 알럿 표시")
@@ -229,20 +231,10 @@ extension ReceivedPostCell {
             default:
                 isApproved = true
             }
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(Color(hexcode: "42A5F5"))
-
-                ZStack {
-                    TextWithFont(text: "메시지 전송", font: .robotoMedium, size: 15)
-                        .foregroundColor(Color(hexcode: "FFFFFF"))
-                        .padding(.horizontal, 22)
-                        .padding(.vertical, 8)
-                }
-                .frame(width: 120, height: 42)
-            }
         }
+        .buttonStyle(
+            SubmitButtonStyle(.fullSize(color: .secondary, font: .small))
+        )
     }
 
     func heightSpacer(_ height: CGFloat) -> some View {

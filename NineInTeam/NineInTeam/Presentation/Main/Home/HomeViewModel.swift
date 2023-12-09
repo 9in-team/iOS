@@ -8,35 +8,26 @@
 import Foundation
 import Combine
 
-class HomeViewModel: BaseViewModel {
+final class HomeViewModel: BaseViewModel {
     
     private var service: NetworkProtocol
-    
+        
     @Published var teams: [Team] = []
     @Published var teamDetail: TeamDetail?
 
     init(service: NetworkProtocol = NetworkService()) {
         self.service = service
+        super.init()
     }
     
     func requestFristPage() {
         requestTeams()
     }
 
-    func requestDetailPage(teamId: Int) {
-        requestTeamDetail(teamId: teamId)
-    }
-
-    func write(accountId: Int, content: PostWriteTeam) {
-        postWriteTeam(accountId: accountId, content: content) {
-
-        }
-    }
-
     private func requestTeams() {
         service.GET(headerType: .test,
-                    urlType: .test,
-                    endPoint: "teams",
+                    urlType: .testServer,
+                    endPoint: "team",
                     parameters: [:],
                     returnType: TeamResponse.self)
         .sink(receiveCompletion: { completion in
@@ -89,29 +80,4 @@ class HomeViewModel: BaseViewModel {
         }
         .store(in: &cancellables)
     }
-}
-
-struct PostWriteTeam: Decodable {
-    let subjectType: String
-    let subject: String
-    let types: [String]
-    let roles: [RecruitmentRole]
-    let content: String
-    let teamTemplates: [SubmissionForm]
-    let openChatUrl: String
-}
-
-struct ResultWriteTeam: Decodable {
-    let detail: DetailWriteTeam
-    let errorMessage: String?
-}
-
-struct DetailWriteTeam: Decodable {
-    let teamId: Int
-    let openChatUrl: String
-    let content: String
-    let teamTemplates: [SubmissionForm]
-    let types: [String]
-    let subjectType: String
-    let roles: [RecruitmentRole]
 }
