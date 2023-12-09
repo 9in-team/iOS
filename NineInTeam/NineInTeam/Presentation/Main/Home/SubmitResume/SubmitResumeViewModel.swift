@@ -14,7 +14,7 @@ class SubmitResumeViewModel: BaseViewModel {
     
     @Published var teamDetail: TeamDetail?
     
-    @Published var selectedRole: RecruitmentRole? = nil
+    @Published var selectedRole: Role? = nil
     
     @Published var answerText: String = ""
     @Published var answerImage: UIImage? = nil

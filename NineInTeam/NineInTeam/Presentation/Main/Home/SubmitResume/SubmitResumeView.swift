@@ -81,7 +81,7 @@ extension SubmitResumeView {
         }
     }
     
-    func roleCell(role: RecruitmentRole) -> some View {
+    func roleCell(role: Role) -> some View {
         Button {
             viewModel.selectedRole = role
         } label: {
@@ -145,7 +145,7 @@ extension SubmitResumeView {
                                     TextWithFont(text: "\(form.number ?? 0)", font: .robotoMedium, size: 12)
                                         .foregroundColor(Color(hexcode: "FFFFFF"))
                                         .padding(6)
-                                        .background(ColorConstant.main.color())
+                                        .background(ColorConstant.primary.color())
                                         .clipShape(Circle())
                                         .offset(x: -31, y: -31)
                                 )
@@ -195,7 +195,7 @@ extension SubmitResumeView {
                 answerImage()
             case .file:
                 answerFile()
-            case .choice:
+            case .checkBox:
                 answerChoice(options)
             }
         }
@@ -347,7 +347,7 @@ extension SubmitResumeView {
                 viewModel.submit()
             } label: {
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(ColorConstant.main.color())
+                    .fill(ColorConstant.primary.color())
                     .frame(height: 42)
                     .overlay(
                         HStack(spacing: 11) {
