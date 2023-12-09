@@ -11,6 +11,9 @@ import Firebase
 
 class FirebaseStorageManager {
     
+    static let profileImage = "ProfileImage"
+    static let resumePDF = "ResumePDF"
+    
     static func uploadImage(imageData: Data, path: String, completion: @escaping (URL?, Error?) -> Void) {
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
@@ -53,6 +56,26 @@ class FirebaseStorageManager {
                 completion(.failure(error))
             } else {
                 completion(.success(()))
+            }
+        }
+    }
+    
+    static func uploadPDF(_ data: Data, path: String, completion: @escaping (URL?, Error?) -> Void) {
+        let metaData = StorageMetadata()
+        metaData.contentType = "application/pdf" 
+        
+        let firebaseReference = Storage.storage().reference().child("\(path)")
+        firebaseReference.putData(data, metadata: metaData) { _, error in
+            if let error = error {
+                completion(nil, error)
+            } else {
+                firebaseReference.downloadURL { url, error in
+                    if let error = error {
+                        completion(nil, error)
+                    } else {
+                        completion(url, nil)
+                    }
+                }
             }
         }
     }
