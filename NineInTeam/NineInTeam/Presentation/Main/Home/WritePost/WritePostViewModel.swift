@@ -37,7 +37,7 @@ extension WritePostViewModel {
             return
         }
 
-        if let id = AuthManager.shared.userData?.id {
+        if let id = AuthenticationManager.shared.userData?.id {
             let randomTeamId = Int.random(in: 1...1000000) // Post API 사용가능하게 될 시 부여 규칙 가져와서 수정
             let team = Team(teamId: randomTeamId,
                             subject: subject,

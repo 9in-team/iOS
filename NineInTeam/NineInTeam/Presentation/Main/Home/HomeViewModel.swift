@@ -46,7 +46,7 @@ final class HomeViewModel: BaseViewModel {
 
     private func requestTeamDetail(teamId: Int) {
         service.GET(headerType: .test,
-                    urlType: .test,
+                    urlType: .testServer,
                     endPoint: "teams/\(teamId)",
                     parameters: [:],
                     returnType: TeamDetail.self)
@@ -66,7 +66,7 @@ final class HomeViewModel: BaseViewModel {
 
     private func postWriteTeam(accountId: Int, content: PostWriteTeam, completion: () -> Void) {
         service.POST(headerType: .test,
-                     urlType: .test,
+                     urlType: .testServer,
                      endPoint: "team/\(accountId)",
                      parameters: [:],
                      returnType: ResultWriteTeam.self)
@@ -81,3 +81,29 @@ final class HomeViewModel: BaseViewModel {
         .store(in: &cancellables)
     }
 }
+
+struct PostWriteTeam: Decodable {
+    let subjectType: String
+    let subject: String
+    let types: [String]
+    let roles: [Role]
+    let content: String
+    let teamTemplates: [SubmissionForm]
+    let openChatUrl: String
+}
+
+struct ResultWriteTeam: Decodable {
+    let detail: DetailWriteTeam
+    let errorMessage: String?
+}
+
+struct DetailWriteTeam: Decodable {
+    let teamId: Int
+    let openChatUrl: String
+    let content: String
+    let teamTemplates: [SubmissionForm]
+    let types: [String]
+    let subjectType: String
+    let roles: [Role]
+}
+

@@ -98,8 +98,8 @@ extension SignViewModel {
         willStartLoading()
         
         networkService.POST(headerType: HeaderType.test,
-                     urlType: UrlType.test,
-                     endPoint: EndPoint.join.get(),
+                            urlType: UrlType.testServer,
+                            endPoint: EndPoint.join.urlString(),
                      parameters: parameters,
                      returnType: SignInResponse.self)
             .sink { [weak self] completion in
