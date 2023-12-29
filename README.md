@@ -1,4 +1,7 @@
-# iOS
+## 이 프로젝트는 아래 프로젝트로 재구성 진행중 입니다.
+https://github.com/9in-team/GuinTeam-iOS
+
+## iOS
 
 ## Commit Rule
 * 커밋 내용에 맞는 머리말을 사용한다
